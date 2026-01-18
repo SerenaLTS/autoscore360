@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JAC T9 Review (Australia) – Summary + Data Snapshot | Auto Insight Lab</title>
+
+  <style>
+    :root{
+      --bg:#020617;
+      --card:#0B1224;
+      --card2:#0A1020;
+      --text:#E5E7EB;
+      --muted:#9CA3AF;
+      --border:rgba(148,163,184,.35);
+      --accent:#2563EB;
+      --accent2:#F97316;
+      --good:#22C55E;
+      --warn:#FBBF24;
+      --radius-lg:20px;
+      --radius-md:12px;
+      --shadow:0 22px 60px rgba(15,23,42,.72);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.28), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15,23,42,.92), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    a{color:inherit}
+    .page{max-width:1120px;margin:26px auto 64px;padding:0 20px}
+
+    /* ===== Top Nav ===== */
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(to bottom, rgba(15,23,42,.96), rgba(15,23,42,.90));
+      border-bottom:1px solid rgba(30,64,175,.55);
+    }
+    .nav-inner{
+      max-width:1120px;margin:0 auto;padding:14px 20px;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      font-weight:650;letter-spacing:.09em;text-transform:uppercase;
+      font-size:.80rem;
+    }
+    .brand-mark{
+      width:28px;height:28px;border-radius:6px;
+      background:linear-gradient(135deg,#0F172A,#1E293B);
+      border:1px solid rgba(148,163,184,.85);
+      position:relative;overflow:hidden;
+      box-shadow:0 0 0 1px rgba(15,23,42,.9), 0 8px 18px rgba(15,23,42,.9);
+    }
+    .brand-mark::before{
+      content:"";position:absolute;left:-30%;top:50%;
+      width:160%;height:2px;
+      background:linear-gradient(90deg,var(--accent2),#FACC15,var(--good));
+      opacity:.78;
+    }
+    .nav-links{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+    .nav-link{
+      color:var(--muted);text-decoration:none;font-size:.88rem;
+      padding:4px 0;position:relative;
+    }
+    .nav-link::after{
+      content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      border-radius:999px;transition:width .18s ease;
+    }
+    .nav-link:hover{color:var(--text)}
+    .nav-link:hover::after{width:100%}
+    .nav-pill{
+      padding:5px 11px;border-radius:999px;
+      background:rgba(15,23,42,.92);
+      border:1px solid rgba(148,163,184,.6);
+      font-size:.78rem;color:var(--text);
+      display:inline-flex;align-items:center;gap:6px;
+      white-space:nowrap;
+    }
+    .nav-pill::before{
+      content:"";width:7px;height:7px;border-radius:999px;
+      background:var(--good);box-shadow:0 0 8px rgba(34,197,94,.9);
+    }
+
+    /* ===== Hero ===== */
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0,3fr) minmax(0,2.1fr);
+      gap:22px;
+      align-items:stretch;
+      margin-bottom:22px;
+    }
+    .hero-left{
+      padding:22px 22px 20px;
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.75);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      position:relative;overflow:hidden;
+    }
+    .hero-left::before{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(to right, rgba(15,23,42,.75), transparent 55%),
+        radial-gradient(circle at top right, rgba(37,99,235,.26), transparent 62%);
+      opacity:.95;pointer-events:none;
+    }
+    .hero-kicker{
+      position:relative;
+      display:inline-flex;align-items:center;gap:8px;
+      padding:3px 10px 3px 6px;
+      border-radius:999px;
+      background:rgba(15,23,42,.94);
+      border:1px solid rgba(148,163,184,.7);
+      font-size:.76rem;color:#CBD5F5;
+      z-index:1;
+    }
+    .kdot{
+      width:18px;height:18px;border-radius:999px;
+      background:radial-gradient(circle at 30% 30%, #F9FAFB, #60A5FA);
+      box-shadow:0 0 0 2px rgba(15,23,42,.7);
+    }
+    .hero-title{
+      position:relative;
+      margin:14px 0 8px;
+      font-size:clamp(2.0rem,3.2vw,2.65rem);
+      font-weight:820;letter-spacing:.02em;line-height:1.06;
+      background:linear-gradient(135deg,#E5E7EB,#BFDBFE);
+      -webkit-background-clip:text;color:transparent;
+      z-index:1;
+    }
+    .hero-sub{
+      position:relative;
+      margin:0 0 12px;
+      color:#CBD5F5;font-size:.98rem;
+      max-width:720px;
+      z-index:1;
+    }
+    .hero-badges{
+      position:relative;z-index:1;
+      display:flex;flex-wrap:wrap;gap:10px;
+      margin-top:10px;
+      color:var(--muted);font-size:.84rem;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 10px;border-radius:999px;
+      background:rgba(15,23,42,.92);
+      border:1px solid rgba(148,163,184,.65);
+      white-space:nowrap;
+    }
+
+    .hero-cta{
+      position:relative;z-index:1;
+      margin-top:14px;
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+    }
+    .btn-primary{
+      padding:9px 16px;border-radius:999px;border:none;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#F9FAFB;text-decoration:none;
+      font-weight:550;font-size:.92rem;
+      display:inline-flex;align-items:center;gap:8px;
+      box-shadow:0 16px 40px rgba(15,23,42,.9);
+    }
+    .btn-primary::after{content:"→";font-size:1rem}
+    .btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px);transition:all .14s ease}
+
+    .btn-ghost{
+      font-size:.90rem;color:#E5E7EB;text-decoration:none;
+      display:inline-flex;align-items:center;gap:6px;opacity:.92;
+    }
+    .btn-ghost:hover{opacity:1;text-decoration:underline}
+
+    /* ===== Hero Right: Spec Cards ===== */
+    .hero-right{display:grid;gap:12px}
+    .panel{
+      background:rgba(15,23,42,.98);
+      border:1px solid rgba(100,116,139,.78);
+      border-radius:16px;
+      box-shadow:0 14px 34px rgba(15,23,42,.82);
+      padding:14px 14px 12px;
+    }
+    .panel-top{
+      display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+      margin-bottom:6px;
+    }
+    .panel-title{font-weight:700;font-size:.96rem}
+    .tag{
+      font-size:.72rem;padding:2px 8px;border-radius:999px;
+      background:rgba(37,99,235,.16);
+      border:1px solid rgba(59,130,246,.8);
+      color:#BFDBFE;white-space:nowrap;
+    }
+    .kpi-grid{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+    }
+    .kpi{
+      border:1px solid rgba(148,163,184,.45);
+      background:rgba(2,6,23,.55);
+      border-radius:12px;
+      padding:10px 10px 9px;
+    }
+    .kpi .label{font-size:.74rem;color:var(--muted)}
+    .kpi .value{font-size:1.02rem;font-weight:750;margin-top:2px}
+    .kpi .note{font-size:.74rem;color:#CBD5F5;margin-top:2px}
+
+    /* ===== Content sections ===== */
+    .section{
+      margin-top:18px;
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.72);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:22px 22px 20px;
+    }
+    .kicker{
+      text-transform:uppercase;letter-spacing:.14em;
+      font-size:.72rem;color:var(--muted);margin-bottom:4px;
+    }
+    h2{
+      margin:8px 0 8px;
+      font-size:1.36rem;line-height:1.25;
+      color:#F9FAFB;
+      border-left:3px solid rgba(37,99,235,.85);
+      padding-left:10px;
+    }
+    h3{margin:16px 0 6px;font-size:1.08rem;color:#E5E7EB}
+    p{margin:6px 0 12px;color:#E5E7EB;font-size:.97rem}
+    ul,ol{margin:6px 0 12px 20px;color:#E5E7EB;font-size:.95rem}
+
+    .callout{
+      margin:12px 0;
+      padding:11px 12px;
+      border-radius:var(--radius-md);
+      border:1px solid rgba(59,130,246,.65);
+      background:linear-gradient(135deg, rgba(15,23,42,1), rgba(30,64,175,.62));
+      font-size:.95rem;
+    }
+
+    /* ===== Data viz cards ===== */
+    .viz-row{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+      margin-top:10px;
+    }
+    .viz{
+      background:rgba(2,6,23,.55);
+      border:1px solid rgba(148,163,184,.42);
+      border-radius:16px;
+      padding:12px 12px 10px;
+    }
+    .viz .title{
+      display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+      margin-bottom:8px;
+      font-weight:700;font-size:.92rem;
+      color:#F9FAFB;
+    }
+    .meter{
+      height:10px;border-radius:999px;
+      background:rgba(148,163,184,.18);
+      border:1px solid rgba(148,163,184,.22);
+      overflow:hidden;
+    }
+    .fill{
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      border-radius:999px;
+    }
+    .metric{
+      display:flex;justify-content:space-between;gap:10px;
+      font-size:.84rem;color:#CBD5F5;margin-top:6px;
+    }
+
+    /* ===== Sources ===== */
+    .sources{
+      background:rgba(2,6,23,.55);
+      border:1px solid rgba(148,163,184,.42);
+      border-radius:16px;
+      padding:12px 12px 10px;
+      margin-top:12px;
+    }
+    .sources a{color:#93C5FD;text-decoration:none}
+    .sources a:hover{text-decoration:underline}
+    .small{font-size:.84rem;color:var(--muted)}
+    .hr{height:1px;background:rgba(148,163,184,.25);margin:10px 0}
+
+    /* ===== Footer ===== */
+    .footer{
+      margin-top:18px;
+      padding:16px 20px 28px;
+      border-top:1px solid rgba(30,64,175,.55);
+      color:var(--muted);
+      font-size:.84rem;
+      max-width:1120px;margin-left:auto;margin-right:auto;
+    }
+
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr}
+      .viz-row{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .page{padding:0 14px}
+      .nav-inner{padding:14px 14px}
+      .hero-left,.section{padding:18px 16px}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>Auto Insight Lab</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="ute-calculator.html">Ute Calculator</a>
+        <span class="nav-pill">Australia • JAC T9</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-kicker"><span class="kdot"></span><span>Ute review • Public-data summary</span></div>
+        <h1 class="hero-title">JAC T9 (Australia): what the data says — and who it suits</h1>
+        <p class="hero-sub">
+          The JAC T9 is one of the most serious “new badge” utes Australia has seen in years: sharp pricing,
+          strong safety credentials, and a long ownership pitch (warranty, roadside assist, capped servicing).
+          This page summarises the key public facts and the common themes across published reviews.
+        </p>
+
+        <div class="hero-badges">
+          <div class="badge">Positioning: value + safety</div>
+          <div class="badge">Braked towing: 3200kg</div>
+          <div class="badge">Payload: 1045kg (claimed)</div>
+          <div class="badge">Warranty: 7 years, unlimited km</div>
+        </div>
+
+        <div class="hero-cta">
+          <a class="btn-primary" href="ute-calculator.html">Compare it in the calculator</a>
+          <a class="btn-ghost" href="#data">Jump to safety & specs</a>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="panel">
+          <div class="panel-top">
+            <div class="panel-title">Quick snapshot</div>
+            <div class="tag">2024–2025 market context</div>
+          </div>
+          <div class="kpi-grid">
+            <div class="kpi">
+              <div class="label">Engine (diesel)</div>
+              <div class="value">2.0T</div>
+              <div class="note">120kW / 410Nm</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Transmission</div>
+              <div class="value">8-speed</div>
+              <div class="note">ZF auto (reported)</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Braked towing</div>
+              <div class="value">3200kg</div>
+              <div class="note">Ball: 320kg</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Safety</div>
+              <div class="value">5-star ANCAP</div>
+              <div class="note">Strong assist score</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-top">
+            <div class="panel-title">Why people look at it</div>
+            <div class="tag">Chinese brands • Utes</div>
+          </div>
+          <p style="margin:0;color:#CBD5F5;font-size:.92rem;">
+            Buyers comparing GWM/LDV/BYD vs the “big two” often want an objective anchor.
+            The T9’s standout is safety + ownership packaging at a price that undercuts many mainstream trims.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Section: Overview -->
+    <section class="section">
+      <div class="kicker">Overview</div>
+      <h2>1) What is the JAC T9 trying to be?</h2>
+      <p>
+        In plain terms: a modern dual-cab 4x4 ute that competes on <strong>value, safety and ownership coverage</strong>,
+        rather than relying on decades of badge history. Public write-ups commonly describe it as “surprisingly complete”
+        for the money, with a specification list designed to remove the usual “but you need to pay extra for that” moments.
+      </p>
+      <div class="callout">
+        <strong>Positioning in the market:</strong> a sharp-price alternative to Hilux/Ranger/Triton that tries to win trust
+        with safety testing, long warranty support, and a “does the job” powertrain — even if long-term durability is still the
+        unknown every newcomer has to earn over time.
+      </div>
+
+      <h3>Who it tends to suit</h3>
+      <ul>
+        <li><strong>Value-focused buyers</strong> who want a lot of kit without climbing price ladders.</li>
+        <li><strong>Families</strong> who care about modern safety systems and crash-test credibility.</li>
+        <li><strong>Work + weekend users</strong> who tow and haul, but don’t need maximum towing (3.5t) at any cost.</li>
+      </ul>
+    </section>
+
+    <!-- Section: Reviews synthesis -->
+    <section class="section">
+      <div class="kicker">What reviews tend to agree on</div>
+      <h2>2) The “short version” from public reviews</h2>
+
+      <h3>Strengths that come up repeatedly</h3>
+      <ul>
+        <li><strong>Safety credentials</strong> are a genuine headline (5-star ANCAP, strong Safety Assist score).</li>
+        <li><strong>Capable on rough roads</strong>, with 4x4 hardware and features that don’t feel “cheap”.</li>
+        <li><strong>Ownership pitch is clear</strong>: long warranty, roadside assist, capped servicing (as published by JAC).</li>
+        <li><strong>Practical numbers</strong>: 3200kg towing, 1045kg payload (claimed) and ute-tub practicality.</li>
+      </ul>
+
+      <h3>Where scepticism still exists</h3>
+      <ul>
+        <li><strong>Long-term reliability is unproven</strong> compared with Hilux/Ranger — time and kilometres will decide.</li>
+        <li><strong>Some compromises vs top sellers</strong>: towing is strong but not the common 3500kg headline figure.</li>
+        <li><strong>Dealer network / resale confidence</strong> can matter to fleets and conservative buyers (varies by region).</li>
+      </ul>
+
+      <div class="callout">
+        If you’re cross-shopping Chinese utes, the T9 often ranks as a “safe bet” because it leans into measurable trust signals:
+        safety testing plus a heavy ownership-support package — not just marketing claims.
+      </div>
+    </section>
+
+    <!-- Section: Data -->
+    <section class="section" id="data">
+      <div class="kicker">Data snapshot</div>
+      <h2>3) Key public numbers (specs, towing, safety)</h2>
+
+      <h3>Core capability (published figures)</h3>
+      <ul>
+        <li><strong>Engine:</strong> 2.0-litre turbo-diesel (reported) with <strong>120kW</strong> and <strong>410Nm</strong>.</li>
+        <li><strong>Transmission:</strong> 8-speed automatic (reported as ZF).</li>
+        <li><strong>Braked towing:</strong> <strong>3200kg</strong>; <strong>ball weight</strong> 320kg.</li>
+        <li><strong>Payload (claimed):</strong> <strong>1045kg</strong>.</li>
+        <li><strong>Indicative pricing (RRP, published):</strong> Oasis ~ <strong>$42,662</strong>; Haven ~ <strong>$45,630</strong>.</li>
+      </ul>
+
+      <div class="viz-row">
+        <!-- ANCAP breakdown -->
+        <div class="viz">
+          <div class="title">
+            <span>ANCAP (5-star) score breakdown</span>
+            <span class="tag">Percent scores</span>
+          </div>
+
+          <div class="metric"><span>Adult Occupant Protection</span><span><strong>85%</strong></span></div>
+          <div class="meter"><div class="fill" style="width:85%"></div></div>
+
+          <div class="metric" style="margin-top:10px"><span>Child Occupant Protection</span><span><strong>87%</strong></span></div>
+          <div class="meter"><div class="fill" style="width:87%"></div></div>
+
+          <div class="metric" style="margin-top:10px"><span>Vulnerable Road User</span><span><strong>87%</strong></span></div>
+          <div class="meter"><div class="fill" style="width:87%"></div></div>
+
+          <div class="metric" style="margin-top:10px"><span>Safety Assist</span><span><strong>89%</strong></span></div>
+          <div class="meter"><div class="fill" style="width:89%"></div></div>
+
+          <div class="small" style="margin-top:10px">
+            Note: these are the published category percentages commonly cited from the ANCAP assessment in reporting.
+          </div>
+        </div>
+
+        <!-- Ownership / coverage -->
+        <div class="viz">
+          <div class="title">
+            <span>Ownership packaging (as published)</span>
+            <span class="tag">Warranty & support</span>
+          </div>
+          <div class="metric"><span>Vehicle warranty</span><span><strong>7 years • unlimited km</strong></span></div>
+          <div class="meter"><div class="fill" style="width:100%"></div></div>
+
+          <div class="metric" style="margin-top:10px"><span>Roadside assistance</span><span><strong>7 years</strong></span></div>
+          <div class="meter"><div class="fill" style="width:88%"></div></div>
+
+          <div class="metric" style="margin-top:10px"><span>Capped price servicing</span><span><strong>7 years</strong></span></div>
+          <div class="meter"><div class="fill" style="width:88%"></div></div>
+
+          <div class="small" style="margin-top:10px">
+            Always confirm exact terms with the manufacturer/dealer for your state and purchase date.
+          </div>
+        </div>
+      </div>
+
+      <div class="sources">
+        <div style="font-weight:700;color:#F9FAFB">Sources (public)</div>
+        <div class="hr"></div>
+        <ul style="margin:0 0 6px 18px">
+          <li>
+            Outback Travel Australia — JAC T9 range overview, specs, towing/payload, pricing notes, safety score summary:
+            <a href="https://outbacktravelaustralia.com.au/buyers-guide-utes-and-cab-chassis/jac-t9/" target="_blank" rel="noopener">outbacktravelaustralia.com.au</a>
+          </li>
+          <li>
+            JAC Australia (Fleet page) — ownership coverage highlights (warranty/roadside/capped servicing):
+            <a href="https://jacute.com.au/fleet/" target="_blank" rel="noopener">jacute.com.au</a>
+          </li>
+          <li>
+            GoAuto — reporting on JAC T9 ANCAP result (5-star and category scores context):
+            <a href="https://www.goauto.com.au/news/jac/t9/jac-t9-gains-five-ancap-stars/2024-08-29/94663.html" target="_blank" rel="noopener">goauto.com.au</a>
+          </li>
+        </ul>
+        <div class="small">
+          We summarise and organise publicly available information. If any source updates, specs and figures may change by variant/year.
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Practical takeaways -->
+    <section class="section">
+      <div class="kicker">So… should you shortlist it?</div>
+      <h2>4) Practical takeaways (plain English)</h2>
+
+      <h3>If you want the “safe value pick”</h3>
+      <p>
+        The T9’s strongest argument is that it gives you <strong>measurable trust signals</strong> (5-star safety performance and a
+        long ownership package) while keeping pricing aggressive. That’s exactly why it often ranks well in data-led comparisons.
+      </p>
+
+      <h3>If you’re a conservative long-term owner</h3>
+      <p>
+        This is the one area where the “big names” still have a structural advantage: long market history and deep resale confidence.
+        The T9 can be compelling, but it will take years of owner kilometres before it feels “proven” like Hilux/Ranger to some buyers.
+      </p>
+
+      <div class="callout">
+        <strong>Best use of this page:</strong> treat it as a decision organiser. Shortlist 2–4 utes, then test drive, check dealer support
+        in your area, confirm exact variant specs, and compare finance/insurance quotes.
+      </div>
+    </section>
+
+    <!-- Section: CTA -->
+    <section class="section">
+      <div class="kicker">Next step</div>
+      <h2>5) Put the JAC T9 in your own ranking scenario</h2>
+      <p>
+        If you’re the kind of buyer who cares most about reliability and long-term ownership coverage, the T9 can look surprisingly strong.
+        If you prioritise towing maximums or sales track record above everything, it may slide down. That’s exactly why the weighting model exists.
+      </p>
+      <p style="margin-top:10px">
+        <a class="btn-primary" href="ute-calculator.html">Open the Ute Calculator</a>
+        <span style="display:inline-block;margin-left:10px;color:var(--muted);font-size:.90rem">
+          (You can adjust weights and see how rankings change.)
+        </span>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div style="font-weight:600;color:#E5E7EB">Auto Insight Lab</div>
+    <div style="margin-top:6px">
+      Independent, data-first automotive information for Australia. We do not conduct physical vehicle testing.
+      Nothing here is financial, legal, or personalised purchase advice — always validate with official specs, test drives,
+      inspections, and professional guidance.
+    </div>
+  </footer>
+</body>
+</html>
