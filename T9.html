@@ -295,6 +295,52 @@
     .small{font-size:.84rem;color:var(--muted)}
     .hr{height:1px;background:rgba(148,163,184,.25);margin:10px 0}
 
+    /* ===== Who it suits: two-card layout (Triton style) ===== */
+    .who-cards{
+      margin-top: 12px;
+      align-items: stretch;
+    }
+    
+    .who-card{
+      padding: 14px 14px 12px;
+      border-radius: 16px;
+      background: rgba(15,23,42,0.98);
+      box-shadow: 0 16px 40px rgba(15,23,42,0.55);
+    }
+    
+    .who-card ul{
+      margin: 10px 0 0 20px;
+      color: #e5e7eb;
+    }
+    
+    .who-card li{
+      margin: 10px 0;
+      line-height: 1.7;
+    }
+    
+    /* Make the pills look like Triton */
+    .who-card .label{
+      display: inline-flex;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+    }
+    
+    .label-ok{
+      border-color: rgba(34,197,94,0.65);
+      color: #bbf7d0;
+      background: rgba(34,197,94,0.08);
+    }
+    
+    .label-warn{
+      border-color: rgba(249,115,22,0.70);
+      color: #fed7aa;
+      background: rgba(249,115,22,0.08);
+    }
+
     /* ===== Footer ===== */
     .footer{
       margin-top:18px;
@@ -535,53 +581,35 @@
     </section>
 
     <!-- Section: Practical takeaways -->
-    <!-- 6 -->
-    <section class="section">
+    <section class="section" id="who-it-suits">
       <div class="sk">Who it suits</div>
-      <h2>6) Who the JAC T9 is – and isn’t – likely to suit</h2>
+      <h2>6) Who the JAC T9 is — and isn’t — likely to suit</h2>
     
-      <div class="grid-2">
-        <!-- Suitable -->
-        <div class="card" style="padding:10px 12px;">
-          <div class="label label-ok">Good fit</div>
-          <ul style="margin:6px 0 0 18px; font-size:0.92rem;">
-            <li>
-              Buyers focused on <strong>maximum equipment for the money</strong>, rather than brand hierarchy.
-            </li>
-            <li>
-              Drivers who value a <strong>strong modern safety baseline</strong> and recent ANCAP results.
-            </li>
-            <li>
-              Mixed-use owners (commute + lifestyle + light work) who don’t tow at the limit every week.
-            </li>
-            <li>
-              Shoppers comparing <strong>Chinese-brand utes rationally</strong>, using data instead of reputation alone.
-            </li>
+      <div class="grid-2 who-cards">
+        <div class="card who-card">
+          <div class="label label-ok">Best suited for</div>
+          <ul>
+            <li>Buyers focused on <strong>maximum equipment for the money</strong>, rather than brand hierarchy.</li>
+            <li>Drivers who value a <strong>strong modern safety baseline</strong> and recent ANCAP results.</li>
+            <li><strong>Mixed-use owners</strong> (commute + lifestyle + light work) who don’t tow at the limit every week.</li>
+            <li>Shoppers comparing <strong>Chinese-brand utes rationally</strong>, using data instead of reputation alone.</li>
           </ul>
         </div>
     
-        <!-- Not suitable -->
-        <div class="card" style="padding:10px 12px;">
-          <div class="label label-warn">Think twice if</div>
-          <ul style="margin:6px 0 0 18px; font-size:0.92rem;">
-            <li>
-              You regularly tow at or near <strong>3.5 tonnes</strong> and want the least complex ownership story.
-            </li>
-            <li>
-              Long-term <strong>resale value and brand legacy</strong> matter more than upfront value.
-            </li>
-            <li>
-              You rely on a <strong>very dense national dealer network</strong>, especially in remote regions.
-            </li>
-            <li>
-              You prefer vehicles with <strong>decades of proven local reliability data</strong>.
-            </li>
+        <div class="card who-card">
+          <div class="label label-warn">May be less ideal for</div>
+          <ul>
+            <li>If you regularly tow <strong>at or near 3.5 tonnes</strong> and want the simplest ownership story.</li>
+            <li>If <strong>long-term resale</strong> and decades of brand legacy matter more than upfront value.</li>
+            <li>If you rely on a <strong>very dense national dealer network</strong>, especially in remote regions.</li>
+            <li>If you only feel comfortable with vehicles that have <strong>decades of proven local reliability data</strong>.</li>
           </ul>
         </div>
-        
-      <div class="callout">
-        <strong>Best use of this page:</strong> treat it as a decision organiser. Shortlist 2–4 utes, then test drive, check dealer support
-        in your area, confirm exact variant specs, and compare finance/insurance quotes.
+      </div>
+    
+      <div class="callout" style="margin-top:12px">
+        <strong>Best use of this page:</strong> treat it as a decision organiser. Shortlist 2–4 utes, then test drive,
+        check dealer support in your area, confirm exact variant specs, and compare finance/insurance quotes.
       </div>
     </section>
 
