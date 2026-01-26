@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Isuzu D-MAX Review (Australia) – Summary + Data Snapshot | Auto Insight Lab</title>
+
+  <style>
+    :root{
+      --bg:#020617;
+      --card:#0B1224;
+      --card2:#0A1020;
+      --text:#E5E7EB;
+      --muted:#9CA3AF;
+      --border:rgba(148,163,184,.35);
+      --accent:#2563EB;
+      --accent2:#F97316;
+      --good:#22C55E;
+      --warn:#FBBF24;
+      --radius-lg:20px;
+      --radius-md:12px;
+      --shadow:0 22px 60px rgba(15,23,42,.72);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.28), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15,23,42,.92), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    a{color:inherit}
+    .page{max-width:1120px;margin:26px auto 64px;padding:0 20px}
+
+    /* ===== Top Nav (match Triton) ===== */
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(to bottom, rgba(15,23,42,.96), rgba(15,23,42,.90));
+      border-bottom:1px solid rgba(30,64,175,.60);
+    }
+    .nav-inner{
+      max-width:1120px;margin:0 auto;padding:14px 20px;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      font-size:.92rem;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      font-weight:650;letter-spacing:.08em;text-transform:uppercase;
+      font-size:.82rem;white-space:nowrap;
+    }
+    .brand-mark{
+      width:28px;height:28px;border-radius:6px;
+      background:linear-gradient(135deg,#0F172A,#1E293B);
+      border:1px solid rgba(148,163,184,.85);
+      position:relative;overflow:hidden;
+      box-shadow:0 0 0 1px rgba(15,23,42,.9), 0 8px 18px rgba(15,23,42,.9);
+    }
+    .brand-mark::before{
+      content:"";position:absolute;left:-30%;top:50%;
+      width:160%;height:2px;
+      background:linear-gradient(90deg,var(--accent2),#FACC15,var(--good));
+      opacity:.85;
+    }
+    .nav-links{
+      display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav-link{
+      text-decoration:none;color:var(--muted);
+      font-size:.88rem;position:relative;padding:4px 0;
+    }
+    .nav-link:hover{color:var(--text)}
+    .nav-pill{
+      padding:5px 11px;border-radius:999px;
+      background:rgba(15,23,42,.90);
+      border:1px solid rgba(148,163,184,.70);
+      font-size:.78rem;color:var(--text);
+      display:inline-flex;align-items:center;gap:8px;
+      white-space:nowrap;
+    }
+    .nav-pill::before{
+      content:"";width:7px;height:7px;border-radius:999px;
+      background:var(--good);box-shadow:0 0 8px rgba(34,197,94,.9);
+    }
+
+    /* ===== Hero ===== */
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0,3fr) minmax(0,2.1fr);
+      gap:22px;
+      align-items:stretch;
+      margin-bottom:22px;
+    }
+    .hero-left{
+      padding:22px 22px 20px;
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.75);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      position:relative;overflow:hidden;
+    }
+    .hero-left::before{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(to right, rgba(15,23,42,.75), transparent 55%),
+        radial-gradient(circle at top right, rgba(37,99,235,.26), transparent 62%);
+      opacity:.95;pointer-events:none;
+    }
+    .hero-kicker{
+      position:relative;
+      display:inline-flex;align-items:center;gap:8px;
+      padding:3px 10px 3px 6px;
+      border-radius:999px;
+      background:rgba(15,23,42,.94);
+      border:1px solid rgba(148,163,184,.7);
+      font-size:.76rem;color:#CBD5F5;
+      z-index:1;
+    }
+    .kdot{
+      width:18px;height:18px;border-radius:999px;
+      background:radial-gradient(circle at 30% 30%, #F9FAFB, #60A5FA);
+      box-shadow:0 0 0 2px rgba(15,23,42,.7);
+    }
+    .hero-title{
+      position:relative;
+      margin:14px 0 8px;
+      font-size:clamp(2.0rem,3.2vw,2.65rem);
+      font-weight:820;letter-spacing:.02em;line-height:1.06;
+      background:linear-gradient(135deg,#E5E7EB,#BFDBFE);
+      -webkit-background-clip:text;color:transparent;
+      z-index:1;
+    }
+    .hero-sub{
+      position:relative;
+      margin:0 0 12px;
+      color:#CBD5F5;font-size:.98rem;
+      max-width:720px;
+      z-index:1;
+    }
+    .hero-badges{
+      position:relative;z-index:1;
+      display:flex;flex-wrap:wrap;gap:10px;
+      margin-top:10px;
+      color:var(--muted);font-size:.84rem;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 10px;border-radius:999px;
+      background:rgba(15,23,42,.92);
+      border:1px solid rgba(148,163,184,.65);
+      white-space:nowrap;
+    }
+
+    .hero-cta{
+      position:relative;z-index:1;
+      margin-top:14px;
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+    }
+    .btn-primary{
+      padding:9px 16px;border-radius:999px;border:none;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#F9FAFB;text-decoration:none;
+      font-weight:550;font-size:.92rem;
+      display:inline-flex;align-items:center;gap:8px;
+      box-shadow:0 16px 40px rgba(15,23,42,.9);
+    }
+    .btn-primary::after{content:"→";font-size:1rem}
+    .btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px);transition:all .14s ease}
+
+    .btn-ghost{
+      font-size:.90rem;color:#E5E7EB;text-decoration:none;
+      display:inline-flex;align-items:center;gap:6px;opacity:.92;
+    }
+    .btn-ghost:hover{opacity:1;text-decoration:underline}
+
+    /* ===== Hero Right: Spec Cards ===== */
+    .hero-right{display:grid;gap:12px}
+    .panel{
+      background:rgba(15,23,42,.98);
+      border:1px solid rgba(100,116,139,.78);
+      border-radius:16px;
+      box-shadow:0 14px 34px rgba(15,23,42,.82);
+      padding:14px 14px 12px;
+    }
+    .panel-top{
+      display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+      margin-bottom:6px;
+    }
+    .panel-title{font-weight:700;font-size:.96rem}
+    .tag{
+      font-size:.72rem;padding:2px 8px;border-radius:999px;
+      background:rgba(37,99,235,.16);
+      border:1px solid rgba(59,130,246,.8);
+      color:#BFDBFE;white-space:nowrap;
+    }
+    .kpi-grid{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+    }
+    .kpi{
+      border:1px solid rgba(148,163,184,.45);
+      background:rgba(2,6,23,.55);
+      border-radius:12px;
+      padding:10px 10px 9px;
+    }
+    .kpi .label{font-size:.74rem;color:var(--muted)}
+    .kpi .value{font-size:1.02rem;font-weight:750;margin-top:2px}
+    .kpi .note{font-size:.74rem;color:#CBD5F5;margin-top:2px}
+
+    /* ===== Content sections ===== */
+    .section{
+      margin-top:18px;
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.72);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:22px 22px 20px;
+    }
+    .kicker{
+      text-transform:uppercase;letter-spacing:.14em;
+      font-size:.72rem;color:var(--muted);margin-bottom:4px;
+    }
+    h2{
+      margin:8px 0 8px;
+      font-size:1.36rem;line-height:1.25;
+      color:#F9FAFB;
+      border-left:3px solid rgba(37,99,235,.85);
+      padding-left:10px;
+    }
+    h3{margin:16px 0 6px;font-size:1.08rem;color:#E5E7EB}
+    p{margin:6px 0 12px;color:#E5E7EB;font-size:.97rem}
+    ul,ol{margin:6px 0 12px 20px;color:#E5E7EB;font-size:.95rem}
+
+    .callout{
+      margin:12px 0;
+      padding:11px 12px;
+      border-radius:var(--radius-md);
+      border:1px solid rgba(59,130,246,.65);
+      background:linear-gradient(135deg, rgba(15,23,42,1), rgba(30,64,175,.62));
+      font-size:.95rem;
+    }
+
+    /* ===== Data viz cards ===== */
+    .viz-row{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+      margin-top:10px;
+    }
+    .viz{
+      background:rgba(2,6,23,.55);
+      border:1px solid rgba(148,163,184,.42);
+      border-radius:16px;
+      padding:12px 12px 10px;
+    }
+    .viz .title{
+      display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+      margin-bottom:8px;
+      font-weight:700;font-size:.92rem;
+      color:#F9FAFB;
+    }
+    .meter{
+      height:10px;border-radius:999px;
+      background:rgba(148,163,184,.18);
+      border:1px solid rgba(148,163,184,.22);
+      overflow:hidden;
+    }
+    .fill{
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      border-radius:999px;
+    }
+    .metric{
+      display:flex;justify-content:space-between;gap:10px;
+      font-size:.84rem;color:#CBD5F5;margin-top:6px;
+    }
+
+    /* ===== Sources ===== */
+    .sources{
+      background:rgba(2,6,23,.55);
+      border:1px solid rgba(148,163,184,.42);
+      border-radius:16px;
+      padding:12px 12px 10px;
+      margin-top:12px;
+    }
+    .sources a{color:#93C5FD;text-decoration:none}
+    .sources a:hover{text-decoration:underline}
+    .small{font-size:.84rem;color:var(--muted)}
+    .hr{height:1px;background:rgba(148,163,184,.25);margin:10px 0}
+
+    /* ===== 2-col helper ===== */
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+      margin-top:12px;
+    }
+
+    /* ===== Who it suits cards ===== */
+    .who-cards{ margin-top: 12px; }
+    .who-card{
+      padding: 14px 14px 12px;
+      border-radius: 16px;
+      background: rgba(15,23,42,0.98);
+      border: 1px solid rgba(100,116,139,0.85);
+      box-shadow: 0 16px 40px rgba(15,23,42,0.55);
+    }
+    .who-card ul{ margin: 10px 0 0 20px; color: #e5e7eb; }
+    .who-card li{ margin: 10px 0; line-height: 1.7; }
+
+    .who-card .label{
+      display: inline-flex;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+      border: 1px solid rgba(148,163,184,0.65);
+      background: rgba(2,6,23,0.35);
+    }
+    .label-ok{
+      border-color: rgba(34,197,94,0.65);
+      color: #bbf7d0;
+      background: rgba(34,197,94,0.08);
+    }
+    .label-warn{
+      border-color: rgba(249,115,22,0.70);
+      color: #fed7aa;
+      background: rgba(249,115,22,0.08);
+    }
+
+    /* ===== Footer ===== */
+    .footer{
+      margin-top:18px;
+      padding:16px 20px 28px;
+      border-top:1px solid rgba(30,64,175,.55);
+      color:var(--muted);
+      font-size:.84rem;
+      max-width:1120px;margin-left:auto;margin-right:auto;
+    }
+
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr}
+      .viz-row{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .page{padding:0 14px}
+      .nav-inner{padding:14px 14px}
+      .hero-left,.section{padding:18px 16px}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Auto Insight Lab</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="index.html#tools">Tools</a>
+        <a class="nav-link" href="index.html#stories">Stories</a>
+        <a class="nav-link" href="about.html">About</a>
+        <span class="nav-pill">Australia • 2025</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-kicker"><span class="kdot"></span><span>Ute review • Public-data summary</span></div>
+        <h1 class="hero-title">Isuzu D-MAX (Australia): why it’s the “dependable work ute” benchmark</h1>
+        <p class="hero-sub">
+          The Isuzu D-MAX is commonly positioned as a durability-first, work-ready dual-cab that prioritises
+          simple ownership and proven mechanical reputation. This page summarises recurring themes in public reviews
+          and pairs them with a quick snapshot of safety + key capability numbers.
+        </p>
+
+        <div class="hero-badges">
+          <div class="badge">Positioning: durability + work focus</div>
+          <div class="badge">Braked towing: 3500kg</div>
+          <div class="badge">Engine: 3.0 TD (140kW/450Nm)</div>
+          <div class="badge">Warranty: 6 years / 150,000km</div>
+        </div>
+
+        <div class="hero-cta">
+          <a class="btn-primary" href="ute-calculator.html">Compare it in the calculator</a>
+          <a class="btn-ghost" href="#data">Jump to safety & specs</a>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="panel">
+          <div class="panel-top">
+            <div class="panel-title">Quick snapshot</div>
+            <div class="tag">AU market overview</div>
+          </div>
+          <div class="kpi-grid">
+            <div class="kpi">
+              <div class="label">Engine (diesel)</div>
+              <div class="value">3.0 TD</div>
+              <div class="note">140kW / 450Nm</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Max towing</div>
+              <div class="value">3500kg</div>
+              <div class="note">Braked (variant-dependent)</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Payload</div>
+              <div class="value">~985kg</div>
+              <div class="note">Typical dual-cab figure</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Warranty</div>
+              <div class="value">6 years</div>
+              <div class="note">150,000km (published)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-top">
+            <div class="panel-title">Why people shortlist it</div>
+            <div class="tag">Work fleets • Tradies</div>
+          </div>
+          <p style="margin:0;color:#CBD5F5;font-size:.92rem;">
+            Reviews regularly frame the D-MAX as the ute for buyers who value real-world dependability,
+            easy servicing, and a “tool that happens to be comfortable enough daily” vibe.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Section: Overview -->
+    <section class="section">
+      <div class="kicker">Overview</div>
+      <h2>1) What is the D-MAX trying to be?</h2>
+      <p>
+        In plain terms: a hard-working, long-term ownership ute that aims to feel <strong>robust and predictable</strong>
+        rather than flashy. It competes strongly with a 3.0-litre diesel, a straightforward “work-first” setup,
+        and a reputation built on fleet and regional use cases.
+      </p>
+      <div class="callout">
+        <strong>Market positioning:</strong> if your priority is “least surprises over time” (serviceability, durability feel,
+        proven platform), the D-MAX is frequently one of the default shortlists—especially when buyers don’t want to chase
+        the most complex tech-heavy trim.
+      </div>
+
+      <h3>Who it tends to suit</h3>
+      <ul>
+        <li><strong>Work-first owners</strong> who value tough mechanicals and predictable running costs.</li>
+        <li><strong>Regional buyers</strong> who care about service support and proven platform history.</li>
+        <li><strong>Mixed-use drivers</strong> who commute during the week and tow/haul on weekends.</li>
+      </ul>
+    </section>
+
+    <!-- Section: Reviews synthesis -->
+    <section class="section">
+      <div class="kicker">What reviews tend to agree on</div>
+      <h2>2) The “short version” from public reviews</h2>
+
+      <h3>Strengths that come up repeatedly</h3>
+      <ul>
+        <li><strong>Strong towing headline</strong> (commonly listed as 3500kg braked for many variants).</li>
+        <li><strong>Diesel drivetrain reputation</strong>: many buyers trust the 3.0-litre as a long-term work engine.</li>
+        <li><strong>Work usability</strong>: straightforward layout, practical tub, and “get on with it” driving character.</li>
+        <li><strong>Ownership coverage</strong>: published warranty and capped-price servicing programs support the “keep it longer” buyer.</li>
+      </ul>
+
+      <h3>Where trade-offs show up</h3>
+      <ul>
+        <li><strong>Refinement vs the segment’s most polished utes</strong>: some rivals feel more SUV-like on-road.</li>
+        <li><strong>Tech/assist tuning</strong>: feature lists matter less than calibration (alerts, intervention feel).</li>
+        <li><strong>Variant spread</strong>: the “right” D-MAX depends on whether you prioritise work spec, comfort spec, or off-road spec.</li>
+      </ul>
+
+      <div class="callout">
+        The D-MAX story is usually not “best in every category”. It’s “predictable, durable, and easy to justify”
+        if your use case includes real work, towing, or long-term ownership.
+      </div>
+    </section>
+
+    <!-- Section: Data -->
+    <section class="section" id="data">
+      <div class="kicker">Data snapshot</div>
+      <h2>3) Key public numbers (specs, towing, safety)</h2>
+
+      <h3>Core capability (published figures)</h3>
+      <ul>
+        <li><strong>Engine:</strong> 3.0-litre turbo-diesel with <strong>140kW</strong> and <strong>450Nm</strong>.</li>
+        <li><strong>Maximum towing:</strong> <strong>3500kg</strong> braked (variant-dependent).</li>
+        <li><strong>Payload:</strong> commonly listed around <strong>~985kg</strong> (varies by variant).</li>
+        <li><strong>Warranty:</strong> <strong>6 years / 150,000km</strong> (published by major reviews).</li>
+      </ul>
+
+      <div class="viz-row">
+        <!-- ANCAP breakdown -->
+        <div class="viz">
+          <div class="title">
+            <span>Safety snapshot (ANCAP category scores)</span>
+            <span class="tag">Percent scores</span>
+          </div>
+
+          <div class="metric"><span>Adult Occupant Protection</span><span><strong>83%</strong></span></div>
+          <div class="meter"><div class="fill" style="width:83%"></div></div>
+
+          <div class="metric" style="margin-top:10px"><span>Child Occupant Protection</span><span><strong>89%</strong></span></div>
+          <div class="meter"><div class="fill" style="width:89%"></div></div>
+
+          <div class="metric" style="margin-top:10px"><span>Vulnerable Road User</span><span><strong>69%</strong></span></div>
+          <div class="meter"><div class="fill" style="width:69%"></div></div>
+
+          <div class="metric" style="margin-top:10px"><span>Safety Assist</span><span><strong>84%</strong></span></div>
+          <div class="meter"><div class="fill" style="width:84%"></div></div>
+
+          <div class="small" style="margin-top:10px">
+            Note: these are category percentages reported in public ANCAP coverage for the D-MAX assessment.
+          </div>
+        </div>
+
+        <!-- Ownership -->
+        <div class="viz">
+          <div class="title">
+            <span>Ownership packaging (headline)</span>
+            <span class="tag">Warranty & servicing</span>
+          </div>
+
+          <div class="metric"><span>Vehicle warranty</span><span><strong>6 years • 150,000km</strong></span></div>
+          <div class="meter"><div class="fill" style="width:86%"></div></div>
+
+          <div class="metric" style="margin-top:10px"><span>Service interval</span><span><strong>12 months / 15,000km</strong></span></div>
+          <div class="meter"><div class="fill" style="width:70%"></div></div>
+
+          <div class="metric" style="margin-top:10px"><span>Capped-price servicing</span><span><strong>Up to 7 years (published)</strong></span></div>
+          <div class="meter"><div class="fill" style="width:88%"></div></div>
+
+          <div class="small" style="margin-top:10px">
+            Always confirm exact terms by model year, variant, and state at purchase time.
+          </div>
+        </div>
+      </div>
+
+      <div class="sources">
+        <div style="font-weight:700;color:#F9FAFB">Sources (public)</div>
+        <div class="hr"></div>
+        <ul style="margin:0 0 6px 18px">
+          <li>
+            CarExpert — D-MAX review (towing, payload, warranty overview):
+            <a href="https://www.carexpert.com.au/car-reviews/2023-isuzu-d-max-review" target="_blank" rel="noopener">carexpert.com.au</a>
+          </li>
+          <li>
+            CarExpert — ANCAP scores explainer (D-MAX category %):
+            <a href="https://www.carexpert.com.au/car-news/ancap-safety-rating-explained-isuzu-d-max-and-mazda-bt-50" target="_blank" rel="noopener">carexpert.com.au</a>
+          </li>
+          <li>
+            CarExpert — warranty/servicing detail (example D-MAX review):
+            <a href="https://www.carexpert.com.au/car-reviews/2022-isuzu-d-max-sx-1-9l-4x2-review" target="_blank" rel="noopener">carexpert.com.au</a>
+          </li>
+        </ul>
+        <div class="small">
+          We summarise and organise publicly available information. Specs and figures may change by variant/year.
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Who it suits -->
+    <section class="section" id="who-it-suits">
+      <div class="kicker">Who it suits</div>
+      <h2>6) Who the Isuzu D-MAX is — and isn’t — likely to suit</h2>
+
+      <div class="grid-2 who-cards">
+        <div class="who-card">
+          <div class="label label-ok">Best suited for</div>
+          <ul>
+            <li>Buyers who prioritise <strong>durability and work use</strong> over “most luxurious cabin”.</li>
+            <li>Owners who want a <strong>strong towing headline</strong> and a straightforward ute for long-term keeping.</li>
+            <li>People who value <strong>predictable servicing</strong> and broad familiarity in the market.</li>
+            <li>Mixed-use drivers who want a ute that feels like a <strong>tool first</strong>, but still daily-usable.</li>
+          </ul>
+        </div>
+
+        <div class="who-card">
+          <div class="label label-warn">May be less ideal for</div>
+          <ul>
+            <li>Drivers chasing the most <strong>SUV-like refinement</strong> and quietness above everything.</li>
+            <li>Buyers who want the most advanced “wow” tech and premium interior feel in every trim.</li>
+            <li>People who dislike <strong>work-first ride/feel</strong> and prefer a softer on-road setup.</li>
+            <li>Anyone who doesn’t want to compare variant-by-variant (work spec vs comfort spec vs off-road spec).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:12px">
+        <strong>Best use of this page:</strong> treat it as a decision organiser. Shortlist 2–4 utes, then test drive,
+        confirm exact variant specs (GVM/payload/towball download), and compare finance/insurance quotes.
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="kicker">Next step</div>
+      <h2>5) Put the D-MAX into your own ranking scenario</h2>
+      <p>
+        If your weighting strongly favours reliability, towing and long-term ownership clarity, the D-MAX often scores well.
+        If your weighting heavily rewards cabin refinement or “premium feel”, rivals may jump ahead. That’s exactly why the weighting model exists.
+      </p>
+      <p style="margin-top:10px">
+        <a class="btn-primary" href="ute-calculator.html">Open the Ute Calculator</a>
+        <span style="display:inline-block;margin-left:10px;color:var(--muted);font-size:.90rem">
+          (Adjust weights and see how rankings change.)
+        </span>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div style="font-weight:600;color:#E5E7EB">Auto Insight Lab</div>
+    <div style="margin-top:6px">
+      Independent, data-first automotive information for Australia. We do not conduct physical vehicle testing.
+      Nothing here is financial, legal, or personalised purchase advice — always validate with official specs, test drives,
+      inspections, and professional guidance.
+    </div>
+  </footer>
+</body>
+</html>
