@@ -524,6 +524,31 @@
 
     .card-link:hover { text-decoration: underline; }
 
+    /* rank list */
+    .rank-list{ list-style:none; padding:0; margin:6px 0 0; }
+    .rank-list li{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:baseline;
+      padding:4px 0;
+    }
+    .rank-list a{
+      margin:0;
+      white-space:nowrap;
+    }
+
+    .inline-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px 12px;
+      margin-top:6px;
+    }
+    .inline-links a{
+      margin:0 !important;
+      white-space:nowrap;
+    }
+
     /* Footer */
     .footer {
       border-top: 1px solid rgba(30, 64, 175, 0.55);
@@ -658,12 +683,12 @@
             Our ute calculator blends safety, economy, performance, reliability and sales history.
             On the default settings for long-term owners, the model currently points to:
           </p>
-          <ul style="list-style:none;padding:0;margin:4px 0 0;font-size:0.8rem;">
-            <li>1. Toyota Hilux – S-tier sales, proven workhorse.<a href="hilux.html" class="card-link" style="margin:0;">Open →</a></li>
-            <li>2. Ford Ranger – strong real-world appeal and performance.<a href="ford.html" class="card-link" style="margin:0;">Open →</a></li>
-            <li>3. Mitsubishi Triton – value play with solid coverage.<a href="triton.html" class="card-link" style="margin:0;">Open →</a></li>
-            <li>4. JAC T9 – highest-ranked Chinese ute in our model.<a href="T9.html" class="card-link" style="margin:0;">Open →</a></li>
-            <li>5. ISUZU DMAX – Dependable Work ute.<a href="Dmax.html" class="card-link" style="margin:0;">Open →</a></li>
+          <ul class="rank-list" style="font-size:0.8rem;">
+            <li><span>1. Toyota Hilux – S-tier sales, proven workhorse.</span><a href="hilux.html">Open →</a></li>
+            <li><span>2. Ford Ranger – strong real-world appeal and performance.</span><a href="ford.html">Open →</a></li>
+            <li><span>3. Mitsubishi Triton – value play with solid coverage.</span><a href="triton.html">Open →</a></li>
+            <li><span>4. JAC T9 – highest-ranked Chinese ute in our model.</span><a href="T9.html">Open →</a></li>
+            <li><span>5. Isuzu D-MAX – dependable work ute.</span><a href="Dmax.html">Open →</a></li>
           </ul>
         </div>
       </aside>
@@ -738,15 +763,15 @@
           <div class="category-sub">Work, towing, payload and mixed family use.</div>
           <div class="category-note">
             Tools live now:
-            <a href="ute-calculator.html" class="card-link" style="margin:0;">Ute Calculator →</a>
-            &nbsp;•&nbsp;
-            <a href="ford.html" class="card-link" style="margin:0;">Ford Ranger review →</a>
-            <a href="hilux.html" class="card-link" style="margin:0;">Toyota Hilux review →</a>
-            <a href="triton.html" class="card-link" style="margin:0;">Mitsubishi Triton review →</a>
-            <a href="T9.html" class="card-link" style="margin:0;">JAC T9 review →</a>
-            <a href="Dmax.html" class="card-link" style="margin:0;">ISUZU Dmax review →</a>
+            <div class="inline-links">
+              <a href="ute-calculator.html" class="card-link">Ute Calculator →</a>
+              <a href="ford.html" class="card-link">Ford Ranger →</a>
+              <a href="hilux.html" class="card-link">Toyota Hilux →</a>
+              <a href="triton.html" class="card-link">Mitsubishi Triton →</a>
+              <a href="T9.html" class="card-link">JAC T9 →</a>
+              <a href="dmax.html" class="card-link">Isuzu D-MAX →</a>
+            </div>
           </div>
-        </div>
         <div class="category-card">
           <div class="category-title">Electric &amp; New Energy <span class="coming-soon-pill">Coming soon</span></div>
           <div class="category-sub">EVs and plug-ins with an eye on total cost of ownership.</div>
@@ -1145,7 +1170,7 @@
         <a href="hilux.html">Toyota Hilux review</a>
         <a href="triton.html">Mitsubishi Triton review</a>
         <a href="T9.html">JAC T9 review</a>
-        <a href="Dmax.html">ISUZU Dmac review</a>
+        <a href="Dmax.html">ISUZU Dmax review</a>
       </div>
     </div>
   </footer>
