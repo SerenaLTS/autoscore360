@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GWM Cannon Review (Australia) – Summary + Data Snapshot | Auto Insight Lab</title>
+
+  <style>
+    :root{
+      --bg:#020617;
+      --card:#0B1224;
+      --card2:#0A1020;
+      --text:#E5E7EB;
+      --muted:#9CA3AF;
+      --border:rgba(148,163,184,.35);
+      --accent:#2563EB;
+      --accent2:#F97316;
+      --good:#22C55E;
+      --warn:#FBBF24;
+      --radius-lg:20px;
+      --radius-md:12px;
+      --shadow:0 22px 60px rgba(15,23,42,.72);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.28), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15,23,42,.92), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    a{color:inherit}
+    .page{max-width:1120px;margin:26px auto 64px;padding:0 20px}
+
+    /* ===== Top Nav (match your other review pages) ===== */
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(to bottom, rgba(15,23,42,.96), rgba(15,23,42,.90));
+      border-bottom:1px solid rgba(30,64,175,.60);
+    }
+    .nav-inner{
+      max-width:1120px;margin:0 auto;padding:14px 20px;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      font-size:.92rem;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      font-weight:650;letter-spacing:.08em;text-transform:uppercase;
+      font-size:.82rem;white-space:nowrap;
+    }
+    .brand-mark{
+      width:28px;height:28px;border-radius:6px;
+      background:linear-gradient(135deg,#0F172A,#1E293B);
+      border:1px solid rgba(148,163,184,.85);
+      position:relative;overflow:hidden;
+      box-shadow:0 0 0 1px rgba(15,23,42,.9), 0 8px 18px rgba(15,23,42,.9);
+    }
+    .brand-mark::before{
+      content:"";position:absolute;left:-30%;top:50%;
+      width:160%;height:2px;
+      background:linear-gradient(90deg,var(--accent2),#FACC15,var(--good));
+      opacity:.85;
+    }
+    .nav-links{
+      display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav-link{
+      text-decoration:none;color:var(--muted);
+      font-size:.88rem;position:relative;padding:4px 0;
+    }
+    .nav-link:hover{color:var(--text)}
+    .nav-pill{
+      padding:5px 11px;border-radius:999px;
+      background:rgba(15,23,42,.90);
+      border:1px solid rgba(148,163,184,.70);
+      font-size:.78rem;color:var(--text);
+      display:inline-flex;align-items:center;gap:8px;
+      white-space:nowrap;
+    }
+    .nav-pill::before{
+      content:"";width:7px;height:7px;border-radius:999px;
+      background:var(--good);box-shadow:0 0 8px rgba(34,197,94,.9);
+    }
+
+    /* ===== Hero ===== */
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0,3fr) minmax(0,2.1fr);
+      gap:22px;
+      align-items:stretch;
+      margin-bottom:22px;
+    }
+    .hero-left{
+      padding:22px 22px 20px;
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.75);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      position:relative;overflow:hidden;
+    }
+    .hero-left::before{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(to right, rgba(15,23,42,.75), transparent 55%),
+        radial-gradient(circle at top right, rgba(37,99,235,.26), transparent 62%);
+      opacity:.95;pointer-events:none;
+    }
+    .hero-kicker{
+      position:relative;
+      display:inline-flex;align-items:center;gap:8px;
+      padding:3px 10px 3px 6px;
+      border-radius:999px;
+      background:rgba(15,23,42,.94);
+      border:1px solid rgba(148,163,184,.7);
+      font-size:.76rem;color:#CBD5F5;
+      z-index:1;
+    }
+    .kdot{
+      width:18px;height:18px;border-radius:999px;
+      background:radial-gradient(circle at 30% 30%, #F9FAFB, #60A5FA);
+      box-shadow:0 0 0 2px rgba(15,23,42,.7);
+    }
+    .hero-title{
+      position:relative;
+      margin:14px 0 8px;
+      font-size:clamp(2.0rem,3.2vw,2.65rem);
+      font-weight:820;letter-spacing:.02em;line-height:1.06;
+      background:linear-gradient(135deg,#E5E7EB,#BFDBFE);
+      -webkit-background-clip:text;color:transparent;
+      z-index:1;
+    }
+    .hero-sub{
+      position:relative;
+      margin:0 0 12px;
+      color:#CBD5F5;font-size:.98rem;
+      max-width:720px;
+      z-index:1;
+    }
+    .hero-badges{
+      position:relative;z-index:1;
+      display:flex;flex-wrap:wrap;gap:10px;
+      margin-top:10px;
+      color:var(--muted);font-size:.84rem;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 10px;border-radius:999px;
+      background:rgba(15,23,42,.92);
+      border:1px solid rgba(148,163,184,.65);
+      white-space:nowrap;
+    }
+    .hero-cta{
+      position:relative;z-index:1;
+      margin-top:14px;
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+    }
+    .btn-primary{
+      padding:9px 16px;border-radius:999px;border:none;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#F9FAFB;text-decoration:none;
+      font-weight:550;font-size:.92rem;
+      display:inline-flex;align-items:center;gap:8px;
+      box-shadow:0 16px 40px rgba(15,23,42,.9);
+    }
+    .btn-primary::after{content:"→";font-size:1rem}
+    .btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px);transition:all .14s ease}
+
+    .btn-ghost{
+      font-size:.90rem;color:#E5E7EB;text-decoration:none;
+      display:inline-flex;align-items:center;gap:6px;opacity:.92;
+    }
+    .btn-ghost:hover{opacity:1;text-decoration:underline}
+
+    /* ===== Hero Right: Spec Cards ===== */
+    .hero-right{display:grid;gap:12px}
+    .panel{
+      background:rgba(15,23,42,.98);
+      border:1px solid rgba(100,116,139,.78);
+      border-radius:16px;
+      box-shadow:0 14px 34px rgba(15,23,42,.82);
+      padding:14px 14px 12px;
+    }
+    .panel-top{
+      display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+      margin-bottom:6px;
+    }
+    .panel-title{font-weight:700;font-size:.96rem}
+    .tag{
+      font-size:.72rem;padding:2px 8px;border-radius:999px;
+      background:rgba(37,99,235,.16);
+      border:1px solid rgba(59,130,246,.8);
+      color:#BFDBFE;white-space:nowrap;
+    }
+    .kpi-grid{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+    }
+    .kpi{
+      border:1px solid rgba(148,163,184,.45);
+      background:rgba(2,6,23,.55);
+      border-radius:12px;
+      padding:10px 10px 9px;
+    }
+    .kpi .label{font-size:.74rem;color:var(--muted)}
+    .kpi .value{font-size:1.02rem;font-weight:750;margin-top:2px}
+    .kpi .note{font-size:.74rem;color:#CBD5F5;margin-top:2px}
+
+    /* ===== Content sections ===== */
+    .section{
+      margin-top:18px;
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.72);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:22px 22px 20px;
+    }
+    .kicker{
+      text-transform:uppercase;letter-spacing:.14em;
+      font-size:.72rem;color:var(--muted);margin-bottom:4px;
+    }
+    h2{
+      margin:8px 0 8px;
+      font-size:1.36rem;line-height:1.25;
+      color:#F9FAFB;
+      border-left:3px solid rgba(37,99,235,.85);
+      padding-left:10px;
+    }
+    h3{margin:16px 0 6px;font-size:1.08rem;color:#E5E7EB}
+    p{margin:6px 0 12px;color:#E5E7EB;font-size:.97rem}
+    ul,ol{margin:6px 0 12px 20px;color:#E5E7EB;font-size:.95rem}
+
+    .callout{
+      margin:12px 0;
+      padding:11px 12px;
+      border-radius:var(--radius-md);
+      border:1px solid rgba(59,130,246,.65);
+      background:linear-gradient(135deg, rgba(15,23,42,1), rgba(30,64,175,.62));
+      font-size:.95rem;
+    }
+
+    /* ===== Data viz cards ===== */
+    .viz-row{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+      margin-top:10px;
+    }
+    .viz{
+      background:rgba(2,6,23,.55);
+      border:1px solid rgba(148,163,184,.42);
+      border-radius:16px;
+      padding:12px 12px 10px;
+    }
+    .viz .title{
+      display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+      margin-bottom:8px;
+      font-weight:700;font-size:.92rem;
+      color:#F9FAFB;
+    }
+    .meter{
+      height:10px;border-radius:999px;
+      background:rgba(148,163,184,.18);
+      border:1px solid rgba(148,163,184,.22);
+      overflow:hidden;
+    }
+    .fill{
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      border-radius:999px;
+    }
+    .metric{
+      display:flex;justify-content:space-between;gap:10px;
+      font-size:.84rem;color:#CBD5F5;margin-top:6px;
+    }
+
+    /* ===== Who it suits: 2 cards ===== */
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+      margin-top:12px;
+    }
+    .who-card{
+      padding: 14px 14px 12px;
+      border-radius: 16px;
+      background: rgba(15,23,42,0.98);
+      border: 1px solid rgba(100,116,139,0.85);
+      box-shadow: 0 16px 40px rgba(15,23,42,0.55);
+    }
+    .who-card ul{ margin: 10px 0 0 20px; color: #e5e7eb; }
+    .who-card li{ margin: 10px 0; line-height: 1.7; }
+
+    .who-card .label{
+      display: inline-flex;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+      border: 1px solid rgba(148,163,184,0.65);
+      background: rgba(2,6,23,0.35);
+    }
+    .label-ok{
+      border-color: rgba(34,197,94,0.65);
+      color: #bbf7d0;
+      background: rgba(34,197,94,0.08);
+    }
+    .label-warn{
+      border-color: rgba(249,115,22,0.70);
+      color: #fed7aa;
+      background: rgba(249,115,22,0.08);
+    }
+
+    /* ===== Sources ===== */
+    .sources{
+      background:rgba(2,6,23,.55);
+      border:1px solid rgba(148,163,184,.42);
+      border-radius:16px;
+      padding:12px 12px 10px;
+      margin-top:12px;
+    }
+    .sources a{color:#93C5FD;text-decoration:none}
+    .sources a:hover{text-decoration:underline}
+    .small{font-size:.84rem;color:var(--muted)}
+    .hr{height:1px;background:rgba(148,163,184,.25);margin:10px 0}
+
+    /* ===== Footer ===== */
+    .footer{
+      margin-top:18px;
+      padding:16px 20px 28px;
+      border-top:1px solid rgba(30,64,175,.55);
+      color:var(--muted);
+      font-size:.84rem;
+      max-width:1120px;margin-left:auto;margin-right:auto;
+    }
+
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr}
+      .viz-row{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .page{padding:0 14px}
+      .nav-inner{padding:14px 14px}
+      .hero-left,.section{padding:18px 16px}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Auto Insight Lab</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="index.html#tools">Tools</a>
+        <a class="nav-link" href="index.html#ute-reviews">Reviews</a>
+        <a class="nav-link" href="about.html">About</a>
+        <span class="nav-pill">Australia • 2025</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-kicker"><span class="kdot"></span><span>Ute review • Public-data summary</span></div>
+        <h1 class="hero-title">GWM Cannon (Australia): what the data says — and who it suits</h1>
+        <p class="hero-sub">
+          The GWM Cannon is a value-led dual-cab ute that leans hard into comfort, equipment, and warranty coverage.
+          This page summarises commonly published specs and the recurring themes across public reviews — with clear
+          separation between measurable info and subjective opinion.
+        </p>
+
+        <div class="hero-badges">
+          <div class="badge">Positioning: value + equipment</div>
+          <div class="badge">Comfort: SUV-leaning cabin</div>
+          <div class="badge">Towing: up to 3.0–3.5t (variant-dependent)</div>
+          <div class="badge">Warranty: long coverage (published)</div>
+        </div>
+
+        <div class="hero-cta">
+          <a class="btn-primary" href="ute-calculator.html">Compare it in the calculator</a>
+          <a class="btn-ghost" href="#data">Jump to data snapshot</a>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="panel">
+          <div class="panel-top">
+            <div class="panel-title">Quick snapshot</div>
+            <div class="tag">AU market context</div>
+          </div>
+
+          <div class="kpi-grid">
+            <div class="kpi">
+              <div class="label">Engine (diesel)</div>
+              <div class="value">2.0T</div>
+              <div class="note">~120kW / ~400Nm</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Transmission</div>
+              <div class="value">8-speed</div>
+              <div class="note">Auto (commonly reported)</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Braked towing</div>
+              <div class="value">3.0–3.5t</div>
+              <div class="note">By variant / year</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Theme</div>
+              <div class="value">High-spec</div>
+              <div class="note">Value-focused trims</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-top">
+            <div class="panel-title">Why people shortlist it</div>
+            <div class="tag">Value-led utes</div>
+          </div>
+          <p style="margin:0;color:#CBD5F5;font-size:.92rem;">
+            Buyers cross-shopping Chinese entrants often want a “most equipment for the money” option.
+            The Cannon typically appears on lists for cabin comfort, tech features, and long ownership coverage — even
+            if it’s not always seen as the most proven workhorse long-term.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Section: Overview -->
+    <section class="section">
+      <div class="kicker">Overview</div>
+      <h2>1) What is the GWM Cannon trying to be?</h2>
+      <p>
+        In plain terms: a dual-cab ute that competes on <strong>comfort, equipment and warranty packaging</strong>,
+        not badge heritage. It aims to feel “daily-drivable” with a tech-forward cabin and a price point that can
+        undercut many mainstream trims.
+      </p>
+      <div class="callout">
+        <strong>Positioning in the market:</strong> a high-spec alternative to Ranger/HiLux/Triton for buyers who want
+        lots of kit and a comfortable cabin — while accepting that resale confidence and “proven” reputation can still
+        favour long-established Japanese names.
+      </div>
+
+      <h3>Who it tends to suit</h3>
+      <ul>
+        <li><strong>Value-focused private buyers</strong> who want maximum equipment without climbing price ladders.</li>
+        <li><strong>Daily-driver + weekend lifestyle owners</strong> who care about comfort and tech.</li>
+        <li><strong>Shoppers open to Chinese brands</strong> but wanting something closer to mainstream norms.</li>
+      </ul>
+    </section>
+
+    <!-- Section: Reviews synthesis -->
+    <section class="section">
+      <div class="kicker">What reviews tend to agree on</div>
+      <h2>2) The “short version” from public reviews</h2>
+
+      <h3>Strengths that come up repeatedly</h3>
+      <ul>
+        <li><strong>Strong value</strong>: generous equipment lists for the price are a recurring headline.</li>
+        <li><strong>Comfort-oriented cabin</strong>: often described as more SUV-like than work-truck-like.</li>
+        <li><strong>Ownership pitch</strong>: long warranty coverage (as published) helps reduce perceived risk.</li>
+        <li><strong>Competitive towing on paper</strong>: many trims list 3.0–3.5t depending on variant/year.</li>
+      </ul>
+
+      <h3>Where criticism is consistent</h3>
+      <ul>
+        <li><strong>Powertrain refinement</strong> can feel less polished than top mainstream rivals, especially under load.</li>
+        <li><strong>Real-world economy</strong> is not always class-leading compared with Japanese benchmarks.</li>
+        <li><strong>Long-term durability & resale confidence</strong> remain the big “unknowns” for conservative buyers.</li>
+      </ul>
+
+      <div class="callout">
+        The most consistent framing is: <strong>great value and comfort</strong>, but not the segment’s “most proven”
+        heavy-duty choice — especially for fleets and high-kilometre work use.
+      </div>
+    </section>
+
+    <!-- Section: Data -->
+    <section class="section" id="data">
+      <div class="kicker">Data snapshot</div>
+      <h2>3) Key public numbers (specs, towing, safety)</h2>
+
+      <h3>Core capability (commonly published figures)</h3>
+      <ul>
+        <li><strong>Engine:</strong> 2.0-litre turbo-diesel with <strong>~120kW</strong> and <strong>~400Nm</strong> (variant/year dependent).</li>
+        <li><strong>Transmission:</strong> 8-speed automatic (commonly reported).</li>
+        <li><strong>Braked towing:</strong> <strong>~3000–3500kg</strong> (varies by trim/market year).</li>
+        <li><strong>Payload:</strong> often published around <strong>~1000kg</strong> (claimed; varies by variant).</li>
+        <li><strong>Safety:</strong> 5-star ANCAP is commonly referenced for earlier Cannon generations; check the exact year/variant.</li>
+      </ul>
+
+      <div class="viz-row">
+        <!-- Scorecard (indicative, not official) -->
+        <div class="viz">
+          <div class="title">
+            <span>Indicative scorecard (how it’s often perceived)</span>
+            <span class="tag">Not official</span>
+          </div>
+
+          <div class="metric"><span>Value / equipment</span><span><strong>High</strong></span></div>
+          <div class="meter"><div class="fill" style="width:90%"></div></div>
+
+          <div class="metric" style="margin-top:10px"><span>Comfort / daily drivability</span><span><strong>Strong</strong></span></div>
+          <div class="meter"><div class="fill" style="width:82%"></div></div>
+
+          <div class="metric" style="margin-top:10px"><span>Workhorse reputation</span><span><strong>Mid</strong></span></div>
+          <div class="meter"><div class="fill" style="width:62%"></div></div>
+
+          <div class="metric" style="margin-top:10px"><span>Resale confidence</span><span><strong>Mid</strong></span></div>
+          <div class="meter"><div class="fill" style="width:58%"></div></div>
+
+          <div class="small" style="margin-top:10px">
+            Note: These bars are a simple “buyer-perception” organiser based on recurring review themes —
+            not a substitute for your own inspections, quotes, and test drives.
+          </div>
+        </div>
+
+        <!-- Ownership / coverage -->
+        <div class="viz">
+          <div class="title">
+            <span>Ownership packaging (as published)</span>
+            <span class="tag">Warranty & support</span>
+          </div>
+
+          <div class="metric"><span>Warranty</span><span><strong>Long coverage (check terms)</strong></span></div>
+          <div class="meter"><div class="fill" style="width:88%"></div></div>
+
+          <div class="metric" style="margin-top:10px"><span>Value of standard equipment</span><span><strong>High</strong></span></div>
+          <div class="meter"><div class="fill" style="width:92%"></div></div>
+
+          <div class="metric" style="margin-top:10px"><span>Risk notes</span><span><strong>Variant/year matters</strong></span></div>
+          <div class="meter"><div class="fill" style="width:70%"></div></div>
+
+          <div class="small" style="margin-top:10px">
+            Always confirm exact specs, towing, safety rating year, and warranty terms for your chosen grade and build date.
+          </div>
+        </div>
+      </div>
+
+      <div class="sources">
+        <div style="font-weight:700;color:#F9FAFB">Sources (public)</div>
+        <div class="hr"></div>
+        <ul style="margin:0 0 6px 18px">
+          <li>Use this section to link your usual public sources (ANCAP, manufacturer spec pages, reputable reviews).</li>
+          <li>Tip: keep links to 2–4 high-quality sources per model page for consistency across your site.</li>
+        </ul>
+        <div class="small">
+          We summarise and organise publicly available information. If any source updates, specs and figures may change by variant/year.
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Who it suits -->
+    <section class="section" id="who-it-suits">
+      <div class="kicker">Who it suits</div>
+      <h2>6) Who the GWM Cannon is — and isn’t — likely to suit</h2>
+
+      <div class="grid-2">
+        <div class="who-card">
+          <div class="label label-ok">Best suited for</div>
+          <ul>
+            <li>Buyers focused on <strong>maximum equipment for the money</strong>, especially cabin tech and comfort.</li>
+            <li><strong>Daily driver + weekend</strong> owners who want a ute that feels easy to live with.</li>
+            <li>Private buyers who like the idea of <strong>long ownership coverage</strong> (confirm exact terms).</li>
+            <li>People open to <strong>Chinese brands</strong> but wanting a mainstream-feeling product.</li>
+          </ul>
+        </div>
+
+        <div class="who-card">
+          <div class="label label-warn">May be less ideal for</div>
+          <ul>
+            <li>High-kilometre work users who prioritise <strong>proven durability</strong> above all else.</li>
+            <li>Buyers who care most about <strong>resale value</strong> and long-established fleet reputation.</li>
+            <li>Owners who tow heavy loads frequently and want the <strong>most refined drivetrain</strong> in the segment.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:12px">
+        <strong>Best use of this page:</strong> shortlist rationally, then validate with a test drive, local dealer support,
+        confirmed towing/payload figures, and real insurance/finance quotes.
+      </div>
+    </section>
+
+    <!-- Section: CTA -->
+    <section class="section">
+      <div class="kicker">Next step</div>
+      <h2>5) Put the GWM Cannon in your own ranking scenario</h2>
+      <p>
+        In your ranking model, the Cannon typically moves up if you weight <strong>value and equipment</strong> heavily.
+        It can move down if you weight <strong>resale confidence</strong> and <strong>long-term proven reliability</strong>
+        above everything.
+      </p>
+      <p style="margin-top:10px">
+        <a class="btn-primary" href="ute-calculator.html">Open the Ute Calculator</a>
+        <span style="display:inline-block;margin-left:10px;color:var(--muted);font-size:.90rem">
+          (Adjust weights and see how rankings change.)
+        </span>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div style="font-weight:600;color:#E5E7EB">Auto Insight Lab</div>
+    <div style="margin-top:6px">
+      Independent, data-first automotive information for Australia. We do not conduct physical vehicle testing.
+      Nothing here is financial, legal, or personalised purchase advice — always validate with official specs, test drives,
+      inspections, and professional guidance.
+    </div>
+  </footer>
+</body>
+</html>
