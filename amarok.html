@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Volkswagen Amarok (Australia) – Data Summary & Buyer Fit | Auto Insight Lab</title>
+
+  <style>
+    :root{
+      --bg:#020617;
+      --card:#0B1224;
+      --text:#E5E7EB;
+      --muted:#9CA3AF;
+      --border:rgba(148,163,184,.35);
+      --accent:#2563EB;
+      --accent2:#F97316;
+      --good:#22C55E;
+      --warn:#FBBF24;
+      --radius-lg:20px;
+      --radius-md:12px;
+      --shadow:0 22px 60px rgba(15,23,42,.72);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.26), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15,23,42,.95), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    a{color:inherit}
+
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(to bottom, rgba(15,23,42,.96), rgba(15,23,42,.90));
+      border-bottom:1px solid rgba(30,64,175,.60);
+    }
+    .nav-inner{
+      max-width:1120px;margin:0 auto;padding:14px 20px;
+      display:flex;align-items:center;justify-content:space-between;
+      font-size:.9rem;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      font-weight:650;letter-spacing:.08em;text-transform:uppercase;
+      font-size:.8rem;
+    }
+    .brand-mark{
+      width:28px;height:28px;border-radius:6px;
+      background:linear-gradient(135deg,#0F172A,#1E293B);
+      border:1px solid rgba(148,163,184,.85);
+      position:relative;overflow:hidden;
+    }
+    .brand-mark::before{
+      content:"";position:absolute;left:-30%;top:50%;
+      width:160%;height:2px;
+      background:linear-gradient(90deg,var(--accent2),#FACC15,var(--good));
+      opacity:.85;
+    }
+    .nav-links{display:flex;gap:16px;align-items:center}
+    .nav-link{text-decoration:none;color:var(--muted)}
+    .nav-link:hover{color:var(--text);text-decoration:underline}
+    .nav-pill{
+      padding:5px 11px;border-radius:999px;
+      background:rgba(15,23,42,.90);
+      border:1px solid rgba(148,163,184,.70);
+      font-size:.78rem;
+      display:inline-flex;align-items:center;gap:8px;
+    }
+    .nav-pill::before{
+      content:"";width:7px;height:7px;border-radius:999px;
+      background:var(--good);box-shadow:0 0 8px rgba(34,197,94,.9);
+    }
+
+    .page{max-width:1120px;margin:26px auto 64px;padding:0 20px}
+
+    /* Hero */
+    .hero{
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.75);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:22px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(to right, rgba(15,23,42,.75), transparent 55%),
+        radial-gradient(circle at top right, rgba(37,99,235,.22), transparent 62%);
+      pointer-events:none;
+    }
+    .hero-kicker{
+      position:relative;z-index:1;
+      display:inline-flex;align-items:center;gap:8px;
+      padding:4px 10px 4px 6px;border-radius:999px;
+      background:rgba(15,23,42,.94);
+      border:1px solid rgba(148,163,184,.7);
+      font-size:.76rem;color:#CBD5F5;
+    }
+    .kdot{
+      width:18px;height:18px;border-radius:999px;
+      background:radial-gradient(circle at 30% 30%, #F9FAFB, #60A5FA);
+    }
+    .hero-title{
+      position:relative;z-index:1;
+      margin:14px 0 8px;
+      font-size:clamp(2rem,3.2vw,2.6rem);
+      font-weight:820;
+      background:linear-gradient(135deg,#E5E7EB,#BFDBFE);
+      -webkit-background-clip:text;color:transparent;
+    }
+    .hero-sub{
+      position:relative;z-index:1;
+      max-width:800px;
+      font-size:.98rem;color:#CBD5F5;
+    }
+    .hero-badges{
+      position:relative;z-index:1;
+      display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;
+      font-size:.84rem;color:var(--muted);
+    }
+    .badge{
+      padding:6px 10px;border-radius:999px;
+      background:rgba(15,23,42,.92);
+      border:1px solid rgba(148,163,184,.65);
+    }
+
+    .section{
+      margin-top:18px;
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.72);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+    .kicker{
+      text-transform:uppercase;letter-spacing:.14em;
+      font-size:.72rem;color:var(--muted);
+    }
+    h2{
+      margin:8px 0;
+      font-size:1.36rem;
+      border-left:3px solid rgba(37,99,235,.85);
+      padding-left:10px;
+    }
+    p{margin:6px 0 12px;font-size:.96rem}
+    ul{margin:6px 0 12px 20px;font-size:.95rem}
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+    .card{
+      background:rgba(2,6,23,.55);
+      border:1px solid rgba(148,163,184,.42);
+      border-radius:16px;
+      padding:14px;
+    }
+    .label{
+      display:inline-flex;
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.78rem;
+      border:1px solid rgba(148,163,184,.6);
+      background:rgba(2,6,23,.35);
+    }
+    .label-ok{
+      border-color:rgba(34,197,94,.65);
+      color:#bbf7d0;
+      background:rgba(34,197,94,.08);
+    }
+    .label-warn{
+      border-color:rgba(249,115,22,.7);
+      color:#fed7aa;
+      background:rgba(249,115,22,.08);
+    }
+
+    .callout{
+      margin-top:12px;
+      padding:12px;
+      border-radius:12px;
+      background:linear-gradient(135deg, rgba(15,23,42,1), rgba(30,64,175,.55));
+      border:1px solid rgba(59,130,246,.6);
+      font-size:.95rem;
+    }
+
+    @media(max-width:900px){
+      .grid-2{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <span>Auto Insight Lab</span>
+    </div>
+    <nav class="nav-links">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="ute-calculator.html">Ute Calculator</a>
+      <span class="nav-pill">Australia • Ute Review</span>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-kicker"><span class="kdot"></span>Ute review • Data summary</div>
+    <h1 class="hero-title">Volkswagen Amarok (Australia): what the data suggests</h1>
+    <p class="hero-sub">
+      The second-generation Volkswagen Amarok shares its core platform with the Ford Ranger, but targets a
+      different buyer. Public data and reviews consistently frame the Amarok as a more
+      <strong>road-focused, premium-leaning dual-cab</strong> rather than a pure worksite tool.
+    </p>
+    <div class="hero-badges">
+      <div class="badge">Platform: Ranger-based</div>
+      <div class="badge">Max towing: 3500kg</div>
+      <div class="badge">V6 option available</div>
+      <div class="badge">Positioning: lifestyle + comfort</div>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="section">
+    <div class="kicker">Overview</div>
+    <h2>1) What is the Amarok trying to be?</h2>
+    <p>
+      Unlike traditional “work-first” utes, the Amarok is positioned as a
+      <strong>dual-cab that blends Ranger hardware with Volkswagen tuning and interior design</strong>.
+      Most public reviews highlight refinement, on-road stability and cabin presentation as its key differentiators.
+    </p>
+    <p>
+      In simple terms: if the Ranger is the benchmark all-rounder,
+      the Amarok is the version aimed at buyers who care more about
+      <strong>daily driving comfort and perceived quality</strong> than ultimate payload bragging rights.
+    </p>
+  </section>
+
+  <!-- Strengths / limits -->
+  <section class="section">
+    <div class="kicker">Review synthesis</div>
+    <h2>2) What reviewers broadly agree on</h2>
+
+    <h3>Strengths</h3>
+    <ul>
+      <li><strong>Strong powertrain options</strong>, including a V6 diesel with confident towing performance.</li>
+      <li><strong>Excellent on-road manners</strong> for a dual-cab, especially compared with older utes.</li>
+      <li><strong>Interior quality</strong> stands out against most mainstream ute cabins.</li>
+      <li><strong>Shared Ranger platform</strong> brings proven engineering and wide service support.</li>
+    </ul>
+
+    <h3>Trade-offs</h3>
+    <ul>
+      <li><strong>Pricing sits higher</strong> than many similarly sized utes with comparable capability.</li>
+      <li><strong>Payload figures</strong> are generally lower than work-focused rivals.</li>
+      <li>Less “rugged” positioning may not suit buyers prioritising heavy daily trade use.</li>
+    </ul>
+  </section>
+
+  <!-- Data snapshot -->
+  <section class="section">
+    <div class="kicker">Data snapshot</div>
+    <h2>3) Key public specifications (indicative)</h2>
+
+    <ul>
+      <li><strong>Engines:</strong> 2.0-litre turbo-diesel (single/twin) and 3.0-litre V6 turbo-diesel.</li>
+      <li><strong>Transmission:</strong> 10-speed automatic.</li>
+      <li><strong>Braked towing:</strong> Up to <strong>3500kg</strong>.</li>
+      <li><strong>Payload:</strong> ~900–1000kg depending on variant.</li>
+      <li><strong>Drivetrain:</strong> 4×4 with multiple drive modes.</li>
+      <li><strong>Safety:</strong> 5-star ANCAP (shared assessment with Ranger).</li>
+    </ul>
+
+    <div class="callout">
+      These figures reflect commonly published specs. Always confirm exact numbers by variant,
+      as Amarok trims vary more in comfort and equipment than in outright capability.
+    </div>
+  </section>
+
+  <!-- Who it suits -->
+  <section class="section">
+    <div class="kicker">Buyer fit</div>
+    <h2>4) Who the Amarok suits — and who it doesn’t</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="label label-ok">Best suited for</div>
+        <ul>
+          <li>Drivers wanting a <strong>premium-feeling ute</strong> for daily use.</li>
+          <li>Buyers who like the Ranger’s capability but prefer a more refined cabin.</li>
+          <li>Owners towing boats or caravans who value comfort on long trips.</li>
+          <li>Users splitting time between commuting and weekend lifestyle use.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="label label-warn">May be less ideal for</div>
+        <ul>
+          <li>Tradies prioritising <strong>maximum payload</strong> above everything else.</li>
+          <li>Buyers seeking the lowest-cost workhorse per dollar.</li>
+          <li>Those who prefer a simpler, more utilitarian interior.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Positioning -->
+  <section class="section">
+    <div class="kicker">Market position</div>
+    <h2>5) Where the Amarok fits among popular utes</h2>
+    <p>
+      In data-driven comparisons, the Amarok typically scores strongly on
+      <strong>performance, safety and comfort</strong>, while sitting slightly behind
+      work-focused rivals on payload value.
+    </p>
+    <p>
+      It is best viewed as a <strong>lifestyle-oriented interpretation of the Ranger platform</strong> —
+      not a direct replacement for heavy-duty fleet utes, but a compelling option for buyers
+      who want one vehicle to do many things well.
+    </p>
+
+    <div class="callout">
+      <strong>Best way to use this page:</strong> shortlist the Amarok alongside Ranger, D-MAX and BT-50,
+      then adjust weightings in the Ute Calculator to see how comfort vs work priorities change the ranking.
+    </div>
+  </section>
+
+</main>
+
+<footer class="nav" style="border-top:1px solid rgba(30,64,175,.55);margin-top:24px;">
+  <div class="nav-inner">
+    <div style="font-size:.82rem;color:var(--muted);">
+      Auto Insight Lab — Independent, data-first automotive summaries for Australia.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
