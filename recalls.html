@@ -466,7 +466,7 @@
 
           <div class="filters">
             <div>
-              <label for="yearSel">Year (recall_date)</label>
+              <label for="yearSel">Year</label>
               <select id="yearSel">
                 <option value="">All years</option>
               </select>
@@ -668,6 +668,23 @@
       return Array.from(map.values());
     }
 
+    function renderStats(data){
+      const totalRecalls = data.length;
+      const totalUnits = data.reduce((s,r)=>s+toInt(r.affected_units),0);
+    
+      statRecalls.textContent = totalRecalls.toLocaleString();
+      statUnits.textContent = totalUnits.toLocaleString();
+    
+      const agg = computeMakeAgg(data);
+      const top = agg.sort((a,b)=>(b.count-a.count) || (b.units-a.units) || a.make.localeCompare(b.make))[0];
+      statTopMake.textContent = top ? top.make : "—";
+    
+      // 右上角 chips 也可以跟着筛选更新（可选，但我建议这样更一致）
+      matchHint.textContent = totalRecalls
+        ? `${totalRecalls.toLocaleString()} recall notices match.`
+        : `No matches. Try clearing filters.`;
+    }
+
     function renderRanking(data){
       const agg = computeMakeAgg(data);
 
@@ -713,11 +730,15 @@
       });
 
       const total = FILTERED.length;
-      matchHint.textContent = total ? `${total.toLocaleString()} recall notices match.` : `No matches. Try clearing filters.`;
 
-      renderRanking(FILTERED.length ? FILTERED : RAW);
+      // 让左侧统计卡片跟随筛选（如果筛选为空，就显示0而不是回退RAW）
+      renderStats(FILTERED);
+      
+      // 榜单和列表跟随筛选；如果筛选结果为空，榜单可以显示RAW（更不空），也可以显示空。
+      // 我建议：榜单仍显示“当前筛选”的排序，空就空，用户更直觉。
+      renderRanking(FILTERED);
       renderGroups(FILTERED);
-
+      
       // Summary
       const units = FILTERED.reduce((s,r)=>s+toInt(r.affected_units),0);
       resultSummary.textContent = `${total.toLocaleString()} recalls • ${units.toLocaleString()} affected units (sum)`;
@@ -850,6 +871,7 @@
         // initial render
         FILTERED = RAW.slice();
         matchHint.textContent = `${FILTERED.length.toLocaleString()} recall notices match.`;
+        renderStats(RAW);
         renderRanking(RAW);
         renderGroups(RAW);
         resultSummary.textContent = `${RAW.length.toLocaleString()} recalls • ${totalUnits.toLocaleString()} affected units (sum)`;
