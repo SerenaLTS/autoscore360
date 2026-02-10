@@ -1,0 +1,886 @@
+<!-- recalls.html (place in same folder as recalls_output.csv) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vehicle Recalls (2024–2026) | Auto Insight Lab</title>
+
+  <style>
+    :root{
+      --bg:#020617;
+      --card:#0B1224;
+      --card2:#0A1020;
+      --text:#E5E7EB;
+      --muted:#9CA3AF;
+      --border:rgba(148,163,184,.40);
+      --accent:#2563EB;
+      --accent2:#F97316;
+      --good:#22C55E;
+      --warn:#FBBF24;
+      --radius-lg:20px;
+      --radius-md:12px;
+      --shadow:0 22px 60px rgba(15,23,42,.72);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.22), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15,23,42,.98), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit}
+    .page{max-width:1180px;margin:22px auto 56px;padding:0 20px}
+
+    /* Top nav */
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(to bottom, rgba(15,23,42,.96), rgba(15,23,42,.90));
+      border-bottom:1px solid rgba(30,64,175,.60);
+    }
+    .nav-inner{
+      max-width:1180px;margin:0 auto;padding:14px 20px;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      font-size:.92rem;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      font-weight:650;letter-spacing:.08em;text-transform:uppercase;
+      font-size:.82rem;white-space:nowrap;
+    }
+    .brand-mark{
+      width:28px;height:28px;border-radius:6px;
+      background:linear-gradient(135deg,#0F172A,#1E293B);
+      border:1px solid rgba(148,163,184,.85);
+      position:relative;overflow:hidden;
+      box-shadow:0 0 0 1px rgba(15,23,42,.9), 0 8px 18px rgba(15,23,42,.9);
+    }
+    .brand-mark::before{
+      content:"";position:absolute;left:-30%;top:50%;
+      width:160%;height:2px;
+      background:linear-gradient(90deg,var(--accent2),#FACC15,var(--good));
+      opacity:.85;
+    }
+    .nav-links{
+      display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav-link{
+      text-decoration:none;color:var(--muted);
+      font-size:.88rem;position:relative;padding:4px 0;
+    }
+    .nav-link:hover{color:var(--text)}
+    .nav-pill{
+      padding:5px 11px;border-radius:999px;
+      background:rgba(15,23,42,.90);
+      border:1px solid rgba(148,163,184,.70);
+      font-size:.78rem;color:var(--text);
+      display:inline-flex;align-items:center;gap:8px;
+      white-space:nowrap;
+    }
+    .nav-pill::before{
+      content:"";width:7px;height:7px;border-radius:999px;
+      background:var(--good);box-shadow:0 0 8px rgba(34,197,94,.9);
+    }
+
+    /* Hero */
+    .hero{
+      margin-top:18px;
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.72);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:18px 18px 16px;
+      position:relative;overflow:hidden;
+    }
+    .hero::before{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(to right, rgba(15,23,42,.72), transparent 60%),
+        radial-gradient(circle at top right, rgba(37,99,235,.22), transparent 62%);
+      opacity:.95;pointer-events:none;
+    }
+    .hero > *{position:relative;z-index:1}
+    .kicker{
+      text-transform:uppercase;letter-spacing:.14em;
+      font-size:.72rem;color:var(--muted);margin-bottom:6px;
+    }
+    h1{
+      margin:0 0 8px;
+      font-size:clamp(1.8rem,2.6vw,2.2rem);
+      font-weight:820;letter-spacing:.02em;line-height:1.08;
+      background:linear-gradient(135deg,#E5E7EB,#BFDBFE);
+      -webkit-background-clip:text;color:transparent;
+    }
+    .sub{
+      margin:0;
+      color:#CBD5F5;
+      max-width:920px;
+      font-size:.96rem;
+    }
+    .chips{
+      margin-top:12px;
+      display:flex;flex-wrap:wrap;gap:10px;
+      color:var(--muted);font-size:.84rem;
+    }
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border-radius:999px;
+      background:rgba(15,23,42,.92);
+      border:1px solid rgba(148,163,184,.60);
+      white-space:nowrap;
+    }
+
+    /* Layout blocks */
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:14px;
+      margin-top:14px;
+      align-items:start;
+    }
+    .panel{
+      background:rgba(15,23,42,.98);
+      border:1px solid rgba(100,116,139,.78);
+      border-radius:16px;
+      box-shadow:0 14px 34px rgba(15,23,42,.82);
+      padding:14px 14px 12px;
+    }
+    .panel-title{
+      display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+      margin-bottom:10px;
+    }
+    .panel-title strong{font-size:.98rem}
+    .tag{
+      font-size:.72rem;padding:2px 8px;border-radius:999px;
+      background:rgba(37,99,235,.16);
+      border:1px solid rgba(59,130,246,.8);
+      color:#BFDBFE;white-space:nowrap;
+    }
+
+    /* Overview cards (3 per row) */
+    .cards-3{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:12px;
+      margin-top:12px;
+    }
+    .stat{
+      background:rgba(2,6,23,.55);
+      border:1px solid rgba(148,163,184,.38);
+      border-radius:16px;
+      padding:12px 12px 10px;
+    }
+    .stat .label{font-size:.76rem;color:var(--muted)}
+    .stat .value{font-size:1.14rem;font-weight:820;margin-top:4px}
+    .stat .note{font-size:.78rem;color:#CBD5F5;margin-top:2px}
+
+    /* Filters */
+    .filters{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap:10px;
+      margin-top:10px;
+    }
+    label{font-size:.74rem;color:var(--muted);display:block;margin-bottom:6px}
+    select, input{
+      width:100%;
+      padding:10px 10px;
+      background:#0A1020;
+      border:1px solid rgba(148,163,184,.40);
+      color:var(--text);
+      border-radius:12px;
+      outline:none;
+      font-size:.90rem;
+    }
+    input:focus, select:focus{
+      border-color:rgba(59,130,246,.85);
+      box-shadow:0 0 0 4px rgba(37,99,235,.12);
+    }
+    .actions{
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px;
+    }
+    .btn{
+      border:none;
+      padding:9px 14px;
+      border-radius:999px;
+      font-weight:650;
+      cursor:pointer;
+      font-size:.88rem;
+      color:#F9FAFB;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 16px 40px rgba(15,23,42,.9);
+      display:inline-flex;align-items:center;gap:8px;
+    }
+    .btn.secondary{
+      background:transparent;
+      border:1px solid rgba(148,163,184,.55);
+      color:var(--text);
+      box-shadow:none;
+    }
+    .btn:active{transform:translateY(1px)}
+
+    /* Tables */
+    table{width:100%;border-collapse:collapse}
+    .table{
+      background:rgba(2,6,23,.55);
+      border:1px solid rgba(148,163,184,.38);
+      border-radius:16px;
+      overflow:hidden;
+    }
+    .table th, .table td{
+      padding:10px 10px;
+      border-bottom:1px solid rgba(51,65,85,.65);
+      text-align:left;
+      font-size:.88rem;
+      vertical-align:top;
+    }
+    .table th{
+      font-size:.78rem;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color:#CBD5F5;
+      background:rgba(15,23,42,.92);
+    }
+    .table tr:hover td{background:rgba(15,23,42,.45)}
+    .right{text-align:right}
+
+    .small{font-size:.84rem;color:var(--muted)}
+    .muted{color:var(--muted)}
+
+    /* Results */
+    .section{
+      margin-top:14px;
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.72);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:16px 16px 14px;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:1.18rem;
+      color:#F9FAFB;
+      border-left:3px solid rgba(37,99,235,.85);
+      padding-left:10px;
+    }
+
+    .result-head{
+      display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;
+      margin-bottom:10px;
+    }
+
+    .group{
+      background:rgba(2,6,23,.55);
+      border:1px solid rgba(148,163,184,.35);
+      border-radius:16px;
+      padding:12px 12px 8px;
+      margin-bottom:12px;
+    }
+    .group-top{
+      display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;
+      margin-bottom:8px;
+    }
+    .group-title{
+      font-weight:820;
+      font-size:1.02rem;
+      letter-spacing:.02em;
+    }
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(148,163,184,.55);
+      background:rgba(15,23,42,.65);
+      font-size:.78rem;color:#CBD5F5;
+      white-space:nowrap;
+    }
+    .pill::before{
+      content:"";
+      width:7px;height:7px;border-radius:999px;
+      background:rgba(249,115,22,.95);
+      box-shadow:0 0 8px rgba(249,115,22,.50);
+    }
+
+    details{
+      border-top:1px solid rgba(148,163,184,.20);
+      padding-top:10px;
+      margin-top:10px;
+    }
+    summary{
+      cursor:pointer;
+      list-style:none;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      justify-content:space-between;
+      font-size:.92rem;
+    }
+    summary::-webkit-details-marker{display:none}
+    .row-left{min-width:0}
+    .row-title{
+      font-weight:750;
+      color:#E5E7EB;
+    }
+    .row-meta{
+      margin-top:3px;
+      font-size:.82rem;
+      color:#CBD5F5;
+      display:flex;gap:10px;flex-wrap:wrap;
+    }
+    .kv{opacity:.9}
+    .kv strong{color:#F9FAFB}
+    .open-link{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:.82rem;
+      color:#93C5FD;
+      text-decoration:none;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.45);
+      background:rgba(15,23,42,.6);
+      white-space:nowrap;
+      flex-shrink:0;
+    }
+    .open-link:hover{text-decoration:underline}
+    .reason{
+      margin-top:8px;
+      color:#E5E7EB;
+      font-size:.92rem;
+      line-height:1.65;
+    }
+
+    .footer{
+      margin-top:14px;
+      padding:16px 20px 28px;
+      border-top:1px solid rgba(30,64,175,.55);
+      color:var(--muted);
+      font-size:.84rem;
+      max-width:1180px;margin-left:auto;margin-right:auto;
+    }
+
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr}
+      .filters{grid-template-columns: 1fr 1fr}
+      .cards-3{grid-template-columns:1fr}
+    }
+    @media (max-width: 520px){
+      .filters{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Auto Insight Lab</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="#overview">Overview</a>
+        <a class="nav-link" href="#search">Search</a>
+        <a class="nav-link" href="#results">Results</a>
+        <span class="nav-pill">Australia • 2024–2026</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="kicker">Vehicle recalls • Public dataset organiser</div>
+      <h1>Vehicle recalls (2024–2026): brand ranking + searchable database</h1>
+      <p class="sub">
+        This page loads your <strong>recalls_output.csv</strong> and turns it into a simple “data-first” dashboard:
+        top brands by recall volume, plus filters by year, make, model and recall reason.
+      </p>
+
+      <div class="chips">
+        <div class="chip"><strong id="chipTotal">—</strong> total recalls loaded</div>
+        <div class="chip"><strong id="chipYears">—</strong> years covered</div>
+        <div class="chip"><strong id="chipMakes">—</strong> unique makes</div>
+      </div>
+
+      <div class="grid" id="overview">
+        <div class="panel">
+          <div class="panel-title">
+            <strong>Overview</strong>
+            <span class="tag">2024–2026 snapshot</span>
+          </div>
+
+          <div class="cards-3">
+            <div class="stat">
+              <div class="label">Recalls (count)</div>
+              <div class="value" id="statRecalls">—</div>
+              <div class="note">number of recall notices</div>
+            </div>
+            <div class="stat">
+              <div class="label">Affected units (sum)</div>
+              <div class="value" id="statUnits">—</div>
+              <div class="note">sum of affected_units</div>
+            </div>
+            <div class="stat">
+              <div class="label">Top make by recalls</div>
+              <div class="value" id="statTopMake">—</div>
+              <div class="note">by notice count</div>
+            </div>
+          </div>
+
+          <div class="actions" style="margin-top:12px">
+            <button class="btn secondary" id="toggleRank" type="button">Ranking: by recall count</button>
+            <span class="small muted">Click to switch to affected-units ranking.</span>
+          </div>
+
+          <div style="margin-top:12px" class="table">
+            <table aria-label="Brand ranking table">
+              <thead>
+                <tr>
+                  <th style="width:56px">Rank</th>
+                  <th>Make</th>
+                  <th class="right" id="rankColHeader">Recalls</th>
+                  <th class="right">Affected units</th>
+                </tr>
+              </thead>
+              <tbody id="rankBody">
+                <tr><td colspan="4" class="muted">Loading…</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="small" style="margin-top:8px">
+            Tip: ranking shows <strong>Top 15 makes</strong>. Use filters below for specific makes/models/reasons.
+          </div>
+        </div>
+
+        <div class="panel" id="search">
+          <div class="panel-title">
+            <strong>Search & filters</strong>
+            <span class="tag">Instant filter</span>
+          </div>
+
+          <div class="filters">
+            <div>
+              <label for="yearSel">Year (recall_date)</label>
+              <select id="yearSel">
+                <option value="">All years</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="makeSel">Make</label>
+              <select id="makeSel">
+                <option value="">All makes</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="modelInput">Model contains</label>
+              <input id="modelInput" placeholder="e.g. Ranger, Hilux, D-MAX" />
+            </div>
+
+            <div>
+              <label for="reasonInput">Reason keyword</label>
+              <input id="reasonInput" placeholder="e.g. airbag, fuel, brake, fire…" />
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="btn" id="applyBtn" type="button">Apply filters</button>
+            <button class="btn secondary" id="resetBtn" type="button">Reset</button>
+            <span class="small muted" id="matchHint">—</span>
+          </div>
+
+          <div class="small" style="margin-top:10px">
+            Notes:
+            <ul style="margin:6px 0 0 18px;color:#CBD5F5">
+              <li>Year is parsed from <strong>recall_date</strong> (e.g. 3-Jan-24 → 2024).</li>
+              <li>Results are grouped by <strong>Make + Model</strong>; each recall expands to show full reason + official link.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="result-head">
+        <div>
+          <div class="kicker">Results</div>
+          <h2>Filtered recalls (grouped by Make + Model)</h2>
+        </div>
+        <div class="small muted" id="resultSummary">—</div>
+      </div>
+
+      <div id="groupsWrap">
+        <div class="muted">Loading…</div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div style="font-weight:650;color:#E5E7EB">Auto Insight Lab</div>
+      <div style="margin-top:6px">
+        This page organises publicly available recall listings. Always confirm details on the official notice link.
+        The dashboard is a helper, not legal/financial advice.
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // ===== CSV loader + parser (handles commas inside quotes) =====
+    function parseCSV(text) {
+      const rows = [];
+      let i = 0, field = "", row = [], inQuotes = false;
+
+      while (i < text.length) {
+        const c = text[i];
+
+        if (c === '"') {
+          // double quote inside quoted field -> ""
+          if (inQuotes && text[i+1] === '"') { field += '"'; i += 2; continue; }
+          inQuotes = !inQuotes; i++; continue;
+        }
+
+        if (!inQuotes && (c === ',' || c === '\n' || c === '\r')) {
+          if (c === '\r' && text[i+1] === '\n') i++; // CRLF
+          row.push(field);
+          field = "";
+          if (c === '\n' || c === '\r') { rows.push(row); row = []; }
+          i++;
+          continue;
+        }
+
+        field += c; i++;
+      }
+      // last field
+      row.push(field);
+      rows.push(row);
+
+      const header = rows.shift().map(h => (h || "").trim());
+      return rows
+        .filter(r => r.length > 1 && r.some(x => (x || "").trim() !== ""))
+        .map(r => {
+          const obj = {};
+          header.forEach((h, idx) => obj[h] = (r[idx] ?? "").trim());
+          return obj;
+        });
+    }
+
+    // ===== date parsing: "3-Jan-24" -> 2024 =====
+    const MON = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+
+    function parseRecallDate(s){
+      // expected like: 3-Jan-24 / 12-Jan-25 etc.
+      const m = (s || "").match(/^(\d{1,2})-([A-Za-z]{3})-(\d{2})$/);
+      if (!m) return null;
+      const day = Number(m[1]);
+      const mon = MON[m[2]] ?? null;
+      const yy = Number(m[3]);
+      if (mon === null || Number.isNaN(day) || Number.isNaN(yy)) return null;
+      const year = 2000 + yy;
+      return { year, day, mon, iso: new Date(Date.UTC(year, mon, day)).toISOString().slice(0,10) };
+    }
+
+    function toInt(x){
+      if (x === null || x === undefined) return 0;
+      const s = String(x).replace(/,/g,"").trim();
+      const n = Number(s);
+      return Number.isFinite(n) ? n : 0;
+    }
+
+    function norm(s){ return (s || "").toString().trim(); }
+    function normKey(s){ return norm(s).toUpperCase(); }
+
+    function escapeHTML(str){
+      return (str || "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    // ===== State =====
+    let RAW = [];
+    let FILTERED = [];
+    let rankBy = "count"; // "count" or "units"
+
+    // ===== DOM =====
+    const chipTotal = document.getElementById("chipTotal");
+    const chipYears = document.getElementById("chipYears");
+    const chipMakes = document.getElementById("chipMakes");
+
+    const statRecalls = document.getElementById("statRecalls");
+    const statUnits = document.getElementById("statUnits");
+    const statTopMake = document.getElementById("statTopMake");
+
+    const yearSel = document.getElementById("yearSel");
+    const makeSel = document.getElementById("makeSel");
+    const modelInput = document.getElementById("modelInput");
+    const reasonInput = document.getElementById("reasonInput");
+
+    const applyBtn = document.getElementById("applyBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const matchHint = document.getElementById("matchHint");
+
+    const toggleRank = document.getElementById("toggleRank");
+    const rankBody = document.getElementById("rankBody");
+    const rankColHeader = document.getElementById("rankColHeader");
+
+    const groupsWrap = document.getElementById("groupsWrap");
+    const resultSummary = document.getElementById("resultSummary");
+
+    // ===== Build dropdowns =====
+    function rebuildDropdowns(data){
+      const years = new Set();
+      const makes = new Set();
+
+      data.forEach(r => {
+        if (r._year) years.add(r._year);
+        if (r.make) makes.add(norm(r.make));
+      });
+
+      const yearsSorted = Array.from(years).sort((a,b)=>a-b);
+      const makesSorted = Array.from(makes).sort((a,b)=>a.localeCompare(b));
+
+      // Year
+      yearSel.innerHTML = `<option value="">All years</option>` + yearsSorted.map(y => `<option value="${y}">${y}</option>`).join("");
+
+      // Make
+      makeSel.innerHTML = `<option value="">All makes</option>` + makesSorted.map(m => `<option value="${escapeHTML(m)}">${escapeHTML(m)}</option>`).join("");
+    }
+
+    // ===== Ranking =====
+    function computeMakeAgg(data){
+      const map = new Map(); // make -> {count, units}
+      data.forEach(r => {
+        const make = norm(r.make) || "Unknown";
+        const units = toInt(r.affected_units);
+        if (!map.has(make)) map.set(make, { make, count:0, units:0 });
+        const o = map.get(make);
+        o.count += 1;
+        o.units += units;
+      });
+      return Array.from(map.values());
+    }
+
+    function renderRanking(data){
+      const agg = computeMakeAgg(data);
+
+      const sorted = agg.sort((a,b)=>{
+        if (rankBy === "units") return (b.units - a.units) || (b.count - a.count) || a.make.localeCompare(b.make);
+        return (b.count - a.count) || (b.units - a.units) || a.make.localeCompare(b.make);
+      });
+
+      const top = sorted[0];
+      statTopMake.textContent = top ? top.make : "—";
+
+      rankColHeader.textContent = rankBy === "units" ? "Affected units" : "Recalls";
+      toggleRank.textContent = rankBy === "units" ? "Ranking: by affected units" : "Ranking: by recall count";
+
+      const rows = sorted.slice(0,15).map((x, idx)=>{
+        const primary = (rankBy === "units") ? x.units.toLocaleString() : x.count.toLocaleString();
+        return `
+          <tr>
+            <td>${idx+1}</td>
+            <td>${escapeHTML(x.make)}</td>
+            <td class="right"><strong>${primary}</strong></td>
+            <td class="right">${x.units.toLocaleString()}</td>
+          </tr>
+        `;
+      }).join("");
+
+      rankBody.innerHTML = rows || `<tr><td colspan="4" class="muted">No data</td></tr>`;
+    }
+
+    // ===== Filtering =====
+    function applyFilters(){
+      const y = yearSel.value ? Number(yearSel.value) : null;
+      const mk = makeSel.value ? normKey(makeSel.value) : "";
+      const modelKw = normKey(modelInput.value);
+      const reasonKw = normKey(reasonInput.value);
+
+      FILTERED = RAW.filter(r => {
+        if (y && r._year !== y) return false;
+        if (mk && normKey(r.make) !== mk) return false;
+        if (modelKw && !normKey(r.model).includes(modelKw)) return false;
+        if (reasonKw && !normKey(r.reason).includes(reasonKw)) return false;
+        return true;
+      });
+
+      const total = FILTERED.length;
+      matchHint.textContent = total ? `${total.toLocaleString()} recall notices match.` : `No matches. Try clearing filters.`;
+
+      renderRanking(FILTERED.length ? FILTERED : RAW);
+      renderGroups(FILTERED);
+
+      // Summary
+      const units = FILTERED.reduce((s,r)=>s+toInt(r.affected_units),0);
+      resultSummary.textContent = `${total.toLocaleString()} recalls • ${units.toLocaleString()} affected units (sum)`;
+    }
+
+    function resetFilters(){
+      yearSel.value = "";
+      makeSel.value = "";
+      modelInput.value = "";
+      reasonInput.value = "";
+      applyFilters();
+    }
+
+    // ===== Grouped results (Make + Model) =====
+    function groupByMakeModel(data){
+      const map = new Map();
+      data.forEach(r => {
+        const key = `${norm(r.make)}|||${norm(r.model)}`;
+        if (!map.has(key)) map.set(key, []);
+        map.get(key).push(r);
+      });
+
+      // sort groups by count desc, then units desc
+      const groups = Array.from(map.entries()).map(([key, items]) => {
+        const [make, model] = key.split("|||");
+        const count = items.length;
+        const units = items.reduce((s,r)=>s+toInt(r.affected_units),0);
+        // sort items newest first by parsed date
+        items.sort((a,b)=>(b._dateISO || "").localeCompare(a._dateISO || ""));
+        return { make, model, count, units, items };
+      });
+
+      groups.sort((a,b)=>(b.count-a.count) || (b.units-a.units) || (a.make+a.model).localeCompare(b.make+b.model));
+      return groups;
+    }
+
+    function renderGroups(data){
+      if (!data || !data.length){
+        groupsWrap.innerHTML = `<div class="muted">No results. Adjust filters above.</div>`;
+        return;
+      }
+
+      const groups = groupByMakeModel(data);
+
+      const html = groups.map(g => {
+        const header = `
+          <div class="group">
+            <div class="group-top">
+              <div>
+                <div class="group-title">${escapeHTML(g.make)} <span class="muted">•</span> ${escapeHTML(g.model)}</div>
+                <div class="small muted">${g.count} recalls • ${g.units.toLocaleString()} affected units (sum)</div>
+              </div>
+              <div class="pill">Grouped by make + model</div>
+            </div>
+        `;
+
+        const items = g.items.map(r => {
+          const date = r.recall_date || "—";
+          const units = toInt(r.affected_units).toLocaleString();
+          const yr = r.year_range ? `Year range: ${escapeHTML(r.year_range)}` : "";
+          const recNo = r.recall_number ? `Recall: ${escapeHTML(r.recall_number)}` : "";
+          const link = r.link ? r.link : "#";
+          const reason = r.reason || "";
+
+          return `
+            <details>
+              <summary>
+                <div class="row-left">
+                  <div class="row-title">${escapeHTML(date)} <span class="muted">•</span> ${escapeHTML(r.recall_number || "Recall notice")}</div>
+                  <div class="row-meta">
+                    <span class="kv"><strong>Affected:</strong> ${units}</span>
+                    ${r.year_range ? `<span class="kv"><strong>Year range:</strong> ${escapeHTML(r.year_range)}</span>` : ``}
+                  </div>
+                </div>
+                <a class="open-link" href="${escapeHTML(link)}" target="_blank" rel="noopener">Open official notice ↗</a>
+              </summary>
+              <div class="reason">
+                <div class="small muted" style="margin-bottom:6px">${recNo}${recNo && yr ? " • " : ""}${yr}</div>
+                ${escapeHTML(reason)}
+              </div>
+            </details>
+          `;
+        }).join("");
+
+        return header + items + `</div>`;
+      }).join("");
+
+      groupsWrap.innerHTML = html;
+    }
+
+    // ===== Load data =====
+    async function load(){
+      try{
+        const res = await fetch("./recalls_output.csv", { cache: "no-store" });
+        if (!res.ok) throw new Error(`Failed to fetch recalls_output.csv (HTTP ${res.status})`);
+        const text = await res.text();
+        const rows = parseCSV(text);
+
+        // enrich
+        RAW = rows.map(r => {
+          const d = parseRecallDate(r.recall_date);
+          const year = d ? d.year : null;
+          const iso = d ? d.iso : null;
+          return {
+            ...r,
+            affected_units: (r.affected_units || "").toString(),
+            _year: year,
+            _dateISO: iso
+          };
+        }).filter(r => {
+          // keep only 2024-2026 if year parsed; else keep (in case)
+          if (r._year === null) return true;
+          return r._year >= 2024 && r._year <= 2026;
+        });
+
+        // hero chips
+        const years = Array.from(new Set(RAW.map(r=>r._year).filter(Boolean))).sort((a,b)=>a-b);
+        const makes = new Set(RAW.map(r=>norm(r.make)).filter(Boolean));
+        chipTotal.textContent = RAW.length.toLocaleString();
+        chipYears.textContent = years.length ? `${years[0]}–${years[years.length-1]}` : "—";
+        chipMakes.textContent = makes.size.toLocaleString();
+
+        // stats
+        const totalUnits = RAW.reduce((s,r)=>s+toInt(r.affected_units),0);
+        statRecalls.textContent = RAW.length.toLocaleString();
+        statUnits.textContent = totalUnits.toLocaleString();
+
+        rebuildDropdowns(RAW);
+
+        // initial render
+        FILTERED = RAW.slice();
+        matchHint.textContent = `${FILTERED.length.toLocaleString()} recall notices match.`;
+        renderRanking(RAW);
+        renderGroups(RAW);
+        resultSummary.textContent = `${RAW.length.toLocaleString()} recalls • ${totalUnits.toLocaleString()} affected units (sum)`;
+
+      }catch(err){
+        console.error(err);
+        groupsWrap.innerHTML = `<div class="muted">Error: ${escapeHTML(String(err.message || err))}</div>`;
+        rankBody.innerHTML = `<tr><td colspan="4" class="muted">Error loading CSV.</td></tr>`;
+        matchHint.textContent = "Failed to load data. Check file path and name.";
+      }
+    }
+
+    // ===== Events =====
+    applyBtn.addEventListener("click", applyFilters);
+    resetBtn.addEventListener("click", resetFilters);
+
+    // Enter key triggers apply
+    [modelInput, reasonInput].forEach(el => el.addEventListener("keydown", (e)=>{
+      if (e.key === "Enter") applyFilters();
+    }));
+
+    toggleRank.addEventListener("click", ()=>{
+      rankBy = (rankBy === "count") ? "units" : "count";
+      renderRanking(FILTERED.length ? FILTERED : RAW);
+    });
+
+    // auto-apply when dropdown changes
+    yearSel.addEventListener("change", applyFilters);
+    makeSel.addEventListener("change", applyFilters);
+
+    load();
+  </script>
+</body>
+</html>
