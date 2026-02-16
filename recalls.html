@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Vehicle Recalls (2024–2026) | Auto Insight Lab</title>
+  <title>Vehicle Recalls (2020–2026) | Auto Insight Lab</title>
 
   <style>
     :root{
@@ -388,7 +388,7 @@
         <a class="nav-link" href="#overview">Overview</a>
         <a class="nav-link" href="#search">Search</a>
         <a class="nav-link" href="#results">Results</a>
-        <span class="nav-pill">Australia • 2024–2026</span>
+        <span class="nav-pill">Australia • 2020–2026</span>
       </nav>
     </div>
   </header>
@@ -396,7 +396,7 @@
   <main class="page">
     <section class="hero">
       <div class="kicker">Vehicle recalls • Public dataset organiser</div>
-      <h1>Vehicle recalls (2024–2026): brand ranking + searchable database</h1>
+      <h1>Vehicle recalls (2020–2026): brand ranking + searchable database</h1>
       <p class="sub">
         This page loads your <strong>recalls_output.csv</strong> and turns it into a simple “data-first” dashboard:
         top brands by recall volume, plus filters by year, make, model and recall reason.
@@ -412,7 +412,7 @@
         <div class="panel">
           <div class="panel-title">
             <strong>Overview</strong>
-            <span class="tag">2024–2026 snapshot</span>
+            <span class="tag">2020–2026 snapshot</span>
           </div>
 
           <div class="cards-3">
@@ -499,7 +499,7 @@
           <div class="small" style="margin-top:10px">
             Notes:
             <ul style="margin:6px 0 0 18px;color:#CBD5F5">
-              <li>Year is parsed from <strong>recall_date</strong> (e.g. 3-Jan-24 → 2024).</li>
+              <li>Year is parsed from <strong>recall_date</strong> (e.g. 3-Jan-20 → 2020).</li>
               <li>Results are grouped by <strong>Make + Model</strong>; each recall expands to show full reason + official link.</li>
             </ul>
           </div>
@@ -837,7 +837,9 @@
         const text = await res.text();
         const rows = parseCSV(text);
 
-        // enrich
+        const YEAR_MIN = 2020;
+        const YEAR_MAX = 2026;
+        
         RAW = rows.map(r => {
           const d = parseRecallDate(r.recall_date);
           const year = d ? d.year : null;
@@ -849,9 +851,9 @@
             _dateISO: iso
           };
         }).filter(r => {
-          // keep only 2024-2026 if year parsed; else keep (in case)
+          // keep only YEAR_MIN–YEAR_MAX if year parsed; else keep (in case)
           if (r._year === null) return true;
-          return r._year >= 2024 && r._year <= 2026;
+          return r._year >= YEAR_MIN && r._year <= YEAR_MAX;
         });
 
         // hero chips
