@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chinese utes in Australia: market overview, specs, pricing and segment ranking</title>
+  <meta name="description" content="A data-first summary of Chinese utes in Australia: JAC T9, GWM Cannon, LDV Terron 9, MG U9 and BYD Shark 6, with specs, pricing position and internal ranking." />
+  <link rel="canonical" href="https://autoscore360.com/chinese-utes.html" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --card:#0B1224;
+      --card2:#0A1020;
+      --text:#E5E7EB;
+      --muted:#9CA3AF;
+      --border:rgba(148,163,184,.38);
+      --accent:#2563EB;
+      --accent2:#F97316;
+      --good:#22C55E;
+      --warn:#FBBF24;
+      --radius-lg:20px;
+      --radius-md:12px;
+      --shadow:0 22px 60px rgba(15,23,42,.72);
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.24), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15,23,42,.98), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    a{color:inherit}
+    .page{max-width:var(--max);margin:24px auto 60px;padding:0 18px 40px}
+
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(to bottom, rgba(15,23,42,.96), rgba(15,23,42,.90));
+      border-bottom:1px solid rgba(30,64,175,.60);
+    }
+    .nav-inner{
+      max-width:var(--max);margin:0 auto;padding:14px 18px;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      font-weight:650;letter-spacing:.08em;text-transform:uppercase;
+      font-size:.82rem;white-space:nowrap;
+    }
+    .brand-mark{
+      width:28px;height:28px;border-radius:6px;
+      background:linear-gradient(135deg,#0F172A,#1E293B);
+      border:1px solid rgba(148,163,184,.85);
+      position:relative;overflow:hidden;
+      box-shadow:0 0 0 1px rgba(15,23,42,.9), 0 8px 18px rgba(15,23,42,.9);
+    }
+    .brand-mark::before{
+      content:"";position:absolute;left:-30%;top:50%;
+      width:160%;height:2px;
+      background:linear-gradient(90deg,var(--accent2),#FACC15,var(--good));
+      opacity:.85;
+    }
+    .nav-links{
+      display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:flex-end;
+    }
+    .nav-link{
+      text-decoration:none;color:var(--muted);font-size:.88rem;position:relative;padding:4px 0;
+    }
+    .nav-link:hover{color:var(--text)}
+    .nav-pill{
+      padding:5px 11px;border-radius:999px;
+      background:rgba(15,23,42,.90);
+      border:1px solid rgba(148,163,184,.70);
+      font-size:.78rem;color:var(--text);
+      display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+    }
+    .nav-pill::before{
+      content:"";width:7px;height:7px;border-radius:999px;
+      background:var(--good);box-shadow:0 0 8px rgba(34,197,94,.9);
+    }
+
+    .hero{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:minmax(0,3fr) minmax(0,1.35fr);
+      gap:16px;
+      align-items:stretch;
+    }
+    .hero-left,
+    .hero-right{
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.78);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:20px 20px 18px;
+      position:relative;overflow:hidden;
+    }
+    .hero-left::before,
+    .hero-right::before{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(to right, rgba(15,23,42,.72), transparent 60%),
+        radial-gradient(circle at top right, rgba(37,99,235,.22), transparent 62%);
+      opacity:.95;pointer-events:none;
+    }
+    .hero-left > *,
+    .hero-right > *{position:relative;z-index:1}
+
+    .hero-kicker{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:4px 10px 4px 6px;
+      border-radius:999px;
+      background:rgba(15,23,42,.95);
+      border:1px solid rgba(148,163,184,.7);
+      font-size:.76rem;color:#CBD5F5;
+    }
+    .hero-kicker-dot{
+      width:18px;height:18px;border-radius:999px;
+      background:radial-gradient(circle at 30% 30%, #F9FAFB, #60A5FA);
+      box-shadow:0 0 0 2px rgba(15,23,42,.7);
+    }
+    .hero-title{
+      margin:16px 0 10px;
+      font-size:clamp(2rem,3.1vw,2.8rem);
+      font-weight:820;
+      letter-spacing:.01em;
+      line-height:1.06;
+      background:linear-gradient(135deg,#E5E7EB,#BFDBFE);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    .hero-sub{
+      margin:0;
+      color:#CBD5F5;
+      font-size:.98rem;
+      max-width:760px;
+    }
+    .hero-badges{
+      display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 10px;border-radius:999px;
+      background:rgba(15,23,42,.92);
+      border:1px solid rgba(148,163,184,.65);
+      font-size:.84rem;color:var(--muted);
+      white-space:nowrap;
+    }
+
+    .rank-card-title{
+      display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+      margin-bottom:8px;
+    }
+    .rank-card-title strong{font-size:1rem}
+    .tag{
+      font-size:.72rem;padding:2px 8px;border-radius:999px;
+      background:rgba(37,99,235,.16);
+      border:1px solid rgba(59,130,246,.8);
+      color:#BFDBFE;white-space:nowrap;
+    }
+    .mini-rank{
+      list-style:none;padding:0;margin:10px 0 0;
+    }
+    .mini-rank li{
+      display:grid;
+      grid-template-columns:34px 1fr auto;
+      gap:10px;
+      align-items:start;
+      padding:9px 0;
+      border-top:1px solid rgba(148,163,184,.16);
+    }
+    .mini-rank li:first-child{border-top:none}
+    .rank-num{
+      width:28px;height:28px;border-radius:999px;
+      display:inline-flex;align-items:center;justify-content:center;
+      font-size:.82rem;font-weight:750;
+      border:1px solid rgba(148,163,184,.45);
+      background:rgba(2,6,23,.55);
+      color:#F9FAFB;
+    }
+    .rank-name{font-weight:750}
+    .rank-note{font-size:.82rem;color:#CBD5F5;margin-top:2px}
+    .rank-score{font-size:.82rem;color:#93C5FD;white-space:nowrap}
+
+    .section{
+      margin-top:18px;
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.72);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:20px 20px 18px;
+    }
+    .kicker{
+      text-transform:uppercase;letter-spacing:.14em;
+      font-size:.72rem;color:var(--muted);margin-bottom:4px;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:1.34rem;
+      color:#F9FAFB;
+      border-left:3px solid rgba(37,99,235,.85);
+      padding-left:10px;
+    }
+    h3{
+      margin:16px 0 6px;
+      font-size:1.04rem;
+      color:#E5E7EB;
+    }
+    p{margin:6px 0 12px;font-size:.97rem;color:#E5E7EB}
+    ul{margin:6px 0 12px 20px;color:#E5E7EB}
+    li{margin:6px 0}
+
+    .callout{
+      margin:12px 0;
+      padding:12px;
+      border-radius:var(--radius-md);
+      border:1px solid rgba(59,130,246,.65);
+      background:linear-gradient(135deg, rgba(15,23,42,1), rgba(30,64,175,.62));
+      font-size:.95rem;
+    }
+
+    .compare-wrap{
+      overflow-x:auto;
+      border:1px solid rgba(148,163,184,.32);
+      border-radius:16px;
+      background:rgba(2,6,23,.45);
+      margin-top:10px;
+    }
+    table{
+      width:100%;
+      min-width:980px;
+      border-collapse:collapse;
+    }
+    th, td{
+      padding:11px 10px;
+      border-bottom:1px solid rgba(51,65,85,.65);
+      text-align:left;
+      vertical-align:top;
+      font-size:.9rem;
+    }
+    th{
+      background:rgba(15,23,42,.94);
+      color:#CBD5F5;
+      font-size:.78rem;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+    }
+    tr:hover td{background:rgba(15,23,42,.35)}
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+    .card{
+      background:rgba(2,6,23,.50);
+      border:1px solid rgba(148,163,184,.30);
+      border-radius:16px;
+      padding:14px 14px 12px;
+    }
+    .label{
+      display:inline-flex;
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.78rem;
+      font-weight:650;
+      letter-spacing:.02em;
+      border:1px solid rgba(148,163,184,.60);
+      margin-bottom:8px;
+      background:rgba(2,6,23,.35);
+    }
+    .label-ok{
+      border-color:rgba(34,197,94,.65);
+      color:#bbf7d0;
+      background:rgba(34,197,94,.08);
+    }
+    .label-warn{
+      border-color:rgba(249,115,22,.70);
+      color:#fed7aa;
+      background:rgba(249,115,22,.08);
+    }
+
+    .footer{
+      margin-top:18px;
+      padding:16px 20px 28px;
+      border-top:1px solid rgba(30,64,175,.55);
+      color:var(--muted);
+      font-size:.84rem;
+      max-width:var(--max);
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .footer a{color:#93C5FD;text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .page{padding:0 14px 36px}
+      .nav-inner{padding:14px}
+      .hero-left,.hero-right,.section{padding:18px 16px}
+      .hero-title{font-size:2.15rem}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Auto Insight Lab</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="index.html#ute-reviews">Ute Reviews</a>
+        <a class="nav-link" href="ute-calculator.html">Ute Calculator</a>
+        <span class="nav-pill">Australia • Chinese Utes</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-kicker">
+          <div class="hero-kicker-dot"></div>
+          <span>Segment summary • Chinese utes</span>
+        </div>
+
+        <h1 class="hero-title">Chinese utes in Australia: summary, specs, pricing and internal ranking</h1>
+
+        <p class="hero-sub">
+          Chinese utes are no longer just “budget alternatives” in Australia. They now cover multiple buyer missions:
+          proven diesel value, large-body heavy-duty positioning, and plug-in hybrid disruption. In this summary page,
+          we compare JAC T9, GWM Cannon, LDV Terron 9 / MG U9 and BYD Shark 6 through a simple “data-first” lens:
+          performance, towing, warranty, price position, and our default internal ranking logic.
+        </p>
+
+        <div class="hero-badges">
+          <div class="badge">Models included: JAC T9 • GWM Cannon • Terron 9 / MG U9 • BYD Shark 6</div>
+          <div class="badge">Focus: value • warranty • towing • technology disruption</div>
+          <div class="badge">Ranking basis: default mixed owner profile in Australia</div>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="rank-card-title">
+          <strong>Internal ranking</strong>
+          <span class="tag">Default owner profile</span>
+        </div>
+
+        <ul class="mini-rank">
+          <li>
+            <span class="rank-num">1</span>
+            <div>
+              <div class="rank-name">GWM Cannon</div>
+              <div class="rank-note">Most balanced Chinese ute today for price accessibility, towing parity and market familiarity.</div>
+            </div>
+            <span class="rank-score">72.8</span>
+          </li>
+          <li>
+            <span class="rank-num">2</span>
+            <div>
+              <div class="rank-name">BYD Shark 6</div>
+              <div class="rank-note">Most disruptive tech story with standout outputs, but it suits a different use case from diesel-first work utes.</div>
+            </div>
+            <span class="rank-score">70.6</span>
+          </li>
+          <li>
+            <span class="rank-num">3</span>
+            <div>
+              <div class="rank-name">JAC T9</div>
+              <div class="rank-note">Straightforward value ute with a very strong warranty pitch and simple ownership proposition.</div>
+            </div>
+            <span class="rank-score">65.4</span>
+          </li>
+          <li>
+            <span class="rank-num">4</span>
+            <div>
+              <div class="rank-name">LDV Terron 9 / MG U9</div>
+              <div class="rank-note">Large, modern and high-output platform with strong paper specs, but still newer in local ownership perception.</div>
+            </div>
+            <span class="rank-score">63.9</span>
+          </li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Big picture</div>
+      <h2>1) What Chinese utes now do differently in Australia</h2>
+
+      <p>
+        The Chinese-ute story in Australia has changed. Instead of competing only on entry price,
+        the current group now splits into distinct positions. GWM Cannon plays the mainstream value-and-capability role,
+        JAC T9 focuses on straightforward ownership confidence and warranty appeal, LDV Terron 9 and MG U9 push into a larger,
+        more premium-feeling body format, while BYD Shark 6 reframes the category around electrified performance.
+      </p>
+
+      <p>
+        That matters because buyers are no longer comparing “one Chinese ute” against the segment.
+        They are now comparing very different answers to the same question: do you want the cheapest work-ready diesel,
+        the strongest warranty/value pitch, the newest large-platform diesel, or a plug-in hybrid ute with major power output?
+      </p>
+
+      <div class="callout">
+        <strong>Short version:</strong> Chinese utes are now strongest when buyers want either <strong>maximum value</strong>,
+        <strong>fresh tech</strong>, or <strong>a less traditional ownership proposition</strong> than the long-established Japanese benchmark.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Specs and pricing</div>
+      <h2>2) Chinese ute comparison table</h2>
+
+      <p>
+        The table below is designed as a shortlist tool. Pricing is presented as indicative public Australian pricing or current public offers
+        available around early 2026, and can vary by state, dealer stock, ABN/private eligibility, variant and driveaway conditions.
+      </p>
+
+      <div class="compare-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Model</th>
+              <th>Indicative price</th>
+              <th>Engine / outputs</th>
+              <th>Max braked towing</th>
+              <th>Warranty</th>
+              <th>Positioning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1</strong></td>
+              <td><strong>GWM Cannon</strong></td>
+              <td>$36,490–$51,990<br><span style="color:#9CA3AF;font-size:.82rem;">indicative driveaway / public guide</span></td>
+              <td>2.4L turbo-diesel<br>135kW / 480Nm<br><span style="color:#9CA3AF;font-size:.82rem;">some lower grades use 2.0L diesel 120kW / 400Nm</span></td>
+              <td>Up to 3,500kg</td>
+              <td>7 years<br>unlimited km</td>
+              <td>Best-established Chinese mainstream ute in Australia; strong value-to-capability balance.</td>
+            </tr>
+
+            <tr>
+              <td><strong>2</strong></td>
+              <td><strong>BYD Shark 6</strong></td>
+              <td>$57,900<br><span style="color:#9CA3AF;font-size:.82rem;">public price / driveaway offers may vary by state</span></td>
+              <td>1.5L turbo plug-in hybrid<br>321kW / 650Nm</td>
+              <td>Up to 2,500kg</td>
+              <td>6 years / 150,000km</td>
+              <td>Most disruptive “new-energy ute” choice; strongest performance story in this group.</td>
+            </tr>
+
+            <tr>
+              <td><strong>3</strong></td>
+              <td><strong>JAC T9</strong></td>
+              <td>From $39,990 offer / from mid-$40k driveaway launch positioning<br><span style="color:#9CA3AF;font-size:.82rem;">variant / campaign dependent</span></td>
+              <td>2.0L turbo-diesel<br>125kW / 410Nm</td>
+              <td>Up to 3,200kg</td>
+              <td>7 years<br>unlimited km</td>
+              <td>Simple diesel work-and-family ute with a strong warranty message and aggressive value play.</td>
+            </tr>
+
+            <tr>
+              <td><strong>4</strong></td>
+              <td><strong>LDV Terron 9 / MG U9</strong></td>
+              <td>Terron 9: about $53,674–$58,937 retail<br>MG U9: from $52,990–$60,990 driveaway<br><span style="color:#9CA3AF;font-size:.82rem;">public guides / current offers vary</span></td>
+              <td>2.5L turbo-diesel<br>Terron 9: 163kW / 520Nm<br>MG U9: 160kW / 520Nm</td>
+              <td>Up to 3,500kg</td>
+              <td>Terron 9: 7 years / 200,000km<br>MG U9: 5 years unlimited km, up to 7 years / 200,000km with service activation</td>
+              <td>Large-body, higher-output Chinese ute platform with a more premium-size and comfort-led presentation.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size:.84rem;color:#9CA3AF;margin-top:10px;">
+        Always confirm exact state-based driveaway pricing, commercial/private warranty conditions, towing figures and variant specifications on the official manufacturer page before purchase.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Internal ranking logic</div>
+      <h2>3) Why the Chinese ute ranking falls this way</h2>
+
+      <h3>1. GWM Cannon</h3>
+      <p>
+        In this internal model, GWM Cannon ranks first because it currently makes the most complete “safe entry into Chinese utes” argument.
+        It combines segment-standard 3.5-tonne towing, competitive diesel outputs, a broad value story and a more familiar local market presence than newer Chinese rivals.
+        It is not the most radical ute here, but it is the easiest all-round recommendation for a mixed private/work buyer.
+      </p>
+
+      <h3>2. BYD Shark 6</h3>
+      <p>
+        BYD Shark 6 ranks second because it changes the conversation more than any other ute on this page.
+        Its 321kW / 650Nm plug-in hybrid setup makes it the performance standout, and it gives Chinese brands a genuine technology-led halo product.
+        It does, however, sit slightly behind Cannon in this default ranking because its 2.5-tonne towing figure and electrified ownership logic will not suit every traditional ute buyer.
+      </p>
+
+      <h3>3. JAC T9</h3>
+      <p>
+        JAC T9 scores well as a clean, easy-to-understand value proposition: diesel, dual-cab, practical payload, and a 7-year unlimited-kilometre warranty.
+        It is one of the clearest “I want a modern ute without overpaying” plays in the market, though it gives away some towing and output headline numbers to the bigger or more premium Chinese entrants.
+      </p>
+
+      <h3>4. LDV Terron 9 / MG U9</h3>
+      <p>
+        Terron 9 and MG U9 sit together because they represent closely related versions of the same large-ute idea.
+        On paper they are very strong: 2.5-litre turbo-diesel, 3.5-tonne towing, strong torque, and a roomier, more premium-feeling layout.
+        In this internal ranking they land slightly lower only because their local ownership story is still newer, and because the “why buy” case is more niche than Cannon’s broader mainstream appeal.
+      </p>
+
+      <div class="callout">
+        <strong>Important:</strong> this ranking is not an official industry score. It is a structured shortlist view based on the Auto Insight Lab model,
+        where value, capability, warranty logic and likely ownership confidence all matter.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Best fit vs weaker fit</div>
+      <h2>4) Who these Chinese utes suit best</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="label label-ok">Best suited for</div>
+          <ul>
+            <li>Buyers who prioritise <strong>value, warranty coverage and headline spec-per-dollar</strong>.</li>
+            <li>Shoppers open to <strong>newer brands</strong> if the equipment list and price are compelling enough.</li>
+            <li>People comparing <strong>diesel work utes and hybrid innovation</strong> in the same shortlist.</li>
+            <li>Owners who want a ute that feels <strong>more aggressive on paper</strong> than many traditional benchmarks.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="label label-warn">May be less ideal for</div>
+          <ul>
+            <li>Buyers who still place maximum weight on <strong>resale history and long-established Australian market trust</strong>.</li>
+            <li>Fleet or remote-area owners who only want the most <strong>proven legacy dealer/service ecosystem</strong>.</li>
+            <li>Traditional towing-focused buyers who need <strong>3.5-tonne capability and prefer simple diesel-only logic</strong> — especially when looking at BYD Shark 6.</li>
+            <li>Shoppers who want the ute choice to be driven mainly by <strong>historical reputation rather than disruption or value</strong>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Model-by-model navigation</div>
+      <h2>5) Read the brand pages</h2>
+
+      <p>
+        If you want to jump into official model pages directly, start here:
+      </p>
+
+      <ul>
+        <li><a href="https://jacute.com.au/models/jac-t9/" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">JAC T9 official page</a></li>
+        <li><a href="https://www.gwmanz.com/au/models/ute/cannon/" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">GWM Cannon official page</a></li>
+        <li><a href="https://www.ldvautomotive.com.au/vehicles/ldv-terron-9-ute/" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">LDV Terron 9 official page</a></li>
+        <li><a href="https://mgmotor.com.au/pages/mgu9" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">MG U9 official page</a></li>
+        <li><a href="https://bydautomotive.com.au/shark-6" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">BYD Shark 6 official page</a></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Sources</div>
+      <h2>6) Public references used for this summary</h2>
+
+      <ul>
+        <li><a href="https://jacute.com.au/models/jac-t9/" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">JAC Australia – T9 official model page</a></li>
+        <li><a href="https://jacute.com.au/offers/" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">JAC Australia – current offers</a></li>
+        <li><a href="https://jacute.com.au/warranty/" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">JAC Australia – warranty</a></li>
+
+        <li><a href="https://www.gwmanz.com/au/models/ute/cannon/" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">GWM Australia – Cannon official model page</a></li>
+        <li><a href="https://www.gwmanz.com/au/offers/" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">GWM Australia – current offers</a></li>
+        <li><a href="https://www.gwmanz.com/au/ownership/warranty/" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">GWM Australia – warranty</a></li>
+        <li><a href="https://www.carsales.com.au/research/gwm/cannon/" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">Carsales – GWM Cannon pricing guide</a></li>
+
+        <li><a href="https://www.ldvautomotive.com.au/vehicles/ldv-terron-9-ute/" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">LDV Australia – Terron 9 official page</a></li>
+        <li><a href="https://www.ldvautomotive.com.au/warranty/" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">LDV Australia – warranty</a></li>
+        <li><a href="https://www.ldvautomotive.com.au/download-brochure/" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">LDV Australia – brochure / specification page</a></li>
+        <li><a href="https://www.carexpert.com.au/ldv/terron-9/pricing" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">CarExpert – LDV Terron 9 pricing</a></li>
+
+        <li><a href="https://mgmotor.com.au/pages/mgu9" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">MG Motor Australia – MG U9 official page</a></li>
+        <li><a href="https://shop.mgmotor.com.au/mgu9" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">MG Motor Australia – MG U9 build & price</a></li>
+        <li><a href="https://mgmotor.com.au/pages/warranty" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">MG Motor Australia – warranty</a></li>
+        <li><a href="https://shop.mgmotor.com.au/brochures/MG_MGU9_2025.pdf" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">MG Motor Australia – MG U9 brochure / technical specs</a></li>
+
+        <li><a href="https://bydautomotive.com.au/shark-6" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">BYD Australia – Shark 6 official page</a></li>
+        <li><a href="https://bydautomotive.com.au/" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">BYD Australia – homepage / public offers</a></li>
+        <li><a href="https://bydautomotive.com.au/configurator/byd-shark-6?ref=website" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">BYD Australia – Shark 6 configurator</a></li>
+        <li><a href="https://www.carexpert.com.au/byd/shark/pricing" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">CarExpert – BYD Shark 6 pricing</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div style="font-weight:650;color:#E5E7EB;">Auto Insight Lab</div>
+    <div style="margin-top:6px;">
+      Independent, data-first automotive information for Australia. This page summarises public information and an internal ranking framework.
+      Always confirm exact specifications, pricing, warranty terms, offer conditions and availability with the official manufacturer or dealer.
+    </div>
+  </footer>
+</body>
+</html>
