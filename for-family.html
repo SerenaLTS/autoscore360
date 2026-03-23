@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Best ute for family in Australia: safety, economy and real ranking results</title>
+  <meta name="description" content="A data-first family ute shortlist for Australia using a family-focused weighting model: Safety 35%, Economy 30%, Performance 20%, Reliability 10% and Sales 5%." />
+  <link rel="canonical" href="https://autoscore360.com/best-ute-for-family-australia.html" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --card:#0B1224;
+      --card2:#0A1020;
+      --text:#E5E7EB;
+      --muted:#9CA3AF;
+      --border:rgba(148,163,184,.38);
+      --accent:#2563EB;
+      --accent2:#F97316;
+      --good:#22C55E;
+      --warn:#FBBF24;
+      --radius-lg:20px;
+      --radius-md:12px;
+      --shadow:0 22px 60px rgba(15,23,42,.72);
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.24), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15,23,42,.98), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    a{color:inherit}
+    .page{max-width:var(--max);margin:24px auto 60px;padding:0 18px 40px}
+
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(to bottom, rgba(15,23,42,.96), rgba(15,23,42,.90));
+      border-bottom:1px solid rgba(30,64,175,.60);
+    }
+    .nav-inner{
+      max-width:var(--max);margin:0 auto;padding:14px 18px;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      font-weight:650;letter-spacing:.08em;text-transform:uppercase;
+      font-size:.82rem;white-space:nowrap;
+    }
+    .brand-mark{
+      width:28px;height:28px;border-radius:6px;
+      background:linear-gradient(135deg,#0F172A,#1E293B);
+      border:1px solid rgba(148,163,184,.85);
+      position:relative;overflow:hidden;
+      box-shadow:0 0 0 1px rgba(15,23,42,.9), 0 8px 18px rgba(15,23,42,.9);
+    }
+    .brand-mark::before{
+      content:"";position:absolute;left:-30%;top:50%;
+      width:160%;height:2px;
+      background:linear-gradient(90deg,var(--accent2),#FACC15,var(--good));
+      opacity:.85;
+    }
+    .nav-links{
+      display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:flex-end;
+    }
+    .nav-link{
+      text-decoration:none;color:var(--muted);font-size:.88rem;position:relative;padding:4px 0;
+    }
+    .nav-link:hover{color:var(--text)}
+    .nav-pill{
+      padding:5px 11px;border-radius:999px;
+      background:rgba(15,23,42,.90);
+      border:1px solid rgba(148,163,184,.70);
+      font-size:.78rem;color:var(--text);
+      display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+    }
+    .nav-pill::before{
+      content:"";width:7px;height:7px;border-radius:999px;
+      background:var(--good);box-shadow:0 0 8px rgba(34,197,94,.9);
+    }
+
+    .hero{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:minmax(0,3fr) minmax(0,1.35fr);
+      gap:16px;
+      align-items:stretch;
+    }
+    .hero-left,
+    .hero-right{
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.78);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:20px 20px 18px;
+      position:relative;overflow:hidden;
+    }
+    .hero-left::before,
+    .hero-right::before{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(to right, rgba(15,23,42,.72), transparent 60%),
+        radial-gradient(circle at top right, rgba(37,99,235,.22), transparent 62%);
+      opacity:.95;pointer-events:none;
+    }
+    .hero-left > *,
+    .hero-right > *{position:relative;z-index:1}
+
+    .hero-kicker{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:4px 10px 4px 6px;
+      border-radius:999px;
+      background:rgba(15,23,42,.95);
+      border:1px solid rgba(148,163,184,.7);
+      font-size:.76rem;color:#CBD5F5;
+    }
+    .hero-kicker-dot{
+      width:18px;height:18px;border-radius:999px;
+      background:radial-gradient(circle at 30% 30%, #F9FAFB, #60A5FA);
+      box-shadow:0 0 0 2px rgba(15,23,42,.7);
+    }
+    .hero-title{
+      margin:16px 0 10px;
+      font-size:clamp(2rem,3.1vw,2.8rem);
+      font-weight:820;
+      letter-spacing:.01em;
+      line-height:1.06;
+      background:linear-gradient(135deg,#E5E7EB,#BFDBFE);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    .hero-sub{
+      margin:0;
+      color:#CBD5F5;
+      font-size:.98rem;
+      max-width:760px;
+    }
+    .hero-badges{
+      display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 10px;border-radius:999px;
+      background:rgba(15,23,42,.92);
+      border:1px solid rgba(148,163,184,.65);
+      font-size:.84rem;color:var(--muted);
+      white-space:nowrap;
+    }
+
+    .rank-card-title{
+      display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+      margin-bottom:8px;
+    }
+    .rank-card-title strong{font-size:1rem}
+    .tag{
+      font-size:.72rem;padding:2px 8px;border-radius:999px;
+      background:rgba(37,99,235,.16);
+      border:1px solid rgba(59,130,246,.8);
+      color:#BFDBFE;white-space:nowrap;
+    }
+    .mini-rank{
+      list-style:none;padding:0;margin:10px 0 0;
+    }
+    .mini-rank li{
+      display:grid;
+      grid-template-columns:34px 1fr auto;
+      gap:10px;
+      align-items:start;
+      padding:9px 0;
+      border-top:1px solid rgba(148,163,184,.16);
+    }
+    .mini-rank li:first-child{border-top:none}
+    .rank-num{
+      width:28px;height:28px;border-radius:999px;
+      display:inline-flex;align-items:center;justify-content:center;
+      font-size:.82rem;font-weight:750;
+      border:1px solid rgba(148,163,184,.45);
+      background:rgba(2,6,23,.55);
+      color:#F9FAFB;
+    }
+    .rank-name{font-weight:750}
+    .rank-note{font-size:.82rem;color:#CBD5F5;margin-top:2px}
+    .rank-score{font-size:.82rem;color:#93C5FD;white-space:nowrap}
+
+    .section{
+      margin-top:18px;
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.72);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:20px 20px 18px;
+    }
+    .kicker{
+      text-transform:uppercase;letter-spacing:.14em;
+      font-size:.72rem;color:var(--muted);margin-bottom:4px;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:1.34rem;
+      color:#F9FAFB;
+      border-left:3px solid rgba(37,99,235,.85);
+      padding-left:10px;
+    }
+    h3{
+      margin:16px 0 6px;
+      font-size:1.04rem;
+      color:#E5E7EB;
+    }
+    p{margin:6px 0 12px;font-size:.97rem;color:#E5E7EB}
+    ul{margin:6px 0 12px 20px;color:#E5E7EB}
+    li{margin:6px 0}
+
+    .callout{
+      margin:12px 0;
+      padding:12px;
+      border-radius:var(--radius-md);
+      border:1px solid rgba(59,130,246,.65);
+      background:linear-gradient(135deg, rgba(15,23,42,1), rgba(30,64,175,.62));
+      font-size:.95rem;
+    }
+
+    .compare-wrap{
+      overflow-x:auto;
+      border:1px solid rgba(148,163,184,.32);
+      border-radius:16px;
+      background:rgba(2,6,23,.45);
+      margin-top:10px;
+    }
+    table{
+      width:100%;
+      min-width:1040px;
+      border-collapse:collapse;
+    }
+    th, td{
+      padding:11px 10px;
+      border-bottom:1px solid rgba(51,65,85,.65);
+      text-align:left;
+      vertical-align:top;
+      font-size:.9rem;
+    }
+    th{
+      background:rgba(15,23,42,.94);
+      color:#CBD5F5;
+      font-size:.78rem;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+    }
+    tr:hover td{background:rgba(15,23,42,.35)}
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+    .card{
+      background:rgba(2,6,23,.50);
+      border:1px solid rgba(148,163,184,.30);
+      border-radius:16px;
+      padding:14px 14px 12px;
+    }
+    .label{
+      display:inline-flex;
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.78rem;
+      font-weight:650;
+      letter-spacing:.02em;
+      border:1px solid rgba(148,163,184,.60);
+      margin-bottom:8px;
+      background:rgba(2,6,23,.35);
+    }
+    .label-ok{
+      border-color:rgba(34,197,94,.65);
+      color:#bbf7d0;
+      background:rgba(34,197,94,.08);
+    }
+    .label-warn{
+      border-color:rgba(249,115,22,.70);
+      color:#fed7aa;
+      background:rgba(249,115,22,.08);
+    }
+
+    .footer{
+      margin-top:18px;
+      padding:16px 20px 28px;
+      border-top:1px solid rgba(30,64,175,.55);
+      color:var(--muted);
+      font-size:.84rem;
+      max-width:var(--max);
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .footer a{color:#93C5FD;text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .page{padding:0 14px 36px}
+      .nav-inner{padding:14px}
+      .hero-left,.hero-right,.section{padding:18px 16px}
+      .hero-title{font-size:2.15rem}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Auto Insight Lab</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="index.html#ute-reviews">Ute Reviews</a>
+        <a class="nav-link" href="ute-calculator.html">Ute Calculator</a>
+        <span class="nav-pill">Australia • Family Utes</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-kicker">
+          <div class="hero-kicker-dot"></div>
+          <span>Use-case summary • Family buyers</span>
+        </div>
+
+        <h1 class="hero-title">Best ute for family in Australia: safety, economy and real ranking results</h1>
+
+        <p class="hero-sub">
+          When a ute is judged through a family-first lens, the result changes dramatically. Under this family weighting model
+          — Safety 35%, Economy 30%, Performance 20%, Reliability 10% and Sales 5% — the winners are no longer just the traditional
+          segment leaders. Instead, the strongest family picks are the utes that combine high safety scores, stronger economy and fewer everyday compromises.
+        </p>
+
+        <div class="hero-badges">
+          <div class="badge">Family weights: Safety 35% • Economy 30%</div>
+          <div class="badge">Real ranking calculated from your live model</div>
+          <div class="badge">Big shift: JAC T9 rises to #1</div>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="rank-card-title">
+          <strong>Family-first ranking</strong>
+          <span class="tag">Real weighted result</span>
+        </div>
+
+        <ul class="mini-rank">
+          <li>
+            <span class="rank-num">1</span>
+            <div>
+              <div class="rank-name">JAC T9</div>
+              <div class="rank-note">Highest-ranked family ute under this weighting, with standout balance across safety and economy.</div>
+            </div>
+            <span class="rank-score">84.48</span>
+          </li>
+          <li>
+            <span class="rank-num">2</span>
+            <div>
+              <div class="rank-name">Mitsubishi Triton</div>
+              <div class="rank-note">Strong mainstream family choice with excellent performance and a balanced overall profile.</div>
+            </div>
+            <span class="rank-score">82.24</span>
+          </li>
+          <li>
+            <span class="rank-num">3</span>
+            <div>
+              <div class="rank-name">LDV Terron 9 / MG U9</div>
+              <div class="rank-note">Very strong safety result and a bigger, family-friendly platform help it climb high.</div>
+            </div>
+            <span class="rank-score">79.98</span>
+          </li>
+          <li>
+            <span class="rank-num">4</span>
+            <div>
+              <div class="rank-name">GWM Cannon</div>
+              <div class="rank-note">Economy and value keep it highly competitive in a family-focused scenario.</div>
+            </div>
+            <span class="rank-score">77.44</span>
+          </li>
+          <li>
+            <span class="rank-num">5</span>
+            <div>
+              <div class="rank-name">Mazda BT-50</div>
+              <div class="rank-note">A balanced and comfortable option for households wanting a more lifestyle-friendly ute.</div>
+            </div>
+            <span class="rank-score">74.30</span>
+          </li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Big picture</div>
+      <h2>1) Why the family ranking looks so different</h2>
+
+      <p>
+        A family buyer is rarely judging a ute the same way as a tradie or fleet operator. Safety matters more.
+        Running-cost logic matters more. Everyday usability matters more. Once those priorities are given real weight,
+        the ranking changes fast — and some traditional benchmark names fall much further than many buyers might expect.
+      </p>
+
+      <p>
+        That is exactly what happens here. This is not a guess or a narrative shortcut. It is the direct result of applying a family-use weighting:
+        <strong>Safety 35%, Economy 30%, Performance 20%, Reliability 10% and Sales 5%</strong>. Under that setup,
+        the best family ute is not automatically the highest-selling one. It is the ute that scores best in the things family buyers actually prioritise.
+      </p>
+
+      <div class="callout">
+        <strong>Simple rule:</strong> in a family-use model, strong safety and strong economy can outweigh legacy brand advantage.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Weighting setup</div>
+      <h2>2) Family-use weighting used for this page</h2>
+
+      <p>
+        This page is based on the actual family weighting shown in your calculator:
+      </p>
+
+      <div class="compare-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Pillar</th>
+              <th>Weight</th>
+              <th>Why it matters for family use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Safety</strong></td>
+              <td>35%</td>
+              <td>The biggest factor for households carrying children and treating the ute as an everyday family vehicle.</td>
+            </tr>
+            <tr>
+              <td><strong>Economy</strong></td>
+              <td>30%</td>
+              <td>Fuel and running-cost logic matter much more when the vehicle is used regularly beyond work tasks.</td>
+            </tr>
+            <tr>
+              <td><strong>Performance</strong></td>
+              <td>20%</td>
+              <td>Still relevant, because buyers want enough capability, flexibility and confidence in mixed use.</td>
+            </tr>
+            <tr>
+              <td><strong>Reliability</strong></td>
+              <td>10%</td>
+              <td>Still useful, but no longer the overwhelming driver of the result.</td>
+            </tr>
+            <tr>
+              <td><strong>Sales</strong></td>
+              <td>5%</td>
+              <td>Market proof still counts, but it has much less influence in this family-specific model.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size:.84rem;color:#9CA3AF;margin-top:10px;">
+        This is the exact weighting reflected in the family ranking result shown on your calculator screenshot.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Real results</div>
+      <h2>3) Best family ute ranking in Australia</h2>
+
+      <p>
+        The table below reflects the actual calculated outcome under your family weighting model, not a narrative estimate.
+        This is the clearest version of the family-use shortlist because it shows exactly how the field changes once safety and economy become the dominant priorities.
+      </p>
+
+      <div class="compare-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Model</th>
+              <th>Final score</th>
+              <th>Why it works for families</th>
+              <th>Main trade-off</th>
+              <th>Best fit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1</strong></td>
+              <td><strong>JAC T9</strong></td>
+              <td>84.48</td>
+              <td>Best combined safety and economy result in the model, which is exactly what lifts it to the top.</td>
+              <td>Still newer in local market perception than legacy leaders.</td>
+              <td>Best overall family-value pick.</td>
+            </tr>
+            <tr>
+              <td><strong>2</strong></td>
+              <td><strong>Mitsubishi Triton</strong></td>
+              <td>82.24</td>
+              <td>Very balanced overall, with strong performance plus solid safety and economy.</td>
+              <td>Does not dominate any single category the way JAC does in this scenario.</td>
+              <td>Best mainstream family all-rounder.</td>
+            </tr>
+            <tr>
+              <td><strong>3</strong></td>
+              <td><strong>LDV Terron 9 / MG U9</strong></td>
+              <td>79.98</td>
+              <td>Outstanding safety score and strong size/space logic help it become a serious family contender.</td>
+              <td>Still building longer-term trust in the market.</td>
+              <td>Best large family-oriented ute.</td>
+            </tr>
+            <tr>
+              <td><strong>4</strong></td>
+              <td><strong>GWM Cannon</strong></td>
+              <td>77.44</td>
+              <td>Strong economy and value keep it highly relevant once cost-of-use matters more.</td>
+              <td>Feels more value-led than premium-led.</td>
+              <td>Best budget family ute.</td>
+            </tr>
+            <tr>
+              <td><strong>5</strong></td>
+              <td><strong>Mazda BT-50</strong></td>
+              <td>74.30</td>
+              <td>Balanced profile with a more lifestyle-friendly family appeal than some harder-edged rivals.</td>
+              <td>Does not quite reach the top group on score.</td>
+              <td>Best lifestyle family fit.</td>
+            </tr>
+            <tr>
+              <td><strong>6</strong></td>
+              <td><strong>Kia Tasman</strong></td>
+              <td>73.33</td>
+              <td>Good safety and performance combination makes it a credible emerging option.</td>
+              <td>Economy is weaker than the leaders.</td>
+              <td>Emerging family-use alternative.</td>
+            </tr>
+            <tr>
+              <td><strong>7</strong></td>
+              <td><strong>Isuzu D-MAX</strong></td>
+              <td>71.13</td>
+              <td>Still credible because of its balanced capability and familiar ute fundamentals.</td>
+              <td>Economy is not strong enough to climb higher here.</td>
+              <td>Work-and-family crossover option.</td>
+            </tr>
+            <tr>
+              <td><strong>8</strong></td>
+              <td><strong>Toyota HiLux</strong></td>
+              <td>69.16</td>
+              <td>Still benefits from brand trust and good safety, but loses heavily on economy in this model.</td>
+              <td>Much weaker economy score than the family leaders.</td>
+              <td>Legacy-trust family choice, but no longer best-value here.</td>
+            </tr>
+            <tr>
+              <td><strong>9</strong></td>
+              <td><strong>BYD Shark 6</strong></td>
+              <td>64.95</td>
+              <td>Interesting family-tech option with decent safety credentials.</td>
+              <td>Performance score in this model is much lower than expected.</td>
+              <td>Tech-curious families.</td>
+            </tr>
+            <tr>
+              <td><strong>10</strong></td>
+              <td><strong>Volkswagen Amarok</strong></td>
+              <td>61.22</td>
+              <td>Still has some all-round capability appeal.</td>
+              <td>Economy weakness holds it back strongly in this setup.</td>
+              <td>Niche family/work mixed users.</td>
+            </tr>
+            <tr>
+              <td><strong>11</strong></td>
+              <td><strong>Ford Ranger</strong></td>
+              <td>60.42</td>
+              <td>Strong name recognition and capability remain.</td>
+              <td>Very low economy result makes it one of the biggest fallers.</td>
+              <td>Families who still value brand strength over family scoring logic.</td>
+            </tr>
+            <tr>
+              <td><strong>12</strong></td>
+              <td><strong>Jeep Gladiator</strong></td>
+              <td>29.63</td>
+              <td>Distinctive character and niche appeal.</td>
+              <td>Not competitive under this family weighting model.</td>
+              <td>Image-led niche buyers rather than family-value shoppers.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Ranking logic</div>
+      <h2>4) Why these utes rise under family weighting</h2>
+
+      <h3>1. JAC T9</h3>
+      <p>
+        JAC T9 wins this ranking because it fits the family-use formula almost perfectly. Its safety score is extremely high at 93.42,
+        and its economy score is also extremely strong at 93.00. Since those are the two biggest weights in this model,
+        it becomes the clearest overall winner.
+      </p>
+
+      <h3>2. Mitsubishi Triton</h3>
+      <p>
+        Triton performs well because it stays strong across the board without a major weakness. It combines very high performance,
+        solid safety and good economy, which helps it become the strongest mainstream family alternative to JAC T9.
+      </p>
+
+      <h3>3. LDV Terron 9 / MG U9</h3>
+      <p>
+        Terron 9 / MG U9 rises because its safety score is one of the best in the entire table at 93.85.
+        Once family weighting strongly rewards safety, that becomes a major advantage, especially when combined with decent economy and a larger platform.
+      </p>
+
+      <h3>4. GWM Cannon</h3>
+      <p>
+        Cannon does not dominate the ranking, but it does exactly what a strong family-value ute needs to do:
+        it stays highly competitive on economy while remaining reasonable on the other pillars.
+        That makes it a very strong budget-friendly family choice.
+      </p>
+
+      <h3>Why HiLux and Ranger fall</h3>
+      <p>
+        The biggest surprise in this family model is how far some traditional benchmark names fall.
+        HiLux and Ranger both remain strong in brand recognition and broader market logic, but their economy results are much weaker here.
+        Once economy gets a 30% weight, that becomes a major penalty and drags both models much lower than many buyers would expect.
+      </p>
+
+      <div class="callout">
+        <strong>Important:</strong> this page is built directly from the actual weighted family ranking result.
+        It is not an estimated interpretation. The order and score logic here follow the live calculation outcome you generated.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Best fit vs weaker fit</div>
+      <h2>5) Which family should buy what?</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="label label-ok">Best suited for</div>
+          <ul>
+            <li><strong>JAC T9:</strong> families prioritising safety, economy and strongest value under this model.</li>
+            <li><strong>Triton:</strong> households wanting a balanced mainstream all-rounder.</li>
+            <li><strong>Terron 9 / MG U9:</strong> buyers wanting more space and a strong safety-led case.</li>
+            <li><strong>Cannon:</strong> cost-conscious families wanting a practical ute without overspending.</li>
+            <li><strong>BT-50:</strong> households wanting a slightly more lifestyle-friendly family ute.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="label label-warn">May be less ideal for</div>
+          <ul>
+            <li>Buyers whose first priority is still <strong>tradie use, fleet logic or regular hard towing</strong>.</li>
+            <li>Households that do not really need a ute and may be better served by an <strong>SUV</strong>.</li>
+            <li>Buyers who assume the highest-selling ute is automatically the best family ute.</li>
+            <li>People who care more about badge tradition than the actual weighted result.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Quick picks</div>
+      <h2>6) Quick family picks from this ranking</h2>
+
+      <h3>Best overall family ute</h3>
+      <p><strong>JAC T9</strong> — the strongest safety + economy combination in your real family model.</p>
+
+      <h3>Best mainstream family option</h3>
+      <p><strong>Mitsubishi Triton</strong> — the easiest mainstream badge to justify once the weighting changes.</p>
+
+      <h3>Best large family ute</h3>
+      <p><strong>LDV Terron 9 / MG U9</strong> — strong safety plus a bigger family-friendly footprint.</p>
+
+      <h3>Best budget family ute</h3>
+      <p><strong>GWM Cannon</strong> — one of the most convincing value-led family choices here.</p>
+
+      <h3>Biggest surprise</h3>
+      <p><strong>HiLux and Ranger drop sharply</strong> — both are hurt heavily by weaker economy under this family weighting.</p>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Next step</div>
+      <h2>7) Use the calculator for your own family priorities</h2>
+
+      <p>
+        This page shows what happens when family priorities are given real mathematical weight.
+        If you want to keep experimenting, go back to the calculator and keep adjusting the sliders.
+        That is where the site becomes most useful: the winner changes depending on the life scenario, not just the badge.
+      </p>
+
+      <ul>
+        <li><a href="ute-calculator.html" style="color:#93C5FD;text-decoration:none;">Open the ute calculator</a></li>
+        <li><a href="jac-t9.html" style="color:#93C5FD;text-decoration:none;">JAC T9 review</a></li>
+        <li><a href="triton.html" style="color:#93C5FD;text-decoration:none;">Mitsubishi Triton review</a></li>
+        <li><a href="terron9.html" style="color:#93C5FD;text-decoration:none;">LDV Terron 9 / MG U9 review</a></li>
+        <li><a href="cannon.html" style="color:#93C5FD;text-decoration:none;">GWM Cannon review</a></li>
+        <li><a href="bt50.html" style="color:#93C5FD;text-decoration:none;">Mazda BT-50 review</a></li>
+        <li><a href="hilux.html" style="color:#93C5FD;text-decoration:none;">Toyota HiLux review</a></li>
+        <li><a href="ranger.html" style="color:#93C5FD;text-decoration:none;">Ford Ranger review</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div style="font-weight:650;color:#E5E7EB;">Auto Insight Lab</div>
+    <div style="margin-top:6px;">
+      Independent, data-first automotive information for Australia. This page uses a family-focused weighting model and live ranking logic.
+      Always confirm exact specifications, pricing, safety equipment, warranty terms and availability with the official manufacturer or dealer.
+    </div>
+  </footer>
+</body>
+</html>
