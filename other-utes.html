@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Global utes in Australia: market overview, specs, pricing and segment ranking</title>
+  <meta name="description" content="A data-first summary of global utes in Australia: Ford Ranger, Volkswagen Amarok, Kia Tasman and Jeep Gladiator, with specs, price positioning and internal ranking." />
+  <link rel="canonical" href="https://autoscore360.com/global-utes.html" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --card:#0B1224;
+      --card2:#0A1020;
+      --text:#E5E7EB;
+      --muted:#9CA3AF;
+      --border:rgba(148,163,184,.38);
+      --accent:#2563EB;
+      --accent2:#F97316;
+      --good:#22C55E;
+      --warn:#FBBF24;
+      --radius-lg:20px;
+      --radius-md:12px;
+      --shadow:0 22px 60px rgba(15,23,42,.72);
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.24), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15,23,42,.98), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    a{color:inherit}
+    .page{max-width:var(--max);margin:24px auto 60px;padding:0 18px 40px}
+
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(to bottom, rgba(15,23,42,.96), rgba(15,23,42,.90));
+      border-bottom:1px solid rgba(30,64,175,.60);
+    }
+    .nav-inner{
+      max-width:var(--max);margin:0 auto;padding:14px 18px;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      font-weight:650;letter-spacing:.08em;text-transform:uppercase;
+      font-size:.82rem;white-space:nowrap;
+    }
+    .brand-mark{
+      width:28px;height:28px;border-radius:6px;
+      background:linear-gradient(135deg,#0F172A,#1E293B);
+      border:1px solid rgba(148,163,184,.85);
+      position:relative;overflow:hidden;
+      box-shadow:0 0 0 1px rgba(15,23,42,.9), 0 8px 18px rgba(15,23,42,.9);
+    }
+    .brand-mark::before{
+      content:"";position:absolute;left:-30%;top:50%;
+      width:160%;height:2px;
+      background:linear-gradient(90deg,var(--accent2),#FACC15,var(--good));
+      opacity:.85;
+    }
+    .nav-links{
+      display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:flex-end;
+    }
+    .nav-link{
+      text-decoration:none;color:var(--muted);font-size:.88rem;position:relative;padding:4px 0;
+    }
+    .nav-link:hover{color:var(--text)}
+    .nav-pill{
+      padding:5px 11px;border-radius:999px;
+      background:rgba(15,23,42,.90);
+      border:1px solid rgba(148,163,184,.70);
+      font-size:.78rem;color:var(--text);
+      display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+    }
+    .nav-pill::before{
+      content:"";width:7px;height:7px;border-radius:999px;
+      background:var(--good);box-shadow:0 0 8px rgba(34,197,94,.9);
+    }
+
+    .hero{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:minmax(0,3fr) minmax(0,1.35fr);
+      gap:16px;
+      align-items:stretch;
+    }
+    .hero-left,
+    .hero-right{
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.78);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:20px 20px 18px;
+      position:relative;overflow:hidden;
+    }
+    .hero-left::before,
+    .hero-right::before{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(to right, rgba(15,23,42,.72), transparent 60%),
+        radial-gradient(circle at top right, rgba(37,99,235,.22), transparent 62%);
+      opacity:.95;pointer-events:none;
+    }
+    .hero-left > *,
+    .hero-right > *{position:relative;z-index:1}
+
+    .hero-kicker{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:4px 10px 4px 6px;
+      border-radius:999px;
+      background:rgba(15,23,42,.95);
+      border:1px solid rgba(148,163,184,.7);
+      font-size:.76rem;color:#CBD5F5;
+    }
+    .hero-kicker-dot{
+      width:18px;height:18px;border-radius:999px;
+      background:radial-gradient(circle at 30% 30%, #F9FAFB, #60A5FA);
+      box-shadow:0 0 0 2px rgba(15,23,42,.7);
+    }
+    .hero-title{
+      margin:16px 0 10px;
+      font-size:clamp(2rem,3.1vw,2.8rem);
+      font-weight:820;
+      letter-spacing:.01em;
+      line-height:1.06;
+      background:linear-gradient(135deg,#E5E7EB,#BFDBFE);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    .hero-sub{
+      margin:0;
+      color:#CBD5F5;
+      font-size:.98rem;
+      max-width:760px;
+    }
+    .hero-badges{
+      display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 10px;border-radius:999px;
+      background:rgba(15,23,42,.92);
+      border:1px solid rgba(148,163,184,.65);
+      font-size:.84rem;color:var(--muted);
+      white-space:nowrap;
+    }
+
+    .rank-card-title{
+      display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+      margin-bottom:8px;
+    }
+    .rank-card-title strong{font-size:1rem}
+    .tag{
+      font-size:.72rem;padding:2px 8px;border-radius:999px;
+      background:rgba(37,99,235,.16);
+      border:1px solid rgba(59,130,246,.8);
+      color:#BFDBFE;white-space:nowrap;
+    }
+    .mini-rank{
+      list-style:none;padding:0;margin:10px 0 0;
+    }
+    .mini-rank li{
+      display:grid;
+      grid-template-columns:34px 1fr auto;
+      gap:10px;
+      align-items:start;
+      padding:9px 0;
+      border-top:1px solid rgba(148,163,184,.16);
+    }
+    .mini-rank li:first-child{border-top:none}
+    .rank-num{
+      width:28px;height:28px;border-radius:999px;
+      display:inline-flex;align-items:center;justify-content:center;
+      font-size:.82rem;font-weight:750;
+      border:1px solid rgba(148,163,184,.45);
+      background:rgba(2,6,23,.55);
+      color:#F9FAFB;
+    }
+    .rank-name{font-weight:750}
+    .rank-note{font-size:.82rem;color:#CBD5F5;margin-top:2px}
+    .rank-score{font-size:.82rem;color:#93C5FD;white-space:nowrap}
+
+    .section{
+      margin-top:18px;
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.72);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:20px 20px 18px;
+    }
+    .kicker{
+      text-transform:uppercase;letter-spacing:.14em;
+      font-size:.72rem;color:var(--muted);margin-bottom:4px;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:1.34rem;
+      color:#F9FAFB;
+      border-left:3px solid rgba(37,99,235,.85);
+      padding-left:10px;
+    }
+    h3{
+      margin:16px 0 6px;
+      font-size:1.04rem;
+      color:#E5E7EB;
+    }
+    p{margin:6px 0 12px;font-size:.97rem;color:#E5E7EB}
+    ul{margin:6px 0 12px 20px;color:#E5E7EB}
+    li{margin:6px 0}
+
+    .callout{
+      margin:12px 0;
+      padding:12px;
+      border-radius:var(--radius-md);
+      border:1px solid rgba(59,130,246,.65);
+      background:linear-gradient(135deg, rgba(15,23,42,1), rgba(30,64,175,.62));
+      font-size:.95rem;
+    }
+
+    .compare-wrap{
+      overflow-x:auto;
+      border:1px solid rgba(148,163,184,.32);
+      border-radius:16px;
+      background:rgba(2,6,23,.45);
+      margin-top:10px;
+    }
+    table{
+      width:100%;
+      min-width:940px;
+      border-collapse:collapse;
+    }
+    th, td{
+      padding:11px 10px;
+      border-bottom:1px solid rgba(51,65,85,.65);
+      text-align:left;
+      vertical-align:top;
+      font-size:.9rem;
+    }
+    th{
+      background:rgba(15,23,42,.94);
+      color:#CBD5F5;
+      font-size:.78rem;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+    }
+    tr:hover td{background:rgba(15,23,42,.35)}
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+    .card{
+      background:rgba(2,6,23,.50);
+      border:1px solid rgba(148,163,184,.30);
+      border-radius:16px;
+      padding:14px 14px 12px;
+    }
+    .label{
+      display:inline-flex;
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.78rem;
+      font-weight:650;
+      letter-spacing:.02em;
+      border:1px solid rgba(148,163,184,.60);
+      margin-bottom:8px;
+      background:rgba(2,6,23,.35);
+    }
+    .label-ok{
+      border-color:rgba(34,197,94,.65);
+      color:#bbf7d0;
+      background:rgba(34,197,94,.08);
+    }
+    .label-warn{
+      border-color:rgba(249,115,22,.70);
+      color:#fed7aa;
+      background:rgba(249,115,22,.08);
+    }
+
+    .footer{
+      margin-top:18px;
+      padding:16px 20px 28px;
+      border-top:1px solid rgba(30,64,175,.55);
+      color:var(--muted);
+      font-size:.84rem;
+      max-width:var(--max);
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .footer a{color:#93C5FD;text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .page{padding:0 14px 36px}
+      .nav-inner{padding:14px}
+      .hero-left,.hero-right,.section{padding:18px 16px}
+      .hero-title{font-size:2.15rem}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Auto Insight Lab</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="index.html#ute-reviews">Ute Reviews</a>
+        <a class="nav-link" href="ute-calculator.html">Ute Calculator</a>
+        <span class="nav-pill">Australia • Japanese Utes</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-kicker">
+          <div class="hero-kicker-dot"></div>
+          <span>Segment summary • Japanese utes</span>
+        </div>
+
+        <h1 class="hero-title">Japanese utes in Australia: summary, specs, pricing and internal ranking</h1>
+
+        <p class="hero-sub">
+          Japanese utes still define the mainstream Australian dual-cab market. In this summary page,
+          we compare the four Japanese models already covered on Auto Insight Lab — Toyota HiLux,
+          Mitsubishi Triton, Isuzu D-MAX and Mazda BT-50 — using a simple “data-first” lens:
+          performance, towing, warranty, price position, and our default internal ranking model.
+        </p>
+
+        <div class="hero-badges">
+          <div class="badge">Models included: HiLux • Triton • D-MAX • BT-50</div>
+          <div class="badge">Focus: durability • ownership confidence • price position</div>
+          <div class="badge">Ranking basis: your current default ute model</div>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="rank-card-title">
+          <strong>Internal ranking</strong>
+          <span class="tag">Default owner profile</span>
+        </div>
+
+        <ul class="mini-rank">
+          <li>
+            <span class="rank-num">1</span>
+            <div>
+              <div class="rank-name">Toyota HiLux</div>
+              <div class="rank-note">Best overall “proven benchmark” for resale, history and all-round trust.</div>
+            </div>
+            <span class="rank-score">75.7</span>
+          </li>
+          <li>
+            <span class="rank-num">2</span>
+            <div>
+              <div class="rank-name">Mitsubishi Triton</div>
+              <div class="rank-note">Strong value play with a much more competitive modern spec sheet.</div>
+            </div>
+            <span class="rank-score">69.2</span>
+          </li>
+          <li>
+            <span class="rank-num">3</span>
+            <div>
+              <div class="rank-name">Isuzu D-MAX</div>
+              <div class="rank-note">Ownership-confidence ute with a loyal buyer base and clear work focus.</div>
+            </div>
+            <span class="rank-score">62.3</span>
+          </li>
+          <li>
+            <span class="rank-num">4</span>
+            <div>
+              <div class="rank-name">Mazda BT-50</div>
+              <div class="rank-note">D-MAX cousin with a more style-oriented presentation and similar fundamentals.</div>
+            </div>
+            <span class="rank-score">61.6</span>
+          </li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Big picture</div>
+      <h2>1) What Japanese utes still do better than most rivals</h2>
+
+      <p>
+        In Australia, Japanese utes remain the “safe default” for buyers who prioritise long-term ownership logic.
+        That usually means four things: a broad dealer network, predictable servicing and resale behaviour,
+        a long history in fleets and work use, and capability that feels established rather than experimental.
+      </p>
+
+      <p>
+        That does not mean every Japanese ute wins every category. In fact, they now split into different roles:
+        HiLux remains the mainstream benchmark, Triton has become the sharper value contender,
+        D-MAX stays highly work-focused and credibility-driven, while BT-50 appeals to buyers who want similar hard points
+        with a more design-led identity.
+      </p>
+
+      <div class="callout">
+        <strong>Short version:</strong> if your first question is “Which ute gives me the lowest ownership anxiety over years of use?”,
+        Japanese models are still where many Australian buyers start.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Specs and pricing</div>
+      <h2>2) Japanese ute comparison table</h2>
+
+      <p>
+        The table below is designed as a quick shortlist tool. Prices are indicative public 2025 model-year figures,
+        and can change by state, variant, dealer stock and driveaway offers.
+      </p>
+
+      <div class="compare-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Model</th>
+              <th>Indicative price</th>
+              <th>Engine / outputs</th>
+              <th>Max braked towing</th>
+              <th>Warranty</th>
+              <th>Positioning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1</strong></td>
+              <td><strong>Toyota HiLux</strong></td>
+              <td>$26,475–$74,310<br><span style="color:#9CA3AF;font-size:.82rem;">before on-road costs</span></td>
+              <td>2.8L turbo-diesel<br>150kW / 500Nm auto<br><span style="color:#9CA3AF;font-size:.82rem;">420Nm manual</span></td>
+              <td>Up to 3,500kg</td>
+              <td>5 years<br>unlimited km*</td>
+              <td>Most proven mainstream benchmark; strongest resale / sales history story.</td>
+            </tr>
+
+            <tr>
+              <td><strong>2</strong></td>
+              <td><strong>Mitsubishi Triton</strong></td>
+              <td>$34,490–$64,590<br><span style="color:#9CA3AF;font-size:.82rem;">before on-road costs</span></td>
+              <td>2.4L bi-turbo diesel<br>150kW / 470Nm</td>
+              <td>Up to 3,500kg</td>
+              <td>Up to 10 years / 200,000km*</td>
+              <td>Best “value + capability” story among the Japanese group.</td>
+            </tr>
+
+            <tr>
+              <td><strong>3</strong></td>
+              <td><strong>Isuzu D-MAX</strong></td>
+              <td>$36,200–$80,900<br><span style="color:#9CA3AF;font-size:.82rem;">before on-road costs</span></td>
+              <td>3.0L turbo-diesel<br>140kW / 450Nm<br><span style="color:#9CA3AF;font-size:.82rem;">2.2L also available on select grades</span></td>
+              <td>Up to 3,500kg</td>
+              <td>6 years / 150,000km*</td>
+              <td>Dependable work-focused ute with a strong towing / durability reputation.</td>
+            </tr>
+
+            <tr>
+              <td><strong>4</strong></td>
+              <td><strong>Mazda BT-50</strong></td>
+              <td>$36,400–$71,950<br><span style="color:#9CA3AF;font-size:.82rem;">before on-road costs</span></td>
+              <td>3.0L turbo-diesel<br>140kW / 450Nm<br><span style="color:#9CA3AF;font-size:.82rem;">1.9L on entry-grade XS</span></td>
+              <td>Up to 3,500kg</td>
+              <td>5 years<br>unlimited km</td>
+              <td>D-MAX mechanical base with a more style-led and urban-friendly flavour.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size:.84rem;color:#9CA3AF;margin-top:10px;">
+        * Warranty conditions vary by commercial/private use or dealer servicing conditions. Always confirm with the official manufacturer page before purchase.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Internal ranking logic</div>
+      <h2>3) Why the Japanese ute ranking falls this way</h2>
+
+      <h3>1. Toyota HiLux</h3>
+      <p>
+        In the Auto Insight Lab model, the HiLux remains the highest-ranked Japanese ute due to its strong sales history, resale value and ownership confidence.
+        It is not always the cheapest or most feature-packed, but it remains the strongest all-round benchmark.
+      </p>
+
+      <h3>2. Mitsubishi Triton</h3>
+      <p>
+        Triton’s rise is about value finally meeting segment-level expectations.
+        The newer-generation package looks much more complete than older Tritons: 3.5-tonne towing,
+        competitive outputs, and a very strong warranty story all help it punch above its historical reputation.
+      </p>
+
+      <h3>3. Isuzu D-MAX</h3>
+      <p>
+        D-MAX performs strongly where buyers want old-school ute logic: durability, work use, towing credibility
+        and a simple ownership narrative. It loses some ground in a mixed-use lifestyle comparison because its appeal
+        is often more practical than polished.
+      </p>
+
+      <h3>4. Mazda BT-50</h3>
+      <p>
+        BT-50 is not a weak ute — far from it. But in this internal model, it lands behind D-MAX because the fundamentals
+        are similar while the “why buy” case becomes more design and presentation driven.
+        It works best for buyers who like the hard points of the Isuzu package but want a different brand feel.
+      </p>
+
+      <div class="callout">
+        <strong>Important:</strong> this ranking is not an official industry score. It is a structured shortlist view based on the Auto Insight Lab model,
+        where reliability, sales history and long-term ownership logic still carry a lot of weight.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Best fit vs weaker fit</div>
+      <h2>4) Who these Japanese utes suit best</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="label label-ok">Best suited for</div>
+          <ul>
+            <li>Buyers who prioritise <strong>resale value, dealer coverage and known ownership behaviour</strong>.</li>
+            <li>People who want a ute for <strong>long-term use</strong>, not just a short-term novelty purchase.</li>
+            <li>Owners balancing <strong>work + family + towing</strong> and wanting mainstream confidence.</li>
+            <li>Shoppers who care more about <strong>predictability</strong> than about maximum features-per-dollar.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="label label-warn">May be less ideal for</div>
+          <ul>
+            <li>Buyers chasing the absolute <strong>lowest upfront price for the most equipment</strong>.</li>
+            <li>People who want the most aggressive interior tech / value story compared with newer entrants.</li>
+            <li>Shoppers focused mainly on <strong>badge disruption or novelty</strong> rather than ownership history.</li>
+            <li>Users who want a ute chosen primarily for <strong>lifestyle styling over work-proven logic</strong>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Model-by-model navigation</div>
+      <h2>5) Read the full review pages</h2>
+
+      <p>
+        If you want the single-model detail pages instead of the segment view, you can jump directly here:
+      </p>
+
+      <ul>
+        <li><a href="hilux.html" style="color:#93C5FD;text-decoration:none;">Toyota HiLux review</a></li>
+        <li><a href="triton.html" style="color:#93C5FD;text-decoration:none;">Mitsubishi Triton review</a></li>
+        <li><a href="Dmax.html" style="color:#93C5FD;text-decoration:none;">Isuzu D-MAX review</a></li>
+        <li><a href="bt50.html" style="color:#93C5FD;text-decoration:none;">Mazda BT-50 review</a></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Sources</div>
+      <h2>6) Public references used for this summary</h2>
+
+      <ul>
+        <li><a href="https://www.toyota.com.au/hilux" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">Toyota Australia – HiLux</a></li>
+        <li><a href="https://www.toyota.com.au/hilux/prices" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">Toyota Australia – HiLux prices</a></li>
+        <li><a href="https://www.carexpert.com.au/car-news/2025-toyota-hilux-price-and-specs" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">Carexpert – 2025 Toyota HiLux price and specs</a></li>
+
+        <li><a href="https://www.mitsubishi-motors.com.au/vehicles/triton.html" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">Mitsubishi Motors Australia – Triton</a></li>
+        <li><a href="https://www.mitsubishi-motors.com.au/owners/diamond-advantage/warranty.html" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">Mitsubishi – Diamond Advantage warranty</a></li>
+        <li><a href="https://www.carexpert.com.au/mitsubishi/triton/2025/price-and-specs" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">Carexpert – 2025 Mitsubishi Triton pricing</a></li>
+
+        <li><a href="https://www.isuzuute.com.au/d-max/overview" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">Isuzu UTE Australia – D-MAX overview</a></li>
+        <li><a href="https://www.isuzuute.com.au/d-max/performance" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">Isuzu UTE Australia – D-MAX performance</a></li>
+        <li><a href="https://www.carexpert.com.au/isuzu/d-max/2025/price-and-specs" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">Carexpert – 2025 Isuzu D-MAX pricing</a></li>
+
+        <li><a href="https://www.mazda.com.au/mazda-news/new-bt50-specifications/" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">Mazda Australia – 2025 BT-50 specifications</a></li>
+        <li><a href="https://www.mazda.com.au/owners/warranty/" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">Mazda Australia – warranty</a></li>
+        <li><a href="https://www.carexpert.com.au/mazda/bt-50/2025/price-and-specs" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:none;">Carexpert – 2025 Mazda BT-50 pricing</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div style="font-weight:650;color:#E5E7EB;">Auto Insight Lab</div>
+    <div style="margin-top:6px;">
+      Independent, data-first automotive information for Australia. This page summarises public information and an internal ranking framework.
+      Always confirm exact specifications, pricing, warranty terms and availability with the official manufacturer or dealer.
+    </div>
+  </footer>
+</body>
+</html>
