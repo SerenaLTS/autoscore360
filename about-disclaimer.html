@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Copyright, Disclaimer and Source Policy | Auto Insight Lab</title>
+  <meta name="description" content="Copyright, disclaimer and source policy for Auto Insight Lab, including third-party references, external links and general information limitations." />
+  <link rel="canonical" href="https://autoscore360.com/about-disclaimer.html" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --card:#0B1224;
+      --text:#E5E7EB;
+      --muted:#9CA3AF;
+      --border:rgba(148,163,184,.38);
+      --accent:#2563EB;
+      --accent2:#F97316;
+      --good:#22C55E;
+      --radius-lg:20px;
+      --radius-md:12px;
+      --shadow:0 22px 60px rgba(15,23,42,.72);
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.24), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15,23,42,.98), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    a{color:inherit}
+    .page{max-width:var(--max);margin:24px auto 60px;padding:0 18px 40px}
+
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(to bottom, rgba(15,23,42,.96), rgba(15,23,42,.90));
+      border-bottom:1px solid rgba(30,64,175,.60);
+    }
+    .nav-inner{
+      max-width:var(--max);margin:0 auto;padding:14px 18px;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      font-weight:650;letter-spacing:.08em;text-transform:uppercase;
+      font-size:.82rem;white-space:nowrap;
+    }
+    .brand-mark{
+      width:28px;height:28px;border-radius:6px;
+      background:linear-gradient(135deg,#0F172A,#1E293B);
+      border:1px solid rgba(148,163,184,.85);
+      position:relative;overflow:hidden;
+      box-shadow:0 0 0 1px rgba(15,23,42,.9), 0 8px 18px rgba(15,23,42,.9);
+    }
+    .brand-mark::before{
+      content:"";position:absolute;left:-30%;top:50%;
+      width:160%;height:2px;
+      background:linear-gradient(90deg,var(--accent2),#FACC15,var(--good));
+      opacity:.85;
+    }
+    .nav-links{
+      display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:flex-end;
+    }
+    .nav-link{
+      text-decoration:none;color:var(--muted);font-size:.88rem;position:relative;padding:4px 0;
+    }
+    .nav-link:hover{color:var(--text)}
+    .nav-pill{
+      padding:5px 11px;border-radius:999px;
+      background:rgba(15,23,42,.90);
+      border:1px solid rgba(148,163,184,.70);
+      font-size:.78rem;color:var(--text);
+      display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+    }
+    .nav-pill::before{
+      content:"";width:7px;height:7px;border-radius:999px;
+      background:var(--good);box-shadow:0 0 8px rgba(34,197,94,.9);
+    }
+
+    .hero{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:minmax(0,2.4fr) minmax(0,1.2fr);
+      gap:16px;
+      align-items:stretch;
+    }
+    .hero-left,
+    .hero-right,
+    .section{
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.78);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:20px 20px 18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-left::before,
+    .hero-right::before,
+    .section::before{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(to right, rgba(15,23,42,.72), transparent 60%),
+        radial-gradient(circle at top right, rgba(37,99,235,.22), transparent 62%);
+      opacity:.95;pointer-events:none;
+    }
+    .hero-left > *,
+    .hero-right > *,
+    .section > *{position:relative;z-index:1}
+
+    .hero-kicker{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:4px 10px 4px 6px;
+      border-radius:999px;
+      background:rgba(15,23,42,.95);
+      border:1px solid rgba(148,163,184,.7);
+      font-size:.76rem;color:#CBD5F5;
+    }
+    .hero-kicker-dot{
+      width:18px;height:18px;border-radius:999px;
+      background:radial-gradient(circle at 30% 30%, #F9FAFB, #60A5FA);
+      box-shadow:0 0 0 2px rgba(15,23,42,.7);
+    }
+    .hero-title{
+      margin:16px 0 10px;
+      font-size:clamp(2rem,3vw,2.75rem);
+      font-weight:820;
+      letter-spacing:.01em;
+      line-height:1.06;
+      background:linear-gradient(135deg,#E5E7EB,#BFDBFE);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    .hero-sub{
+      margin:0;
+      color:#CBD5F5;
+      font-size:.98rem;
+      max-width:760px;
+    }
+    .hero-badges{
+      display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 10px;border-radius:999px;
+      background:rgba(15,23,42,.92);
+      border:1px solid rgba(148,163,184,.65);
+      font-size:.84rem;color:var(--muted);
+      white-space:nowrap;
+    }
+
+    .section{margin-top:18px}
+    .kicker{
+      text-transform:uppercase;letter-spacing:.14em;
+      font-size:.72rem;color:var(--muted);margin-bottom:4px;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:1.34rem;
+      color:#F9FAFB;
+      border-left:3px solid rgba(37,99,235,.85);
+      padding-left:10px;
+    }
+    h3{
+      margin:16px 0 6px;
+      font-size:1.04rem;
+      color:#E5E7EB;
+    }
+    p{margin:6px 0 12px;font-size:.97rem;color:#E5E7EB}
+    ul{margin:6px 0 12px 20px;color:#E5E7EB}
+    li{margin:6px 0}
+
+    .callout{
+      margin:12px 0;
+      padding:12px;
+      border-radius:var(--radius-md);
+      border:1px solid rgba(59,130,246,.65);
+      background:linear-gradient(135deg, rgba(15,23,42,1), rgba(30,64,175,.62));
+      font-size:.95rem;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+    .card{
+      background:rgba(2,6,23,.50);
+      border:1px solid rgba(148,163,184,.30);
+      border-radius:16px;
+      padding:14px 14px 12px;
+    }
+    .tag{
+      display:inline-flex;
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.78rem;
+      font-weight:650;
+      letter-spacing:.02em;
+      border:1px solid rgba(148,163,184,.60);
+      margin-bottom:8px;
+      background:rgba(2,6,23,.35);
+      color:#CBD5F5;
+    }
+
+    .footer{
+      margin-top:18px;
+      padding:16px 20px 28px;
+      border-top:1px solid rgba(30,64,175,.55);
+      color:var(--muted);
+      font-size:.84rem;
+      max-width:var(--max);
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .footer a{color:#93C5FD;text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .page{padding:0 14px 36px}
+      .nav-inner{padding:14px}
+      .hero-left,.hero-right,.section{padding:18px 16px}
+      .hero-title{font-size:2.15rem}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Auto Insight Lab</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="index.html#ute-reviews">Ute Reviews</a>
+        <a class="nav-link" href="ute-calculator.html">Ute Calculator</a>
+        <span class="nav-pill">Copyright • Disclaimer</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-kicker">
+          <div class="hero-kicker-dot"></div>
+          <span>Site notice • Copyright • Sources</span>
+        </div>
+
+        <h1 class="hero-title">Copyright, disclaimer and source policy</h1>
+
+        <p class="hero-sub">
+          Auto Insight Lab publishes editorial summaries, comparisons, rankings and calculator outputs based on publicly
+          available automotive information. We organise, analyse and represent existing data for general information only.
+          We do not claim to be the official source for any vehicle brand, model, specification, offer, recall notice or warranty term.
+        </p>
+
+        <div class="hero-badges">
+          <div class="badge">Independent editorial project</div>
+          <div class="badge">Public-source analysis and representation</div>
+          <div class="badge">Not official brand or dealer advice</div>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="tag">Quick position</div>
+        <p>
+          This website is designed to help readers compare and shortlist vehicles more efficiently.
+          It is not a substitute for official manufacturer information, inspection, test driving, dealer confirmation,
+          legal advice, financial advice or any other professional advice.
+        </p>
+        <p style="margin-bottom:0;">
+          By using this site, you accept that any model summaries, rankings and comments are informational only and may
+          become outdated as public data changes.
+        </p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Scope</div>
+      <h2>1) What this website does</h2>
+
+      <p>
+        Auto Insight Lab reviews publicly available information such as manufacturer pages, brochures, specification sheets,
+        warranty pages, published recall notices and third-party reporting. We then present that material in a more compact,
+        comparative and analytical format.
+      </p>
+
+      <div class="callout">
+        In plain terms: this site is an independent analysis layer built on top of public information. It is not an official
+        database, official vehicle listing service, dealer network, government register or manufacturer publication.
+      </div>
+
+      <ul>
+        <li>We summarise and compare public information.</li>
+        <li>We create our own rankings, commentary, weightings and calculator outputs.</li>
+        <li>We may link directly to official manufacturer pages and other public references for verification.</li>
+        <li>We do not guarantee that any public source remains current, complete or unchanged after publication.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="kicker">No Advice</div>
+      <h2>2) No legal, financial, technical or purchase advice</h2>
+
+      <p>
+        Nothing on Auto Insight Lab is legal advice, financial advice, tax advice, engineering advice, safety certification,
+        roadworthiness advice, fleet procurement advice, personalised purchase advice or any other form of professional advice.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="tag">Use this site for</div>
+          <ul>
+            <li>starting research</li>
+            <li>shortlisting models</li>
+            <li>comparing public specs and themes</li>
+            <li>testing different weighting assumptions</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="tag">Do not rely on this site for</div>
+          <ul>
+            <li>final purchase decisions without independent checking</li>
+            <li>official confirmation of specs, pricing or availability</li>
+            <li>legal rights, warranty entitlements or recall obligations</li>
+            <li>investment, lending, insurance or tax decisions</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>
+        Before buying, financing, insuring, modifying or relying on any vehicle information, you should confirm the exact details
+        with the relevant manufacturer, dealer, official source or qualified adviser.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Accuracy</div>
+      <h2>3) Accuracy, currency and model variation</h2>
+
+      <p>
+        Vehicle information can change by build date, model year, trim, drivetrain, optional equipment, state-based offer,
+        commercial or private use classification, and local dealer conditions. Public information can also be updated or withdrawn without notice.
+      </p>
+
+      <ul>
+        <li>Figures on this site may be indicative, simplified or normalised for comparison.</li>
+        <li>Some summaries combine information from multiple public references.</li>
+        <li>Weights, rankings and scores are internal editorial tools, not official ratings.</li>
+        <li>Where a source changes after publication, this site may temporarily display outdated information.</li>
+      </ul>
+
+      <p>
+        We make reasonable efforts to present information carefully, but we do not warrant that any page is error-free, complete,
+        current or suitable for your specific purpose.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Third Party Rights</div>
+      <h2>4) Trade marks, brand names and third-party material</h2>
+
+      <p>
+        Auto Insight Lab is independent. Vehicle brand names, model names, company names, logos, trade marks, brochures,
+        specification sheets, images and other third-party materials remain the property of their respective owners where applicable.
+      </p>
+
+      <ul>
+        <li>Reference to a brand or model does not imply endorsement, sponsorship, partnership or affiliation.</li>
+        <li>Links to official or third-party pages are provided as source references only.</li>
+        <li>Third-party logos, product names and trade marks are used only to identify the relevant vehicles, companies or sources.</li>
+        <li>Where third-party content is not reproduced on this site, users should consult the original source for rights and usage terms.</li>
+      </ul>
+
+      <div class="callout">
+        If you are a rights holder and believe any material on this site is inaccurate, misleading, improperly attributed or otherwise inappropriate,
+        the practical response is to request review and correction. This site is intended to summarise public information, not to misrepresent ownership.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">External Links</div>
+      <h2>5) External links and official sources</h2>
+
+      <p>
+        This site may link to manufacturer websites, brochure PDFs, warranty pages, safety authorities, recall notices and third-party publications.
+        Those links are included to help readers verify information at the source.
+      </p>
+
+      <ul>
+        <li>External links do not imply endorsement by Auto Insight Lab.</li>
+        <li>External links also do not imply endorsement of Auto Insight Lab by the linked party.</li>
+        <li>We are not responsible for the content, availability, accuracy or future changes of linked websites.</li>
+        <li>Users should review the terms, privacy notices, copyright notices and disclaimers on any linked site they visit.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Method</div>
+      <h2>6) Rankings, calculator outputs and editorial interpretation</h2>
+
+      <p>
+        Auto Insight Lab includes scoring systems, rankings and calculators that reflect an editorial framework. These outputs are not official industry scores,
+        government ratings or manufacturer-approved methodologies.
+      </p>
+
+      <ul>
+        <li>Scores may reflect weighted assumptions selected by the site or the user.</li>
+        <li>Different priorities will produce different outcomes.</li>
+        <li>Editorial summaries may include judgment, compression and interpretation of public information.</li>
+        <li>A model ranking above another on this site does not mean it is objectively better for every buyer or use case.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Copyright</div>
+      <h2>7) Copyright notice</h2>
+
+      <p>
+        Unless otherwise stated, the text, arrangement, original summaries, rankings, commentary, design and presentation on Auto Insight Lab are
+        &copy; 2026 Auto Insight Lab. All rights reserved.
+      </p>
+
+      <p>
+        Public facts and source links may originate elsewhere. Copyright in third-party materials remains with the relevant owner.
+        Nothing on this page should be read as claiming ownership over third-party trade marks, logos, brochures, source documents or other external materials.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Practical Reading</div>
+      <h2>8) The shortest honest version</h2>
+
+      <p>
+        This website collects public automotive information, adds its own structure and analysis, and presents it for general informational use.
+        You should still verify anything important with the official source before acting on it.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div style="font-weight:650;color:#E5E7EB;">Auto Insight Lab</div>
+    <div style="margin-top:6px;">
+      Independent, data-first automotive information for Australia. This page explains how Auto Insight Lab uses public references,
+      presents analysis and distinguishes its work from official manufacturer or dealer materials.
+    </div>
+    <div style="margin-top:8px;font-size:0.76rem;">
+      &copy; 2026 Auto Insight Lab. All rights reserved. Brand names, vehicle names and trademarks belong to their respective owners where applicable.
+    </div>
+  </footer>
+</body>
+</html>

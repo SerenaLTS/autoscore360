@@ -501,7 +501,7 @@
             Notes:
             <ul style="margin:6px 0 0 18px;color:#CBD5F5">
               <li>Year is parsed from <strong>recall_date</strong> (e.g. 3-Jan-20 → 2020).</li>
-              <li>Results are grouped by <strong>Make + Model</strong>; each recall expands to show full reason + official link.</li>
+              <li>Results are grouped by <strong>Make + Model</strong>; each recall expands to show full reason + source link.</li>
             </ul>
           </div>
         </div>
@@ -525,8 +525,11 @@
     <footer class="footer">
       <div style="font-weight:650;color:#E5E7EB">Auto Insight Lab</div>
       <div style="margin-top:6px">
-        This page organises publicly available recall listings. Always confirm details on the official notice link.
+        This page organises publicly available recall listings. Always confirm details on the original notice page.
         The dashboard is a helper, not legal/financial advice.
+      </div>
+      <div style="margin-top:8px;font-size:0.76rem;">
+        <a href="about-disclaimer.html" style="color:#93C5FD;text-decoration:none;">Copyright, disclaimer &amp; source policy</a>
       </div>
       <div style="margin-top:8px;font-size:0.76rem;">
         &copy; 2026 Auto Insight Lab. All rights reserved. Brand names, vehicle names and trademarks belong to their respective owners where applicable.
@@ -817,7 +820,7 @@
                     ${r.year_range ? `<span class="kv"><strong>Year range:</strong> ${escapeHTML(r.year_range)}</span>` : ``}
                   </div>
                 </div>
-                <a class="open-link" href="${escapeHTML(link)}" target="_blank" rel="noopener">Open official notice ↗</a>
+                <a class="open-link" href="${escapeHTML(link)}" target="_blank" rel="noopener">Open source notice ↗</a>
               </summary>
               <div class="reason">
                 <div class="small muted" style="margin-bottom:6px">${recNo}${recNo && yr ? " • " : ""}${yr}</div>
