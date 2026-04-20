@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>What Australia’s recall data really tells buyers about utes | Auto Insight Lab</title>
+  <meta name="description" content="A data-first explanation of what Australian recall data really tells ute buyers: why recall counts can mislead, what patterns matter more, and how to use recall history properly." />
+  <link rel="canonical" href="https://autoscore360.com/recall-tell-buyers.html" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --card:#0B1224;
+      --text:#E5E7EB;
+      --muted:#9CA3AF;
+      --border:rgba(148,163,184,.38);
+      --accent:#2563EB;
+      --accent2:#F97316;
+      --good:#22C55E;
+      --radius-lg:20px;
+      --radius-md:12px;
+      --shadow:0 22px 60px rgba(15,23,42,.72);
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.24), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15,23,42,.98), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    a{color:inherit}
+    .page{max-width:var(--max);margin:24px auto 60px;padding:0 18px 40px}
+
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(to bottom, rgba(15,23,42,.96), rgba(15,23,42,.90));
+      border-bottom:1px solid rgba(30,64,175,.60);
+    }
+    .nav-inner{
+      max-width:var(--max);margin:0 auto;padding:14px 18px;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      font-weight:650;letter-spacing:.08em;text-transform:uppercase;
+      font-size:.82rem;white-space:nowrap;
+    }
+    .brand-mark{
+      width:28px;height:28px;border-radius:6px;
+      background:linear-gradient(135deg,#0F172A,#1E293B);
+      border:1px solid rgba(148,163,184,.85);
+      position:relative;overflow:hidden;
+      box-shadow:0 0 0 1px rgba(15,23,42,.9), 0 8px 18px rgba(15,23,42,.9);
+    }
+    .brand-mark::before{
+      content:"";position:absolute;left:-30%;top:50%;
+      width:160%;height:2px;
+      background:linear-gradient(90deg,var(--accent2),#FACC15,var(--good));
+      opacity:.85;
+    }
+    .nav-links{
+      display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:flex-end;
+    }
+    .nav-link{
+      text-decoration:none;color:var(--muted);font-size:.88rem;position:relative;padding:4px 0;
+    }
+    .nav-link:hover{color:var(--text)}
+    .nav-pill{
+      padding:5px 11px;border-radius:999px;
+      background:rgba(15,23,42,.90);
+      border:1px solid rgba(148,163,184,.70);
+      font-size:.78rem;color:var(--text);
+      display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+    }
+    .nav-pill::before{
+      content:"";width:7px;height:7px;border-radius:999px;
+      background:var(--good);box-shadow:0 0 8px rgba(34,197,94,.9);
+    }
+
+    .hero{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:minmax(0,2.6fr) minmax(0,1.2fr);
+      gap:16px;
+      align-items:stretch;
+    }
+    .hero-left,
+    .hero-right,
+    .section{
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.78);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:20px 20px 18px;
+      position:relative;overflow:hidden;
+    }
+    .hero-left::before,
+    .hero-right::before,
+    .section::before{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(to right, rgba(15,23,42,.72), transparent 60%),
+        radial-gradient(circle at top right, rgba(37,99,235,.22), transparent 62%);
+      opacity:.95;pointer-events:none;
+    }
+    .hero-left > *,
+    .hero-right > *,
+    .section > *{position:relative;z-index:1}
+
+    .hero-kicker{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:4px 10px 4px 6px;border-radius:999px;
+      background:rgba(15,23,42,.95);
+      border:1px solid rgba(148,163,184,.7);
+      font-size:.76rem;color:#CBD5F5;
+    }
+    .hero-kicker-dot{
+      width:18px;height:18px;border-radius:999px;
+      background:radial-gradient(circle at 30% 30%, #F9FAFB, #60A5FA);
+      box-shadow:0 0 0 2px rgba(15,23,42,.7);
+    }
+    .hero-title{
+      margin:16px 0 10px;
+      font-size:clamp(2rem,3vw,2.8rem);
+      font-weight:820;letter-spacing:.01em;line-height:1.06;
+      background:linear-gradient(135deg,#E5E7EB,#BFDBFE);
+      -webkit-background-clip:text;color:transparent;
+    }
+    .hero-sub{
+      margin:0;color:#CBD5F5;font-size:.98rem;max-width:760px;
+    }
+    .hero-badges{
+      display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 10px;border-radius:999px;
+      background:rgba(15,23,42,.92);
+      border:1px solid rgba(148,163,184,.65);
+      font-size:.84rem;color:var(--muted);white-space:nowrap;
+    }
+
+    .stat-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .stat{
+      background:rgba(2,6,23,.50);
+      border:1px solid rgba(148,163,184,.30);
+      border-radius:16px;
+      padding:12px 12px 10px;
+    }
+    .stat-label{font-size:.76rem;color:var(--muted)}
+    .stat-value{font-size:1.18rem;font-weight:820;margin-top:4px}
+    .stat-note{font-size:.78rem;color:#CBD5F5;margin-top:2px}
+
+    .section{margin-top:18px}
+    .kicker{
+      text-transform:uppercase;letter-spacing:.14em;
+      font-size:.72rem;color:var(--muted);margin-bottom:4px;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:1.34rem;color:#F9FAFB;
+      border-left:3px solid rgba(37,99,235,.85);
+      padding-left:10px;
+    }
+    h3{
+      margin:16px 0 6px;font-size:1.04rem;color:#E5E7EB;
+    }
+    p{margin:6px 0 12px;font-size:.97rem;color:#E5E7EB}
+    ul{margin:6px 0 12px 20px;color:#E5E7EB}
+    li{margin:6px 0}
+
+    .callout{
+      margin:12px 0;
+      padding:12px;
+      border-radius:var(--radius-md);
+      border:1px solid rgba(59,130,246,.65);
+      background:linear-gradient(135deg, rgba(15,23,42,1), rgba(30,64,175,.62));
+      font-size:.95rem;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+      border:1px solid rgba(148,163,184,.32);
+      border-radius:16px;
+      background:rgba(2,6,23,.45);
+      margin-top:10px;
+    }
+    table{
+      width:100%;
+      min-width:760px;
+      border-collapse:collapse;
+    }
+    th,td{
+      padding:11px 10px;
+      border-bottom:1px solid rgba(51,65,85,.65);
+      text-align:left;vertical-align:top;font-size:.9rem;
+    }
+    th{
+      background:rgba(15,23,42,.94);
+      color:#CBD5F5;
+      font-size:.78rem;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+    }
+    tr:hover td{background:rgba(15,23,42,.35)}
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+    .card{
+      background:rgba(2,6,23,.50);
+      border:1px solid rgba(148,163,184,.30);
+      border-radius:16px;
+      padding:14px 14px 12px;
+    }
+    .label{
+      display:inline-flex;
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.78rem;font-weight:650;
+      border:1px solid rgba(148,163,184,.60);
+      margin-bottom:8px;
+      background:rgba(2,6,23,.35);
+    }
+    .label-ok{
+      border-color:rgba(34,197,94,.65);
+      color:#bbf7d0;background:rgba(34,197,94,.08);
+    }
+    .label-warn{
+      border-color:rgba(249,115,22,.70);
+      color:#fed7aa;background:rgba(249,115,22,.08);
+    }
+
+    .footer{
+      margin-top:18px;
+      padding:16px 20px 28px;
+      border-top:1px solid rgba(30,64,175,.55);
+      color:var(--muted);
+      font-size:.84rem;
+      max-width:var(--max);
+      margin-left:auto;margin-right:auto;
+    }
+    .footer a{color:#93C5FD;text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .stat-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 640px){
+      .page{padding:0 14px 36px}
+      .nav-inner{padding:14px}
+      .hero-left,.hero-right,.section{padding:18px 16px}
+      .hero-title{font-size:2.15rem}
+      .stat-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Auto Insight Lab</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="recalls.html">Recalls Database</a>
+        <a class="nav-link" href="ute-calculator.html">Ute Calculator</a>
+        <span class="nav-pill">Data Story • Recalls</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-kicker">
+          <div class="hero-kicker-dot"></div>
+          <span>Recall data story • Australia</span>
+        </div>
+
+        <h1 class="hero-title">What Australia’s recall data really tells buyers about utes</h1>
+
+        <p class="hero-sub">
+          Recall data matters. But it usually gets read too bluntly. A higher recall count does not automatically mean
+          a worse ute, and a lower recall count does not automatically mean a safer or better long-term buy. What matters is
+          how you interpret the pattern: notice count, affected units, issue type, model age, market presence and whether the
+          fixes are visible and manageable.
+        </p>
+
+        <div class="hero-badges">
+          <div class="badge">Dataset loaded: 1,076 total recall notices</div>
+          <div class="badge">Site-covered ute notices in current CSV: 50</div>
+          <div class="badge">Current covered-model units affected: 821,683</div>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="stat-grid">
+          <div class="stat">
+            <div class="stat-label">Highest notice count</div>
+            <div class="stat-value">Ford Ranger</div>
+            <div class="stat-note">12 notices in current covered-model extract</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Highest affected units</div>
+            <div class="stat-value">Toyota HiLux</div>
+            <div class="stat-note">258,899 units across included notices</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Most common pattern</div>
+            <div class="stat-value">Electrical / software</div>
+            <div class="stat-note">21 covered-model notices</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Current time spread</div>
+            <div class="stat-value">2019–2025</div>
+            <div class="stat-note">for the ute models matched in this article</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Framing</div>
+      <h2>1) What this article is actually looking at</h2>
+
+      <p>
+        Your full CSV currently contains <strong>1,076 recall notices</strong> across the broader vehicle market. For this story, we
+        narrowed that down to the ute models already central to Auto Insight Lab’s coverage: Ranger, HiLux, D-MAX, BT-50, Amarok,
+        Triton, JAC T9, GWM Cannon and Gladiator. That subset contributes <strong>50 recall notices</strong> and roughly
+        <strong>821,683 affected units</strong> in the current extract.
+      </p>
+
+      <div class="callout">
+        That means this story is not trying to answer “which brand is worst?” It is trying to answer the more useful buyer question:
+        <strong>what does recall history actually tell you, and what does it not tell you, when you are shortlisting utes?</strong>
+      </div>
+
+      <p>
+        It also matters that some newer nameplates in your site coverage, such as BYD Shark 6, Kia Tasman and LDV Terron 9 / MG U9,
+        do not yet show recall notices in this current CSV match. That should be read cautiously. For newer entrants, “no notices in
+        this extract” often says more about time-in-market than it does about being proven or issue-free.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="kicker">First Lesson</div>
+      <h2>2) Recall count is a signal, not a verdict</h2>
+
+      <p>
+        The first thing buyers usually do is look at the raw count. That is understandable, but it is only the start. In your current
+        covered-model extract, the Ranger appears most often by notice count, followed by D-MAX and HiLux. That does not automatically
+        mean the Ranger is the “worst” ute in this dataset. It can also reflect scale, market age, model spread and how many years of
+        public recall activity sit behind one nameplate.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Recall Notices</th>
+              <th>What Buyers Should Take From That</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ford Ranger</td>
+              <td>12</td>
+              <td>Most frequent by notice count in this extract, but that count sits inside a very large and long-running market presence.</td>
+            </tr>
+            <tr>
+              <td>Isuzu D-MAX</td>
+              <td>8</td>
+              <td>Not low by count. A reminder that “dependable” reputations still need real data context.</td>
+            </tr>
+            <tr>
+              <td>Toyota HiLux</td>
+              <td>8</td>
+              <td>Also not low by count, which matters because HiLux is often treated as the default “safe choice”.</td>
+            </tr>
+            <tr>
+              <td>Mazda BT-50</td>
+              <td>7</td>
+              <td>Its total is close to D-MAX and HiLux in this extract, which fits the shared-platform story better than many buyers expect.</td>
+            </tr>
+            <tr>
+              <td>Volkswagen Amarok</td>
+              <td>6</td>
+              <td>Mid-pack by count here, but still enough to show that premium positioning does not remove recall exposure.</td>
+            </tr>
+            <tr>
+              <td>GWM Cannon / JAC T9 / Triton / Gladiator</td>
+              <td>Lower current counts</td>
+              <td>Lower counts should be read alongside time on sale, market footprint and how much public data exists so far.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        The buyer lesson is simple: <strong>count helps you spot presence, not final quality</strong>. It tells you which nameplates show up
+        in the dataset, but not yet how serious, broad or repeat-like the pattern really is.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Second Lesson</div>
+      <h2>3) Affected units can tell a very different story</h2>
+
+      <p>
+        This is where recall data becomes much more interesting. By notice count, the Ranger leads this extract. But by total affected
+        units, the story shifts sharply: <strong>HiLux</strong> and <strong>D-MAX</strong> rise to the top, with <strong>Triton</strong>
+        also lifted by a very large campaign. In other words, the “most notices” model is not automatically the one with the broadest
+        real-world exposure.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Affected Units</th>
+              <th>Why It Matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Toyota HiLux</td>
+              <td>258,899</td>
+              <td>A small number of large campaigns can outweigh a longer list of smaller notices.</td>
+            </tr>
+            <tr>
+              <td>Isuzu D-MAX</td>
+              <td>240,212</td>
+              <td>Large-unit recalls change the practical reading of the dataset very quickly.</td>
+            </tr>
+            <tr>
+              <td>Mitsubishi Triton</td>
+              <td>110,084</td>
+              <td>Even only two notices can create a major footprint if one campaign is broad enough.</td>
+            </tr>
+            <tr>
+              <td>Ford Ranger</td>
+              <td>95,056</td>
+              <td>Still substantial, but lower than the raw-count ranking might lead some buyers to assume.</td>
+            </tr>
+            <tr>
+              <td>Mazda BT-50</td>
+              <td>88,615</td>
+              <td>Again, the shared-platform and parts/commonality story matters.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        This is one of the clearest buyer lessons in the whole dataset: <strong>recall count and recall footprint are not the same thing.</strong>
+        If you only look at one, you can end up with the wrong impression.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Third Lesson</div>
+      <h2>4) The type of problem usually matters more than the count</h2>
+
+      <p>
+        Across the covered-model ute notices in your CSV, the most common category is broadly <strong>electrical / software</strong>,
+        followed by a mix of <strong>fuel-system</strong>, <strong>fire / overheating</strong> and <strong>occupant restraint</strong>
+        issues. That matters because buyers should care less about “one more notice” and more about <strong>what kind of failure pattern
+        keeps appearing</strong>.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="label label-ok">More manageable patterns</div>
+          <ul>
+            <li>software or module updates with a clear dealer fix path</li>
+            <li>camera/display or calibration issues that are annoying but bounded</li>
+            <li>isolated accessory or fitment campaigns with low repeat concern</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="label label-warn">Higher-attention patterns</div>
+          <ul>
+            <li>fuel-system faults</li>
+            <li>fire / overheating risk</li>
+            <li>occupant restraint issues such as airbags or seatbelt-related recalls</li>
+            <li>repeated control-system problems across multiple campaigns</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>
+        In other words, a recall dataset becomes much more useful when you stop asking “how many?” and start asking
+        <strong>“what kind, how broad, and how repeat-like?”</strong>
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Context</div>
+      <h2>5) Why newer entrants and lower-volume models need extra caution in interpretation</h2>
+
+      <p>
+        Lower recall counts can look reassuring, but they often come with hidden context: fewer years on sale, fewer vehicles on the road,
+        less time for issues to surface publicly, and smaller installed bases. That is why newer or lower-volume utes should not be rewarded
+        too quickly just because the current notice count is lower.
+      </p>
+
+      <p>
+        The reverse is also true. High-volume, long-running models can look “worse” in a recall table simply because they have been sold
+        widely, across more trims, over more years, with more opportunity for issues to be found and campaigns to be published.
+      </p>
+
+      <p>
+        That does not make the recalls irrelevant. It just means recall history works best as a <strong>context tool</strong>, not a one-line verdict.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Decision Use</div>
+      <h2>6) How a real buyer should actually use recall data</h2>
+
+      <p>
+        If you are comparing utes seriously, recall history should sit inside a wider decision stack rather than replacing it.
+      </p>
+
+      <ul>
+        <li><strong>Check whether the recall has been fixed</strong>, not just whether it existed.</li>
+        <li><strong>Look for repeated themes</strong> across electrical, fuel, restraint or control systems.</li>
+        <li><strong>Read the notice wording</strong> to understand whether the issue is minor, broad, urgent or safety-critical.</li>
+        <li><strong>Interpret counts alongside market size and model age</strong>, especially for Ranger, HiLux, D-MAX and BT-50.</li>
+        <li><strong>Use recall history together with warranty, service network, resale logic and your actual use case</strong>.</li>
+      </ul>
+
+      <div class="callout">
+        The best buyer use of recall data is not “cross this model off forever”. It is “ask a smarter next question before you buy”.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Bottom Line</div>
+      <h2>7) What the recall data really tells buyers</h2>
+
+      <p>
+        Australia’s recall data does not give you a clean list of “good utes” and “bad utes”. It gives you something more useful:
+        a way to spot which nameplates keep appearing, which campaigns were broad, which systems show up repeatedly, and where you should
+        slow down and verify before committing money.
+      </p>
+
+      <p>
+        In your current CSV, the broad buyer takeaway is this:
+      </p>
+
+      <ul>
+        <li>Ranger leads the covered set by notice count.</li>
+        <li>HiLux and D-MAX lead by affected-unit scale.</li>
+        <li>Electrical/software issues are the most common recurring pattern in the covered ute subset.</li>
+        <li>Lower current counts for newer or narrower-market utes should be treated cautiously, not romantically.</li>
+      </ul>
+
+      <p>
+        That is why recall history is powerful when it is treated as part of a bigger buyer framework, and weak when it is treated as a
+        single-score shortcut.
+      </p>
+
+      <p>
+        If you want to inspect the raw notices yourself, jump into the
+        <a href="recalls.html" style="color:#93C5FD;text-decoration:none;">recalls database</a>
+        and filter by make, model and issue type.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div style="font-weight:650;color:#E5E7EB;">Auto Insight Lab</div>
+    <div style="margin-top:6px;">
+      Independent, data-first automotive information for Australia. This page interprets recall history as a buyer-context signal,
+      not as a stand-alone verdict.
+    </div>
+    <div style="margin-top:8px;font-size:0.76rem;">
+      <a href="terms-of-use.html" style="color:#93C5FD;text-decoration:none;">Terms of use</a><span style="color:#64748B;"> • </span><a href="disclaimer-copyright.html" style="color:#93C5FD;text-decoration:none;">Disclaimer &amp; copyright</a>
+    </div>
+    <div style="margin-top:8px;font-size:0.76rem;">
+      &copy; 2026 Auto Insight Lab. All rights reserved. Brand names, vehicle names and trademarks belong to their respective owners where applicable.
+    </div>
+  </footer>
+</body>
+</html>
