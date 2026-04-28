@@ -261,6 +261,31 @@
       transition: all 0.15s ease;
     }
 
+    .methodology-btn {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(253, 186, 116, 0.42);
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #F97316, #EF4444 55%, #F59E0B);
+      color: #FFF7ED;
+      box-shadow: 0 16px 36px rgba(124, 45, 18, 0.38), 0 10px 28px rgba(15, 23, 42, 0.75);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .methodology-btn::after { content: "→"; font-size: 1rem; }
+
+    .methodology-btn:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+      transition: all 0.15s ease;
+    }
+
     .hero-btn-secondary {
       font-size: 0.86rem;
       color: #E5E7EB;
@@ -709,6 +734,9 @@
           <a href="#calculator-section" class="hero-btn-primary">
             <span>Open ute calculator</span>
           </a>
+          <a href="methodology.html" class="methodology-btn">
+            <span>Read scoring methodology</span>
+          </a>
           <a href="#calculator-section" class="hero-btn-secondary">Skip to ranking table</a>
           <a href="index.html" class="hero-btn-secondary hero-btn-home">Back to home</a>
         </div>
@@ -946,8 +974,10 @@
           actually suits your life.
         </p>
         <p>
-          For the full scoring framework, including data sources, normalisation logic and current default results,
-          read the <a href="methodology.html">Ute Calculator Methodology</a>.
+          For the full scoring framework, including data sources, normalisation logic and current default results:
+        </p>
+        <p>
+          <a href="methodology.html" class="methodology-btn">Read Ute Calculator Methodology</a>
         </p>
       </article>
     </section>
