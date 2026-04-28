@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>BYD Shark 6 vs Ford Ranger: Australia Ute Comparison | Auto Insight Lab</title>
+  <meta name="description" content="BYD Shark 6 vs Ford Ranger in Australia: a data-first comparison of safety, economy, performance, reliability, sales strength and buyer fit." />
+  <link rel="canonical" href="https://autoscore360.com/byd-shark-6-vs-ford-ranger.html" />
+  <style>
+    :root{
+      --bg:#020617;
+      --card: rgba(15, 23, 42, 0.98);
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border: rgba(148, 163, 184, 0.45);
+      --accent:#60a5fa;
+      --accent2:#f97316;
+      --ok:#22c55e;
+      --warn:#f59e0b;
+      --radius-lg:18px;
+      --radius-md:12px;
+      --shadow: 0 22px 60px rgba(15, 23, 42, 0.78);
+      --max: 980px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,0.28), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15,23,42,0.98), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit}
+    .nav{
+      position: sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.96), rgba(15,23,42,0.90));
+      border-bottom: 1px solid rgba(30,64,175,0.6);
+    }
+    .nav-inner{
+      max-width: 1180px;
+      margin:0 auto;
+      padding: 14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      font-size: 0.92rem;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:650; letter-spacing:0.08em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      white-space:nowrap;
+      text-decoration:none;
+    }
+    .brand-mark{
+      width: 28px; height: 28px; border-radius: 6px;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      border: 1px solid rgba(148,163,184,0.85);
+      position: relative;
+      overflow:hidden;
+      box-shadow: 0 0 0 1px rgba(15,23,42,0.9), 0 8px 18px rgba(15,23,42,0.9);
+    }
+    .brand-mark::before{
+      content:"";
+      position:absolute; left:-30%; top:50%;
+      width:160%; height:2px;
+      background: linear-gradient(90deg, var(--accent2), #facc15, var(--ok));
+      opacity:0.85;
+    }
+    .nav-links{
+      display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav-link{
+      text-decoration:none;
+      color: var(--muted);
+      font-size: 0.88rem;
+      position:relative;
+      padding: 4px 0;
+    }
+    .nav-link:hover{color: var(--text)}
+    .nav-pill{
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.90);
+      border: 1px solid rgba(148,163,184,0.70);
+      font-size: 0.78rem;
+      color: var(--text);
+      display:inline-flex; align-items:center; gap:8px;
+      white-space:nowrap;
+    }
+    .nav-pill::before{
+      content:"";
+      width:7px; height:7px; border-radius:999px;
+      background: var(--ok);
+      box-shadow: 0 0 8px rgba(34,197,94,0.9);
+    }
+    main{
+      max-width: var(--max);
+      margin: 24px auto 60px;
+      padding: 0 18px 40px;
+    }
+    .hero{
+      background: radial-gradient(circle at top left, rgba(96,165,250,0.12), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(249,115,22,0.10), transparent 55%),
+                  var(--card);
+      border: 1px solid rgba(100,116,139,0.85);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 16px;
+      overflow:hidden;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 4px 10px 4px 6px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(148,163,184,0.70);
+      color: #cbd5f5;
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+    }
+    .kicker-dot{
+      width: 18px; height:18px; border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #f9fafb, var(--accent));
+      box-shadow: 0 0 0 2px rgba(15,23,42,0.7);
+    }
+    h1{
+      margin: 14px 0 8px;
+      font-size: clamp(2.0rem, 3.4vw, 2.6rem);
+      line-height: 1.08;
+      letter-spacing: 0.01em;
+      font-weight: 780;
+      background: linear-gradient(135deg, #e5e7eb, #bfdbfe);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .sub{
+      margin: 0 0 12px;
+      color: #cbd5f5;
+      font-size: 0.98rem;
+      max-width: 76ch;
+    }
+    .meta-row{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.92);
+      border: 1px solid rgba(148,163,184,0.70);
+    }
+    .btn-row{
+      margin-top: 14px;
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+    }
+    .btn-primary{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#f9fafb;
+      font-weight: 650;
+      text-decoration:none;
+      box-shadow: 0 14px 40px rgba(15,23,42,0.9);
+      border: none;
+    }
+    .btn-primary::after{content:"→"}
+    .btn-ghost{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.55);
+      color:#dbeafe;
+      text-decoration:none;
+      background: rgba(15,23,42,0.58);
+      font-size:0.9rem;
+    }
+    article{
+      margin-top: 18px;
+      background: rgba(15,23,42,0.90);
+      border: 1px solid rgba(100,116,139,0.70);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+    }
+    .section{
+      padding: 20px 10px;
+      border-top: 1px solid rgba(148,163,184,0.22);
+    }
+    .section:first-child{border-top:none; padding-top: 6px;}
+    .sk{
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.72rem;
+      margin-bottom: 6px;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size: clamp(1.25rem, 2vw, 1.55rem);
+      line-height:1.25;
+      color:#f9fafb;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+    }
+    h3{
+      margin:16px 0 6px;
+      font-size:1.02rem;
+      color:#dbeafe;
+    }
+    p{margin:0 0 12px; color:#e5e7eb;}
+    ul{color:#e5e7eb}
+    .callout{
+      margin: 12px 0;
+      padding: 12px 13px;
+      border-radius: var(--radius-md);
+      background: rgba(37,99,235,0.12);
+      border: 1px solid rgba(96,165,250,0.35);
+      color:#dbeafe;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:14px;
+      margin-top: 12px;
+    }
+    .card{
+      border: 1px solid rgba(148,163,184,0.28);
+      background: rgba(2,6,23,0.38);
+      border-radius: var(--radius-md);
+      padding: 13px;
+    }
+    .label{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 3px 9px;
+      border-radius:999px;
+      font-size:0.78rem;
+      font-weight:650;
+    }
+    .label-ok{background:rgba(34,197,94,0.12); color:#bbf7d0; border:1px solid rgba(34,197,94,0.35);}
+    .label-warn{background:rgba(245,158,11,0.12); color:#fde68a; border:1px solid rgba(245,158,11,0.35);}
+    .winner{
+      margin-top:8px;
+      color:#f8fafc;
+      font-weight:700;
+    }
+    .table-wrap{
+      width:100%;
+      overflow:auto;
+      border:1px solid rgba(148,163,184,0.28);
+      border-radius: var(--radius-md);
+      background: rgba(2,6,23,0.44);
+      margin: 14px 0;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:760px;
+      font-size:0.9rem;
+    }
+    th,td{
+      padding:10px 12px;
+      border-bottom:1px solid rgba(148,163,184,0.18);
+      text-align:left;
+      vertical-align:top;
+    }
+    th{
+      color:#bfdbfe;
+      background:rgba(15,23,42,0.78);
+      font-weight:700;
+    }
+    tr:last-child td{border-bottom:none}
+    .score{font-weight:750; color:#f8fafc}
+    .muted{color:var(--muted)}
+    .compare-bars{
+      display:grid;
+      gap:12px;
+      margin-top:14px;
+    }
+    .bar-row{
+      display:grid;
+      grid-template-columns: 150px 1fr 64px 64px;
+      gap:10px;
+      align-items:center;
+      font-size:.9rem;
+    }
+    .track{
+      height:10px;
+      border-radius:999px;
+      background:rgba(148,163,184,.18);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:2px;
+    }
+    .fill-shark{height:100%; background:linear-gradient(90deg,#60a5fa,#2563eb);}
+    .fill-ranger{height:100%; background:linear-gradient(90deg,#f97316,#f59e0b);}
+    .source-list a{color:#93c5fd; text-decoration:none}
+    .source-list a:hover{text-decoration:underline}
+    .footer{
+      max-width: var(--max);
+      margin: 0 auto 28px;
+      padding: 0 18px 24px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+    .footer a{color:#93c5fd; text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+    @media (max-width: 760px){
+      .nav-inner{align-items:flex-start; flex-direction:column}
+      .grid-2{grid-template-columns:1fr}
+      article{padding:14px}
+      .section{padding-left:0; padding-right:0}
+      .bar-row{grid-template-columns: 1fr; gap:6px}
+      table{min-width:720px}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="Back to homepage">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Auto Insight Lab</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="ute-calculator.html">Ute Calculator</a>
+        <a class="nav-link" href="shark6.html">Shark 6 Review</a>
+        <a class="nav-link" href="ford.html">Ranger Review</a>
+        <span class="nav-pill">Australia • Ute comparison</span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="kicker"><span class="kicker-dot" aria-hidden="true"></span>Head-to-head comparison based on public data</div>
+      <h1>BYD Shark 6 vs Ford Ranger: hybrid challenger or proven diesel benchmark?</h1>
+      <p class="sub">
+        BYD Shark 6 brings a plug-in hybrid ute proposition into a segment still dominated by proven diesel players.
+        Ford Ranger remains one of Australia's clearest mainstream benchmarks. This page compares them using the
+        Auto Insight Lab calculator framework: safety, economy, performance, reliability and sales strength.
+      </p>
+
+      <div class="meta-row">
+        <div class="pill">Comparison: hybrid challenger vs diesel benchmark</div>
+        <div class="pill">Default model winner: Ford Ranger</div>
+        <div class="pill">Best read with calculator weights</div>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn-primary" href="ute-calculator.html">Open the Ute Calculator</a>
+        <a class="btn-ghost" href="methodology.html">Read scoring methodology</a>
+        <a class="btn-ghost" href="#score-table">Jump to score table</a>
+      </div>
+    </section>
+
+    <article>
+      <section class="section">
+        <div class="sk">Quick verdict</div>
+        <h2>1) Short answer</h2>
+        <p>
+          Under the current Auto Insight Lab default weighting, the <strong>Ford Ranger ranks well ahead of the BYD Shark 6</strong>.
+          Shark 6 has a stronger economy score and a slightly higher safety score in the current data, but Ranger dominates
+          on performance and sales strength. The default model is deliberately conservative, so market validation matters a lot.
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <div class="label label-ok">Choose Shark 6 if</div>
+            <p style="margin-top:8px">
+              You want the more forward-looking option: plug-in hybrid capability, better economy logic and a willingness
+              to accept newer-model uncertainty.
+            </p>
+            <div class="winner">Default score: 50.01</div>
+          </div>
+          <div class="card">
+            <div class="label label-ok">Choose Ranger if</div>
+            <p style="margin-top:8px">
+              You want the proven mainstream ute: much stronger performance score, maximum sales score, broad capability
+              and a clearer long-term ownership ecosystem.
+            </p>
+            <div class="winner">Default score: 71.16</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="score-table">
+        <div class="sk">Calculator result</div>
+        <h2>2) Side-by-side score table</h2>
+        <p>
+          These values use the current default calculator weights: Safety 8%, Economy 15%, Performance 12%,
+          Reliability 40% and Sales 25%.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Safety</th>
+                <th>Economy</th>
+                <th>Performance</th>
+                <th>Reliability</th>
+                <th>Sales</th>
+                <th>Final score</th>
+                <th>Default rank</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>BYD Shark 6</strong></td>
+                <td>87.78</td>
+                <td>65.25</td>
+                <td>37.49</td>
+                <td>70.50</td>
+                <td>2</td>
+                <td class="score">50.01</td>
+                <td>11</td>
+              </tr>
+              <tr>
+                <td><strong>Ford Ranger</strong></td>
+                <td>86.19</td>
+                <td>5.64</td>
+                <td>82.09</td>
+                <td>71.41</td>
+                <td>100</td>
+                <td class="score">71.16</td>
+                <td>2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="compare-bars" aria-label="Shark 6 versus Ranger score bars">
+          <div class="bar-row">
+            <strong>Safety</strong>
+            <div class="track"><div class="fill-shark" style="width:87.78%"></div><div class="fill-ranger" style="width:86.19%"></div></div>
+            <span>Shark 6 87.78</span>
+            <span>Ranger 86.19</span>
+          </div>
+          <div class="bar-row">
+            <strong>Economy</strong>
+            <div class="track"><div class="fill-shark" style="width:65.25%"></div><div class="fill-ranger" style="width:5.64%"></div></div>
+            <span>Shark 6 65.25</span>
+            <span>Ranger 5.64</span>
+          </div>
+          <div class="bar-row">
+            <strong>Performance</strong>
+            <div class="track"><div class="fill-shark" style="width:37.49%"></div><div class="fill-ranger" style="width:82.09%"></div></div>
+            <span>Shark 6 37.49</span>
+            <span>Ranger 82.09</span>
+          </div>
+          <div class="bar-row">
+            <strong>Reliability</strong>
+            <div class="track"><div class="fill-shark" style="width:70.50%"></div><div class="fill-ranger" style="width:71.41%"></div></div>
+            <span>Shark 6 70.50</span>
+            <span>Ranger 71.41</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Where each ute wins</div>
+        <h2>3) What Shark 6 does better, and what Ranger does better</h2>
+        <div class="grid-2">
+          <div class="card">
+            <div class="label label-ok">Shark 6 strengths</div>
+            <ul style="margin:8px 0 0 20px">
+              <li><strong>Economy score:</strong> Shark 6 is far stronger than Ranger on the calculator's economy logic.</li>
+              <li><strong>Safety score:</strong> it sits slightly ahead of Ranger in the current calculator data.</li>
+              <li><strong>New-energy appeal:</strong> it gives buyers a different answer to fuel use and daily driving.</li>
+              <li><strong>Technology contrast:</strong> it is the more interesting pick for buyers open to a plug-in hybrid ute.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="label label-ok">Ranger strengths</div>
+            <ul style="margin:8px 0 0 20px">
+              <li><strong>Performance score:</strong> Ranger leads clearly in the work-capability dimension.</li>
+              <li><strong>Everyday polish:</strong> public coverage often frames it as one of the more refined utes.</li>
+              <li><strong>Mixed-use appeal:</strong> strong for buyers who split time between work, family and weekends.</li>
+              <li><strong>Range breadth:</strong> many variants make it easier to target a specific use case.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Ownership logic</div>
+        <h2>4) Running costs and long-term confidence</h2>
+        <p>
+          Shark 6's main advantage is economy. The calculator gives it a much stronger economy score than Ranger, reflecting
+          the different fuel-use proposition of a plug-in hybrid ute. For buyers doing lots of short daily driving where charging
+          is realistic, this is the reason Shark 6 deserves attention.
+        </p>
+        <p>
+          Ranger's advantage is confidence. It has maximum sales score, a much more familiar ownership base and a clearer
+          service/resale story. The default framework rewards that because many ute buyers are risk-averse when the vehicle is
+          a long-term work or family asset.
+        </p>
+        <div class="callout">
+          If your personal weighting increases Economy and reduces Sales, Shark 6 becomes more competitive. If you keep
+          Sales, Performance and Reliability high, Ranger remains the stronger default result.
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Work use</div>
+        <h2>5) Tradie, towing and payload comparison</h2>
+        <p>
+          Ranger is the stronger performer in the calculator's work-focused performance dimension. That dimension is weighted
+          toward payload, then towing, then torque. The Ranger result reflects its broad capability and strong real-world
+          positioning as a work-plus-family ute.
+        </p>
+        <p>
+          Shark 6 is more of an alternative-use-case ute than a pure work-performance leader in this framework. It may make
+          sense for buyers who want hybrid daily efficiency and occasional ute capability, but Ranger has the cleaner argument
+          for regular towing, load carrying and traditional work use.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="sk">Daily use</div>
+        <h2>6) Family and everyday driving comparison</h2>
+        <div class="grid-2">
+          <div class="card">
+            <div class="label label-warn">Shark 6 daily-use angle</div>
+            <p style="margin-top:8px">
+              Shark 6 is most interesting for buyers who can use the plug-in hybrid side of the vehicle properly. If your weekly
+              use includes commuting, school runs and charging access, its economy argument becomes more meaningful.
+            </p>
+          </div>
+          <div class="card">
+            <div class="label label-warn">Ranger daily-use angle</div>
+            <p style="margin-top:8px">
+              Ranger is often the easier argument for buyers who want a ute to feel more polished in regular driving. It is
+              especially strong for mixed family, commuting, touring and towing use.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Buyer fit</div>
+        <h2>7) Which buyer should choose which?</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Buyer type</th>
+                <th>Better fit</th>
+                <th>Why</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hybrid-curious daily driver</td>
+                <td><strong>BYD Shark 6</strong></td>
+                <td>Better economy score and a more future-facing powertrain proposition.</td>
+              </tr>
+              <tr>
+                <td>Mixed work and family buyer</td>
+                <td><strong>Ford Ranger</strong></td>
+                <td>More compelling all-rounder story, especially for daily refinement and capability.</td>
+              </tr>
+              <tr>
+                <td>Company/fleet shortlist</td>
+                <td><strong>Usually Ranger, unless fuel strategy dominates</strong></td>
+                <td>Ranger suits conservative procurement; Shark 6 suits fleets actively testing plug-in hybrid utes.</td>
+              </tr>
+              <tr>
+                <td>Performance-focused tradie</td>
+                <td><strong>Ford Ranger</strong></td>
+                <td>Higher performance score in the calculator framework.</td>
+              </tr>
+              <tr>
+                <td>Resale and market depth focused</td>
+                <td><strong>Ford Ranger</strong></td>
+                <td>Maximum sales score and a deeply established ownership base.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Bottom line</div>
+        <h2>8) Final perspective</h2>
+        <p>
+          Ranger wins the current default ranking because the calculator is deliberately conservative: it rewards long-term
+          ownership, market validation, capability and proven buyer confidence. Shark 6 remains important because it asks a
+          different question: what if your ute needs to be more efficient in daily use, not just familiar?
+        </p>
+        <p>
+          The honest answer is not "hybrid always wins" or "diesel always wins". It is this:
+          <strong>Ranger is the safer proven benchmark; Shark 6 is the more interesting efficiency challenger if your use case
+          fits plug-in hybrid ownership.</strong>
+        </p>
+        <div class="btn-row">
+          <a class="btn-primary" href="ute-calculator.html">Test your own weights</a>
+          <a class="btn-ghost" href="shark6.html">Read Shark 6 review</a>
+          <a class="btn-ghost" href="ford.html">Read Ranger review</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Method and sources</div>
+        <h2>9) Notes and references</h2>
+        <p>
+          This comparison uses Auto Insight Lab's current ute calculator scores and public-source review synthesis. It is
+          informational only and should be checked against current manufacturer specifications, ANCAP information, quotes,
+          finance, insurance and your own test drive.
+        </p>
+        <ul class="source-list">
+          <li><a href="methodology.html">Auto Insight Lab - Ute Calculator Methodology</a></li>
+          <li><a href="ute-calculator.html">Auto Insight Lab - Ute Calculator</a></li>
+          <li><a href="shark6.html">BYD Shark 6 review page</a></li>
+          <li><a href="ford.html">Ford Ranger review page</a></li>
+          <li><a href="disclaimer-copyright.html">Disclaimer and copyright notice</a></li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:flex-start; justify-content:space-between;">
+      <div>
+        <div style="font-weight:650; color:#f9fafb;">Auto Insight Lab</div>
+        <div style="margin-top:6px; max-width: 72ch;">
+          An independent, data-first project that organises public automotive information for Australia.
+        </div>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="index.html">Home</a>
+        <a href="ute-calculator.html">Ute Calculator</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="terms-of-use.html">Terms of Use</a>
+        <a href="disclaimer-copyright.html">Disclaimer & Copyright</a>
+      </div>
+    </div>
+    <div style="margin-top:14px;">
+      &copy; 2026 Auto Insight Lab. All rights reserved. Brand names, vehicle names and trademarks belong to their respective owners where applicable.
+    </div>
+  </footer>
+</body>
+</html>
