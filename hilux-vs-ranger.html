@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Toyota HiLux vs Ford Ranger: Australia Ute Comparison | Auto Insight Lab</title>
+  <meta name="description" content="Toyota HiLux vs Ford Ranger in Australia: a data-first comparison of safety, economy, performance, reliability, sales strength and buyer fit." />
+  <link rel="canonical" href="https://autoscore360.com/hilux-vs-ranger.html" />
+  <style>
+    :root{
+      --bg:#020617;
+      --card: rgba(15, 23, 42, 0.98);
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border: rgba(148, 163, 184, 0.45);
+      --accent:#60a5fa;
+      --accent2:#f97316;
+      --ok:#22c55e;
+      --warn:#f59e0b;
+      --radius-lg:18px;
+      --radius-md:12px;
+      --shadow: 0 22px 60px rgba(15, 23, 42, 0.78);
+      --max: 980px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,0.28), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15,23,42,0.98), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit}
+    .nav{
+      position: sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.96), rgba(15,23,42,0.90));
+      border-bottom: 1px solid rgba(30,64,175,0.6);
+    }
+    .nav-inner{
+      max-width: 1180px;
+      margin:0 auto;
+      padding: 14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      font-size: 0.92rem;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:650; letter-spacing:0.08em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      white-space:nowrap;
+      text-decoration:none;
+    }
+    .brand-mark{
+      width: 28px; height: 28px; border-radius: 6px;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      border: 1px solid rgba(148,163,184,0.85);
+      position: relative;
+      overflow:hidden;
+      box-shadow: 0 0 0 1px rgba(15,23,42,0.9), 0 8px 18px rgba(15,23,42,0.9);
+    }
+    .brand-mark::before{
+      content:"";
+      position:absolute; left:-30%; top:50%;
+      width:160%; height:2px;
+      background: linear-gradient(90deg, var(--accent2), #facc15, var(--ok));
+      opacity:0.85;
+    }
+    .nav-links{
+      display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav-link{
+      text-decoration:none;
+      color: var(--muted);
+      font-size: 0.88rem;
+      position:relative;
+      padding: 4px 0;
+    }
+    .nav-link:hover{color: var(--text)}
+    .nav-pill{
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.90);
+      border: 1px solid rgba(148,163,184,0.70);
+      font-size: 0.78rem;
+      color: var(--text);
+      display:inline-flex; align-items:center; gap:8px;
+      white-space:nowrap;
+    }
+    .nav-pill::before{
+      content:"";
+      width:7px; height:7px; border-radius:999px;
+      background: var(--ok);
+      box-shadow: 0 0 8px rgba(34,197,94,0.9);
+    }
+    main{
+      max-width: var(--max);
+      margin: 24px auto 60px;
+      padding: 0 18px 40px;
+    }
+    .hero{
+      background: radial-gradient(circle at top left, rgba(96,165,250,0.12), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(249,115,22,0.10), transparent 55%),
+                  var(--card);
+      border: 1px solid rgba(100,116,139,0.85);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 16px;
+      overflow:hidden;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 4px 10px 4px 6px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(148,163,184,0.70);
+      color: #cbd5f5;
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+    }
+    .kicker-dot{
+      width: 18px; height:18px; border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #f9fafb, var(--accent));
+      box-shadow: 0 0 0 2px rgba(15,23,42,0.7);
+    }
+    h1{
+      margin: 14px 0 8px;
+      font-size: clamp(2.0rem, 3.4vw, 2.6rem);
+      line-height: 1.08;
+      letter-spacing: 0.01em;
+      font-weight: 780;
+      background: linear-gradient(135deg, #e5e7eb, #bfdbfe);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .sub{
+      margin: 0 0 12px;
+      color: #cbd5f5;
+      font-size: 0.98rem;
+      max-width: 76ch;
+    }
+    .meta-row{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.92);
+      border: 1px solid rgba(148,163,184,0.70);
+    }
+    .btn-row{
+      margin-top: 14px;
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+    }
+    .btn-primary{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#f9fafb;
+      font-weight: 650;
+      text-decoration:none;
+      box-shadow: 0 14px 40px rgba(15,23,42,0.9);
+      border: none;
+    }
+    .btn-primary::after{content:"→"}
+    .btn-ghost{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.55);
+      color:#dbeafe;
+      text-decoration:none;
+      background: rgba(15,23,42,0.58);
+      font-size:0.9rem;
+    }
+    article{
+      margin-top: 18px;
+      background: rgba(15,23,42,0.90);
+      border: 1px solid rgba(100,116,139,0.70);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+    }
+    .section{
+      padding: 20px 10px;
+      border-top: 1px solid rgba(148,163,184,0.22);
+    }
+    .section:first-child{border-top:none; padding-top: 6px;}
+    .sk{
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.72rem;
+      margin-bottom: 6px;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size: clamp(1.25rem, 2vw, 1.55rem);
+      line-height:1.25;
+      color:#f9fafb;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+    }
+    h3{
+      margin:16px 0 6px;
+      font-size:1.02rem;
+      color:#dbeafe;
+    }
+    p{margin:0 0 12px; color:#e5e7eb;}
+    ul{color:#e5e7eb}
+    .callout{
+      margin: 12px 0;
+      padding: 12px 13px;
+      border-radius: var(--radius-md);
+      background: rgba(37,99,235,0.12);
+      border: 1px solid rgba(96,165,250,0.35);
+      color:#dbeafe;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:14px;
+      margin-top: 12px;
+    }
+    .card{
+      border: 1px solid rgba(148,163,184,0.28);
+      background: rgba(2,6,23,0.38);
+      border-radius: var(--radius-md);
+      padding: 13px;
+    }
+    .label{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 3px 9px;
+      border-radius:999px;
+      font-size:0.78rem;
+      font-weight:650;
+    }
+    .label-ok{background:rgba(34,197,94,0.12); color:#bbf7d0; border:1px solid rgba(34,197,94,0.35);}
+    .label-warn{background:rgba(245,158,11,0.12); color:#fde68a; border:1px solid rgba(245,158,11,0.35);}
+    .winner{
+      margin-top:8px;
+      color:#f8fafc;
+      font-weight:700;
+    }
+    .table-wrap{
+      width:100%;
+      overflow:auto;
+      border:1px solid rgba(148,163,184,0.28);
+      border-radius: var(--radius-md);
+      background: rgba(2,6,23,0.44);
+      margin: 14px 0;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:760px;
+      font-size:0.9rem;
+    }
+    th,td{
+      padding:10px 12px;
+      border-bottom:1px solid rgba(148,163,184,0.18);
+      text-align:left;
+      vertical-align:top;
+    }
+    th{
+      color:#bfdbfe;
+      background:rgba(15,23,42,0.78);
+      font-weight:700;
+    }
+    tr:last-child td{border-bottom:none}
+    .score{font-weight:750; color:#f8fafc}
+    .muted{color:var(--muted)}
+    .compare-bars{
+      display:grid;
+      gap:12px;
+      margin-top:14px;
+    }
+    .bar-row{
+      display:grid;
+      grid-template-columns: 150px 1fr 64px 64px;
+      gap:10px;
+      align-items:center;
+      font-size:.9rem;
+    }
+    .track{
+      height:10px;
+      border-radius:999px;
+      background:rgba(148,163,184,.18);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:2px;
+    }
+    .fill-hilux{height:100%; background:linear-gradient(90deg,#60a5fa,#2563eb);}
+    .fill-ranger{height:100%; background:linear-gradient(90deg,#f97316,#f59e0b);}
+    .source-list a{color:#93c5fd; text-decoration:none}
+    .source-list a:hover{text-decoration:underline}
+    .footer{
+      max-width: var(--max);
+      margin: 0 auto 28px;
+      padding: 0 18px 24px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+    .footer a{color:#93c5fd; text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+    @media (max-width: 760px){
+      .nav-inner{align-items:flex-start; flex-direction:column}
+      .grid-2{grid-template-columns:1fr}
+      article{padding:14px}
+      .section{padding-left:0; padding-right:0}
+      .bar-row{grid-template-columns: 1fr; gap:6px}
+      table{min-width:720px}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="Back to homepage">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Auto Insight Lab</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="ute-calculator.html">Ute Calculator</a>
+        <a class="nav-link" href="hilux.html">HiLux Review</a>
+        <a class="nav-link" href="ford.html">Ranger Review</a>
+        <span class="nav-pill">Australia • Ute comparison</span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="kicker"><span class="kicker-dot" aria-hidden="true"></span>Head-to-head comparison based on public data</div>
+      <h1>Toyota HiLux vs Ford Ranger: which ute makes more sense in Australia?</h1>
+      <p class="sub">
+        HiLux and Ranger are the two benchmark names in the Australian ute market. This page compares them using the
+        Auto Insight Lab calculator framework: safety, economy, performance, reliability and sales strength.
+      </p>
+
+      <div class="meta-row">
+        <div class="pill">Comparison: mainstream dual-cab utes</div>
+        <div class="pill">Default model winner: Toyota HiLux</div>
+        <div class="pill">Best read with calculator weights</div>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn-primary" href="ute-calculator.html">Open the Ute Calculator</a>
+        <a class="btn-ghost" href="methodology.html">Read scoring methodology</a>
+        <a class="btn-ghost" href="#score-table">Jump to score table</a>
+      </div>
+    </section>
+
+    <article>
+      <section class="section">
+        <div class="sk">Quick verdict</div>
+        <h2>1) Short answer</h2>
+        <p>
+          Under the current Auto Insight Lab default weighting, the <strong>Toyota HiLux ranks ahead of the Ford Ranger</strong>.
+          The main reason is not that HiLux wins every technical category. It is because the default model strongly rewards
+          long-term ownership confidence and market validation, and HiLux remains one of Australia's clearest market benchmarks.
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <div class="label label-ok">Choose HiLux if</div>
+            <p style="margin-top:8px">
+              You want the safer long-term ownership bet in the model: maximum market acceptance, strong resale confidence,
+              simple shortlist logic and a work-first reputation.
+            </p>
+            <div class="winner">Default score: 75.72</div>
+          </div>
+          <div class="card">
+            <div class="label label-ok">Choose Ranger if</div>
+            <p style="margin-top:8px">
+              You want the more polished all-rounder: stronger performance score, broader lifestyle appeal, modern cabin feel
+              and strong capability for mixed work and family use.
+            </p>
+            <div class="winner">Default score: 71.16</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="score-table">
+        <div class="sk">Calculator result</div>
+        <h2>2) Side-by-side score table</h2>
+        <p>
+          These values use the current default calculator weights: Safety 8%, Economy 15%, Performance 12%,
+          Reliability 40% and Sales 25%.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Safety</th>
+                <th>Economy</th>
+                <th>Performance</th>
+                <th>Reliability</th>
+                <th>Sales</th>
+                <th>Final score</th>
+                <th>Default rank</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Toyota HiLux</strong></td>
+                <td>88.84</td>
+                <td>38.42</td>
+                <td>71.06</td>
+                <td>73.30</td>
+                <td>100</td>
+                <td class="score">75.72</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><strong>Ford Ranger</strong></td>
+                <td>86.19</td>
+                <td>5.64</td>
+                <td>82.09</td>
+                <td>71.41</td>
+                <td>100</td>
+                <td class="score">71.16</td>
+                <td>2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="compare-bars" aria-label="HiLux versus Ranger score bars">
+          <div class="bar-row">
+            <strong>Safety</strong>
+            <div class="track"><div class="fill-hilux" style="width:88.84%"></div><div class="fill-ranger" style="width:86.19%"></div></div>
+            <span>HiLux 88.84</span>
+            <span>Ranger 86.19</span>
+          </div>
+          <div class="bar-row">
+            <strong>Economy</strong>
+            <div class="track"><div class="fill-hilux" style="width:38.42%"></div><div class="fill-ranger" style="width:5.64%"></div></div>
+            <span>HiLux 38.42</span>
+            <span>Ranger 5.64</span>
+          </div>
+          <div class="bar-row">
+            <strong>Performance</strong>
+            <div class="track"><div class="fill-hilux" style="width:71.06%"></div><div class="fill-ranger" style="width:82.09%"></div></div>
+            <span>HiLux 71.06</span>
+            <span>Ranger 82.09</span>
+          </div>
+          <div class="bar-row">
+            <strong>Reliability</strong>
+            <div class="track"><div class="fill-hilux" style="width:73.30%"></div><div class="fill-ranger" style="width:71.41%"></div></div>
+            <span>HiLux 73.30</span>
+            <span>Ranger 71.41</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Where each ute wins</div>
+        <h2>3) What HiLux does better, and what Ranger does better</h2>
+        <div class="grid-2">
+          <div class="card">
+            <div class="label label-ok">HiLux strengths</div>
+            <ul style="margin:8px 0 0 20px">
+              <li><strong>Market confidence:</strong> its sales score is maximum in the model.</li>
+              <li><strong>Long-term ownership story:</strong> HiLux is treated as a risk-minimising choice by many buyers.</li>
+              <li><strong>Safety score:</strong> slightly ahead of Ranger in the current calculator data.</li>
+              <li><strong>Default ranking fit:</strong> the current framework rewards proven, long-term assets.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="label label-ok">Ranger strengths</div>
+            <ul style="margin:8px 0 0 20px">
+              <li><strong>Performance score:</strong> Ranger leads clearly in the work-capability dimension.</li>
+              <li><strong>Everyday polish:</strong> public coverage often frames it as one of the more refined utes.</li>
+              <li><strong>Mixed-use appeal:</strong> strong for buyers who split time between work, family and weekends.</li>
+              <li><strong>Range breadth:</strong> many variants make it easier to target a specific use case.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Ownership logic</div>
+        <h2>4) Running costs and long-term confidence</h2>
+        <p>
+          In the calculator, neither HiLux nor Ranger is mainly winning through economy. HiLux has a higher economy score than
+          Ranger, but both are below value-focused models such as Mitsubishi Triton and some newer Chinese utes. The bigger
+          story is ownership confidence.
+        </p>
+        <p>
+          HiLux benefits from an extremely familiar ownership ecosystem: many buyers, many used examples, broad dealer/service
+          familiarity and a strong cultural reputation. Ranger counters with a very strong modern product proposition, but its
+          lower economy score pulls it down under the current default model.
+        </p>
+        <div class="callout">
+          If your personal weighting reduces Sales and Reliability while increasing Performance, Ranger can become more attractive.
+          If your weighting rewards proven ownership and market acceptance, HiLux becomes harder to beat.
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Work use</div>
+        <h2>5) Tradie, towing and payload comparison</h2>
+        <p>
+          Ranger is the stronger performer in the calculator's work-focused performance dimension. That dimension is weighted
+          toward payload, then towing, then torque. The Ranger result reflects its broad capability and strong real-world
+          positioning as a work-plus-family ute.
+        </p>
+        <p>
+          HiLux still remains a credible work ute, but its advantage is more about trust, market depth and repeat buyer confidence
+          than topping the performance score. For buyers who only care about capability numbers, Ranger has the cleaner argument.
+          For buyers who care about long-term familiarity and resale confidence, HiLux stays compelling.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="sk">Daily use</div>
+        <h2>6) Family and everyday driving comparison</h2>
+        <div class="grid-2">
+          <div class="card">
+            <div class="label label-warn">HiLux daily-use angle</div>
+            <p style="margin-top:8px">
+              HiLux is often best understood as a work-first ute that can also cover family duties. It suits buyers who accept
+              some utility character in return for a familiar, proven package.
+            </p>
+          </div>
+          <div class="card">
+            <div class="label label-warn">Ranger daily-use angle</div>
+            <p style="margin-top:8px">
+              Ranger is often the easier argument for buyers who want a ute to feel more polished in regular driving. It is
+              especially strong for mixed family, commuting, touring and towing use.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Buyer fit</div>
+        <h2>7) Which buyer should choose which?</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Buyer type</th>
+                <th>Better fit</th>
+                <th>Why</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Risk-averse long-term owner</td>
+                <td><strong>Toyota HiLux</strong></td>
+                <td>Stronger default-model fit for market confidence and long-term familiarity.</td>
+              </tr>
+              <tr>
+                <td>Mixed work and family buyer</td>
+                <td><strong>Ford Ranger</strong></td>
+                <td>More compelling all-rounder story, especially for daily refinement and capability.</td>
+              </tr>
+              <tr>
+                <td>Company/fleet shortlist</td>
+                <td><strong>Depends on weighting</strong></td>
+                <td>HiLux suits proven procurement logic; Ranger suits polished dual-role use.</td>
+              </tr>
+              <tr>
+                <td>Performance-focused tradie</td>
+                <td><strong>Ford Ranger</strong></td>
+                <td>Higher performance score in the calculator framework.</td>
+              </tr>
+              <tr>
+                <td>Resale and market depth focused</td>
+                <td><strong>Toyota HiLux</strong></td>
+                <td>Maximum sales score and a deeply established ownership base.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Bottom line</div>
+        <h2>8) Final perspective</h2>
+        <p>
+          HiLux wins the current default ranking because the calculator is deliberately conservative: it rewards long-term
+          ownership, market validation and proven buyer confidence. Ranger remains extremely close because it is arguably the
+          stronger modern all-rounder, especially when performance and daily usability matter more.
+        </p>
+        <p>
+          The honest answer is not "HiLux is always better" or "Ranger is always better". It is this:
+          <strong>HiLux is the safer default pick; Ranger is the more persuasive all-rounder when your priorities shift toward
+          capability and everyday polish.</strong>
+        </p>
+        <div class="btn-row">
+          <a class="btn-primary" href="ute-calculator.html">Test your own weights</a>
+          <a class="btn-ghost" href="hilux.html">Read HiLux review</a>
+          <a class="btn-ghost" href="ford.html">Read Ranger review</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Method and sources</div>
+        <h2>9) Notes and references</h2>
+        <p>
+          This comparison uses Auto Insight Lab's current ute calculator scores and public-source review synthesis. It is
+          informational only and should be checked against current manufacturer specifications, ANCAP information, quotes,
+          finance, insurance and your own test drive.
+        </p>
+        <ul class="source-list">
+          <li><a href="methodology.html">Auto Insight Lab - Ute Calculator Methodology</a></li>
+          <li><a href="ute-calculator.html">Auto Insight Lab - Ute Calculator</a></li>
+          <li><a href="hilux.html">Toyota HiLux review page</a></li>
+          <li><a href="ford.html">Ford Ranger review page</a></li>
+          <li><a href="disclaimer-copyright.html">Disclaimer and copyright notice</a></li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:flex-start; justify-content:space-between;">
+      <div>
+        <div style="font-weight:650; color:#f9fafb;">Auto Insight Lab</div>
+        <div style="margin-top:6px; max-width: 72ch;">
+          An independent, data-first project that organises public automotive information for Australia.
+        </div>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="index.html">Home</a>
+        <a href="ute-calculator.html">Ute Calculator</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="terms-of-use.html">Terms of Use</a>
+        <a href="disclaimer-copyright.html">Disclaimer & Copyright</a>
+      </div>
+    </div>
+    <div style="margin-top:14px;">
+      &copy; 2026 Auto Insight Lab. All rights reserved. Brand names, vehicle names and trademarks belong to their respective owners where applicable.
+    </div>
+  </footer>
+</body>
+</html>
