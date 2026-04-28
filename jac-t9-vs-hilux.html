@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>JAC T9 vs Toyota HiLux: Australia Ute Comparison | Auto Insight Lab</title>
+  <meta name="description" content="JAC T9 vs Toyota HiLux in Australia: a data-first comparison of value, safety, performance, reliability, sales strength and buyer fit." />
+  <link rel="canonical" href="https://autoscore360.com/jac-t9-vs-hilux.html" />
+  <style>
+    :root{
+      --bg:#020617;
+      --card: rgba(15, 23, 42, 0.98);
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border: rgba(148, 163, 184, 0.45);
+      --accent:#60a5fa;
+      --accent2:#f97316;
+      --ok:#22c55e;
+      --warn:#f59e0b;
+      --radius-lg:18px;
+      --radius-md:12px;
+      --shadow: 0 22px 60px rgba(15, 23, 42, 0.78);
+      --max: 980px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,0.28), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15,23,42,0.98), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit}
+    .nav{
+      position: sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.96), rgba(15,23,42,0.90));
+      border-bottom: 1px solid rgba(30,64,175,0.6);
+    }
+    .nav-inner{
+      max-width: 1180px;
+      margin:0 auto;
+      padding: 14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      font-size: 0.92rem;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:650; letter-spacing:0.08em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      white-space:nowrap;
+      text-decoration:none;
+    }
+    .brand-mark{
+      width: 28px; height: 28px; border-radius: 6px;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      border: 1px solid rgba(148,163,184,0.85);
+      position: relative;
+      overflow:hidden;
+      box-shadow: 0 0 0 1px rgba(15,23,42,0.9), 0 8px 18px rgba(15,23,42,0.9);
+    }
+    .brand-mark::before{
+      content:"";
+      position:absolute; left:-30%; top:50%;
+      width:160%; height:2px;
+      background: linear-gradient(90deg, var(--accent2), #facc15, var(--ok));
+      opacity:0.85;
+    }
+    .nav-links{
+      display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav-link{
+      text-decoration:none;
+      color: var(--muted);
+      font-size: 0.88rem;
+      position:relative;
+      padding: 4px 0;
+    }
+    .nav-link:hover{color: var(--text)}
+    .nav-pill{
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.90);
+      border: 1px solid rgba(148,163,184,0.70);
+      font-size: 0.78rem;
+      color: var(--text);
+      display:inline-flex; align-items:center; gap:8px;
+      white-space:nowrap;
+    }
+    .nav-pill::before{
+      content:"";
+      width:7px; height:7px; border-radius:999px;
+      background: var(--ok);
+      box-shadow: 0 0 8px rgba(34,197,94,0.9);
+    }
+    main{
+      max-width: var(--max);
+      margin: 24px auto 60px;
+      padding: 0 18px 40px;
+    }
+    .hero{
+      background: radial-gradient(circle at top left, rgba(96,165,250,0.12), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(249,115,22,0.10), transparent 55%),
+                  var(--card);
+      border: 1px solid rgba(100,116,139,0.85);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 16px;
+      overflow:hidden;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 4px 10px 4px 6px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(148,163,184,0.70);
+      color: #cbd5f5;
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+    }
+    .kicker-dot{
+      width: 18px; height:18px; border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #f9fafb, var(--accent));
+      box-shadow: 0 0 0 2px rgba(15,23,42,0.7);
+    }
+    h1{
+      margin: 14px 0 8px;
+      font-size: clamp(2.0rem, 3.4vw, 2.6rem);
+      line-height: 1.08;
+      letter-spacing: 0.01em;
+      font-weight: 780;
+      background: linear-gradient(135deg, #e5e7eb, #bfdbfe);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .sub{
+      margin: 0 0 12px;
+      color: #cbd5f5;
+      font-size: 0.98rem;
+      max-width: 76ch;
+    }
+    .meta-row{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.92);
+      border: 1px solid rgba(148,163,184,0.70);
+    }
+    .btn-row{
+      margin-top: 14px;
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+    }
+    .btn-primary{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#f9fafb;
+      font-weight: 650;
+      text-decoration:none;
+      box-shadow: 0 14px 40px rgba(15,23,42,0.9);
+      border: none;
+    }
+    .btn-primary::after{content:"→"}
+    .btn-ghost{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.55);
+      color:#dbeafe;
+      text-decoration:none;
+      background: rgba(15,23,42,0.58);
+      font-size:0.9rem;
+    }
+    article{
+      margin-top: 18px;
+      background: rgba(15,23,42,0.90);
+      border: 1px solid rgba(100,116,139,0.70);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+    }
+    .section{
+      padding: 20px 10px;
+      border-top: 1px solid rgba(148,163,184,0.22);
+    }
+    .section:first-child{border-top:none; padding-top: 6px;}
+    .sk{
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.72rem;
+      margin-bottom: 6px;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size: clamp(1.25rem, 2vw, 1.55rem);
+      line-height:1.25;
+      color:#f9fafb;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+    }
+    h3{
+      margin:16px 0 6px;
+      font-size:1.02rem;
+      color:#dbeafe;
+    }
+    p{margin:0 0 12px; color:#e5e7eb;}
+    ul{color:#e5e7eb}
+    .callout{
+      margin: 12px 0;
+      padding: 12px 13px;
+      border-radius: var(--radius-md);
+      background: rgba(37,99,235,0.12);
+      border: 1px solid rgba(96,165,250,0.35);
+      color:#dbeafe;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:14px;
+      margin-top: 12px;
+    }
+    .card{
+      border: 1px solid rgba(148,163,184,0.28);
+      background: rgba(2,6,23,0.38);
+      border-radius: var(--radius-md);
+      padding: 13px;
+    }
+    .label{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 3px 9px;
+      border-radius:999px;
+      font-size:0.78rem;
+      font-weight:650;
+    }
+    .label-ok{background:rgba(34,197,94,0.12); color:#bbf7d0; border:1px solid rgba(34,197,94,0.35);}
+    .label-warn{background:rgba(245,158,11,0.12); color:#fde68a; border:1px solid rgba(245,158,11,0.35);}
+    .winner{
+      margin-top:8px;
+      color:#f8fafc;
+      font-weight:700;
+    }
+    .table-wrap{
+      width:100%;
+      overflow:auto;
+      border:1px solid rgba(148,163,184,0.28);
+      border-radius: var(--radius-md);
+      background: rgba(2,6,23,0.44);
+      margin: 14px 0;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:760px;
+      font-size:0.9rem;
+    }
+    th,td{
+      padding:10px 12px;
+      border-bottom:1px solid rgba(148,163,184,0.18);
+      text-align:left;
+      vertical-align:top;
+    }
+    th{
+      color:#bfdbfe;
+      background:rgba(15,23,42,0.78);
+      font-weight:700;
+    }
+    tr:last-child td{border-bottom:none}
+    .score{font-weight:750; color:#f8fafc}
+    .muted{color:var(--muted)}
+    .compare-bars{
+      display:grid;
+      gap:12px;
+      margin-top:14px;
+    }
+    .bar-row{
+      display:grid;
+      grid-template-columns: 150px 1fr 64px 64px;
+      gap:10px;
+      align-items:center;
+      font-size:.9rem;
+    }
+    .track{
+      height:10px;
+      border-radius:999px;
+      background:rgba(148,163,184,.18);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:2px;
+    }
+    .fill-jac{height:100%; background:linear-gradient(90deg,#60a5fa,#2563eb);}
+    .fill-hilux{height:100%; background:linear-gradient(90deg,#f97316,#f59e0b);}
+    .source-list a{color:#93c5fd; text-decoration:none}
+    .source-list a:hover{text-decoration:underline}
+    .footer{
+      max-width: var(--max);
+      margin: 0 auto 28px;
+      padding: 0 18px 24px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+    .footer a{color:#93c5fd; text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+    @media (max-width: 760px){
+      .nav-inner{align-items:flex-start; flex-direction:column}
+      .grid-2{grid-template-columns:1fr}
+      article{padding:14px}
+      .section{padding-left:0; padding-right:0}
+      .bar-row{grid-template-columns: 1fr; gap:6px}
+      table{min-width:720px}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="Back to homepage">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Auto Insight Lab</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="ute-calculator.html">Ute Calculator</a>
+        <a class="nav-link" href="T9.html">JAC T9 Review</a>
+        <a class="nav-link" href="hilux.html">HiLux Review</a>
+        <span class="nav-pill">Australia • Ute comparison</span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="kicker"><span class="kicker-dot" aria-hidden="true"></span>Head-to-head comparison based on public data</div>
+      <h1>JAC T9 vs Toyota HiLux: value challenger or proven benchmark?</h1>
+      <p class="sub">
+        JAC T9 and Toyota HiLux sit at opposite ends of the ute-buying argument: one is a newer value challenger with
+        strong technical scores, the other is Australia's proven mainstream benchmark. This page compares them through the
+        Auto Insight Lab calculator framework.
+      </p>
+
+      <div class="meta-row">
+        <div class="pill">Comparison: challenger vs benchmark</div>
+        <div class="pill">Default model winner: Toyota HiLux</div>
+        <div class="pill">Best read with calculator weights</div>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn-primary" href="ute-calculator.html">Open the Ute Calculator</a>
+        <a class="btn-ghost" href="methodology.html">Read scoring methodology</a>
+        <a class="btn-ghost" href="#score-table">Jump to score table</a>
+      </div>
+    </section>
+
+    <article>
+      <section class="section">
+        <div class="sk">Quick verdict</div>
+        <h2>1) Short answer</h2>
+        <p>
+          Under the current Auto Insight Lab default weighting, the <strong>Toyota HiLux ranks ahead of the JAC T9</strong>.
+          But this comparison is more interesting than the final score alone: JAC T9 beats HiLux on safety, economy,
+          performance and reliability scores in the current calculator data. HiLux wins because its sales score is massively
+          higher, and the default framework strongly rewards proven market validation.
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <div class="label label-ok">Choose JAC T9 if</div>
+            <p style="margin-top:8px">
+              You want the stronger data-led value play: high safety score, high economy score, competitive capability and
+              a willingness to accept newer-brand market risk.
+            </p>
+            <div class="winner">Default score: 63.77</div>
+          </div>
+          <div class="card">
+            <div class="label label-ok">Choose HiLux if</div>
+            <p style="margin-top:8px">
+              You want the lower-risk ownership story: maximum market acceptance, stronger resale confidence and a deeply
+              familiar support ecosystem.
+            </p>
+            <div class="winner">Default score: 75.72</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="score-table">
+        <div class="sk">Calculator result</div>
+        <h2>2) Side-by-side score table</h2>
+        <p>
+          These values use the current default calculator weights: Safety 8%, Economy 15%, Performance 12%,
+          Reliability 40% and Sales 25%.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Safety</th>
+                <th>Economy</th>
+                <th>Performance</th>
+                <th>Reliability</th>
+                <th>Sales</th>
+                <th>Final score</th>
+                <th>Default rank</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>JAC T9</strong></td>
+                <td>93.42</td>
+                <td>93.00</td>
+                <td>78.36</td>
+                <td>81.11</td>
+                <td>2</td>
+                <td class="score">63.77</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td><strong>Toyota HiLux</strong></td>
+                <td>88.84</td>
+                <td>38.42</td>
+                <td>71.06</td>
+                <td>73.30</td>
+                <td>100</td>
+                <td class="score">75.72</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="compare-bars" aria-label="JAC T9 versus Toyota HiLux score bars">
+          <div class="bar-row">
+            <strong>Safety</strong>
+            <div class="track"><div class="fill-jac" style="width:93.42%"></div><div class="fill-hilux" style="width:88.84%"></div></div>
+            <span>JAC 93.42</span>
+            <span>HiLux 88.84</span>
+          </div>
+          <div class="bar-row">
+            <strong>Economy</strong>
+            <div class="track"><div class="fill-jac" style="width:93.00%"></div><div class="fill-hilux" style="width:38.42%"></div></div>
+            <span>JAC 93.00</span>
+            <span>HiLux 38.42</span>
+          </div>
+          <div class="bar-row">
+            <strong>Performance</strong>
+            <div class="track"><div class="fill-jac" style="width:78.36%"></div><div class="fill-hilux" style="width:71.06%"></div></div>
+            <span>JAC 78.36</span>
+            <span>HiLux 71.06</span>
+          </div>
+          <div class="bar-row">
+            <strong>Reliability</strong>
+            <div class="track"><div class="fill-jac" style="width:81.11%"></div><div class="fill-hilux" style="width:73.30%"></div></div>
+            <span>JAC 81.11</span>
+            <span>HiLux 73.30</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Where each ute wins</div>
+        <h2>3) What JAC T9 does better, and what HiLux does better</h2>
+        <div class="grid-2">
+          <div class="card">
+            <div class="label label-ok">JAC T9 strengths</div>
+            <ul style="margin:8px 0 0 20px">
+              <li><strong>Safety score:</strong> JAC T9 leads HiLux in the current calculator data.</li>
+              <li><strong>Economy score:</strong> it is far stronger on the calculator's ownership-cost logic.</li>
+              <li><strong>Value argument:</strong> it gives budget-conscious buyers a credible way into a newer ute.</li>
+              <li><strong>Technical score strength:</strong> before Sales is applied, T9 looks very competitive.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="label label-ok">HiLux strengths</div>
+            <ul style="margin:8px 0 0 20px">
+              <li><strong>Sales score:</strong> HiLux receives the maximum score for market validation.</li>
+              <li><strong>Ownership familiarity:</strong> buyers know what HiLux is, how it is used and how it resells.</li>
+              <li><strong>Risk reduction:</strong> broad service familiarity and market depth matter for long-term owners.</li>
+              <li><strong>Default ranking fit:</strong> the model rewards proven, conservative ownership confidence.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Ownership logic</div>
+        <h2>4) Running costs and long-term confidence</h2>
+        <p>
+          JAC T9's biggest argument is that the numbers look strong. Its safety, economy and reliability scores make it a
+          serious challenger rather than just a cheap alternative. For buyers focused on upfront value and ownership cost,
+          the T9 is exactly the kind of ute the calculator is designed to uncover.
+        </p>
+        <p>
+          HiLux's biggest argument is that the market has already validated it at scale. The calculator gives that validation
+          real weight through the Sales score. This reflects a conservative buyer assumption: when a vehicle has a large ownership
+          base, stronger resale visibility and broad service familiarity, some buyers treat that as a form of risk reduction.
+        </p>
+        <div class="callout">
+          If you reduce Sales weighting, JAC T9 becomes much more competitive. If you keep Sales and Reliability high,
+          HiLux remains the safer default choice.
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Work use</div>
+        <h2>5) Tradie, towing and payload comparison</h2>
+        <p>
+          JAC T9 has a higher performance score than HiLux in the current calculator, so it should not be dismissed as merely
+          a price-led option. It has enough work-focused strength to be a realistic shortlist vehicle for buyers who are open
+          to newer brands.
+        </p>
+        <p>
+          HiLux remains compelling for tradies who think beyond the spec sheet: resale, downtime anxiety, parts familiarity,
+          fleet acceptance and the simple reality that many job sites already understand the HiLux ownership pattern.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="sk">Daily use</div>
+        <h2>6) Family and everyday driving comparison</h2>
+        <div class="grid-2">
+          <div class="card">
+            <div class="label label-warn">JAC T9 daily-use angle</div>
+            <p style="margin-top:8px">
+              T9 suits buyers who want more features and value for the money, and who are comfortable doing extra checking on
+              dealer support, resale expectations and long-term brand presence.
+            </p>
+          </div>
+          <div class="card">
+            <div class="label label-warn">HiLux daily-use angle</div>
+            <p style="margin-top:8px">
+              HiLux suits buyers who prefer the known quantity. It may not beat T9 on every technical score, but it reduces
+              uncertainty for people who value predictability.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Buyer fit</div>
+        <h2>7) Which buyer should choose which?</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Buyer type</th>
+                <th>Better fit</th>
+                <th>Why</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Budget-conscious new-ute buyer</td>
+                <td><strong>JAC T9</strong></td>
+                <td>Stronger value and economy logic in the current calculator data.</td>
+              </tr>
+              <tr>
+                <td>Risk-averse long-term owner</td>
+                <td><strong>Toyota HiLux</strong></td>
+                <td>Maximum sales score and the strongest market validation story.</td>
+              </tr>
+              <tr>
+                <td>Buyer open to Chinese brands</td>
+                <td><strong>JAC T9</strong></td>
+                <td>High technical scores make it the standout challenger in this comparison.</td>
+              </tr>
+              <tr>
+                <td>Fleet/company shortlist</td>
+                <td><strong>Usually HiLux, unless cost pressure dominates</strong></td>
+                <td>HiLux suits conservative procurement; T9 suits aggressive value targeting.</td>
+              </tr>
+              <tr>
+                <td>Resale and service familiarity focused</td>
+                <td><strong>Toyota HiLux</strong></td>
+                <td>Broader ownership ecosystem and clearer resale expectations.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Bottom line</div>
+        <h2>8) Final perspective</h2>
+        <p>
+          This is one of the clearest examples of why the calculator needs adjustable weights. JAC T9 looks excellent on
+          several technical dimensions, especially safety and economy. HiLux wins the default model because it carries far
+          more proven market acceptance.
+        </p>
+        <p>
+          The honest summary is this:
+          <strong>JAC T9 is the sharper value challenger; Toyota HiLux is the safer proven benchmark.</strong>
+          The better choice depends on whether you are trying to maximise data-led value or minimise long-term ownership risk.
+        </p>
+        <div class="btn-row">
+          <a class="btn-primary" href="ute-calculator.html">Test your own weights</a>
+          <a class="btn-ghost" href="T9.html">Read JAC T9 review</a>
+          <a class="btn-ghost" href="hilux.html">Read HiLux review</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Method and sources</div>
+        <h2>9) Notes and references</h2>
+        <p>
+          This comparison uses Auto Insight Lab's current ute calculator scores and public-source review synthesis. It is
+          informational only and should be checked against current manufacturer specifications, ANCAP information, quotes,
+          finance, insurance and your own test drive.
+        </p>
+        <ul class="source-list">
+          <li><a href="methodology.html">Auto Insight Lab - Ute Calculator Methodology</a></li>
+          <li><a href="ute-calculator.html">Auto Insight Lab - Ute Calculator</a></li>
+          <li><a href="T9.html">JAC T9 review page</a></li>
+          <li><a href="hilux.html">Toyota HiLux review page</a></li>
+          <li><a href="disclaimer-copyright.html">Disclaimer and copyright notice</a></li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:flex-start; justify-content:space-between;">
+      <div>
+        <div style="font-weight:650; color:#f9fafb;">Auto Insight Lab</div>
+        <div style="margin-top:6px; max-width: 72ch;">
+          An independent, data-first project that organises public automotive information for Australia.
+        </div>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="index.html">Home</a>
+        <a href="ute-calculator.html">Ute Calculator</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="terms-of-use.html">Terms of Use</a>
+        <a href="disclaimer-copyright.html">Disclaimer & Copyright</a>
+      </div>
+    </div>
+    <div style="margin-top:14px;">
+      &copy; 2026 Auto Insight Lab. All rights reserved. Brand names, vehicle names and trademarks belong to their respective owners where applicable.
+    </div>
+  </footer>
+</body>
+</html>
