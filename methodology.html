@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ute Calculator Methodology &amp; Scoring Framework | Auto Insight Lab</title>
+  <meta name="description" content="Methodology behind the Auto Insight Lab ute calculator, including safety, economy, performance, reliability, sales scoring and default ranking logic." />
+  <link rel="canonical" href="https://autoscore360.com/methodology.html" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --panel:#0B1224;
+      --panel-soft:#111827;
+      --text:#E5E7EB;
+      --muted:#9CA3AF;
+      --line:rgba(148,163,184,.28);
+      --accent:#93C5FD;
+      --accent-strong:#2563EB;
+      --warm:#F97316;
+      --max:1040px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15,23,42,.92), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.7;
+    }
+    a{color:inherit}
+    .nav{
+      position:sticky; top:0; z-index:30;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(to bottom, rgba(15,23,42,.96), rgba(15,23,42,.90));
+      border-bottom:1px solid rgba(30,64,175,.45);
+    }
+    .nav-inner{
+      max-width:1120px; margin:0 auto; padding:14px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:650; letter-spacing:.08em;
+      text-transform:uppercase; font-size:.82rem; white-space:nowrap; text-decoration:none;
+    }
+    .brand-mark{
+      width:28px; height:28px; border-radius:6px;
+      background:linear-gradient(135deg,#0F172A,#1E293B);
+      border:1px solid rgba(148,163,184,.85);
+      position:relative; overflow:hidden;
+      box-shadow:0 0 0 1px rgba(15,23,42,.9), 0 8px 18px rgba(15,23,42,.9);
+    }
+    .brand-mark::before{
+      content:""; position:absolute; left:-30%; top:50%; width:160%; height:2px;
+      background:linear-gradient(90deg,#F97316,#FACC15,#22C55E); opacity:.85;
+    }
+    .nav-links{
+      display:flex; align-items:center; gap:16px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .nav-link{ text-decoration:none; color:var(--muted); font-size:.88rem; padding:4px 0; }
+    .nav-link:hover{ color:var(--text); }
+    .nav-pill{
+      padding:5px 11px; border-radius:999px; background:rgba(15,23,42,.90);
+      border:1px solid rgba(148,163,184,.50); font-size:.78rem; color:var(--text); white-space:nowrap;
+    }
+    .page{ max-width:var(--max); margin:0 auto; padding:32px 20px 56px; }
+    .doc{ background:rgba(11,18,36,.82); border:1px solid var(--line); padding:30px 26px 34px; }
+    h1{ margin:0 0 10px; font-size:2.1rem; line-height:1.15; color:#F9FAFB; }
+    .lede{ margin:0 0 22px; color:#CBD5E1; font-size:1rem; max-width:850px; }
+    .meta{ margin:0 0 26px; padding-bottom:18px; border-bottom:1px solid var(--line); color:var(--muted); font-size:.9rem; }
+    h2{ margin:30px 0 10px; font-size:1.14rem; color:#F9FAFB; }
+    h3{ margin:20px 0 8px; font-size:1rem; color:#DBEAFE; }
+    p{ margin:0 0 14px; color:#E5E7EB; font-size:.97rem; }
+    ul{ margin:0 0 14px 20px; padding:0; color:#E5E7EB; }
+    li{ margin:7px 0; }
+    .section{ padding-top:4px; border-top:1px solid var(--line); margin-top:24px; }
+    .section:first-of-type{ border-top:none; margin-top:0; padding-top:0; }
+    .note{
+      margin:16px 0;
+      padding:14px 16px;
+      border:1px solid rgba(147,197,253,.28);
+      background:rgba(37,99,235,.10);
+      color:#DBEAFE;
+    }
+    .formula{
+      margin:14px 0;
+      padding:13px 15px;
+      border:1px solid rgba(148,163,184,.24);
+      background:rgba(2,6,23,.55);
+      color:#F8FAFC;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+      font-size:.88rem;
+      overflow:auto;
+    }
+    .table-wrap{
+      width:100%;
+      overflow:auto;
+      border:1px solid var(--line);
+      background:rgba(2,6,23,.36);
+      margin:14px 0 18px;
+    }
+    table{ width:100%; border-collapse:collapse; min-width:680px; }
+    th,td{
+      padding:10px 12px;
+      border-bottom:1px solid rgba(148,163,184,.20);
+      text-align:left;
+      font-size:.9rem;
+      vertical-align:top;
+    }
+    th{ color:#BFDBFE; font-weight:650; background:rgba(15,23,42,.72); }
+    td{ color:#E5E7EB; }
+    tr:last-child td{ border-bottom:none; }
+    .compact table{ min-width:520px; }
+    .results table{ min-width:880px; }
+    .muted{ color:var(--muted); }
+    .source-link{ color:var(--accent); text-decoration:none; }
+    .source-link:hover{text-decoration:underline}
+    .footer{
+      max-width:var(--max); margin:0 auto 28px; padding:0 20px 20px; color:var(--muted); font-size:.84rem;
+    }
+    .footer a{ color:var(--accent); text-decoration:none; }
+    .footer a:hover{text-decoration:underline}
+    @media (max-width: 720px){
+      .page{padding:22px 14px 40px}
+      .doc{padding:22px 16px 26px}
+      .nav-inner{padding:14px; align-items:flex-start; flex-direction:column}
+      h1{font-size:1.72rem}
+      table{min-width:760px}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="Back to homepage">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Auto Insight Lab</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="ute-calculator.html">Ute Calculator</a>
+        <a class="nav-link" href="index.html#ute-reviews">Ute Reviews</a>
+        <a class="nav-link" href="recalls.html">Recalls</a>
+        <span class="nav-pill">Methodology</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <article class="doc">
+      <h1>Ute Calculator Methodology &amp; Scoring Framework</h1>
+      <p class="lede">
+        This page explains how the Auto Insight Lab ute calculator converts public vehicle data into comparable scores.
+        The model is designed for shortlisting, not as an official safety, quality or purchase recommendation.
+      </p>
+      <p class="meta">Last updated: 28 April 2026 • Scope: Australian ute shortlist calculator</p>
+
+      <section class="section">
+        <h2>1. Database &amp; Indicator Design Overview</h2>
+        <p>
+          The calculator evaluates each ute model across five core dimensions, then combines those dimensions into one
+          overall score using either the default weights or user-adjusted scenario weights.
+        </p>
+        <div class="table-wrap compact">
+          <table>
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th>Primary meaning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Safety</td><td>Based on official ANCAP safety ratings.</td></tr>
+              <tr><td>Economy</td><td>Total ownership cost, combining driveaway price and fuel cost.</td></tr>
+              <tr><td>Performance</td><td>Work-focused capability, especially payload, towing and torque.</td></tr>
+              <tr><td>Reliability</td><td>Derived from warranty, recalls and brand strength.</td></tr>
+              <tr><td>Sales</td><td>Market endorsement based on Australian market penetration.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Users can apply the default system weights or manually customise weights for different scenarios, such as tradie
+          work, fleet buying, family use or long-term ownership.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>2. Safety Score</h2>
+        <p>
+          Safety data is sourced from the official ANCAP database, including headline star ratings and sub-category results.
+          Only vehicles with ANCAP ratings from 2018 onwards are included, because earlier tests follow older assessment
+          standards and would distort comparability.
+        </p>
+        <p>
+          The final Safety Score directly uses the <strong>p_weighted</strong> value returned by ANCAP's official API. This
+          value already accounts for assessment year differences, changing rating standards over time and cross-year score
+          normalisation.
+        </p>
+        <div class="note">
+          Using ANCAP's weighted value avoids manual re-weighting bias and keeps cross-model safety comparison closer to
+          the source assessment framework.
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>3. Economy Score</h2>
+        <p>
+          Economy is defined as total cost of ownership over the assumed ownership period.
+        </p>
+        <div class="formula">Total Cost of Ownership = Driveaway Price + Fuel Costs over Ownership Period</div>
+
+        <h3>3.1 Fuel Data &amp; Annual Fuel Cost</h3>
+        <p>
+          The primary fuel data source is the Green Vehicle Guide:
+          <a class="source-link" href="https://www.greenvehicleguide.gov.au/" target="_blank" rel="noopener">greenvehicleguide.gov.au</a>.
+          Older models are removed from the dataset. Where fuel data is missing, combined L/100 km figures are manually
+          retrieved from official manufacturer websites.
+        </p>
+        <ul>
+          <li>Annual driving distance: 14,000 km per year, aligned with Australian average driving assumptions.</li>
+          <li>Fuel price: based on the Green Vehicle Guide reference fuel price.</li>
+          <li>Ownership period: 7 years, aligned with common warranty periods and average ownership lifecycle assumptions.</li>
+        </ul>
+        <p>
+          To keep fuel cost aligned with the Green Vehicle Guide dataset, the model estimates an average fuel price from
+          GVG annual fuel cost divided by GVG annual fuel consumption, then recalculates annual fuel cost using that average.
+        </p>
+        <div class="formula">Total Fuel Cost = Annual Fuel Cost x 7 years</div>
+
+        <h3>3.2 Driveaway Price</h3>
+        <p>
+          The primary price source is new vehicle pricing on Drive.com.au from 2018 to 2025, aligned with the ANCAP scoring
+          window used by this calculator. For models missing data on Drive, prices are sourced from Carsales filtered by
+          "New Vehicle". Multiple listing prices are averaged to reduce the effect of outliers and produce a representative
+          market driveaway price.
+        </p>
+
+        <h3>3.3 Economy Score Normalisation</h3>
+        <p>
+          TCO values are normalised using a gentle non-linear scaling function so models with close price levels are not
+          exaggerated into unrealistic score gaps. Mitsubishi Triton's economy score is anchored at 80, because it is widely
+          recognised as one of the strongest value-for-money utes among top sellers. Other vehicles are scaled accordingly
+          into a 0-100 range.
+        </p>
+        <p>
+          Jeep Gladiator is a special case. Its theoretical score becomes negative after normalisation, so a minimum score
+          floor of 0 is applied to keep results interpretable.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>4. Performance Score</h2>
+        <p>
+          Performance reflects tradie-oriented real-world work capability rather than acceleration or lifestyle appeal.
+        </p>
+        <div class="table-wrap compact">
+          <table>
+            <thead>
+              <tr>
+                <th>Indicator</th>
+                <th>Weight</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Payload</td><td>60%</td></tr>
+              <tr><td>Braked towing capacity</td><td>25%</td></tr>
+              <tr><td>Torque</td><td>15%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Each indicator is linearly normalised to a 0-100 scale across all sampled vehicles. The model then calibrates the
+          score around a practical "ideal tradie standard".
+        </p>
+        <div class="table-wrap compact">
+          <table>
+            <thead>
+              <tr>
+                <th>Practical benchmark</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Towing</td><td>3,500 kg</td></tr>
+              <tr><td>Payload</td><td>900 kg</td></tr>
+              <tr><td>Torque</td><td>450 Nm</td></tr>
+              <tr><td>Benchmark score</td><td>80 points</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Vehicles are scaled around this benchmark so the score remains intuitive. A user can see not only which vehicle
+          ranks higher, but also how far each ute sits from a practical 80-point work standard.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>5. Reliability Score</h2>
+        <p>
+          Reliability integrates warranty support, recall history and broader brand strength.
+        </p>
+        <div class="table-wrap compact">
+          <table>
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Weight</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Warranty Score</td><td>40%</td></tr>
+              <tr><td>Recall Factor</td><td>20%</td></tr>
+              <tr><td>Brand Strength Score</td><td>40%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>5.1 Warranty Score</h3>
+        <p>
+          Warranty is split into years and mileage. A 10-year warranty equals the maximum years benchmark. A 200,000 km
+          limit receives full mileage marks, and unlimited kilometre warranties also receive full mileage marks.
+        </p>
+        <div class="formula">Final Warranty Score = 0.7 x Years Score + 0.3 x Mileage Score</div>
+
+        <h3>5.2 Recall Penalty</h3>
+        <p>
+          Recall history is based on total recall events since 2018. To avoid unfairly penalising high-volume sellers, the
+          model applies a logarithmic decay and caps the maximum recall penalty.
+        </p>
+        <div class="formula">RecallPenalty = 10 x ln(1 + R)<br />RecallFactor = 100 - min(RecallPenalty, 50)</div>
+        <p>
+          The maximum recall penalty is capped at 50 to avoid extreme distortion. Recall count is treated as one signal,
+          not as a direct verdict on quality.
+        </p>
+
+        <h3>5.3 Brand Strength Score</h3>
+        <p>
+          Brand strength is a composite score based on brand establishment history, global vehicle sales volume and major
+          historical safety or quality crises, excluding normal recall activity. This score is semi-quantitative and currently
+          involves structured manual assessment. Future versions may explore automated global brand risk indicators.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>6. Sales Score</h2>
+        <p>
+          Sales represents market validation and mass acceptance in Australia. Because complete and consistent annual sales
+          figures are not available across all brands and models, the calculator uses a tier-based classification model
+          rather than raw unit counts.
+        </p>
+        <div class="table-wrap compact">
+          <table>
+            <thead>
+              <tr>
+                <th>Tier</th>
+                <th>Description</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>S</td><td>Market-dominant models, such as HiLux and Ranger.</td><td>100</td></tr>
+              <tr><td>A</td><td>High-volume mainstream models.</td><td>22</td></tr>
+              <tr><td>B</td><td>Medium-volume models.</td><td>16</td></tr>
+              <tr><td>C</td><td>Low-volume brands or new imports.</td><td>2</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          This is not absolute sales data. It reflects relative market positioning, local acceptance and risk reduction
+          from broad ownership presence.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>7. Final Scoring Model</h2>
+        <p>
+          Each vehicle receives a score across Safety, Economy, Performance, Reliability and Sales. The default weighting
+          reflects a long-term ownership profile where reliability and market validation matter strongly.
+        </p>
+        <div class="table-wrap compact">
+          <table>
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th>Default weight</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Safety</td><td>8%</td></tr>
+              <tr><td>Economy</td><td>15%</td></tr>
+              <tr><td>Performance</td><td>12%</td></tr>
+              <tr><td>Reliability</td><td>40%</td></tr>
+              <tr><td>Sales</td><td>25%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          The rationale is that many ute buyers treat the vehicle as a long-term asset. They often prioritise reliability,
+          proven market acceptance and ownership cost efficiency. Safety and performance still matter, but there is less
+          differentiation across many mainstream models, so moderate weighting is sufficient in the default view.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>8. Current Results Under Default Weights</h2>
+        <p>
+          Under the default weights, Toyota HiLux ranks first due to its dominant sales position, stable safety and reliability
+          performance, and balanced work capability. Models such as JAC T9 and BYD Shark 6 achieve strong technical scores,
+          but are constrained by lower sales scores. This reflects the risk-averse bias of the current framework, which
+          prioritises long-term market validation.
+        </p>
+        <div class="table-wrap results">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Model</th>
+                <th>Safety</th>
+                <th>Economy</th>
+                <th>Performance</th>
+                <th>Reliability</th>
+                <th>Sales</th>
+                <th>Final score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>Toyota HiLux</td><td>88.84</td><td>38.42</td><td>71.06</td><td>73.30</td><td>100</td><td>75.72</td></tr>
+              <tr><td>2</td><td>Ford Ranger</td><td>86.19</td><td>5.64</td><td>82.09</td><td>71.41</td><td>100</td><td>71.16</td></tr>
+              <tr><td>3</td><td>Mitsubishi Triton</td><td>86.40</td><td>80.00</td><td>92.30</td><td>84.34</td><td>22</td><td>69.22</td></tr>
+              <tr><td>4</td><td>JAC T9</td><td>93.42</td><td>93.00</td><td>78.36</td><td>81.11</td><td>2</td><td>63.77</td></tr>
+              <tr><td>5</td><td>Isuzu D-Max</td><td>83.72</td><td>63.14</td><td>68.41</td><td>81.06</td><td>22</td><td>62.30</td></tr>
+              <tr><td>6</td><td>GWM Cannon</td><td>80.86</td><td>86.60</td><td>74.08</td><td>74.80</td><td>16</td><td>62.29</td></tr>
+              <tr><td>7</td><td>Mazda BT-50</td><td>83.01</td><td>62.69</td><td>89.64</td><td>77.12</td><td>16</td><td>61.65</td></tr>
+              <tr><td>8</td><td>LDV Terron 9/MG U9</td><td>93.85</td><td>82.49</td><td>74.09</td><td>74.65</td><td>2</td><td>59.13</td></tr>
+              <tr><td>9</td><td>Kia Tasman</td><td>86.48</td><td>58.93</td><td>86.61</td><td>79.60</td><td>2</td><td>58.49</td></tr>
+              <tr><td>10</td><td>Volkswagen Amarok</td><td>86.69</td><td>20.38</td><td>83.36</td><td>72.93</td><td>16</td><td>53.17</td></tr>
+              <tr><td>11</td><td>BYD Shark 6</td><td>87.78</td><td>65.25</td><td>37.49</td><td>70.50</td><td>2</td><td>50.01</td></tr>
+              <tr><td>12</td><td>Jeep Gladiator</td><td>62.26</td><td>0.00</td><td>4.42</td><td>68.52</td><td>2</td><td>33.42</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>9. Limits and Interpretation</h2>
+        <p>
+          The calculator is a structured shortlist tool. It should be used alongside inspection, test drives, dealer quotes,
+          finance checks, insurance costs and the latest manufacturer specifications.
+        </p>
+        <ul>
+          <li>Scores can change as public data, ANCAP results, pricing, warranty terms and recall records change.</li>
+          <li>New models and low-volume models may carry more uncertainty because long-term local evidence is limited.</li>
+          <li>Sales tier is a market-positioning proxy, not a precise official sales count.</li>
+          <li>Reliability combines objective inputs and structured editorial assessment, especially in brand strength.</li>
+          <li>Different buyer scenarios can produce different rankings when the calculator weights are changed.</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div style="font-weight:650;color:#E5E7EB;">Auto Insight Lab</div>
+    <div style="margin-top:6px;">
+      Read this alongside the <a href="ute-calculator.html">Ute Calculator</a>,
+      <a href="terms-of-use.html">Terms of Use</a> and
+      <a href="disclaimer-copyright.html">Disclaimer &amp; Copyright Notice</a>.
+    </div>
+    <div style="margin-top:8px;font-size:0.76rem;">
+      &copy; 2026 Auto Insight Lab. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
