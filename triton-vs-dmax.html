@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Mitsubishi Triton vs Isuzu D-MAX: Australia Ute Comparison | Auto Insight Lab</title>
+  <meta name="description" content="Mitsubishi Triton vs Isuzu D-MAX in Australia: a data-first comparison of safety, economy, performance, reliability, sales strength and buyer fit." />
+  <link rel="canonical" href="https://autoscore360.com/triton-vs-dmax.html" />
+  <style>
+    :root{
+      --bg:#020617;
+      --card: rgba(15, 23, 42, 0.98);
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border: rgba(148, 163, 184, 0.45);
+      --accent:#60a5fa;
+      --accent2:#f97316;
+      --ok:#22c55e;
+      --warn:#f59e0b;
+      --radius-lg:18px;
+      --radius-md:12px;
+      --shadow: 0 22px 60px rgba(15, 23, 42, 0.78);
+      --max: 980px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,0.28), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15,23,42,0.98), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit}
+    .nav{
+      position: sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.96), rgba(15,23,42,0.90));
+      border-bottom: 1px solid rgba(30,64,175,0.6);
+    }
+    .nav-inner{
+      max-width: 1180px;
+      margin:0 auto;
+      padding: 14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      font-size: 0.92rem;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:650; letter-spacing:0.08em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      white-space:nowrap;
+      text-decoration:none;
+    }
+    .brand-mark{
+      width: 28px; height: 28px; border-radius: 6px;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      border: 1px solid rgba(148,163,184,0.85);
+      position: relative;
+      overflow:hidden;
+      box-shadow: 0 0 0 1px rgba(15,23,42,0.9), 0 8px 18px rgba(15,23,42,0.9);
+    }
+    .brand-mark::before{
+      content:"";
+      position:absolute; left:-30%; top:50%;
+      width:160%; height:2px;
+      background: linear-gradient(90deg, var(--accent2), #facc15, var(--ok));
+      opacity:0.85;
+    }
+    .nav-links{
+      display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav-link{
+      text-decoration:none;
+      color: var(--muted);
+      font-size: 0.88rem;
+      position:relative;
+      padding: 4px 0;
+    }
+    .nav-link:hover{color: var(--text)}
+    .nav-pill{
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.90);
+      border: 1px solid rgba(148,163,184,0.70);
+      font-size: 0.78rem;
+      color: var(--text);
+      display:inline-flex; align-items:center; gap:8px;
+      white-space:nowrap;
+    }
+    .nav-pill::before{
+      content:"";
+      width:7px; height:7px; border-radius:999px;
+      background: var(--ok);
+      box-shadow: 0 0 8px rgba(34,197,94,0.9);
+    }
+    main{
+      max-width: var(--max);
+      margin: 24px auto 60px;
+      padding: 0 18px 40px;
+    }
+    .hero{
+      background: radial-gradient(circle at top left, rgba(96,165,250,0.12), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(249,115,22,0.10), transparent 55%),
+                  var(--card);
+      border: 1px solid rgba(100,116,139,0.85);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 16px;
+      overflow:hidden;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 4px 10px 4px 6px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(148,163,184,0.70);
+      color: #cbd5f5;
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+    }
+    .kicker-dot{
+      width: 18px; height:18px; border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #f9fafb, var(--accent));
+      box-shadow: 0 0 0 2px rgba(15,23,42,0.7);
+    }
+    h1{
+      margin: 14px 0 8px;
+      font-size: clamp(2.0rem, 3.4vw, 2.6rem);
+      line-height: 1.08;
+      letter-spacing: 0.01em;
+      font-weight: 780;
+      background: linear-gradient(135deg, #e5e7eb, #bfdbfe);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .sub{
+      margin: 0 0 12px;
+      color: #cbd5f5;
+      font-size: 0.98rem;
+      max-width: 76ch;
+    }
+    .meta-row{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.92);
+      border: 1px solid rgba(148,163,184,0.70);
+    }
+    .btn-row{
+      margin-top: 14px;
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+    }
+    .btn-primary{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#f9fafb;
+      font-weight: 650;
+      text-decoration:none;
+      box-shadow: 0 14px 40px rgba(15,23,42,0.9);
+      border: none;
+    }
+    .btn-primary::after{content:"→"}
+    .btn-ghost{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.55);
+      color:#dbeafe;
+      text-decoration:none;
+      background: rgba(15,23,42,0.58);
+      font-size:0.9rem;
+    }
+    article{
+      margin-top: 18px;
+      background: rgba(15,23,42,0.90);
+      border: 1px solid rgba(100,116,139,0.70);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+    }
+    .section{
+      padding: 20px 10px;
+      border-top: 1px solid rgba(148,163,184,0.22);
+    }
+    .section:first-child{border-top:none; padding-top: 6px;}
+    .sk{
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.72rem;
+      margin-bottom: 6px;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size: clamp(1.25rem, 2vw, 1.55rem);
+      line-height:1.25;
+      color:#f9fafb;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+    }
+    h3{
+      margin:16px 0 6px;
+      font-size:1.02rem;
+      color:#dbeafe;
+    }
+    p{margin:0 0 12px; color:#e5e7eb;}
+    ul{color:#e5e7eb}
+    .callout{
+      margin: 12px 0;
+      padding: 12px 13px;
+      border-radius: var(--radius-md);
+      background: rgba(37,99,235,0.12);
+      border: 1px solid rgba(96,165,250,0.35);
+      color:#dbeafe;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:14px;
+      margin-top: 12px;
+    }
+    .card{
+      border: 1px solid rgba(148,163,184,0.28);
+      background: rgba(2,6,23,0.38);
+      border-radius: var(--radius-md);
+      padding: 13px;
+    }
+    .label{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 3px 9px;
+      border-radius:999px;
+      font-size:0.78rem;
+      font-weight:650;
+    }
+    .label-ok{background:rgba(34,197,94,0.12); color:#bbf7d0; border:1px solid rgba(34,197,94,0.35);}
+    .label-warn{background:rgba(245,158,11,0.12); color:#fde68a; border:1px solid rgba(245,158,11,0.35);}
+    .winner{
+      margin-top:8px;
+      color:#f8fafc;
+      font-weight:700;
+    }
+    .table-wrap{
+      width:100%;
+      overflow:auto;
+      border:1px solid rgba(148,163,184,0.28);
+      border-radius: var(--radius-md);
+      background: rgba(2,6,23,0.44);
+      margin: 14px 0;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:760px;
+      font-size:0.9rem;
+    }
+    th,td{
+      padding:10px 12px;
+      border-bottom:1px solid rgba(148,163,184,0.18);
+      text-align:left;
+      vertical-align:top;
+    }
+    th{
+      color:#bfdbfe;
+      background:rgba(15,23,42,0.78);
+      font-weight:700;
+    }
+    tr:last-child td{border-bottom:none}
+    .score{font-weight:750; color:#f8fafc}
+    .muted{color:var(--muted)}
+    .compare-bars{
+      display:grid;
+      gap:12px;
+      margin-top:14px;
+    }
+    .bar-row{
+      display:grid;
+      grid-template-columns: 150px 1fr 64px 64px;
+      gap:10px;
+      align-items:center;
+      font-size:.9rem;
+    }
+    .track{
+      height:10px;
+      border-radius:999px;
+      background:rgba(148,163,184,.18);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:2px;
+    }
+    .fill-triton{height:100%; background:linear-gradient(90deg,#60a5fa,#2563eb);}
+    .fill-dmax{height:100%; background:linear-gradient(90deg,#f97316,#f59e0b);}
+    .source-list a{color:#93c5fd; text-decoration:none}
+    .source-list a:hover{text-decoration:underline}
+    .footer{
+      max-width: var(--max);
+      margin: 0 auto 28px;
+      padding: 0 18px 24px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+    .footer a{color:#93c5fd; text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+    @media (max-width: 760px){
+      .nav-inner{align-items:flex-start; flex-direction:column}
+      .grid-2{grid-template-columns:1fr}
+      article{padding:14px}
+      .section{padding-left:0; padding-right:0}
+      .bar-row{grid-template-columns: 1fr; gap:6px}
+      table{min-width:720px}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="Back to homepage">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Auto Insight Lab</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="ute-calculator.html">Ute Calculator</a>
+        <a class="nav-link" href="triton.html">Triton Review</a>
+        <a class="nav-link" href="Dmax.html">D-MAX Review</a>
+        <span class="nav-pill">Australia • Ute comparison</span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="kicker"><span class="kicker-dot" aria-hidden="true"></span>Head-to-head comparison based on public data</div>
+      <h1>Mitsubishi Triton vs Isuzu D-MAX: value, capability and long-term ownership compared</h1>
+      <p class="sub">
+        Triton and D-MAX are both rational shortlist choices for Australian ute buyers, but they win for different reasons.
+        This page compares them through safety, economy, performance, reliability and sales strength.
+      </p>
+
+      <div class="meta-row">
+        <div class="pill">Comparison: Japanese mainstream utes</div>
+        <div class="pill">Default model winner: Mitsubishi Triton</div>
+        <div class="pill">Best read with calculator weights</div>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn-primary" href="ute-calculator.html">Open the Ute Calculator</a>
+        <a class="btn-ghost" href="methodology.html">Read scoring methodology</a>
+        <a class="btn-ghost" href="#score-table">Jump to score table</a>
+      </div>
+    </section>
+
+    <article>
+      <section class="section">
+        <div class="sk">Quick verdict</div>
+        <h2>1) Short answer</h2>
+        <p>
+          Under the current Auto Insight Lab default weighting, the <strong>Mitsubishi Triton ranks ahead of the Isuzu D-MAX</strong>.
+          Triton wins because it combines very strong economy and performance scores with the highest reliability score in the
+          current calculator dataset. D-MAX stays close because it has a strong dependability story and mainstream sales tier.
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <div class="label label-ok">Choose Triton if</div>
+            <p style="margin-top:8px">
+              You want a value-focused ute with strong work capability, good economy logic and a high reliability score under
+              the current model.
+            </p>
+            <div class="winner">Default score: 69.22</div>
+          </div>
+          <div class="card">
+            <div class="label label-ok">Choose D-MAX if</div>
+            <p style="margin-top:8px">
+              You want a straightforward, dependable-feeling ute with a simple ownership pitch and a proven reputation among
+              practical buyers.
+            </p>
+            <div class="winner">Default score: 62.30</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="score-table">
+        <div class="sk">Calculator result</div>
+        <h2>2) Side-by-side score table</h2>
+        <p>
+          These values use the current default calculator weights: Safety 8%, Economy 15%, Performance 12%,
+          Reliability 40% and Sales 25%.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Safety</th>
+                <th>Economy</th>
+                <th>Performance</th>
+                <th>Reliability</th>
+                <th>Sales</th>
+                <th>Final score</th>
+                <th>Default rank</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Mitsubishi Triton</strong></td>
+                <td>86.40</td>
+                <td>80.00</td>
+                <td>92.30</td>
+                <td>84.34</td>
+                <td>22</td>
+                <td class="score">69.22</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td><strong>Isuzu D-MAX</strong></td>
+                <td>83.72</td>
+                <td>63.14</td>
+                <td>68.41</td>
+                <td>81.06</td>
+                <td>22</td>
+                <td class="score">62.30</td>
+                <td>5</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="compare-bars" aria-label="Triton versus D-MAX score bars">
+          <div class="bar-row">
+            <strong>Safety</strong>
+            <div class="track"><div class="fill-triton" style="width:86.40%"></div><div class="fill-dmax" style="width:83.72%"></div></div>
+            <span>Triton 86.40</span>
+            <span>D-MAX 83.72</span>
+          </div>
+          <div class="bar-row">
+            <strong>Economy</strong>
+            <div class="track"><div class="fill-triton" style="width:80.00%"></div><div class="fill-dmax" style="width:63.14%"></div></div>
+            <span>Triton 80.00</span>
+            <span>D-MAX 63.14</span>
+          </div>
+          <div class="bar-row">
+            <strong>Performance</strong>
+            <div class="track"><div class="fill-triton" style="width:92.30%"></div><div class="fill-dmax" style="width:68.41%"></div></div>
+            <span>Triton 92.30</span>
+            <span>D-MAX 68.41</span>
+          </div>
+          <div class="bar-row">
+            <strong>Reliability</strong>
+            <div class="track"><div class="fill-triton" style="width:84.34%"></div><div class="fill-dmax" style="width:81.06%"></div></div>
+            <span>Triton 84.34</span>
+            <span>D-MAX 81.06</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Where each ute wins</div>
+        <h2>3) What Triton does better, and what D-MAX does better</h2>
+        <div class="grid-2">
+          <div class="card">
+            <div class="label label-ok">Triton strengths</div>
+            <ul style="margin:8px 0 0 20px">
+              <li><strong>Value and economy:</strong> Triton is one of the strongest economy performers in the current model.</li>
+              <li><strong>Performance score:</strong> it leads D-MAX clearly in the work-capability dimension.</li>
+              <li><strong>Reliability score:</strong> it has the highest reliability score in the current calculator dataset.</li>
+              <li><strong>Default ranking fit:</strong> it balances cost, work usefulness and long-term ownership logic well.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="label label-ok">D-MAX strengths</div>
+            <ul style="margin:8px 0 0 20px">
+              <li><strong>Dependable image:</strong> D-MAX has a clear, practical ownership identity.</li>
+              <li><strong>Simple buyer pitch:</strong> it often suits buyers who want less theatre and more certainty.</li>
+              <li><strong>Mainstream sales tier:</strong> it matches Triton on sales score in the current model.</li>
+              <li><strong>Long-term confidence:</strong> its reliability score remains strong even though Triton leads.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Ownership logic</div>
+        <h2>4) Running costs and long-term confidence</h2>
+        <p>
+          Triton has the stronger economy score, which matters because the default model gives ownership cost a meaningful
+          15% weight. It also performs very well on reliability, so it is not only a "cheap ute" argument; it is a strong
+          whole-of-ownership argument.
+        </p>
+        <p>
+          D-MAX counters with a reputation for no-nonsense dependability and a clear identity as a practical, long-term work
+          vehicle. It does not need to top every score to make sense; it makes sense when the buyer values simple ownership,
+          familiar mechanical logic and a ute that feels conservative in a good way.
+        </p>
+        <div class="callout">
+          If your personal weighting heavily rewards economy and performance, Triton becomes very hard to ignore. If your
+          weighting is more about brand familiarity and conservative ownership confidence, D-MAX remains a serious shortlist pick.
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Work use</div>
+        <h2>5) Tradie, towing and payload comparison</h2>
+        <p>
+          Triton is the stronger result in the calculator's performance dimension. That dimension is intentionally work-focused:
+          payload carries the most weight, followed by towing and torque. This makes Triton a strong fit for buyers who want
+          clear job-site usefulness without stepping into the highest-cost end of the market.
+        </p>
+        <p>
+          D-MAX is still highly relevant for work use, especially for buyers who prize straightforward dependability. But in this
+          framework, it is more of a steady work choice than a performance leader.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="sk">Daily use</div>
+        <h2>6) Family and everyday driving comparison</h2>
+        <div class="grid-2">
+          <div class="card">
+            <div class="label label-warn">Triton daily-use angle</div>
+            <p style="margin-top:8px">
+              Triton suits buyers who want value and capability in the same package. It is a particularly strong argument for
+              families or small businesses trying to avoid overpaying for badge dominance.
+            </p>
+          </div>
+          <div class="card">
+            <div class="label label-warn">D-MAX daily-use angle</div>
+            <p style="margin-top:8px">
+              D-MAX suits buyers who prefer a simple, dependable-feeling daily ute. It may not feel like the sharpest value play
+              in the calculator, but its appeal is steady and easy to understand.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Buyer fit</div>
+        <h2>7) Which buyer should choose which?</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Buyer type</th>
+                <th>Better fit</th>
+                <th>Why</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Value-focused family buyer</td>
+                <td><strong>Mitsubishi Triton</strong></td>
+                <td>Stronger economy score and strong capability for the money.</td>
+              </tr>
+              <tr>
+                <td>Practical long-term owner</td>
+                <td><strong>Either, leaning Triton in this model</strong></td>
+                <td>Both score well on reliability; Triton adds stronger economy and performance.</td>
+              </tr>
+              <tr>
+                <td>Conservative work buyer</td>
+                <td><strong>Isuzu D-MAX</strong></td>
+                <td>D-MAX has a clean, dependable ownership story and a straightforward work-ute identity.</td>
+              </tr>
+              <tr>
+                <td>Performance-focused tradie</td>
+                <td><strong>Mitsubishi Triton</strong></td>
+                <td>Higher performance score in the calculator framework.</td>
+              </tr>
+              <tr>
+                <td>Fleet/company shortlist</td>
+                <td><strong>Depends on procurement logic</strong></td>
+                <td>Triton suits cost/value logic; D-MAX suits conservative dependability logic.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Bottom line</div>
+        <h2>8) Final perspective</h2>
+        <p>
+          Triton wins the current default ranking because it is a very balanced rational choice: strong economy, strong
+          performance and excellent reliability scoring. D-MAX is not far behind in spirit, but its case is more about
+          conservative ownership confidence than beating Triton on the calculator table.
+        </p>
+        <p>
+          The honest summary is this:
+          <strong>Triton is the sharper data-led value pick; D-MAX is the calmer, dependable-feeling workhorse pick.</strong>
+          The better ute depends on whether you want the stronger calculated package or the simpler ownership story.
+        </p>
+        <div class="btn-row">
+          <a class="btn-primary" href="ute-calculator.html">Test your own weights</a>
+          <a class="btn-ghost" href="triton.html">Read Triton review</a>
+          <a class="btn-ghost" href="Dmax.html">Read D-MAX review</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sk">Method and sources</div>
+        <h2>9) Notes and references</h2>
+        <p>
+          This comparison uses Auto Insight Lab's current ute calculator scores and public-source review synthesis. It is
+          informational only and should be checked against current manufacturer specifications, ANCAP information, quotes,
+          finance, insurance and your own test drive.
+        </p>
+        <ul class="source-list">
+          <li><a href="methodology.html">Auto Insight Lab - Ute Calculator Methodology</a></li>
+          <li><a href="ute-calculator.html">Auto Insight Lab - Ute Calculator</a></li>
+          <li><a href="triton.html">Mitsubishi Triton review page</a></li>
+          <li><a href="Dmax.html">Isuzu D-MAX review page</a></li>
+          <li><a href="disclaimer-copyright.html">Disclaimer and copyright notice</a></li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:flex-start; justify-content:space-between;">
+      <div>
+        <div style="font-weight:650; color:#f9fafb;">Auto Insight Lab</div>
+        <div style="margin-top:6px; max-width: 72ch;">
+          An independent, data-first project that organises public automotive information for Australia.
+        </div>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="index.html">Home</a>
+        <a href="ute-calculator.html">Ute Calculator</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="terms-of-use.html">Terms of Use</a>
+        <a href="disclaimer-copyright.html">Disclaimer & Copyright</a>
+      </div>
+    </div>
+    <div style="margin-top:14px;">
+      &copy; 2026 Auto Insight Lab. All rights reserved. Brand names, vehicle names and trademarks belong to their respective owners where applicable.
+    </div>
+  </footer>
+</body>
+</html>
