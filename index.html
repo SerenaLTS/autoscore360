@@ -3,20 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Auto Insight Lab – Data-Driven Car & Ute Information for Australia</title>
+  <title>Auto Insight Lab - Data-Driven Car and Ute Information for Australia</title>
   <meta name="description" content="Auto Insight Lab provides data-driven ute reviews, comparison pages, recall search and calculator tools for Australian car buyers." />
   <link rel="canonical" href="https://autoscore360.com/" />
   <style>
     :root {
       --bg: #020617;
+      --panel: rgba(15, 23, 42, 0.94);
+      --panel-soft: rgba(15, 23, 42, 0.72);
+      --text: #E5E7EB;
       --muted: #9CA3AF;
-      --border: rgba(148, 163, 184, 0.45);
+      --line: rgba(148, 163, 184, 0.24);
+      --line-strong: rgba(148, 163, 184, 0.44);
       --accent: #2563EB;
       --accent-strong: #1D4ED8;
       --accent-warm: #F97316;
-      --radius-lg: 20px;
-      --radius-md: 12px;
-      --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.78);
+      --success: #22C55E;
+      --radius-lg: 22px;
+      --radius-md: 14px;
+      --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.72);
     }
 
     * { box-sizing: border-box; }
@@ -27,19 +32,14 @@
       background:
         radial-gradient(circle at top left, rgba(37, 99, 235, 0.28), transparent 55%),
         radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.98), transparent 60%),
-        #020617;
-      color: #E5E7EB;
+        var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
 
     a { color: inherit; }
 
-    /* ===== Coming soon / disabled links ===== */
-    a.disabled,
-    .nav-link.disabled,
-    .section-link.disabled,
-    .card-link.disabled,
-    .btn-ghost.disabled {
+    .disabled {
       pointer-events: none;
       opacity: 0.45;
       cursor: not-allowed;
@@ -60,20 +60,21 @@
     }
 
     .coming-soon-pill::before {
-      content:"";
-      width:7px;height:7px;border-radius:999px;
-      background:#f97316;
-      box-shadow:0 0 8px rgba(249,115,22,0.55);
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #F97316;
+      box-shadow: 0 0 8px rgba(249, 115, 22, 0.55);
     }
 
-    /* Top nav */
     .nav {
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 30;
       backdrop-filter: blur(14px);
       background: linear-gradient(to bottom, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
-      border-bottom: 1px solid rgba(30, 64, 175, 0.6);
+      border-bottom: 1px solid rgba(30, 64, 175, 0.55);
     }
 
     .nav-inner {
@@ -83,6 +84,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
       font-size: 0.9rem;
     }
 
@@ -90,11 +92,13 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 600;
+      font-weight: 650;
       letter-spacing: 0.09em;
       text-transform: uppercase;
       font-size: 0.8rem;
       color: #E5E7EB;
+      text-decoration: none;
+      white-space: nowrap;
     }
 
     .brand-mark {
@@ -108,6 +112,7 @@
         0 0 0 1px rgba(15, 23, 42, 0.9),
         0 8px 18px rgba(15, 23, 42, 0.9);
       overflow: hidden;
+      flex: 0 0 auto;
     }
 
     .brand-mark::before {
@@ -123,9 +128,10 @@
 
     .nav-links {
       display: flex;
-      gap: 20px;
+      gap: 18px;
       align-items: center;
       flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .nav-link {
@@ -161,6 +167,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      white-space: nowrap;
     }
 
     .nav-pill::before {
@@ -168,7 +175,7 @@
       width: 7px;
       height: 7px;
       border-radius: 999px;
-      background: #22C55E;
+      background: var(--success);
       box-shadow: 0 0 8px rgba(34, 197, 94, 0.9);
     }
 
@@ -178,16 +185,34 @@
       padding: 0 22px 40px;
     }
 
-    /* Hero */
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 3.3fr) minmax(0, 2.2fr);
-      gap: 26px;
-      align-items: center;
-      margin-bottom: 38px;
+      grid-template-columns: minmax(0, 1.65fr) minmax(300px, 0.95fr);
+      gap: 24px;
+      align-items: stretch;
     }
 
-    .hero-left { color: #E5E7EB; }
+    .hero-main,
+    .hero-side {
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-main {
+      padding: 30px;
+      background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.2), transparent 45%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.94));
+    }
+
+    .hero-side {
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
 
     .hero-kicker {
       display: inline-flex;
@@ -211,19 +236,20 @@
 
     .hero-title {
       margin: 16px 0 10px;
-      font-size: clamp(2.5rem, 3.6vw, 3rem);
-      font-weight: 780;
-      letter-spacing: 0.02em;
-      line-height: 1.05;
-      background: linear-gradient(135deg, #E5E7EB, #BFDBFE);
+      font-size: clamp(2.6rem, 4vw, 3.35rem);
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      line-height: 1.02;
+      background: linear-gradient(135deg, #F8FAFC, #BFDBFE);
       -webkit-background-clip: text;
       color: transparent;
     }
 
     .hero-subtitle {
-      font-size: 0.98rem;
+      margin: 0;
+      max-width: 60ch;
+      font-size: 1rem;
       color: #CBD5F5;
-      max-width: 600px;
     }
 
     .hero-meta {
@@ -245,133 +271,163 @@
       border: 1px solid rgba(148, 163, 184, 0.7);
     }
 
-    .hero-cta-row {
-      margin-top: 20px;
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-recall {
+      display: inline-flex;
       align-items: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 650;
+      transition: transform 0.15s ease, filter 0.15s ease;
     }
 
     .btn-primary {
-      padding: 9px 18px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 500;
-      background: linear-gradient(135deg, var(--accent), var(--accent-warm));
       color: #F9FAFB;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.88);
     }
 
-    .btn-primary::after { content: "→"; font-size: 1rem; }
-
-    .btn-primary:hover {
-      filter: brightness(1.04);
-      transform: translateY(-1px);
-      transition: all 0.15s ease;
+    .btn-secondary {
+      color: #E5E7EB;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.55);
     }
 
     .btn-recall {
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(251, 191, 36, 0.5);
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 650;
-      background: linear-gradient(135deg, #F97316, #EF4444 55%, #F59E0B);
       color: #FFF7ED;
+      background: linear-gradient(135deg, #F97316, #EF4444 55%, #F59E0B);
       box-shadow:
-        0 16px 40px rgba(15, 23, 42, 0.9),
-        0 0 0 1px rgba(249, 115, 22, 0.25),
-        0 0 24px rgba(239, 68, 68, 0.22);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      position: relative;
+        0 16px 40px rgba(15, 23, 42, 0.88),
+        0 0 0 1px rgba(249, 115, 22, 0.2);
     }
 
-    .btn-recall::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #FEF3C7;
-      box-shadow: 0 0 10px rgba(255, 247, 237, 0.8);
-      flex-shrink: 0;
+    .btn-primary::after,
+    .btn-secondary::after,
+    .btn-recall::after {
+      content: "->";
+      font-size: 0.9rem;
     }
 
-    .btn-recall::after { content: "→"; font-size: 1rem; }
-
+    .btn-primary:hover,
+    .btn-secondary:hover,
     .btn-recall:hover {
-      filter: brightness(1.05);
+      filter: brightness(1.04);
       transform: translateY(-1px);
-      transition: all 0.15s ease;
     }
 
-    .btn-ghost {
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .stat-card {
+      padding-left: 14px;
+      border-left: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .stat-card:first-child {
+      padding-left: 0;
+      border-left: none;
+    }
+
+    .stat-value {
+      font-size: 1.18rem;
+      font-weight: 780;
+      color: #F8FAFC;
+    }
+
+    .stat-label {
+      margin-top: 2px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-side-block {
+      padding-top: 2px;
+      border-top: 1px solid rgba(148, 163, 184, 0.16);
+    }
+
+    .hero-side-block:first-child {
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .hero-side-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .hero-side-kicker {
       font-size: 0.86rem;
       color: #E5E7EB;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      opacity: 0.9;
-    }
-
-    .btn-ghost::after { content: "↧"; font-size: 0.9rem; }
-    .btn-ghost:hover { opacity: 1; }
-
-    /* Hero right */
-    .hero-right { display: grid; gap: 12px; }
-
-    .hero-card {
-      background: rgba(15, 23, 42, 0.98);
-      border-radius: 16px;
-      border: 1px solid rgba(100, 116, 139, 0.9);
-      padding: 12px 14px 14px;
-      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.85);
-    }
-
-    .hero-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      font-size: 0.9rem;
     }
 
     .hero-tag {
-      font-size: 0.74rem;
-      padding: 2px 7px;
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
       border-radius: 999px;
       background: rgba(37, 99, 235, 0.16);
       border: 1px solid rgba(59, 130, 246, 0.8);
       color: #BFDBFE;
+      font-size: 0.72rem;
+      white-space: nowrap;
     }
 
-    .hero-card-title {
-      margin: 4px 0;
-      font-size: 0.95rem;
-      font-weight: 600;
+    .hero-side-title {
+      margin: 0 0 6px;
+      font-size: 1.02rem;
+      font-weight: 650;
+      color: #F8FAFC;
     }
 
-    .hero-card-text { font-size: 0.8rem; color: #CBD5F5; }
+    .hero-side-text {
+      margin: 0;
+      font-size: 0.86rem;
+      color: #CBD5E1;
+    }
 
-    /* Sections general */
-    .section { margin-bottom: 32px; }
+    .hero-side-action {
+      display: inline-flex;
+      margin-top: 10px;
+      font-size: 0.84rem;
+      color: #93C5FD;
+      text-decoration: none;
+    }
 
-    .section-heading-row {
+    .hero-side-action:hover { text-decoration: underline; }
+
+    .section {
+      margin-top: 34px;
+    }
+
+    .section-header {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      gap: 10px;
-      margin-bottom: 14px;
+      align-items: flex-end;
+      gap: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      margin-bottom: 16px;
       flex-wrap: wrap;
     }
 
@@ -380,226 +436,292 @@
       letter-spacing: 0.14em;
       font-size: 0.72rem;
       color: var(--muted);
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
 
-    .section-title { margin: 0; font-size: 1.28rem; color: #F9FAFB; }
-    .section-sub { font-size: 0.86rem; color: var(--muted); }
+    .section-title {
+      margin: 0;
+      font-size: 1.42rem;
+      color: #F8FAFC;
+    }
+
+    .section-sub {
+      margin: 6px 0 0;
+      max-width: 66ch;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
 
     .section-link {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: #93C5FD;
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      white-space: nowrap;
     }
 
     .section-link:hover { text-decoration: underline; }
 
-    /* What we do */
-    .what-grid {
+    .overview-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.95fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .overview-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .overview-item {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
       gap: 14px;
+      align-items: start;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.16);
     }
 
-    .what-card {
+    .overview-item:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .overview-num {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      border: 1px solid rgba(59, 130, 246, 0.5);
+      background: rgba(37, 99, 235, 0.14);
+      color: #BFDBFE;
+      font-size: 0.9rem;
+      font-weight: 780;
+    }
+
+    .overview-title {
+      margin: 0 0 4px;
+      font-size: 1rem;
+      color: #F8FAFC;
+    }
+
+    .overview-text,
+    .focus-text {
+      margin: 0;
+      font-size: 0.88rem;
+      color: #CBD5E1;
+    }
+
+    .focus-panel {
+      padding: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.24);
       border-radius: var(--radius-md);
-      border: 1px solid rgba(100, 116, 139, 0.9);
-      background: rgba(15, 23, 42, 0.98);
-      padding: 12px 13px;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
-      font-size: 0.86rem;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.86), rgba(15, 23, 42, 0.7));
     }
 
-    .what-title {
-      font-size: 0.94rem;
-      font-weight: 600;
-      margin-bottom: 4px;
+    .focus-title {
+      margin: 10px 0 4px;
+      font-size: 1rem;
+      color: #F8FAFC;
     }
 
-    .what-tagline {
-      font-size: 0.78rem;
-      color: #93C5FD;
-      margin-bottom: 4px;
-    }
-
-    /* Vehicle categories */
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-    }
-
-    .category-card {
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(100, 116, 139, 0.9);
-      background: rgba(15, 23, 42, 0.98);
-      padding: 10px 12px;
-      font-size: 0.86rem;
-    }
-
-    .category-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 3px;
-    }
-
-    .category-sub {
+    .focus-note {
+      margin: 14px 0 8px;
       font-size: 0.82rem;
-      color: var(--muted);
-      margin-bottom: 3px;
+      color: #93C5FD;
     }
 
-    .category-note { font-size: 0.78rem; color: #93C5FD; }
+    .inline-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+    }
 
-    /* Tools section */
-    .tools-layout {
+    .inline-links a {
+      color: #93C5FD;
+      text-decoration: none;
+      font-size: 0.84rem;
+      white-space: nowrap;
+    }
+
+    .inline-links a:hover { text-decoration: underline; }
+
+    .tools-grid {
       display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 2.4fr);
-      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
     }
 
-    .tools-card {
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 1));
+    .tool-panel {
+      padding: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.28);
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(100, 116, 139, 0.9);
-      padding: 16px 16px 18px;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.88));
       box-shadow: var(--shadow-soft);
-      font-size: 0.86rem;
     }
 
     .tool-title {
-      font-size: 0.96rem;
-      font-weight: 600;
-      margin-bottom: 4px;
+      margin: 10px 0 6px;
+      font-size: 1.05rem;
+      color: #F8FAFC;
     }
 
     .tool-sub {
-      font-size: 0.84rem;
-      color: var(--muted);
-      margin-bottom: 8px;
+      margin: 0;
+      font-size: 0.86rem;
+      color: #CBD5E1;
     }
 
     .mini-table {
       width: 100%;
       border-collapse: collapse;
       font-size: 0.78rem;
-      margin-top: 4px;
-      border-radius: var(--radius-md);
-      overflow: hidden;
+      margin-top: 14px;
+      border-top: 1px solid rgba(148, 163, 184, 0.18);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
     }
-
-    .mini-table thead { background: rgba(15, 23, 42, 1); }
 
     .mini-table th,
     .mini-table td {
-      padding: 4px 6px;
-      border-bottom: 1px solid rgba(51, 65, 85, 0.9);
+      padding: 8px 6px;
       text-align: left;
+      border-bottom: 1px solid rgba(51, 65, 85, 0.55);
     }
 
-    .mini-table th { font-weight: 600; color: #E5E7EB; }
+    .mini-table tr:last-child td { border-bottom: none; }
+    .mini-table th { color: #CBD5F5; font-weight: 650; }
     .mini-table td { color: #E5E7EB; }
 
-    /* Cards: stories / forum / brands */
-    .card-grid{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr)); /* ✅ desktop: 3 cards per row */
-      gap:14px;
-    }
-    
-    /* ✅ tablet: 2 cards per row */
-    @media (max-width: 1100px){
-      .card-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-    
-    /* ✅ mobile: 1 card per row */
-    @media (max-width: 700px){
-      .card-grid{ grid-template-columns: 1fr; }
+    .tool-note {
+      margin: 10px 0 0;
+      font-size: 0.78rem;
+      color: #9CA3AF;
     }
 
-    .story-card,
-    .forum-card,
-    .brand-card {
-      background: rgba(15, 23, 42, 0.98);
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(100, 116, 139, 0.9);
-      padding: 10px 12px;
+    .tool-action {
+      display: inline-flex;
+      margin-top: 12px;
+      color: #93C5FD;
+      font-size: 0.84rem;
+      text-decoration: none;
+    }
+
+    .tool-action:hover { text-decoration: underline; }
+
+    .reviews-grid,
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .review-column,
+    .story-column {
+      padding-top: 6px;
+    }
+
+    .review-group-title,
+    .story-group-title {
+      margin: 10px 0 4px;
+      font-size: 1rem;
+      color: #F8FAFC;
+    }
+
+    .review-group-copy,
+    .story-group-copy {
+      margin: 0;
       font-size: 0.86rem;
-      height: 100%;
+      color: #CBD5E1;
     }
 
-    .pill {
-      font-size: 0.7rem;
-      padding: 2px 7px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.9);
+    .review-links,
+    .story-list,
+    .forum-list {
+      margin-top: 14px;
+      border-top: 1px solid rgba(148, 163, 184, 0.16);
+    }
+
+    .review-link,
+    .story-item,
+    .forum-item {
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+      text-decoration: none;
+    }
+
+    .review-link {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
       color: #E5E7EB;
+      font-size: 0.85rem;
     }
 
-    .pill-ute { border-color: rgba(249, 115, 22, 0.7); color: #FED7AA; }
-    .pill-ev { border-color: rgba(59, 130, 246, 0.85); color: #BFDBFE; }
-    .pill-china { border-color: rgba(52, 211, 153, 0.8); color: #BBF7D0; }
+    .review-link span:last-child {
+      color: #93C5FD;
+      white-space: nowrap;
+    }
+
+    .review-link:hover span:last-child { color: #BFDBFE; }
 
     .story-meta,
-    .brand-meta {
+    .forum-meta {
       font-size: 0.76rem;
       color: #CBD5E1;
       margin-bottom: 4px;
     }
-    
-    .story-title,
-    .brand-title {
-      font-size: 0.98rem;
-      font-weight: 650;
-      margin-bottom: 6px;
-      color: #F8FAFC;
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      color: #E5E7EB;
+      font-size: 0.7rem;
     }
-    
+
+    .pill-ute { border-color: rgba(249, 115, 22, 0.7); color: #FED7AA; }
+    .pill-china { border-color: rgba(52, 211, 153, 0.8); color: #BBF7D0; }
+
+    .story-title,
+    .forum-title {
+      margin: 0 0 6px;
+      font-size: 0.98rem;
+      color: #F8FAFC;
+      font-weight: 650;
+    }
+
     .story-snippet,
-    .brand-snippet {
-      font-size: 0.85rem;
+    .forum-snippet {
+      margin: 0;
+      font-size: 0.84rem;
       color: #DCE6F2;
     }
 
-    .card-link {
-      margin-top: 6px;
-      display: inline-block;
-      font-size: 0.78rem;
+    .story-link,
+    .forum-link {
+      display: inline-flex;
+      margin-top: 8px;
+      font-size: 0.8rem;
       color: #93C5FD;
       text-decoration: none;
     }
 
-    .card-link:hover { text-decoration: underline; }
+    .story-link:hover,
+    .forum-link:hover { text-decoration: underline; }
 
-    /* rank list */
-    .rank-list{ list-style:none; padding:0; margin:6px 0 0; }
-    .rank-list li{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      align-items:baseline;
-      padding:4px 0;
-    }
-    .rank-list a{
-      margin:0;
-      white-space:nowrap;
+    .forum-head-note {
+      font-size: 0.8rem;
+      color: #9CA3AF;
+      white-space: nowrap;
     }
 
-    .inline-links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px 12px;
-      margin-top:6px;
-    }
-    .inline-links a{
-      margin:0 !important;
-      white-space:nowrap;
-    }
-
-    /* Footer */
     .footer {
       border-top: 1px solid rgba(30, 64, 175, 0.55);
       padding: 16px 22px 26px;
@@ -612,7 +734,7 @@
     .footer-inner {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
       justify-content: space-between;
       align-items: flex-start;
     }
@@ -631,56 +753,74 @@
 
     .footer a:hover { text-decoration: underline; }
 
-    @media (max-width: 960px) {
-      .hero { grid-template-columns: minmax(0, 1fr); }
-      .hero-right { order: -1; }
-      .tools-layout { grid-template-columns: minmax(0, 1fr); }
+    @media (max-width: 1080px) {
+      .hero,
+      .overview-grid,
+      .tools-grid,
+      .reviews-grid,
+      .stories-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hero-main,
+      .hero-side,
+      .tool-panel,
+      .focus-panel {
+        padding: 16px;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stat-card {
+        padding-left: 10px;
+      }
+
+      .overview-item {
+        grid-template-columns: 36px minmax(0, 1fr);
+      }
+
+      .overview-num {
+        width: 36px;
+        height: 36px;
+      }
     }
 
     @media (max-width: 640px) {
       .page { padding-inline: 16px; }
       .nav-inner { padding-inline: 16px; }
-      .hero-title { font-size: 2.2rem; }
+      .hero-title { font-size: 2.25rem; }
+      .hero-stats { grid-template-columns: minmax(0, 1fr); }
+      .nav-links { gap: 12px; }
     }
   </style>
+  <link rel="stylesheet" href="site-spacing.css" />
 </head>
 <body>
-  <!-- Top nav -->
   <header class="nav">
     <div class="nav-inner">
-      <!-- Brand -->
-      <div class="brand">
-        <div class="brand-mark"></div>
+      <a class="brand" href="index.html" aria-label="Auto Insight Lab homepage">
+        <div class="brand-mark" aria-hidden="true"></div>
         <span>Auto Insight Lab</span>
-      </div>
-  
-      <!-- Primary nav (single line) -->
+      </a>
+
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#vehicles" class="nav-link disabled">
-          Vehicles <span class="coming-soon-pill">Soon</span>
-        </a>
-  
-        <a href="#tools" class="nav-link">
-          Tools
-        </a>
-  
-        <a href="#stories" class="nav-link disabled">
-          Stories <span class="coming-soon-pill">Soon</span>
-        </a>
-  
-        <a href="disclaimer-copyright.html" class="nav-link">
-          About
-        </a>
-  
+        <a href="#vehicles" class="nav-link">Vehicles</a>
+        <a href="#tools" class="nav-link">Tools</a>
+        <a href="#stories" class="nav-link">Stories</a>
+        <a href="#forum" class="nav-link">Forum</a>
+        <a href="disclaimer-copyright.html" class="nav-link">About</a>
         <span class="nav-pill">Australia • 2025</span>
       </nav>
     </div>
   </header>
 
   <main class="page">
-    <!-- Hero -->
     <section class="hero">
-      <div class="hero-left">
+      <div class="hero-main">
         <div class="hero-kicker">
           <div class="hero-kicker-dot"></div>
           <span>Data-first automotive information for Australia</span>
@@ -698,58 +838,62 @@
             <span>Chinese brands vs established players</span>
           </div>
         </div>
-        <div class="hero-cta-row">
-          <a href="ute-calculator.html" class="btn-primary">
-            Build your ute shortlist with data
-          </a>
+        <div class="hero-actions">
+          <a href="ute-calculator.html" class="btn-primary">Build your ute shortlist with data</a>
+          <a href="recalls.html" class="btn-recall">Open recall database</a>
+          <a href="#ute-reviews" class="btn-secondary">Browse all ute reviews</a>
+        </div>
+        <div class="hero-stats" aria-label="Site overview">
+          <div class="stat-card">
+            <div class="stat-value">12</div>
+            <div class="stat-label">models live</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">2</div>
+            <div class="stat-label">core tools</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">9</div>
+            <div class="stat-label">data stories</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">5</div>
+            <div class="stat-label">buyer guides</div>
+          </div>
         </div>
       </div>
 
-      <aside class="hero-right">
-        
-        <div class="hero-card">
-          <div class="hero-card-header">
-            <span style="font-size:0.86rem;">Ute reviews</span>
+      <aside class="hero-side" aria-label="Key site shortcuts">
+        <div class="hero-side-block">
+          <div class="hero-side-head">
+            <span class="hero-side-kicker">Ute reviews</span>
             <span class="hero-tag">12 models live</span>
           </div>
-        
-          <div class="hero-card-title">
-            All major utes reviewed, side by side.
-          </div>
-        
-          <p class="hero-card-text">
+          <p class="hero-side-title">All major utes reviewed, side by side.</p>
+          <p class="hero-side-text">
             We’ve published structured, data-first review pages for all major utes in Australia —
             from Hilux and Ranger to emerging Chinese brands and lifestyle models.
           </p>
-        
-          <a href="#ute-reviews" class="btn-primary" style="margin-top:8px;font-size:0.86rem;">
-            Browse all ute reviews
-          </a>
+          <a href="#ute-reviews" class="hero-side-action">Browse all ute reviews</a>
         </div>
 
-        <div class="hero-card">
-          <div class="hero-card-header">
-            <span style="font-size:0.86rem;">Vehicle recalls</span>
+        <div class="hero-side-block">
+          <div class="hero-side-head">
+            <span class="hero-side-kicker">Vehicle recalls</span>
             <span class="hero-tag">2024–2026 data</span>
           </div>
-        
-          <div class="hero-card-title">Search recalls by year, make, model and reason.</div>
-          <p class="hero-card-text">
+          <p class="hero-side-title">Search recalls by year, make, model and reason.</p>
+          <p class="hero-side-text">
             A data-first recall dashboard built from public notices. See top brands by recall volume,
             filter by keyword, and open the source notice link for full details.
           </p>
-        
-          <a href="recalls.html" class="btn-recall" style="margin-top:10px; font-size:0.86rem;">
-            Open recall database
-          </a>
+          <a href="recalls.html" class="hero-side-action">Open recall database</a>
         </div>
-        
       </aside>
     </section>
 
-    <!-- What we actually do -->
-    <section class="section">
-      <div class="section-heading-row">
+    <section class="section" id="vehicles">
+      <div class="section-header">
         <div>
           <div class="section-kicker">Platform Overview</div>
           <h2 class="section-title">What Auto Insight Lab actually does</h2>
@@ -760,62 +904,62 @@
         </div>
       </div>
 
-      <div class="what-grid">
-        <div class="what-card">
-          <div class="what-title">1. Collect public information</div>
-          <div class="what-tagline">We don’t invent data – we organise it.</div>
-          <p>
-            Specs, safety ratings, warranty details, indicative pricing, fuel figures and more – we rely on
-            publicly available sources and keep a clear separation between data and opinion.
-          </p>
-        </div>
-        <div class="what-card">
-          <div class="what-title">2. Turn it into comparable scores</div>
-          <div class="what-tagline">Cars on the same scale, across segments.</div>
-          <p>
-            Our models translate messy details into consistent 0–100 scores for things like safety, running costs,
-            performance and reliability – with weightings you can adjust.
-          </p>
-        </div>
-        <div class="what-card">
-          <div class="what-title">3. Let AI turn numbers into stories</div>
-          <div class="what-tagline">Readable, scenario-based insights.</div>
-          <p>
-            Each week, AI-curated stories and threads interpret publicly available data and published sources for
-            real-world buyers – designed to complement your own research, validation and professional advice.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Vehicle categories (not linking to separate pages yet) -->
-    <section id="vehicles" class="section">
-      <div class="section-heading-row">
-        <div>
-          <div class="section-kicker">Vehicles</div>
-          <h2 class="section-title">Browse by the kind of vehicle you actually need</h2>
-          <p class="section-sub">
-            Start from how you use your car – then dive into data, tools and threads for that segment.
-          </p>
-        </div>
-      </div>
-        <div class="category-card">
-          <div class="category-title">Utes &amp; Commercial</div>
-          <div class="category-sub">Work, towing, payload and mixed family use.</div>
-          <div class="category-note">
-            Tools live now:
-            <div class="inline-links">
-              <a href="ute-calculator.html" class="btn-primary" style="margin-top:8px;font-size:0.86rem;">Build your ute shortlist with data</a>
-              <a href="recalls.html" class="btn-recall" style="margin-top:8px;font-size:0.86rem;">Check out recalls in last 7 years</a>
-              <a href="#ute-reviews" class="btn-primary" style="margin-top:8px;font-size:0.86rem;">Browse all ute reviews</a>
+      <div class="overview-grid">
+        <div class="overview-list">
+          <div class="overview-item">
+            <div class="overview-num">1</div>
+            <div>
+              <h3 class="overview-title">Collect public information</h3>
+              <p class="overview-text">
+                We don’t invent data – we organise it. Specs, safety ratings, warranty details, indicative pricing,
+                fuel figures and more – we rely on publicly available sources and keep a clear separation between data and opinion.
+              </p>
             </div>
           </div>
+
+          <div class="overview-item">
+            <div class="overview-num">2</div>
+            <div>
+              <h3 class="overview-title">Turn it into comparable scores</h3>
+              <p class="overview-text">
+                Cars on the same scale, across segments. Our models translate messy details into consistent 0–100 scores
+                for things like safety, running costs, performance and reliability – with weightings you can adjust.
+              </p>
+            </div>
+          </div>
+
+          <div class="overview-item">
+            <div class="overview-num">3</div>
+            <div>
+              <h3 class="overview-title">Let AI turn numbers into stories</h3>
+              <p class="overview-text">
+                Readable, scenario-based insights. Each week, AI-curated stories and threads interpret publicly available
+                data and published sources for real-world buyers – designed to complement your own research, validation and professional advice.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="focus-panel">
+          <div class="section-kicker">Vehicles</div>
+          <h3 class="focus-title">Browse by the kind of vehicle you actually need</h3>
+          <p class="focus-text">
+            Start from how you use your car – then dive into data, tools and threads for that segment.
+          </p>
+          <h4 class="focus-title" style="font-size:0.98rem;">Utes &amp; Commercial</h4>
+          <p class="focus-text">Work, towing, payload and mixed family use.</p>
+          <div class="focus-note">Tools live now:</div>
+          <div class="inline-links">
+            <a href="ute-calculator.html">Build your ute shortlist with data</a>
+            <a href="recalls.html">Check out recalls in last 7 years</a>
+            <a href="#ute-reviews">Browse all ute reviews</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Tools (published: ute calculator only) -->
-    <section id="tools" class="section">
-      <div class="section-heading-row">
+    <section class="section" id="tools">
+      <div class="section-header">
         <div>
           <div class="section-kicker">Tools</div>
           <h2 class="section-title">Let the numbers help you shortlist</h2>
@@ -826,9 +970,10 @@
         <a href="ute-calculator.html" class="section-link">Open Ute Calculator</a>
       </div>
 
-      <div class="tools-layout">
-        <div class="tools-card">
-          <div class="tool-title">Ute Calculator – rank the main players your way</div>
+      <div class="tools-grid">
+        <div class="tool-panel">
+          <span class="hero-tag">Shortlisting tool</span>
+          <h3 class="tool-title">Ute Calculator – rank the main players your way</h3>
           <p class="tool-sub">
             Safety, running costs, performance, reliability and sales history – scored on the same 0–100 scale,
             with weightings you can adjust in seconds.
@@ -864,21 +1009,19 @@
               </tr>
             </tbody>
           </table>
-          <p style="font-size:0.78rem;color:#9CA3AF;margin-top:6px;">
+          <p class="tool-note">
             *Default ranking for a long-term owner profile. Your order may change as you adjust priorities.
           </p>
-          <a href="ute-calculator.html" class="btn-primary" style="margin-top:8px; font-size:0.86rem;">
-            Try the interactive ute calculator
-          </a>
+          <a href="ute-calculator.html" class="tool-action">Try the interactive ute calculator</a>
         </div>
 
-        <div class="tools-card">
-          <div class="tool-title">Recall Database – explore vehicle recalls (2020–2026)</div>
+        <div class="tool-panel">
+          <span class="hero-tag">Recall data</span>
+          <h3 class="tool-title">Recall Database – explore vehicle recalls (2020–2026)</h3>
           <p class="tool-sub">
             A data-first dashboard built from public recall notices. Browse top brands by recall volume,
             then filter by year, make, model and reason — with source notice links preserved.
           </p>
-        
           <table class="mini-table">
             <thead>
               <tr>
@@ -905,21 +1048,16 @@
               </tr>
             </tbody>
           </table>
-        
-          <p style="font-size:0.78rem;color:#9CA3AF;margin-top:6px;">
+          <p class="tool-note">
             *Ranking by number of recall numbers (not affected units). Use filters inside the recall page to explore details.
           </p>
-        
-          <a href="recalls.html" class="btn-recall" style="margin-top:8px; font-size:0.86rem;">
-            Open the recall database
-          </a>
+          <a href="recalls.html" class="tool-action">Open the recall database</a>
         </div>
       </div>
     </section>
 
-    <!-- Ute Reviews -->
-    <section id="ute-reviews" class="section">
-      <div class="section-heading-row">
+    <section class="section" id="ute-reviews">
+      <div class="section-header">
         <div>
           <div class="section-kicker">Ute Reviews</div>
           <h2 class="section-title">Ute reviews (AI-curated summaries)</h2>
@@ -927,88 +1065,49 @@
             We summarise public reviews into a structured page per model — with simple visual scorecards.
           </p>
         </div>
-    
       </div>
 
-      <div class="card-grid">
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Utes</span> • Review</div>
-          <h3 class="story-title">Ford Ranger (Australia):</h3>
-          <a href="ford.html" class="card-link">Read Ford Ranger review →</a>
-        </article>
+      <div class="reviews-grid">
+        <div class="review-column">
+          <span class="hero-tag">Mainstream favourites</span>
+          <h3 class="review-group-title">The high-volume shortlist</h3>
+          <p class="review-group-copy">These are the names most Australian ute buyers compare first.</p>
+          <div class="review-links">
+            <a class="review-link" href="ford.html"><span>Ford Ranger (Australia):</span><span>Read</span></a>
+            <a class="review-link" href="hilux.html"><span>Toyota HiLux (Australia):</span><span>Read</span></a>
+            <a class="review-link" href="triton.html"><span>mitsubishi Triton (Australia):</span><span>Read</span></a>
+            <a class="review-link" href="Dmax.html"><span>ISUZU Dmax (Australia):</span><span>Read</span></a>
+            <a class="review-link" href="bt50.html"><span>Mazda BT-50 (Australia):</span><span>Read</span></a>
+          </div>
+        </div>
 
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Utes</span> • Review</div>
-          <h3 class="story-title">Toyota HiLux (Australia):</h3>
-          <a href="hilux.html" class="card-link">Read Toyota HiLux review →</a>
-        </article>
+        <div class="review-column">
+          <span class="hero-tag">Chinese challengers</span>
+          <h3 class="review-group-title">Emerging alternatives</h3>
+          <p class="review-group-copy">Useful if you are weighing value-led brands against the mainstream ute market.</p>
+          <div class="review-links">
+            <a class="review-link" href="T9.html"><span>JAC T9 (Australia):</span><span>Read</span></a>
+            <a class="review-link" href="cannon.html"><span>GWM Cannon (Australia):</span><span>Read</span></a>
+            <a class="review-link" href="terron9.html"><span>LDV Terron 9/MG U9 (Australia):</span><span>Read</span></a>
+            <a class="review-link" href="shark6.html"><span>BYD Shark6 (Australia):</span><span>Read</span></a>
+          </div>
+        </div>
 
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Utes</span> • Review</div>
-          <h3 class="story-title">mitsubishi Triton (Australia):</h3>
-          <a href="triton.html" class="card-link">Read Mitsubishi Triton review →</a>
-        </article>
-
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Utes</span> • Review</div>
-          <h3 class="story-title">JAC T9 (Australia):</h3>
-          <a href="T9.html" class="card-link">Read JAC T9 review →</a>
-        </article>
-
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Utes</span> • Review</div>
-          <h3 class="story-title">ISUZU Dmax (Australia):</h3>
-          <a href="Dmax.html" class="card-link">Read ISUZU Dmax review →</a>
-        </article>
-
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Utes</span> • Review</div>
-          <h3 class="story-title">GWM Cannon (Australia):</h3>
-          <a href="cannon.html" class="card-link">Read GWM Cannon review →</a>
-        </article>
-
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Utes</span> • Review</div>
-          <h3 class="story-title">Mazda BT-50 (Australia):</h3>
-          <a href="bt50.html" class="card-link">Read Mazda BT-50 review →</a>
-        </article>
-
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Utes</span> • Review</div>
-          <h3 class="story-title">LDV Terron 9/MG U9 (Australia):</h3>
-          <a href="terron9.html" class="card-link">Read LDV Terron 9 review →</a>
-        </article>
-
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Utes</span> • Review</div>
-          <h3 class="story-title">Kia Tasman (Australia):</h3>
-          <a href="tasman.html" class="card-link">Read Kia tasman review →</a>
-        </article>
-
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Utes</span> • Review</div>
-          <h3 class="story-title">Volkswagen Amarok (Australia):</h3>
-          <a href="amarok.html" class="card-link">Read Volkswagen Amarok review →</a>
-        </article>
-
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Utes</span> • Review</div>
-          <h3 class="story-title">BYD Shark6 (Australia):</h3>
-          <a href="shark6.html" class="card-link">Read BYD Shark6 review →</a>
-        </article>
-
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Utes</span> • Review</div>
-          <h3 class="story-title">Jeep Gladiator (Australia):</h3>
-          <a href="jeep.html" class="card-link">Read Jeep Gladiator review →</a>
-        </article>
-        
+        <div class="review-column">
+          <span class="hero-tag">Lifestyle and premium</span>
+          <h3 class="review-group-title">Different buyer priorities</h3>
+          <p class="review-group-copy">These models matter when comfort, image or niche use cases change the shortlist.</p>
+          <div class="review-links">
+            <a class="review-link" href="tasman.html"><span>Kia Tasman (Australia):</span><span>Read</span></a>
+            <a class="review-link" href="amarok.html"><span>Volkswagen Amarok (Australia):</span><span>Read</span></a>
+            <a class="review-link" href="jeep.html"><span>Jeep Gladiator (Australia):</span><span>Read</span></a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Stories-->
-    <section id="stories" class="section">
-      <div class="section-heading-row">
+    <section class="section" id="stories">
+      <div class="section-header">
         <div>
           <div class="section-kicker">Stories</div>
           <h2 class="section-title">This week’s data stories</h2>
@@ -1018,95 +1117,89 @@
         </div>
       </div>
 
-      <div class="card-grid">
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Comparison</span> • Utes</div>
-          <h3 class="story-title">Toyota HiLux vs Ford Ranger: which ute makes more sense?</h3>
-          <p class="story-snippet">
-            The two benchmark utes compared through safety, economy, performance, reliability, sales strength and real buyer fit.
-          </p>
-          <a href="hilux-vs-ranger.html">HiLux vs Ranger →</a>
-        </article>
+      <div class="stories-grid">
+        <div class="story-column">
+          <span class="hero-tag">Comparisons</span>
+          <h3 class="story-group-title">Direct model matchups</h3>
+          <p class="story-group-copy">Useful when your shortlist is already down to two specific utes.</p>
+          <div class="story-list">
+            <article class="story-item">
+              <div class="story-meta"><span class="pill pill-ute">Comparison</span> • Utes</div>
+              <h3 class="story-title">Toyota HiLux vs Ford Ranger: which ute makes more sense?</h3>
+              <p class="story-snippet">The two benchmark utes compared through safety, economy, performance, reliability, sales strength and real buyer fit.</p>
+              <a class="story-link" href="hilux-vs-ranger.html">HiLux vs Ranger →</a>
+            </article>
+            <article class="story-item">
+              <div class="story-meta"><span class="pill pill-ute">Comparison</span> • Utes</div>
+              <h3 class="story-title">Mitsubishi Triton vs Isuzu D-MAX: value and dependability compared</h3>
+              <p class="story-snippet">Two rational Japanese ute choices compared through value, work capability, reliability and long-term buyer fit.</p>
+              <a class="story-link" href="triton-vs-dmax.html">Triton vs D-MAX →</a>
+            </article>
+            <article class="story-item">
+              <div class="story-meta"><span class="pill pill-ute">Comparison</span> • Utes</div>
+              <h3 class="story-title">JAC T9 vs GWM Cannon: which Chinese ute makes more sense?</h3>
+              <p class="story-snippet">Two Chinese ute rivals compared through safety, economy, performance, reliability, sales strength and buyer fit.</p>
+              <a class="story-link" href="jac-t9-vs-gwm-cannon.html">JAC T9 vs GWM Cannon →</a>
+            </article>
+            <article class="story-item">
+              <div class="story-meta"><span class="pill pill-ute">Comparison</span> • Utes</div>
+              <h3 class="story-title">BYD Shark 6 vs Ford Ranger: hybrid challenger or proven diesel benchmark?</h3>
+              <p class="story-snippet">A plug-in hybrid ute challenger compared against one of Australia's strongest mainstream diesel benchmarks.</p>
+              <a class="story-link" href="byd-shark-6-vs-ford-ranger.html">Shark 6 vs Ranger →</a>
+            </article>
+          </div>
+        </div>
 
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Comparison</span> • Utes</div>
-          <h3 class="story-title">Mitsubishi Triton vs Isuzu D-MAX: value and dependability compared</h3>
-          <p class="story-snippet">
-            Two rational Japanese ute choices compared through value, work capability, reliability and long-term buyer fit.
-          </p>
-          <a href="triton-vs-dmax.html">Triton vs D-MAX →</a>
-        </article>
+        <div class="story-column">
+          <span class="hero-tag">Brand overviews</span>
+          <h3 class="story-group-title">How groups of utes compare</h3>
+          <p class="story-group-copy">Broader reads for buyers comparing Japanese, Chinese and other global brands.</p>
+          <div class="story-list">
+            <article class="story-item">
+              <div class="story-meta"><span class="pill pill-china">Japanese brands</span> • Utes</div>
+              <h3 class="story-title">Japanese Utes in Australia, why they remain the mainstream</h3>
+              <p class="story-snippet">compared the four Japanese models already covered on Auto Insight Lab — Toyota HiLux, Mitsubishi Triton, Isuzu D-MAX and Mazda BT-50</p>
+              <a class="story-link" href="https://autoscore360.com/japanese-utes.html">Japanese Utes →</a>
+            </article>
+            <article class="story-item">
+              <div class="story-meta"><span class="pill pill-china">Chinese brands</span> • Utes</div>
+              <h3 class="story-title">Chinese Utes in Australia, becoming credible for multiple reasons</h3>
+              <p class="story-snippet">compared the four Chinese models already covered on Auto Insight Lab — JAC T9, GWM Cannon, LDV Terron 9/MG U9, and BYD Shark 6</p>
+              <a class="story-link" href="https://autoscore360.com/chinese-utes.html">Chinese Utes →</a>
+            </article>
+            <article class="story-item">
+              <div class="story-meta"><span class="pill pill-china">Korean, European and American brands</span> • Utes</div>
+              <h3 class="story-title">Korean, European and American utes in Australia</h3>
+              <p class="story-snippet">compared the four ute models already covered on Auto Insight Lab — Ford Ranger, Volkswagen Amarok, Kia Tasman, and Jeep Gladiator</p>
+              <a class="story-link" href="https://autoscore360.com/other-utes.html">Global Utes →</a>
+            </article>
+          </div>
+        </div>
 
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Comparison</span> • Utes</div>
-          <h3 class="story-title">JAC T9 vs GWM Cannon: which Chinese ute makes more sense?</h3>
-          <p class="story-snippet">
-            Two Chinese ute rivals compared through safety, economy, performance, reliability, sales strength and buyer fit.
-          </p>
-          <a href="jac-t9-vs-gwm-cannon.html">JAC T9 vs GWM Cannon →</a>
-        </article>
-
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Comparison</span> • Utes</div>
-          <h3 class="story-title">BYD Shark 6 vs Ford Ranger: hybrid challenger or proven diesel benchmark?</h3>
-          <p class="story-snippet">
-            A plug-in hybrid ute challenger compared against one of Australia's strongest mainstream diesel benchmarks.
-          </p>
-          <a href="byd-shark-6-vs-ford-ranger.html">Shark 6 vs Ranger →</a>
-        </article>
-
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-china">Japanese brands</span> • Utes</div>
-          <h3 class="story-title">Japanese Utes in Australia, why they remain the mainstream</h3>
-          <p class="story-snippet">
-            compared the four Japanese models already covered on Auto Insight Lab — Toyota HiLux,
-          Mitsubishi Triton, Isuzu D-MAX and Mazda BT-50
-          </p>
-          <a href="https://autoscore360.com/japanese-utes.html">Japanese Utes →</a>
-        </article>
-
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-china">Chinese brands</span> • Utes</div>
-          <h3 class="story-title">Chinese Utes in Australia, becoming credible for multiple reasons </h3>
-          <p class="story-snippet">
-            compared the four Chinese models already covered on Auto Insight Lab — JAC T9, GWM Cannon, LDV Terron 9/MG U9, and BYD Shark 6
-          </p>
-          <a href="https://autoscore360.com/chinese-utes.html">Chinese Utes →</a>
-        </article>
-
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-china">Korean, European and American brands</span> • Utes</div>
-          <h3 class="story-title">Korean, European and American utes in Australia </h3>
-          <p class="story-snippet">
-            compared the four ute models already covered on Auto Insight Lab — Ford Ranger, Volkswagen Amarok, Kia Tasman, and Jeep Gladiator
-          </p>
-          <a href="https://autoscore360.com/other-utes.html">Global Utes →</a>
-        </article>
-
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Recalls</span> • Data story</div>
-          <h3 class="story-title">What Australia’s recall data really tells buyers about utes</h3>
-          <p class="story-snippet">
-            a data-first read of Australian government recall notices, showing why raw recall counts can mislead and what ute buyers should actually pay attention to
-          </p>
-          <a href="recall-tell-buyers.html">Recall data story →</a>
-        </article>
-
-        <article class="story-card">
-          <div class="story-meta"><span class="pill pill-ute">Recalls</span> • Buyer guide</div>
-          <h3 class="story-title">Does a higher recall count actually mean a worse vehicle?</h3>
-          <p class="story-snippet">
-            A practical explanation of why recall notice count, affected units, issue severity and market scale need to be read together.
-          </p>
-          <a href="recall-number.html">Recall count guide →</a>
-        </article>
-
+        <div class="story-column">
+          <span class="hero-tag">Recalls</span>
+          <h3 class="story-group-title">Recall-related reading</h3>
+          <p class="story-group-copy">Useful if recall history is part of how you judge a vehicle or a brand.</p>
+          <div class="story-list">
+            <article class="story-item">
+              <div class="story-meta"><span class="pill pill-ute">Recalls</span> • Data story</div>
+              <h3 class="story-title">What Australia’s recall data really tells buyers about utes</h3>
+              <p class="story-snippet">a data-first read of Australian government recall notices, showing why raw recall counts can mislead and what ute buyers should actually pay attention to</p>
+              <a class="story-link" href="recall-tell-buyers.html">Recall data story →</a>
+            </article>
+            <article class="story-item">
+              <div class="story-meta"><span class="pill pill-ute">Recalls</span> • Buyer guide</div>
+              <h3 class="story-title">Does a higher recall count actually mean a worse vehicle?</h3>
+              <p class="story-snippet">A practical explanation of why recall notice count, affected units, issue severity and market scale need to be read together.</p>
+              <a class="story-link" href="recall-number.html">Recall count guide →</a>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Forum -->
-    <section id="forum" class="section">
-      <div class="section-heading-row">
+    <section class="section" id="forum">
+      <div class="section-header">
         <div>
           <div class="section-kicker">Forum</div>
           <h2 class="section-title">The Workshop – threads built around data</h2>
@@ -1115,60 +1208,58 @@
             can grow here over time.
           </p>
         </div>
-        <a href="#" class="section-link disabled">Enter the forum <span class="coming-soon-pill">Coming soon</span></a>
+        <div class="forum-head-note">Enter the forum <span class="coming-soon-pill">Coming soon</span></div>
       </div>
 
-      <div class="card-grid">
-        <article class="brand-card">
-            <div class="brand-meta">Ute for tradies</div>
-            <h3 class="brand-title">Best ute for tradie work in Australia</h3>
-            <p class="brand-snippet">
-              A work-focused shortlist using the Auto Insight Lab ranking model to highlight the best utes for tradies, with extra attention to performance, reliability and daily job-site use.
-            </p>
-            <a href="for-tradie.html" class="card-link">Read more →</a>
-          </article>
-          
-          <article class="brand-card">
-            <div class="brand-meta">Ute for families</div>
-            <h3 class="brand-title">Best ute for family use in Australia</h3>
-            <p class="brand-snippet">
-              A family-focused ute ranking based on adjusted calculator weights, giving more importance to safety, economy and everyday usability for family life.
-            </p>
-            <a href="for-family.html" class="card-link">Read more →</a>
-          </article>
+      <div class="forum-list">
+        <article class="forum-item">
+          <div class="forum-meta">Ute for tradies</div>
+          <h3 class="forum-title">Best ute for tradie work in Australia</h3>
+          <p class="forum-snippet">
+            A work-focused shortlist using the Auto Insight Lab ranking model to highlight the best utes for tradies, with extra attention to performance, reliability and daily job-site use.
+          </p>
+          <a class="forum-link" href="for-tradie.html">Read more →</a>
+        </article>
 
-          <article class="brand-card">
-            <div class="brand-meta">Ute for company</div>
-            <h3 class="brand-title">Best ute for company use in Australia</h3>
-            <p class="brand-snippet">
-              A company-focused ute ranking based on adjusted calculator weights, giving more importance to reliability, running costs and long-term fleet logic for business use.
-            </p>
-            <a href="for-company.html" class="card-link">Read more →</a>
-          </article>
+        <article class="forum-item">
+          <div class="forum-meta">Ute for families</div>
+          <h3 class="forum-title">Best ute for family use in Australia</h3>
+          <p class="forum-snippet">
+            A family-focused ute ranking based on adjusted calculator weights, giving more importance to safety, economy and everyday usability for family life.
+          </p>
+          <a class="forum-link" href="for-family.html">Read more →</a>
+        </article>
 
-          <article class="brand-card">
-            <div class="brand-meta">Ute under $50k</div>
-            <h3 class="brand-title">Best ute under $50k in Australia</h3>
-            <p class="brand-snippet">
-              A budget-focused shortlist for buyers comparing mainstream work utes, value-led Chinese utes, cab-chassis options and realistic under-$50k trade-offs.
-            </p>
-            <a href="best-ute-under-50k.html" class="card-link">Read more →</a>
-          </article>
+        <article class="forum-item">
+          <div class="forum-meta">Ute for company</div>
+          <h3 class="forum-title">Best ute for company use in Australia</h3>
+          <p class="forum-snippet">
+            A company-focused ute ranking based on adjusted calculator weights, giving more importance to reliability, running costs and long-term fleet logic for business use.
+          </p>
+          <a class="forum-link" href="for-company.html">Read more →</a>
+        </article>
 
-          <article class="brand-card">
-            <div class="brand-meta">First-time ute buyers</div>
-            <h3 class="brand-title">Best ute for first-time buyers in Australia</h3>
-            <p class="brand-snippet">
-              A beginner-friendly ute guide covering safety, budget, 4x2 vs 4x4, towing, payload, running costs and the safest starter shortlist.
-            </p>
-            <a href="best-ute-first-time-buyers.html" class="card-link">Read more →</a>
-          </article>
+        <article class="forum-item">
+          <div class="forum-meta">Ute under $50k</div>
+          <h3 class="forum-title">Best ute under $50k in Australia</h3>
+          <p class="forum-snippet">
+            A budget-focused shortlist for buyers comparing mainstream work utes, value-led Chinese utes, cab-chassis options and realistic under-$50k trade-offs.
+          </p>
+          <a class="forum-link" href="best-ute-under-50k.html">Read more →</a>
+        </article>
 
+        <article class="forum-item">
+          <div class="forum-meta">First-time ute buyers</div>
+          <h3 class="forum-title">Best ute for first-time buyers in Australia</h3>
+          <p class="forum-snippet">
+            A beginner-friendly ute guide covering safety, budget, 4x2 vs 4x4, towing, payload, running costs and the safest starter shortlist.
+          </p>
+          <a class="forum-link" href="best-ute-first-time-buyers.html">Read more →</a>
+        </article>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="footer-inner">
       <div>
@@ -1182,12 +1273,12 @@
         </div>
       </div>
       <div class="footer-links">
-        <a href="#vehicles" class="disabled">Vehicles</a>
+        <a href="#vehicles">Vehicles</a>
         <a href="#tools">Tools</a>
-        <a href="#data-rankings" class="disabled">Data &amp; Rankings</a>
-        <a href="#stories" class="disabled">Stories</a>
-        <a href="#forum" class="disabled">Forum</a>
-        <a href="#brands" class="disabled">Brands</a>
+        <a href="#stories">Stories</a>
+        <a href="#forum">Forum</a>
+        <span class="disabled">Data &amp; Rankings</span>
+        <span class="disabled">Brands</span>
         <a href="terms-of-use.html">Terms of use</a>
         <a href="disclaimer-copyright.html">Disclaimer &amp; copyright</a>
       </div>
