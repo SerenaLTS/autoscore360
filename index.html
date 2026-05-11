@@ -610,46 +610,64 @@
 
     .tool-action:hover { text-decoration: underline; }
 
-    .reviews-grid,
-    .stories-grid {
+    .reviews-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 24px;
     }
 
-    .review-column,
-    .story-column {
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .review-column {
       padding-top: 6px;
     }
 
-    .review-group-title,
-    .story-group-title {
+    .review-group-title {
       margin: 10px 0 4px;
       font-size: 1rem;
       color: #F8FAFC;
     }
 
-    .review-group-copy,
-    .story-group-copy {
+    .review-group-copy {
       margin: 0;
       font-size: 0.86rem;
       color: #CBD5E1;
     }
 
     .review-links,
-    .story-list,
     .forum-list {
       margin-top: 14px;
       border-top: 1px solid rgba(148, 163, 184, 0.16);
     }
 
     .review-link,
-    .story-item,
     .forum-item {
       display: block;
       padding: 12px 0;
       border-bottom: 1px solid rgba(148, 163, 184, 0.16);
       text-decoration: none;
+    }
+
+    .story-item {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      padding: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: var(--radius-md);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.86), rgba(15, 23, 42, 0.62));
+      text-decoration: none;
+    }
+
+    .story-item.featured {
+      grid-column: span 2;
+      background:
+        radial-gradient(circle at top right, rgba(249, 115, 22, 0.12), transparent 48%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.7));
     }
 
     .review-link {
@@ -714,6 +732,11 @@
       text-decoration: none;
     }
 
+    .story-link {
+      margin-top: auto;
+      padding-top: 10px;
+    }
+
     .story-link:hover,
     .forum-link:hover { text-decoration: underline; }
 
@@ -758,9 +781,16 @@
       .hero,
       .overview-grid,
       .tools-grid,
-      .reviews-grid,
-      .stories-grid {
+      .reviews-grid {
         grid-template-columns: minmax(0, 1fr);
+      }
+
+      .stories-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .story-item.featured {
+        grid-column: span 2;
       }
     }
 
@@ -774,6 +804,14 @@
 
       .hero-stats {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stories-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .story-item.featured {
+        grid-column: auto;
       }
 
       .stat-card {
@@ -1159,109 +1197,89 @@
       </div>
 
       <div class="stories-grid">
-        <div class="story-column">
-          <span class="hero-tag">Comparisons</span>
-          <h3 class="story-group-title">Direct model matchups</h3>
-          <p class="story-group-copy">Useful when your shortlist is already down to two specific utes.</p>
-          <div class="story-list">
-            <article class="story-item">
-              <div class="story-meta"><span class="pill pill-ute">Comparison</span> • Utes</div>
-              <h3 class="story-title">Toyota HiLux vs Ford Ranger: which ute makes more sense?</h3>
-              <p class="story-snippet">The two benchmark utes compared through safety, economy, performance, reliability, sales strength and real buyer fit.</p>
-              <a class="story-link" href="hilux-vs-ranger.html">HiLux vs Ranger →</a>
-            </article>
-            <article class="story-item">
-              <div class="story-meta"><span class="pill pill-ute">Comparison</span> • Utes</div>
-              <h3 class="story-title">Mitsubishi Triton vs Isuzu D-MAX: value and dependability compared</h3>
-              <p class="story-snippet">Two rational Japanese ute choices compared through value, work capability, reliability and long-term buyer fit.</p>
-              <a class="story-link" href="triton-vs-dmax.html">Triton vs D-MAX →</a>
-            </article>
-            <article class="story-item">
-              <div class="story-meta"><span class="pill pill-ute">Comparison</span> • Utes</div>
-              <h3 class="story-title">JAC T9 vs GWM Cannon: which Chinese ute makes more sense?</h3>
-              <p class="story-snippet">Two Chinese ute rivals compared through safety, economy, performance, reliability, sales strength and buyer fit.</p>
-              <a class="story-link" href="jac-t9-vs-gwm-cannon.html">JAC T9 vs GWM Cannon →</a>
-            </article>
-            <article class="story-item">
-              <div class="story-meta"><span class="pill pill-ute">Comparison</span> • Utes</div>
-              <h3 class="story-title">BYD Shark 6 vs Ford Ranger: hybrid challenger or proven diesel benchmark?</h3>
-              <p class="story-snippet">A plug-in hybrid ute challenger compared against one of Australia's strongest mainstream diesel benchmarks.</p>
-              <a class="story-link" href="byd-shark-6-vs-ford-ranger.html">Shark 6 vs Ranger →</a>
-            </article>
-            <article class="story-item">
-              <div class="story-meta"><span class="pill pill-ute">PHEV comparison</span> • Market data</div>
-              <h3 class="story-title">PHEV utes in Australia: BYD, GWM, Ford, JAC and Chery compared</h3>
-              <p class="story-snippet">A data-first snapshot of available and upcoming plug-in hybrid utes, with price, towing, payload, EV range and power compared side by side.</p>
-              <a class="story-link" href="phev-ute-comparison.html">PHEV ute comparison →</a>
-            </article>
-          </div>
-        </div>
+        <article class="story-item featured">
+          <div class="story-meta"><span class="pill pill-ute">PHEV comparison</span> • Market data</div>
+          <h3 class="story-title">PHEV utes in Australia: BYD, GWM, Ford, JAC and Chery compared</h3>
+          <p class="story-snippet">A data-first snapshot of available and upcoming plug-in hybrid utes, with price, towing, payload, EV range and power compared side by side.</p>
+          <a class="story-link" href="phev-ute-comparison.html">PHEV ute comparison →</a>
+        </article>
 
-        <div class="story-column">
-          <span class="hero-tag">Brand overviews</span>
-          <h3 class="story-group-title">How groups of utes compare</h3>
-          <p class="story-group-copy">Broader reads for buyers comparing Japanese, Chinese and other global brands.</p>
-          <div class="story-list">
-            <article class="story-item">
-              <div class="story-meta"><span class="pill pill-china">Japanese brands</span> • Utes</div>
-              <h3 class="story-title">Japanese Utes in Australia, why they remain the mainstream</h3>
-              <p class="story-snippet">compared the four Japanese models already covered on Auto Insight Lab — Toyota HiLux, Mitsubishi Triton, Isuzu D-MAX and Mazda BT-50</p>
-              <a class="story-link" href="https://autoscore360.com/japanese-utes.html">Japanese Utes →</a>
-            </article>
-            <article class="story-item">
-              <div class="story-meta"><span class="pill pill-china">Chinese brands</span> • Utes</div>
-              <h3 class="story-title">Chinese Utes in Australia, becoming credible for multiple reasons</h3>
-              <p class="story-snippet">compared the four Chinese models already covered on Auto Insight Lab — JAC T9, GWM Cannon, LDV Terron 9/MG U9, and BYD Shark 6</p>
-              <a class="story-link" href="https://autoscore360.com/chinese-utes.html">Chinese Utes →</a>
-            </article>
-            <article class="story-item">
-              <div class="story-meta"><span class="pill pill-china">Korean, European and American brands</span> • Utes</div>
-              <h3 class="story-title">Korean, European and American utes in Australia</h3>
-              <p class="story-snippet">compared the four ute models already covered on Auto Insight Lab — Ford Ranger, Volkswagen Amarok, Kia Tasman, and Jeep Gladiator</p>
-              <a class="story-link" href="https://autoscore360.com/other-utes.html">Global Utes →</a>
-            </article>
-          </div>
-        </div>
+        <article class="story-item">
+          <div class="story-meta"><span class="pill pill-ute">Comparison</span> • Utes</div>
+          <h3 class="story-title">BYD Shark 6 vs Ford Ranger: hybrid challenger or proven diesel benchmark?</h3>
+          <p class="story-snippet">A plug-in hybrid ute challenger compared against one of Australia's strongest mainstream diesel benchmarks.</p>
+          <a class="story-link" href="byd-shark-6-vs-ford-ranger.html">Shark 6 vs Ranger →</a>
+        </article>
 
-        <div class="story-column">
-          <span class="hero-tag">Recalls</span>
-          <h3 class="story-group-title">Recall-related reading</h3>
-          <p class="story-group-copy">Useful if recall history is part of how you judge a vehicle or a brand.</p>
-          <div class="story-list">
-            <article class="story-item">
-              <div class="story-meta"><span class="pill pill-ute">Recalls</span> • Data story</div>
-              <h3 class="story-title">What Australia’s recall data really tells buyers about utes</h3>
-              <p class="story-snippet">a data-first read of Australian government recall notices, showing why raw recall counts can mislead and what ute buyers should actually pay attention to</p>
-              <a class="story-link" href="recall-tell-buyers.html">Recall data story →</a>
-            </article>
-            <article class="story-item">
-              <div class="story-meta"><span class="pill pill-ute">Recalls</span> • Buyer guide</div>
-              <h3 class="story-title">Does a higher recall count actually mean a worse vehicle?</h3>
-              <p class="story-snippet">A practical explanation of why recall notice count, affected units, issue severity and market scale need to be read together.</p>
-              <a class="story-link" href="recall-number.html">Recall count guide →</a>
-            </article>
-          </div>
-        </div>
+        <article class="story-item">
+          <div class="story-meta"><span class="pill pill-ute">Comparison</span> • Utes</div>
+          <h3 class="story-title">Toyota HiLux vs Ford Ranger: which ute makes more sense?</h3>
+          <p class="story-snippet">The two benchmark utes compared through safety, economy, performance, reliability, sales strength and real buyer fit.</p>
+          <a class="story-link" href="hilux-vs-ranger.html">HiLux vs Ranger →</a>
+        </article>
 
-        <div class="story-column">
-          <span class="hero-tag">Safety data</span>
-          <h3 class="story-group-title">ANCAP rating stories</h3>
-          <p class="story-group-copy">Useful if safety rating details are part of how you shortlist cars.</p>
-          <div class="story-list">
-            <article class="story-item">
-              <div class="story-meta"><span class="pill pill-safety">ANCAP</span> • 2025 ranking</div>
-              <h3 class="story-title">2025 ANCAP safest cars ranked: why five stars are not all equal</h3>
-              <p class="story-snippet">A data-led look at the highest-scoring 2025 five-star models and the sub-score differences hidden behind the same badge.</p>
-              <a class="story-link" href="best-ancap-safety-rated-cars-2025.html">2025 ANCAP ranking →</a>
-            </article>
-            <article class="story-item">
-              <div class="story-meta"><span class="pill pill-safety">ANCAP</span> • Buyer guide</div>
-              <h3 class="story-title">How to read ANCAP ratings: do not stop at five stars</h3>
-              <p class="story-snippet">A practical guide to Adult, Child, Vulnerable Road User and Safety Assist scores for Australian buyers.</p>
-              <a class="story-link" href="how-to-read-ancap-ratings.html">Read the ANCAP guide →</a>
-            </article>
-          </div>
-        </div>
+        <article class="story-item">
+          <div class="story-meta"><span class="pill pill-ute">Comparison</span> • Utes</div>
+          <h3 class="story-title">Mitsubishi Triton vs Isuzu D-MAX: value and dependability compared</h3>
+          <p class="story-snippet">Two rational Japanese ute choices compared through value, work capability, reliability and long-term buyer fit.</p>
+          <a class="story-link" href="triton-vs-dmax.html">Triton vs D-MAX →</a>
+        </article>
+
+        <article class="story-item">
+          <div class="story-meta"><span class="pill pill-ute">Comparison</span> • Utes</div>
+          <h3 class="story-title">JAC T9 vs GWM Cannon: which Chinese ute makes more sense?</h3>
+          <p class="story-snippet">Two Chinese ute rivals compared through safety, economy, performance, reliability, sales strength and buyer fit.</p>
+          <a class="story-link" href="jac-t9-vs-gwm-cannon.html">JAC T9 vs GWM Cannon →</a>
+        </article>
+
+        <article class="story-item">
+          <div class="story-meta"><span class="pill pill-china">Chinese brands</span> • Utes</div>
+          <h3 class="story-title">Chinese Utes in Australia, becoming credible for multiple reasons</h3>
+          <p class="story-snippet">Compared the four Chinese models already covered on Auto Insight Lab: JAC T9, GWM Cannon, LDV Terron 9/MG U9, and BYD Shark 6.</p>
+          <a class="story-link" href="https://autoscore360.com/chinese-utes.html">Chinese Utes →</a>
+        </article>
+
+        <article class="story-item">
+          <div class="story-meta"><span class="pill pill-china">Japanese brands</span> • Utes</div>
+          <h3 class="story-title">Japanese Utes in Australia, why they remain the mainstream</h3>
+          <p class="story-snippet">Compared the four Japanese models already covered on Auto Insight Lab: Toyota HiLux, Mitsubishi Triton, Isuzu D-MAX and Mazda BT-50.</p>
+          <a class="story-link" href="https://autoscore360.com/japanese-utes.html">Japanese Utes →</a>
+        </article>
+
+        <article class="story-item">
+          <div class="story-meta"><span class="pill pill-china">Global brands</span> • Utes</div>
+          <h3 class="story-title">Korean, European and American utes in Australia</h3>
+          <p class="story-snippet">Compared the four ute models already covered on Auto Insight Lab: Ford Ranger, Volkswagen Amarok, Kia Tasman, and Jeep Gladiator.</p>
+          <a class="story-link" href="https://autoscore360.com/other-utes.html">Global Utes →</a>
+        </article>
+
+        <article class="story-item">
+          <div class="story-meta"><span class="pill pill-ute">Recalls</span> • Data story</div>
+          <h3 class="story-title">What Australia’s recall data really tells buyers about utes</h3>
+          <p class="story-snippet">A data-first read of Australian government recall notices, showing why raw recall counts can mislead and what ute buyers should actually pay attention to.</p>
+          <a class="story-link" href="recall-tell-buyers.html">Recall data story →</a>
+        </article>
+
+        <article class="story-item">
+          <div class="story-meta"><span class="pill pill-ute">Recalls</span> • Buyer guide</div>
+          <h3 class="story-title">Does a higher recall count actually mean a worse vehicle?</h3>
+          <p class="story-snippet">A practical explanation of why recall notice count, affected units, issue severity and market scale need to be read together.</p>
+          <a class="story-link" href="recall-number.html">Recall count guide →</a>
+        </article>
+
+        <article class="story-item">
+          <div class="story-meta"><span class="pill pill-safety">ANCAP</span> • 2025 ranking</div>
+          <h3 class="story-title">2025 ANCAP safest cars ranked: why five stars are not all equal</h3>
+          <p class="story-snippet">A data-led look at the highest-scoring 2025 five-star models and the sub-score differences hidden behind the same badge.</p>
+          <a class="story-link" href="best-ancap-safety-rated-cars-2025.html">2025 ANCAP ranking →</a>
+        </article>
+
+        <article class="story-item">
+          <div class="story-meta"><span class="pill pill-safety">ANCAP</span> • Buyer guide</div>
+          <h3 class="story-title">How to read ANCAP ratings: do not stop at five stars</h3>
+          <p class="story-snippet">A practical guide to Adult, Child, Vulnerable Road User and Safety Assist scores for Australian buyers.</p>
+          <a class="story-link" href="how-to-read-ancap-ratings.html">Read the ANCAP guide →</a>
+        </article>
       </div>
     </section>
 
