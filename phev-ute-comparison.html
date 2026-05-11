@@ -66,8 +66,26 @@
       opacity:.82;
     }
     .nav-links{display:flex;align-items:center;justify-content:flex-end;gap:16px;flex-wrap:wrap}
-    .nav-link{color:var(--muted);font-size:.86rem;text-decoration:none}
+    .nav-link{
+      color:var(--muted);
+      font-size:.86rem;
+      text-decoration:none;
+      padding:4px 0;
+      position:relative;
+    }
+    .nav-link::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-2px;
+      width:0;
+      height:2px;
+      border-radius:999px;
+      background:linear-gradient(90deg,#2563eb,var(--orange));
+      transition:width .18s ease;
+    }
     .nav-link:hover{color:var(--text)}
+    .nav-link:hover::after{width:100%}
     .nav-pill{
       display:inline-flex;align-items:center;gap:7px;
       padding:5px 11px;border-radius:999px;
@@ -154,6 +172,27 @@
     h2{margin:0;font-size:1.45rem;color:#f8fafc;line-height:1.24}
     .section-sub{margin:6px 0 0;max-width:72ch;color:var(--muted);font-size:.9rem}
     .table-wrap{overflow-x:auto;border:1px solid var(--line2);border-radius:14px}
+    .scroll-hint{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin:0 0 10px;
+      color:#cbd5e1;
+      font-size:.82rem;
+    }
+    .scroll-hint::before{
+      content:"<->";
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:30px;
+      height:22px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.48);
+      color:#93c5fd;
+      background:rgba(2,6,23,.42);
+      font-size:.76rem;
+    }
     table{width:100%;border-collapse:collapse;min-width:980px;background:rgba(2,6,23,.36)}
     th,td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line2);vertical-align:top}
     th{
@@ -181,6 +220,21 @@
     }
     .card h3{margin:0 0 6px;font-size:1rem;color:#f8fafc}
     .card p{margin:0;color:#cbd5e1;font-size:.88rem}
+    .related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .related-link{
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      padding:14px;
+      border-radius:14px;
+      border:1px solid var(--line2);
+      background:rgba(2,6,23,.42);
+      text-decoration:none;
+    }
+    .related-link:hover{border-color:rgba(96,165,250,.52);background:rgba(15,23,42,.72)}
+    .related-type{font-size:.72rem;color:#93c5fd;margin-bottom:4px}
+    .related-title{font-weight:720;color:#f8fafc;font-size:.96rem}
+    .related-copy{margin:6px 0 0;color:#cbd5e1;font-size:.82rem}
     .note-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
     .fine{font-size:.82rem;color:var(--muted)}
     .sources{display:grid;gap:8px;margin:0;padding-left:18px;color:#cbd5e1;font-size:.86rem}
@@ -188,7 +242,7 @@
     .footer{margin-top:28px;color:var(--muted);font-size:.8rem;text-align:center}
     @media (max-width:860px){
       .hero{grid-template-columns:1fr}
-      .cards,.note-grid{grid-template-columns:1fr}
+      .cards,.note-grid,.related-grid{grid-template-columns:1fr}
       .nav-inner{align-items:flex-start;flex-direction:column}
       .nav-links{justify-content:flex-start}
       main{padding:0 16px}
@@ -199,12 +253,15 @@
 <body>
   <nav class="nav">
     <div class="nav-inner">
-      <a class="brand" href="index.html"><span class="brand-mark"></span><span>Auto Insight Lab</span></a>
+      <a class="brand" href="index.html" aria-label="Auto Insight Lab homepage"><span class="brand-mark"></span><span>Auto Insight Lab</span></a>
       <div class="nav-links">
-        <a class="nav-link" href="ute-calculator.html">Ute calculator</a>
-        <a class="nav-link" href="shark6.html">BYD Shark 6</a>
-        <a class="nav-link" href="chinese-utes.html">Chinese utes</a>
-        <span class="nav-pill">Data-first guide</span>
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="index.html#vehicles">Vehicles</a>
+        <a class="nav-link" href="index.html#tools">Tools</a>
+        <a class="nav-link" href="index.html#stories">Stories</a>
+        <a class="nav-link" href="index.html#forum">Forum</a>
+        <a class="nav-link" href="disclaimer-copyright.html">About</a>
+        <span class="nav-pill">Australia • 2026</span>
       </div>
     </div>
   </nav>
@@ -260,6 +317,7 @@
           </p>
         </div>
       </div>
+      <p class="scroll-hint">Swipe or drag left and right to view the full detailed data.</p>
       <div class="table-wrap">
         <table>
           <thead>
@@ -367,6 +425,50 @@
           <h3>Price position will matter as much as headline specs</h3>
           <p>Hunter's announced sub-$50k entry price is a major value signal, but final driveaway pricing, grade equipment and early-owner reliability will decide whether the numbers hold up for real buyers.</p>
         </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="sk">Related reading</div>
+          <h2>Reviews and tools behind the table</h2>
+          <p class="section-sub">
+            Use these pages if you want to move from the market-level PHEV data into specific ute reviews, direct matchups or the broader shortlist tools.
+          </p>
+        </div>
+      </div>
+      <div class="related-grid">
+        <a class="related-link" href="shark6.html">
+          <span class="related-type">Review</span>
+          <span class="related-title">BYD Shark 6</span>
+          <span class="related-copy">A model-level page for BYD's plug-in hybrid ute in Australia.</span>
+        </a>
+        <a class="related-link" href="byd-shark-6-vs-ford-ranger.html">
+          <span class="related-type">Comparison</span>
+          <span class="related-title">BYD Shark 6 vs Ford Ranger</span>
+          <span class="related-copy">Hybrid challenger compared with a mainstream benchmark ute.</span>
+        </a>
+        <a class="related-link" href="ford.html">
+          <span class="related-type">Review</span>
+          <span class="related-title">Ford Ranger</span>
+          <span class="related-copy">The Ranger context behind the PHEV variant's pricing and capability.</span>
+        </a>
+        <a class="related-link" href="cannon.html">
+          <span class="related-type">Review</span>
+          <span class="related-title">GWM Cannon</span>
+          <span class="related-copy">Useful background for reading GWM's ute range and value position.</span>
+        </a>
+        <a class="related-link" href="T9.html">
+          <span class="related-type">Review</span>
+          <span class="related-title">JAC T9</span>
+          <span class="related-copy">Current JAC ute context while Hunter PHEV final local details mature.</span>
+        </a>
+        <a class="related-link" href="ute-calculator.html">
+          <span class="related-type">Tool</span>
+          <span class="related-title">Australia ute calculator</span>
+          <span class="related-copy">Build a shortlist by weighting safety, value, performance and work use.</span>
+        </a>
       </div>
     </section>
 
