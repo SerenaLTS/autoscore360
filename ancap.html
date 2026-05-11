@@ -259,6 +259,24 @@
       font-size:.92rem;
     }
     summary::-webkit-details-marker{display:none}
+    .details-prompt{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(96,165,250,.58);
+      background:rgba(37,99,235,.16);
+      color:#BFDBFE;
+      font-size:.84rem;
+      font-weight:700;
+    }
+    .details-prompt::after{
+      content:"↓";
+      color:#93C5FD;
+      font-size:.9rem;
+    }
+    details[open] .details-prompt::after{content:"↑"}
     .open-link{
       display:inline-flex;align-items:center;gap:8px;
       font-size:.82rem;
@@ -302,6 +320,40 @@
       color:#CBD5F5;
     }
     .kv strong{color:#F9FAFB}
+    .article-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-top:12px;
+    }
+    .article-card{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      background:rgba(2,6,23,.55);
+      border:1px solid rgba(148,163,184,.35);
+      border-radius:16px;
+      padding:14px;
+    }
+    .article-card:hover{border-color:rgba(96,165,250,.72)}
+    .article-card .meta{
+      font-size:.76rem;
+      color:#BFDBFE;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:6px;
+    }
+    .article-card .title{
+      font-size:1rem;
+      font-weight:800;
+      color:#F9FAFB;
+      margin-bottom:6px;
+    }
+    .article-card .desc{
+      font-size:.86rem;
+      color:#CBD5F5;
+      margin:0;
+    }
     .footer{
       margin-top:14px;
       padding:16px 20px 28px;
@@ -315,6 +367,7 @@
       .grid{grid-template-columns:1fr}
       .cards-3{grid-template-columns:1fr}
       .score-grid,.detail-grid{grid-template-columns:1fr 1fr}
+      .article-grid{grid-template-columns:1fr}
     }
     @media (max-width:640px){
       .filters{grid-template-columns:1fr}
@@ -338,7 +391,7 @@
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="#overview">Overview</a>
         <a class="nav-link" href="#search">Search</a>
-        <a class="nav-link" href="#results">Results</a>
+        <a class="nav-link" href="#results-table">Results</a>
         <span class="nav-pill">ANCAP • recent 5 years</span>
       </nav>
     </div>
@@ -466,6 +519,29 @@
     </section>
 
     <section class="section" id="results">
+      <div class="result-head">
+        <div>
+          <div class="kicker">Editorial guides</div>
+          <h2>Read the ANCAP data stories</h2>
+        </div>
+        <div class="small muted">Use these with the filter below</div>
+      </div>
+
+      <div class="article-grid">
+        <a class="article-card" href="best-ancap-safety-rated-cars-2025.html">
+          <div class="meta">2025 ranking</div>
+          <div class="title">2025 ANCAP safest cars ranked: why five stars are not all equal</div>
+          <p class="desc">A data-led entry article showing how top five-star vehicles still differ across total score and sub-scores.</p>
+        </a>
+        <a class="article-card" href="how-to-read-ancap-ratings.html">
+          <div class="meta">Buyer guide</div>
+          <div class="title">How to read ANCAP ratings: do not stop at five stars</div>
+          <p class="desc">A practical guide to Adult, Child, Vulnerable Road User and Safety Assist scores.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="results-table">
       <div class="result-head">
         <div>
           <div class="kicker">Results</div>
@@ -669,7 +745,7 @@
 
               <details>
                 <summary>
-                  <span>View sub-score details and vehicle scope</span>
+                  <span class="details-prompt">Click to view sub-score details and vehicle scope</span>
                   <a class="open-link" href="${escapeHTML(link)}" target="_blank" rel="noopener">Open ANCAP page ↗</a>
                 </summary>
 
