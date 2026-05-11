@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ANCAP Safety Ratings Filter | Auto Insight Lab</title>
+  <link rel="canonical" href="https://autoscore360.com/ancap.html" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --card:#0B1224;
+      --text:#E5E7EB;
+      --muted:#9CA3AF;
+      --border:rgba(148,163,184,.40);
+      --accent:#2563EB;
+      --accent2:#F97316;
+      --good:#22C55E;
+      --warn:#FBBF24;
+      --shadow:0 22px 60px rgba(15,23,42,.72);
+      --radius-lg:20px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.22), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15,23,42,.98), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit}
+    .page{max-width:1180px;margin:22px auto 56px;padding:0 20px}
+
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(to bottom, rgba(15,23,42,.96), rgba(15,23,42,.90));
+      border-bottom:1px solid rgba(30,64,175,.60);
+    }
+    .nav-inner{
+      max-width:1180px;margin:0 auto;padding:14px 20px;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      font-size:.92rem;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      font-weight:650;letter-spacing:.08em;text-transform:uppercase;
+      font-size:.82rem;white-space:nowrap;
+    }
+    .brand-mark{
+      width:28px;height:28px;border-radius:6px;
+      background:linear-gradient(135deg,#0F172A,#1E293B);
+      border:1px solid rgba(148,163,184,.85);
+      position:relative;overflow:hidden;
+      box-shadow:0 0 0 1px rgba(15,23,42,.9), 0 8px 18px rgba(15,23,42,.9);
+    }
+    .brand-mark::before{
+      content:"";position:absolute;left:-30%;top:50%;
+      width:160%;height:2px;
+      background:linear-gradient(90deg,var(--accent2),#FACC15,var(--good));
+      opacity:.85;
+    }
+    .nav-links{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+    .nav-link{text-decoration:none;color:var(--muted);font-size:.88rem;position:relative;padding:4px 0}
+    .nav-link:hover{color:var(--text)}
+    .nav-pill{
+      padding:5px 11px;border-radius:999px;
+      background:rgba(15,23,42,.90);
+      border:1px solid rgba(148,163,184,.70);
+      font-size:.78rem;color:var(--text);
+      display:inline-flex;align-items:center;gap:8px;
+      white-space:nowrap;
+    }
+    .nav-pill::before{
+      content:"";width:7px;height:7px;border-radius:999px;
+      background:var(--good);box-shadow:0 0 8px rgba(34,197,94,.9);
+    }
+
+    .hero,.section{
+      background:radial-gradient(circle at top, rgba(15,23,42,.96), rgba(15,23,42,1));
+      border:1px solid rgba(100,116,139,.72);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      position:relative;overflow:hidden;
+    }
+    .hero{margin-top:18px;padding:18px 18px 16px}
+    .hero::before{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(to right, rgba(15,23,42,.72), transparent 60%),
+        radial-gradient(circle at top right, rgba(37,99,235,.22), transparent 62%);
+      opacity:.95;pointer-events:none;
+    }
+    .hero > *{position:relative;z-index:1}
+    .kicker{text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:var(--muted);margin-bottom:6px}
+    h1{
+      margin:0 0 8px;
+      font-size:clamp(1.8rem,2.6vw,2.2rem);
+      font-weight:820;letter-spacing:.02em;line-height:1.08;
+      background:linear-gradient(135deg,#E5E7EB,#BFDBFE);
+      -webkit-background-clip:text;color:transparent;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:1.18rem;
+      color:#F9FAFB;
+      border-left:3px solid rgba(37,99,235,.85);
+      padding-left:10px;
+    }
+    .sub{margin:0;color:#CBD5F5;max-width:920px;font-size:.96rem}
+    .chips{margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:.84rem}
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border-radius:999px;
+      background:rgba(15,23,42,.92);
+      border:1px solid rgba(148,163,184,.60);
+      white-space:nowrap;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:14px;
+      margin-top:14px;
+      align-items:start;
+    }
+    .panel{
+      background:rgba(15,23,42,.98);
+      border:1px solid rgba(100,116,139,.78);
+      border-radius:16px;
+      box-shadow:0 14px 34px rgba(15,23,42,.82);
+      padding:14px 14px 12px;
+    }
+    .panel-title{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px}
+    .panel-title strong{font-size:.98rem}
+    .tag{
+      font-size:.72rem;padding:2px 8px;border-radius:999px;
+      background:rgba(37,99,235,.16);
+      border:1px solid rgba(59,130,246,.8);
+      color:#BFDBFE;white-space:nowrap;
+    }
+    .cards-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+    .stat{
+      background:rgba(2,6,23,.55);
+      border:1px solid rgba(148,163,184,.38);
+      border-radius:16px;
+      padding:12px 12px 10px;
+    }
+    .stat .label{font-size:.76rem;color:var(--muted)}
+    .stat .value{font-size:1.14rem;font-weight:820;margin-top:4px}
+    .stat .note{font-size:.78rem;color:#CBD5F5;margin-top:2px}
+
+    .filters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+    label{font-size:.74rem;color:var(--muted);display:block;margin-bottom:6px}
+    select,input{
+      width:100%;
+      padding:10px 10px;
+      background:#0A1020;
+      border:1px solid rgba(148,163,184,.40);
+      color:var(--text);
+      border-radius:12px;
+      outline:none;
+      font-size:.90rem;
+    }
+    input:focus,select:focus{
+      border-color:rgba(59,130,246,.85);
+      box-shadow:0 0 0 4px rgba(37,99,235,.12);
+    }
+    .actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
+    .btn{
+      border:none;
+      padding:9px 14px;
+      border-radius:999px;
+      font-weight:650;
+      cursor:pointer;
+      font-size:.88rem;
+      color:#F9FAFB;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 16px 40px rgba(15,23,42,.9);
+      display:inline-flex;align-items:center;gap:8px;
+    }
+    .btn.secondary{background:transparent;border:1px solid rgba(148,163,184,.55);color:var(--text);box-shadow:none}
+    .btn:active{transform:translateY(1px)}
+
+    table{width:100%;border-collapse:collapse}
+    .table{
+      background:rgba(2,6,23,.55);
+      border:1px solid rgba(148,163,184,.38);
+      border-radius:16px;
+      overflow:auto;
+    }
+    .table th,.table td{
+      padding:10px 10px;
+      border-bottom:1px solid rgba(51,65,85,.65);
+      text-align:left;
+      font-size:.88rem;
+      vertical-align:top;
+    }
+    .table th{
+      font-size:.78rem;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color:#CBD5F5;
+      background:rgba(15,23,42,.92);
+    }
+    .table tr:hover td{background:rgba(15,23,42,.45)}
+    .right{text-align:right}
+    .small{font-size:.84rem;color:var(--muted)}
+    .muted{color:var(--muted)}
+    .section{margin-top:14px;padding:16px 16px 14px}
+    .result-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;margin-bottom:10px}
+
+    .rating-list{display:grid;gap:12px}
+    .rating{
+      background:rgba(2,6,23,.55);
+      border:1px solid rgba(148,163,184,.35);
+      border-radius:16px;
+      overflow:hidden;
+    }
+    .rating-top{
+      display:grid;
+      grid-template-columns:88px minmax(0,1fr) auto;
+      gap:12px;
+      padding:12px;
+      align-items:center;
+    }
+    .vehicle-img{
+      width:88px;
+      height:60px;
+      object-fit:contain;
+      border-radius:10px;
+      background:rgba(15,23,42,.75);
+      border:1px solid rgba(148,163,184,.28);
+    }
+    .rating-name{font-weight:820;font-size:1.02rem;letter-spacing:.02em}
+    .rating-meta{margin-top:3px;font-size:.82rem;color:#CBD5F5;display:flex;gap:10px;flex-wrap:wrap}
+    .score-badge{
+      min-width:86px;
+      text-align:center;
+      padding:8px 10px;
+      border-radius:14px;
+      border:1px solid rgba(34,197,94,.55);
+      background:rgba(22,101,52,.20);
+    }
+    .score-badge .num{font-size:1.08rem;font-weight:850;color:#DCFCE7}
+    .score-badge .lab{font-size:.72rem;color:#BBF7D0}
+    details{border-top:1px solid rgba(148,163,184,.20);padding:10px 12px 12px}
+    summary{
+      cursor:pointer;
+      list-style:none;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      font-size:.92rem;
+    }
+    summary::-webkit-details-marker{display:none}
+    .open-link{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:.82rem;
+      color:#93C5FD;
+      text-decoration:none;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.45);
+      background:rgba(15,23,42,.6);
+      white-space:nowrap;
+    }
+    .open-link:hover{text-decoration:underline}
+    .score-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:10px;
+      margin-top:10px;
+    }
+    .score-card{
+      border:1px solid rgba(148,163,184,.28);
+      border-radius:12px;
+      background:rgba(15,23,42,.55);
+      padding:10px;
+    }
+    .score-card .label{font-size:.76rem;color:var(--muted)}
+    .score-card .pct{font-size:1rem;font-weight:820;margin-top:3px}
+    .bar{
+      height:7px;
+      border-radius:999px;
+      background:rgba(51,65,85,.9);
+      overflow:hidden;
+      margin-top:7px;
+    }
+    .bar span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--good));border-radius:999px}
+    .detail-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:8px 12px;
+      margin-top:12px;
+      font-size:.84rem;
+      color:#CBD5F5;
+    }
+    .kv strong{color:#F9FAFB}
+    .footer{
+      margin-top:14px;
+      padding:16px 20px 28px;
+      border-top:1px solid rgba(30,64,175,.55);
+      color:var(--muted);
+      font-size:.84rem;
+      max-width:1180px;margin-left:auto;margin-right:auto;
+    }
+
+    @media (max-width:980px){
+      .grid{grid-template-columns:1fr}
+      .cards-3{grid-template-columns:1fr}
+      .score-grid,.detail-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:640px){
+      .filters{grid-template-columns:1fr}
+      .rating-top{grid-template-columns:64px minmax(0,1fr)}
+      .vehicle-img{width:64px;height:48px}
+      .score-badge{grid-column:1 / -1;text-align:left}
+      .score-grid,.detail-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Auto Insight Lab</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="#overview">Overview</a>
+        <a class="nav-link" href="#search">Search</a>
+        <a class="nav-link" href="#results">Results</a>
+        <span class="nav-pill">ANCAP • recent 5 years</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="kicker">ANCAP safety ratings • searchable database</div>
+      <h1>ANCAP recent 5-year ratings: model, year, sub-scores and total score</h1>
+      <p class="sub">
+        This page turns the ANCAP ratings CSV into a searchable dashboard. Filter by model, rating year, star rating,
+        energy source and current-model status, then expand each vehicle to inspect all sub-score details.
+      </p>
+
+      <div class="chips">
+        <div class="chip"><strong id="chipTotal">—</strong> ratings loaded</div>
+        <div class="chip"><strong id="chipYears">—</strong> rating years</div>
+        <div class="chip"><strong id="chipModels">—</strong> unique models</div>
+      </div>
+
+      <div class="grid" id="overview">
+        <div class="panel">
+          <div class="panel-title">
+            <strong>Overview</strong>
+            <span class="tag">CSV snapshot</span>
+          </div>
+
+          <div class="cards-3">
+            <div class="stat">
+              <div class="label">Ratings</div>
+              <div class="value" id="statRatings">—</div>
+              <div class="note">number of ANCAP entries</div>
+            </div>
+            <div class="stat">
+              <div class="label">5-star share</div>
+              <div class="value" id="statFiveStar">—</div>
+              <div class="note">within current filter</div>
+            </div>
+            <div class="stat">
+              <div class="label">Top total score</div>
+              <div class="value" id="statTopScore">—</div>
+              <div class="note" id="statTopModel">—</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px" class="table">
+            <table aria-label="Top ANCAP score ranking">
+              <thead>
+                <tr>
+                  <th style="width:56px">Rank</th>
+                  <th>Model</th>
+                  <th class="right">Year</th>
+                  <th class="right">Stars</th>
+                  <th class="right">Total score</th>
+                </tr>
+              </thead>
+              <tbody id="rankBody">
+                <tr><td colspan="5" class="muted">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="small" style="margin-top:8px">
+            Ranking uses <strong>SafetyScore</strong> where available, then total ANCAP points as a fallback.
+          </div>
+        </div>
+
+        <div class="panel" id="search">
+          <div class="panel-title">
+            <strong>Search & filters</strong>
+            <span class="tag">Instant filter</span>
+          </div>
+
+          <div class="filters">
+            <div>
+              <label for="yearSel">Rating year</label>
+              <select id="yearSel">
+                <option value="">All years</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="starSel">Stars</label>
+              <select id="starSel">
+                <option value="">All stars</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="currentSel">Current model</label>
+              <select id="currentSel">
+                <option value="">All</option>
+                <option value="TRUE">Current only</option>
+                <option value="FALSE">Superseded only</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="modelInput">Model contains</label>
+              <input id="modelInput" placeholder="e.g. Ranger, Model Y, Triton" />
+            </div>
+
+            <div>
+              <label for="energyInput">Energy source</label>
+              <input id="energyInput" placeholder="e.g. Battery electric, Diesel" />
+            </div>
+
+            <div>
+              <label for="bodyInput">Tag/body keyword</label>
+              <input id="bodyInput" placeholder="e.g. ute, suv, family" />
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="btn" id="applyBtn" type="button">Apply filters</button>
+            <button class="btn secondary" id="resetBtn" type="button">Reset</button>
+            <span class="small muted" id="matchHint">—</span>
+          </div>
+
+          <div class="small" style="margin-top:10px">
+            Sub-scores shown below: Adult Occupant Protection, Child Occupant Protection, Vulnerable Road User Protection,
+            and Safety Assist.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="result-head">
+        <div>
+          <div class="kicker">Results</div>
+          <h2>Filtered ANCAP ratings</h2>
+        </div>
+        <div class="small muted" id="resultSummary">—</div>
+      </div>
+
+      <div id="ratingsWrap" class="rating-list">
+        <div class="muted">Loading...</div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div style="font-weight:650;color:#E5E7EB">Auto Insight Lab</div>
+      <div style="margin-top:6px">
+        This page organises ANCAP rating data for comparison and filtering. Always confirm final rating details on the original ANCAP page.
+      </div>
+      <div style="margin-top:8px;font-size:0.76rem;">
+        <a href="terms-of-use.html" style="color:#93C5FD;text-decoration:none;">Terms of use</a><span style="color:#64748B;"> • </span><a href="disclaimer-copyright.html" style="color:#93C5FD;text-decoration:none;">Disclaimer &amp; copyright</a>
+      </div>
+      <div style="margin-top:8px;font-size:0.76rem;">
+        &copy; 2026 Auto Insight Lab. All rights reserved. Brand names, vehicle names and trademarks belong to their respective owners where applicable.
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    function parseCSV(text) {
+      const clean = text.replace(/^\uFEFF/, "");
+      const rows = [];
+      let i = 0, field = "", row = [], inQuotes = false;
+
+      while (i < clean.length) {
+        const c = clean[i];
+
+        if (c === '"') {
+          if (inQuotes && clean[i+1] === '"') { field += '"'; i += 2; continue; }
+          inQuotes = !inQuotes; i++; continue;
+        }
+
+        if (!inQuotes && (c === ',' || c === '\n' || c === '\r')) {
+          if (c === '\r' && clean[i+1] === '\n') i++;
+          row.push(field);
+          field = "";
+          if (c === '\n' || c === '\r') { rows.push(row); row = []; }
+          i++;
+          continue;
+        }
+
+        field += c; i++;
+      }
+      row.push(field);
+      rows.push(row);
+
+      const header = rows.shift().map(h => (h || "").trim());
+      return rows
+        .filter(r => r.length > 1 && r.some(x => (x || "").trim() !== ""))
+        .map(r => {
+          const obj = {};
+          header.forEach((h, idx) => obj[h] = (r[idx] ?? "").trim());
+          return obj;
+        });
+    }
+
+    function norm(s){ return (s || "").toString().trim(); }
+    function normKey(s){ return norm(s).toUpperCase(); }
+    function toNum(x){
+      const n = Number(String(x ?? "").replace(/,/g,"").trim());
+      return Number.isFinite(n) ? n : null;
+    }
+    function pct(x){
+      const n = toNum(x);
+      return n === null ? "—" : `${Math.round(n)}%`;
+    }
+    function score(x, digits = 1){
+      const n = toNum(x);
+      return n === null ? "—" : n.toFixed(digits).replace(/\.0$/,"");
+    }
+    function escapeHTML(str){
+      return (str || "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    let RAW = [];
+    let FILTERED = [];
+
+    const chipTotal = document.getElementById("chipTotal");
+    const chipYears = document.getElementById("chipYears");
+    const chipModels = document.getElementById("chipModels");
+    const statRatings = document.getElementById("statRatings");
+    const statFiveStar = document.getElementById("statFiveStar");
+    const statTopScore = document.getElementById("statTopScore");
+    const statTopModel = document.getElementById("statTopModel");
+    const yearSel = document.getElementById("yearSel");
+    const starSel = document.getElementById("starSel");
+    const currentSel = document.getElementById("currentSel");
+    const modelInput = document.getElementById("modelInput");
+    const energyInput = document.getElementById("energyInput");
+    const bodyInput = document.getElementById("bodyInput");
+    const applyBtn = document.getElementById("applyBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const matchHint = document.getElementById("matchHint");
+    const rankBody = document.getElementById("rankBody");
+    const ratingsWrap = document.getElementById("ratingsWrap");
+    const resultSummary = document.getElementById("resultSummary");
+
+    function totalScore(r){
+      return toNum(r.SafetyScore) ?? toNum(r.total_points) ?? 0;
+    }
+
+    function starsText(r){
+      const s = norm(r.stars);
+      return s ? `${s} star${s === "1" ? "" : "s"}` : "—";
+    }
+
+    function rebuildDropdowns(data){
+      const years = Array.from(new Set(data.map(r => toNum(r.rating_year)).filter(Boolean))).sort((a,b)=>b-a);
+      const stars = Array.from(new Set(data.map(r => toNum(r.stars)).filter(Boolean))).sort((a,b)=>b-a);
+      yearSel.innerHTML = `<option value="">All years</option>` + years.map(y => `<option value="${y}">${y}</option>`).join("");
+      starSel.innerHTML = `<option value="">All stars</option>` + stars.map(s => `<option value="${s}">${s} stars</option>`).join("");
+    }
+
+    function renderStats(data){
+      const ratings = data.length;
+      const fiveStars = data.filter(r => norm(r.stars) === "5").length;
+      const fiveShare = ratings ? Math.round((fiveStars / ratings) * 100) : 0;
+      const top = data.slice().sort((a,b)=>totalScore(b)-totalScore(a))[0];
+
+      statRatings.textContent = ratings.toLocaleString();
+      statFiveStar.textContent = ratings ? `${fiveShare}%` : "—";
+      statTopScore.textContent = top ? score(totalScore(top), 1) : "—";
+      statTopModel.textContent = top ? `${top.brand_model || "Unknown"} • ${top.rating_year || "—"}` : "—";
+      matchHint.textContent = ratings ? `${ratings.toLocaleString()} ANCAP ratings match.` : "No matches. Try clearing filters.";
+    }
+
+    function renderRanking(data){
+      const rows = data.slice()
+        .sort((a,b)=>(totalScore(b)-totalScore(a)) || (toNum(b.rating_year)-toNum(a.rating_year)) || norm(a.brand_model).localeCompare(norm(b.brand_model)))
+        .slice(0,15)
+        .map((r, idx) => `
+          <tr>
+            <td>${idx + 1}</td>
+            <td>${escapeHTML(r.brand_model || "Unknown")}</td>
+            <td class="right">${escapeHTML(r.rating_year || "—")}</td>
+            <td class="right">${escapeHTML(r.stars || "—")}</td>
+            <td class="right"><strong>${score(totalScore(r), 1)}</strong></td>
+          </tr>
+        `).join("");
+
+      rankBody.innerHTML = rows || `<tr><td colspan="5" class="muted">No data</td></tr>`;
+    }
+
+    function scoreCard(label, pctValue, points, maxPoints){
+      const n = toNum(pctValue);
+      const width = Math.max(0, Math.min(100, n ?? 0));
+      const detail = `${score(points, 2)} / ${score(maxPoints, 0)} pts`;
+      return `
+        <div class="score-card">
+          <div class="label">${label}</div>
+          <div class="pct">${pct(pctValue)}</div>
+          <div class="small">${escapeHTML(detail)}</div>
+          <div class="bar" aria-hidden="true"><span style="width:${width}%"></span></div>
+        </div>
+      `;
+    }
+
+    function renderRatings(data){
+      if (!data.length){
+        ratingsWrap.innerHTML = `<div class="muted">No results. Adjust filters above.</div>`;
+        return;
+      }
+
+      const html = data.slice()
+        .sort((a,b)=>(totalScore(b)-totalScore(a)) || (toNum(b.rating_year)-toNum(a.rating_year)) || norm(a.brand_model).localeCompare(norm(b.brand_model)))
+        .map(r => {
+          const img = r.image_url ? `<img class="vehicle-img" src="${escapeHTML(r.image_url)}" alt="${escapeHTML(r.brand_model || "Vehicle")}" loading="lazy">` : `<div class="vehicle-img" aria-hidden="true"></div>`;
+          const link = r.vehicle_url_view || r.manufacturer_model_url || r.vehicle_url_api || "#";
+          return `
+            <article class="rating">
+              <div class="rating-top">
+                ${img}
+                <div>
+                  <div class="rating-name">${escapeHTML(r.brand_model || "Unknown model")}</div>
+                  <div class="rating-meta">
+                    <span>${escapeHTML(ratingLabel(r))}</span>
+                    <span>${escapeHTML(starsText(r))}</span>
+                    <span>${escapeHTML(r.energy_sources || "Energy source n/a")}</span>
+                    <span>${norm(r.is_current_model) === "TRUE" ? "Current model" : "Superseded model"}</span>
+                  </div>
+                </div>
+                <div class="score-badge">
+                  <div class="num">${score(totalScore(r), 1)}</div>
+                  <div class="lab">total score</div>
+                </div>
+              </div>
+
+              <details>
+                <summary>
+                  <span>View sub-score details and vehicle scope</span>
+                  <a class="open-link" href="${escapeHTML(link)}" target="_blank" rel="noopener">Open ANCAP page ↗</a>
+                </summary>
+
+                <div class="score-grid">
+                  ${scoreCard("Adult Occupant Protection", r.adult_pct, r.adult_points, r.adult_max_points)}
+                  ${scoreCard("Child Occupant Protection", r.child_pct, r.child_points, r.child_max_points)}
+                  ${scoreCard("Vulnerable Road User Protection", r.vru_pct, r.vru_points, r.vru_max_points)}
+                  ${scoreCard("Safety Assist", r.sa_pct, r.sa_points, r.sa_max_points)}
+                </div>
+
+                <div class="detail-grid">
+                  <div class="kv"><strong>Total ANCAP points:</strong> ${score(r.total_points, 2)} / ${score(r.total_max_points, 0)}</div>
+                  <div class="kv"><strong>Total points ratio:</strong> ${score((toNum(r.total_points_ratio) ?? 0) * 100, 1)}%</div>
+                  <div class="kv"><strong>Official weighted score:</strong> ${score((toNum(r.official_weighted_score) ?? 0) * 100, 1)}%</div>
+                  <div class="kv"><strong>AutoScore SafetyScore:</strong> ${score(r.SafetyScore, 1)}</div>
+                  <div class="kv"><strong>Manufactured:</strong> ${escapeHTML(rangeText(r.manufactured_from, r.manufactured_to))}</div>
+                  <div class="kv"><strong>On sale:</strong> ${escapeHTML(rangeText(r.on_sale_from, r.on_sale_to))}</div>
+                  <div class="kv"><strong>Variants:</strong> ${escapeHTML(r.variants || "—")}</div>
+                  <div class="kv"><strong>AEB / lane support:</strong> ${escapeHTML((r.fitted_autonomous_emergency_braking || "—") + " / " + (r.fitted_lane_support_system || "—"))}</div>
+                </div>
+              </details>
+            </article>
+          `;
+        }).join("");
+
+      ratingsWrap.innerHTML = html;
+    }
+
+    function ratingLabel(r){
+      return r.rating_year ? `Rated ${r.rating_year}` : "Rating year n/a";
+    }
+
+    function rangeText(from, to){
+      const a = norm(from) || "—";
+      const b = norm(to) || "—";
+      return `${a} to ${b}`;
+    }
+
+    function applyFilters(){
+      const year = yearSel.value ? Number(yearSel.value) : null;
+      const stars = starSel.value ? Number(starSel.value) : null;
+      const current = currentSel.value;
+      const modelKw = normKey(modelInput.value);
+      const energyKw = normKey(energyInput.value);
+      const bodyKw = normKey(bodyInput.value);
+
+      FILTERED = RAW.filter(r => {
+        if (year && toNum(r.rating_year) !== year) return false;
+        if (stars && toNum(r.stars) !== stars) return false;
+        if (current && norm(r.is_current_model) !== current) return false;
+        if (modelKw && !normKey(r.brand_model).includes(modelKw)) return false;
+        if (energyKw && !normKey(r.energy_sources).includes(energyKw)) return false;
+        if (bodyKw && !normKey(r.tags).includes(bodyKw)) return false;
+        return true;
+      });
+
+      renderStats(FILTERED);
+      renderRanking(FILTERED);
+      renderRatings(FILTERED);
+      resultSummary.textContent = `${FILTERED.length.toLocaleString()} ratings • sorted by total score`;
+    }
+
+    function resetFilters(){
+      yearSel.value = "";
+      starSel.value = "";
+      currentSel.value = "";
+      modelInput.value = "";
+      energyInput.value = "";
+      bodyInput.value = "";
+      applyFilters();
+    }
+
+    async function load(){
+      try{
+        const res = await fetch("./ancap_recent_5_year_ratings.csv", { cache: "no-store" });
+        if (!res.ok) throw new Error(`Failed to fetch ancap_recent_5_year_ratings.csv (HTTP ${res.status})`);
+        const text = await res.text();
+        RAW = parseCSV(text);
+
+        const years = Array.from(new Set(RAW.map(r => toNum(r.rating_year)).filter(Boolean))).sort((a,b)=>a-b);
+        const models = new Set(RAW.map(r => norm(r.brand_model)).filter(Boolean));
+        chipTotal.textContent = RAW.length.toLocaleString();
+        chipYears.textContent = years.length ? `${years[0]}-${years[years.length - 1]}` : "—";
+        chipModels.textContent = models.size.toLocaleString();
+
+        rebuildDropdowns(RAW);
+        FILTERED = RAW.slice();
+        renderStats(FILTERED);
+        renderRanking(FILTERED);
+        renderRatings(FILTERED);
+        resultSummary.textContent = `${FILTERED.length.toLocaleString()} ratings • sorted by total score`;
+      }catch(err){
+        console.error(err);
+        ratingsWrap.innerHTML = `<div class="muted">Error: ${escapeHTML(String(err.message || err))}</div>`;
+        rankBody.innerHTML = `<tr><td colspan="5" class="muted">Error loading CSV.</td></tr>`;
+        matchHint.textContent = "Failed to load data. Check file path and name.";
+      }
+    }
+
+    applyBtn.addEventListener("click", applyFilters);
+    resetBtn.addEventListener("click", resetFilters);
+    [modelInput, energyInput, bodyInput].forEach(el => el.addEventListener("keydown", e => {
+      if (e.key === "Enter") applyFilters();
+    }));
+    [yearSel, starSel, currentSel].forEach(el => el.addEventListener("change", applyFilters));
+
+    load();
+  </script>
+</body>
+</html>
