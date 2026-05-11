@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PHEV Ute Comparison Australia 2026: BYD, GWM, Ford, JAC and Chery | Auto Insight Lab</title>
+  <meta name="description" content="A data-first comparison of plug-in hybrid utes in Australia, including BYD Shark 6, GWM Cannon Alpha PHEV, Ford Ranger PHEV, JAC Hunter PHEV and Chery's upcoming diesel PHEV ute." />
+  <link rel="canonical" href="https://autoscore360.com/phev-ute-comparison.html" />
+  <style>
+    :root{
+      --bg:#020617;
+      --card:rgba(15,23,42,.96);
+      --soft:rgba(15,23,42,.72);
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --line:rgba(148,163,184,.34);
+      --line2:rgba(148,163,184,.18);
+      --blue:#60a5fa;
+      --orange:#f97316;
+      --green:#22c55e;
+      --yellow:#f59e0b;
+      --radius:18px;
+      --shadow:0 22px 60px rgba(15,23,42,.76);
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+      color:var(--text);
+      line-height:1.65;
+      background:
+        radial-gradient(circle at top left,rgba(37,99,235,.28),transparent 55%),
+        radial-gradient(circle at bottom right,rgba(249,115,22,.08),transparent 48%),
+        var(--bg);
+    }
+    a{color:inherit}
+    .nav{
+      position:sticky;top:0;z-index:40;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(to bottom,rgba(15,23,42,.96),rgba(15,23,42,.90));
+      border-bottom:1px solid rgba(30,64,175,.55);
+    }
+    .nav-inner{
+      max-width:var(--max);margin:0 auto;padding:14px 20px;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      font-size:.9rem;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      color:var(--text);text-decoration:none;
+      font-weight:650;letter-spacing:.08em;text-transform:uppercase;
+      font-size:.82rem;white-space:nowrap;
+    }
+    .brand-mark{
+      width:28px;height:28px;border-radius:6px;
+      background:linear-gradient(135deg,#0f172a,#1e293b);
+      border:1px solid rgba(148,163,184,.85);
+      position:relative;overflow:hidden;
+      box-shadow:0 0 0 1px rgba(15,23,42,.9),0 8px 18px rgba(15,23,42,.9);
+    }
+    .brand-mark::before{
+      content:"";position:absolute;left:-30%;top:50%;
+      width:160%;height:2px;
+      background:linear-gradient(90deg,var(--orange),#facc15,var(--green));
+      opacity:.82;
+    }
+    .nav-links{display:flex;align-items:center;justify-content:flex-end;gap:16px;flex-wrap:wrap}
+    .nav-link{color:var(--muted);font-size:.86rem;text-decoration:none}
+    .nav-link:hover{color:var(--text)}
+    .nav-pill{
+      display:inline-flex;align-items:center;gap:7px;
+      padding:5px 11px;border-radius:999px;
+      background:rgba(15,23,42,.9);
+      border:1px solid rgba(148,163,184,.68);
+      color:var(--text);font-size:.78rem;white-space:nowrap;
+    }
+    .nav-pill::before{
+      content:"";width:7px;height:7px;border-radius:999px;
+      background:var(--green);box-shadow:0 0 8px rgba(34,197,94,.9);
+    }
+    main{max-width:var(--max);margin:24px auto 64px;padding:0 20px}
+    .hero{
+      display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.85fr);
+      gap:22px;align-items:stretch;
+    }
+    .hero-main,.hero-side,.section{
+      border:1px solid rgba(100,116,139,.72);
+      border-radius:var(--radius);
+      background:radial-gradient(circle at top left,rgba(96,165,250,.12),transparent 52%),var(--card);
+      box-shadow:var(--shadow);
+    }
+    .hero-main{padding:24px}
+    .hero-side{padding:18px;background:linear-gradient(180deg,rgba(15,23,42,.96),rgba(15,23,42,.88))}
+    .kicker{
+      display:inline-flex;align-items:center;gap:9px;
+      padding:4px 10px 4px 6px;border-radius:999px;
+      background:rgba(15,23,42,.95);
+      border:1px solid rgba(148,163,184,.7);
+      color:#cbd5f5;font-size:.78rem;
+    }
+    .kicker-dot{
+      width:18px;height:18px;border-radius:999px;
+      background:radial-gradient(circle at 30% 30%,#f9fafb,var(--blue));
+      box-shadow:0 0 0 2px rgba(15,23,42,.7);
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size:clamp(2.15rem,4vw,3.1rem);
+      line-height:1.05;letter-spacing:.01em;font-weight:820;
+      background:linear-gradient(135deg,#f8fafc,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+    }
+    .sub{margin:0;color:#cbd5f5;max-width:75ch;font-size:.98rem}
+    .meta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;color:var(--muted);font-size:.84rem}
+    .pill{
+      display:inline-flex;align-items:center;gap:7px;padding:6px 10px;
+      border-radius:999px;background:rgba(15,23,42,.9);
+      border:1px solid rgba(148,163,184,.64);
+    }
+    .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      min-height:42px;padding:9px 15px;border-radius:999px;
+      text-decoration:none;font-weight:650;font-size:.9rem;
+      border:1px solid rgba(148,163,184,.55);
+      background:rgba(15,23,42,.74);
+    }
+    .btn.primary{
+      border:none;color:#f9fafb;
+      background:linear-gradient(135deg,#2563eb,var(--orange));
+      box-shadow:0 14px 40px rgba(15,23,42,.88);
+    }
+    .btn::after{content:"->";font-size:.86rem}
+    .side-title{margin:0 0 10px;font-size:1rem;color:#f8fafc}
+    .rank-list{display:grid;gap:10px}
+    .rank-item{
+      padding:11px;border-radius:12px;
+      border:1px solid var(--line2);
+      background:rgba(2,6,23,.44);
+    }
+    .rank-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+    .rank-name{font-weight:720;color:#f8fafc}
+    .rank-value{font-size:.84rem;color:#bfdbfe;white-space:nowrap}
+    .bar{height:7px;border-radius:999px;background:rgba(148,163,184,.16);overflow:hidden;margin-top:8px}
+    .bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--orange))}
+    .rank-note{margin:7px 0 0;color:var(--muted);font-size:.78rem}
+    .section{margin-top:22px;padding:20px}
+    .section-head{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;
+      margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line2);
+    }
+    .sk{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+    h2{margin:0;font-size:1.45rem;color:#f8fafc;line-height:1.24}
+    .section-sub{margin:6px 0 0;max-width:72ch;color:var(--muted);font-size:.9rem}
+    .table-wrap{overflow-x:auto;border:1px solid var(--line2);border-radius:14px}
+    table{width:100%;border-collapse:collapse;min-width:980px;background:rgba(2,6,23,.36)}
+    th,td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line2);vertical-align:top}
+    th{
+      font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;
+      color:#cbd5e1;background:rgba(15,23,42,.9);white-space:nowrap;
+    }
+    td{font-size:.86rem;color:#dbeafe}
+    tr:last-child td{border-bottom:none}
+    .model{font-weight:760;color:#f8fafc;white-space:nowrap}
+    .status{
+      display:inline-flex;margin-top:4px;padding:2px 8px;border-radius:999px;
+      font-size:.72rem;color:#cbd5e1;border:1px solid rgba(148,163,184,.42);
+      background:rgba(15,23,42,.78);
+    }
+    .status.on{color:#bbf7d0;border-color:rgba(34,197,94,.42)}
+    .status.soon{color:#fed7aa;border-color:rgba(249,115,22,.45)}
+    .status.watch{color:#fde68a;border-color:rgba(245,158,11,.45)}
+    .strong{color:#f8fafc;font-weight:720}
+    .muted{color:var(--muted)}
+    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .card{
+      padding:15px;border-radius:14px;
+      border:1px solid var(--line2);
+      background:rgba(2,6,23,.42);
+    }
+    .card h3{margin:0 0 6px;font-size:1rem;color:#f8fafc}
+    .card p{margin:0;color:#cbd5e1;font-size:.88rem}
+    .note-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .fine{font-size:.82rem;color:var(--muted)}
+    .sources{display:grid;gap:8px;margin:0;padding-left:18px;color:#cbd5e1;font-size:.86rem}
+    .sources a{color:#93c5fd}
+    .footer{margin-top:28px;color:var(--muted);font-size:.8rem;text-align:center}
+    @media (max-width:860px){
+      .hero{grid-template-columns:1fr}
+      .cards,.note-grid{grid-template-columns:1fr}
+      .nav-inner{align-items:flex-start;flex-direction:column}
+      .nav-links{justify-content:flex-start}
+      main{padding:0 16px}
+      .hero-main,.hero-side,.section{border-radius:16px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html"><span class="brand-mark"></span><span>Auto Insight Lab</span></a>
+      <div class="nav-links">
+        <a class="nav-link" href="ute-calculator.html">Ute calculator</a>
+        <a class="nav-link" href="shark6.html">BYD Shark 6</a>
+        <a class="nav-link" href="chinese-utes.html">Chinese utes</a>
+        <span class="nav-pill">Data-first guide</span>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-main">
+        <div class="kicker"><span class="kicker-dot"></span><span>Australian PHEV ute market snapshot</span></div>
+        <h1>PHEV ute comparison: what the numbers say in 2026</h1>
+        <p class="sub">
+          Plug-in hybrid utes are no longer a one-model curiosity. BYD, GWM and Ford are already in market, while JAC and Chery have published enough local data to deserve a place on the watchlist. This page compares the public figures without trying to crown a winner.
+        </p>
+        <div class="meta-row">
+          <span class="pill">Updated May 2026</span>
+          <span class="pill">Australia-focused</span>
+          <span class="pill">Claimed and publicly listed data</span>
+        </div>
+        <div class="btn-row">
+          <a class="btn primary" href="#main-table">Compare the data</a>
+          <a class="btn" href="#reading-notes">Read the caveats</a>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <h2 class="side-title">Quick signal, not a verdict</h2>
+        <div class="rank-list">
+          <div class="rank-item">
+            <div class="rank-top"><span class="rank-name">Price spread is widening</span><span class="rank-value">sub-$50k to $80k+</span></div>
+            <div class="bar"><span style="width:82%"></span></div>
+            <p class="rank-note">Announced entry prices now run from JAC's sub-$50k claim to Ford's higher launch MLPs. Driveaway pricing remains the real test.</p>
+          </div>
+          <div class="rank-item">
+            <div class="rank-top"><span class="rank-name">EV range claims use mixed cycles</span><span class="rank-value">NEDC vs WLTP</span></div>
+            <div class="bar"><span style="width:100%"></span></div>
+            <p class="rank-note">GWM lists 115km NEDC, Shark 6 Performance lists 80km WLTP, and several other figures are NEDC. They need context.</p>
+          </div>
+          <div class="rank-item">
+            <div class="rank-top"><span class="rank-name">Payload is the hidden differentiator</span><span class="rank-value">685kg to 1000kg target</span></div>
+            <div class="bar"><span style="width:91%"></span></div>
+            <p class="rank-note">The 3500kg tow headline is common now, but payload and GCM limits can change the buying decision quickly.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="main-table">
+      <div class="section-head">
+        <div>
+          <div class="sk">Main comparison</div>
+          <h2>Available and near-launch PHEV utes</h2>
+          <p class="section-sub">
+            The table separates launch status and test-cycle labels because NEDC, WLTP and ADR figures are not directly interchangeable. Payload and towing are also affected by accessories, passengers, towball download and final local homologation.
+          </p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Price basis</th>
+              <th>Power / torque</th>
+              <th>Battery</th>
+              <th>EV range</th>
+              <th>Fuel / range claim</th>
+              <th>Braked towing</th>
+              <th>Payload</th>
+              <th>Notable hardware</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="model">JAC Hunter PHEV</span><br><span class="status soon">Reservations open; deliveries due mid/Q3 2026</span></td>
+              <td><span class="strong">Under $50,000</span><br><span class="muted">before on-road costs, announced</span></td>
+              <td><span class="strong">360kW / 1000Nm</span><br><span class="muted">2.0L turbo petrol + dual motors</span></td>
+              <td>31.2kWh LFP</td>
+              <td>About 100km<br><span class="muted">claimed</span></td>
+              <td>1.6L/100km; 1005km combined<br><span class="muted">NEDC</span></td>
+              <td><span class="strong">3500kg</span></td>
+              <td><span class="strong">915kg</span></td>
+              <td>4WD, front and rear diff locks, V2L, local validation program</td>
+            </tr>
+            <tr>
+              <td><span class="model">BYD Shark 6 Premium</span><br><span class="status on">On sale</span></td>
+              <td>$57,900<br><span class="muted">before on-road costs</span></td>
+              <td>321kW / 650Nm<br><span class="muted">1.5L turbo petrol + dual motors</span></td>
+              <td>29.6kWh LFP</td>
+              <td>100km<br><span class="muted">NEDC</span></td>
+              <td>2.0L/100km<br><span class="muted">at 25-100% state of charge</span></td>
+              <td>2500kg</td>
+              <td>825kg<br><span class="muted">reported baseline</span></td>
+              <td>e-AWD, V2L, independent rear suspension</td>
+            </tr>
+            <tr>
+              <td><span class="model">BYD Shark 6 Performance</span><br><span class="status on">2026 flagship arriving/rolling out</span></td>
+              <td>$62,900<br><span class="muted">before on-road costs</span></td>
+              <td>350kW / 700Nm<br><span class="muted">2.0L turbo petrol + dual motors</span></td>
+              <td>29.6kWh LFP</td>
+              <td>80km<br><span class="muted">WLTP</span></td>
+              <td>1.3L/100km; 640km combined<br><span class="muted">WLTP/ADR references vary by listing</span></td>
+              <td><span class="strong">3500kg</span></td>
+              <td>725kg<br><span class="muted">based on listed kerb/GVM data</span></td>
+              <td>e-AWD, V2L, crawl mode, upgraded front motor</td>
+            </tr>
+            <tr>
+              <td><span class="model">GWM Cannon Alpha PHEV</span><br><span class="status on">On sale</span></td>
+              <td>From about $59,990<br><span class="muted">before on-road costs; driveaway varies</span></td>
+              <td>300kW / 750Nm<br><span class="muted">2.0L turbo petrol + hybrid system</span></td>
+              <td>37.1kWh ternary lithium</td>
+              <td>115km<br><span class="muted">NEDC on current GWM AU page</span></td>
+              <td>1.7L/100km; 1060km combined<br><span class="muted">NEDC on current GWM AU page</span></td>
+              <td><span class="strong">3500kg</span></td>
+              <td>685kg</td>
+              <td>4WD, multiple locking differentials, 50kW DC charging, V2L</td>
+            </tr>
+            <tr>
+              <td><span class="model">Ford Ranger PHEV</span><br><span class="status on">On sale</span></td>
+              <td>$71,990-$86,990<br><span class="muted">launch MLP before on-road costs; offers vary</span></td>
+              <td>207kW / 697Nm<br><span class="muted">2.3L EcoBoost + 75kW e-motor</span></td>
+              <td>11.8kWh</td>
+              <td>49km<br><span class="muted">NEDC</span></td>
+              <td>2.9L/100km<br><span class="muted">combined claim</span></td>
+              <td><span class="strong">3500kg</span></td>
+              <td>800kg+<br><span class="muted">grade dependent</span></td>
+              <td>Full-time 4WD, rear diff lock, Pro Power Onboard up to 6.9kW</td>
+            </tr>
+            <tr>
+              <td><span class="model">Chery KP31 diesel PHEV ute</span><br><span class="status watch">Concept shown; Q4 2026 target</span></td>
+              <td>Not confirmed</td>
+              <td>Not confirmed<br><span class="muted">2.5L turbo-diesel PHEV confirmed</span></td>
+              <td>Not confirmed</td>
+              <td>Not confirmed</td>
+              <td>Claims focus on diesel efficiency, not final fuel figure</td>
+              <td><span class="strong">3500kg target</span></td>
+              <td><span class="strong">1000kg target</span></td>
+              <td>World-first diesel PHEV ute claim; production specs pending</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="sk">What stands out</div>
+          <h2>How to read the comparison</h2>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Capability is no longer the same story for every PHEV</h3>
+          <p>Several models now meet the 3500kg towing benchmark, but payload varies sharply: around 685kg for Cannon Alpha PHEV, 725kg for Shark 6 Performance, 800kg+ for Ranger PHEV and 915kg announced for Hunter.</p>
+        </div>
+        <div class="card">
+          <h3>Battery size does not equal overall usefulness</h3>
+          <p>GWM has the largest listed battery and longest EV claim, while Ford has the smallest battery but the strongest embedded worksite power story through Pro Power Onboard.</p>
+        </div>
+        <div class="card">
+          <h3>Price position will matter as much as headline specs</h3>
+          <p>Hunter's announced sub-$50k entry price is a major value signal, but final driveaway pricing, grade equipment and early-owner reliability will decide whether the numbers hold up for real buyers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reading-notes">
+      <div class="section-head">
+        <div>
+          <div class="sk">Method notes</div>
+          <h2>Caveats before shortlisting</h2>
+          <p class="section-sub">
+            PHEV ute data is moving quickly. Some figures are official model-page specs, some are launch-announcement figures, and some are reputable media summaries of local homologation data.
+          </p>
+        </div>
+      </div>
+      <div class="note-grid">
+        <p class="fine">
+          <span class="strong">Test cycles:</span> NEDC usually reads more optimistic than WLTP/real-world driving. A 100km NEDC EV claim and an 80km WLTP EV claim should not be treated as a simple 20km gap.
+        </p>
+        <p class="fine">
+          <span class="strong">Towing and payload:</span> A 3500kg braked tow rating does not mean you can also use full payload at the same time. Gross combination mass, towball download, accessories and passengers can reduce usable capacity.
+        </p>
+        <p class="fine">
+          <span class="strong">PHEV fuel claims:</span> Low L/100km numbers assume charging. Buyers who rarely plug in, tow often or run highway-heavy routes should expect materially higher consumption.
+        </p>
+        <p class="fine">
+          <span class="strong">Upcoming models:</span> Hunter and Chery should be rechecked once final Australian grade walks, brochures and ADR documents are live. Early data is useful for context, not final buying advice.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="sk">Sources</div>
+          <h2>Public data used</h2>
+        </div>
+      </div>
+      <ul class="sources">
+        <li><a href="https://www.ford.com.au/showroom/electric/phev/ranger/">Ford Australia Ranger PHEV</a> and Ranger Hybrid variant specification pages.</li>
+        <li><a href="https://www.gwmanz.com/au/models/ute/cannon-alpha/">GWM Australia Cannon Alpha</a> and dealer-published Cannon Alpha PHEV specification pages.</li>
+        <li><a href="https://www.racv.com.au/royalauto/transport/electric-vehicles/2026-byd-shark-6-performance-cab-chassis-price-specs-release-date.html">RACV: 2026 BYD Shark 6 Performance and Cab-Chassis</a>.</li>
+        <li><a href="https://www.carexpert.com.au/car-news/2026-byd-shark-6-price-and-specs/">CarExpert: 2026 BYD Shark 6 price and specs</a>.</li>
+        <li><a href="https://www.carexpert.com.au/car-reviews/2026-jac-hunter-phev-review-quick-drive">CarExpert: 2026 JAC Hunter PHEV quick drive and specs</a>.</li>
+        <li><a href="https://www.carsales.com.au/editorial/details/2026-jac-hunter-phev-ute-to-be-cheap-151961/">Carsales: 2026 JAC Hunter PHEV key details</a>.</li>
+        <li><a href="https://cherymotor.com.au/news/chery-kp31-ute-concept-makes-first-international-debut">Chery Australia: KP31 ute concept debut</a>.</li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      Auto Insight Lab. Independent, data-first car and ute information for Australian buyers.
+    </div>
+  </main>
+</body>
+</html>
