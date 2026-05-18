@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HTML Sitemap | Auto Insight Lab</title>
+  <meta name="description" content="Browse the Auto Insight Lab HTML sitemap, including ute reviews, comparison pages, ANCAP safety tools, recall tools, buyer guides and legal pages." />
+  <link rel="canonical" href="https://autoscore360.com/sitemap.html" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --panel: rgba(11, 18, 36, 0.86);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --line: rgba(148, 163, 184, 0.28);
+      --accent: #93C5FD;
+      --accent-strong: #2563EB;
+      --max: 1040px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.2), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.92), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.90));
+      border-bottom: 1px solid rgba(30, 64, 175, 0.45);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 650;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #0F172A, #1E293B);
+      border: 1px solid rgba(148, 163, 184, 0.85);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9), 0 8px 18px rgba(15, 23, 42, 0.9);
+      flex: 0 0 auto;
+    }
+
+    .brand-mark::before {
+      content: "";
+      position: absolute;
+      left: -30%;
+      top: 50%;
+      width: 160%;
+      height: 2px;
+      background: linear-gradient(90deg, #F97316, #FACC15, #22C55E);
+      opacity: 0.85;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.88rem;
+      padding: 4px 0;
+    }
+
+    .nav-link:hover { color: var(--text); }
+
+    .nav-pill {
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.90);
+      border: 1px solid rgba(148, 163, 184, 0.50);
+      font-size: 0.78rem;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 34px 20px 56px;
+    }
+
+    .hero {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(11, 18, 36, 0.92), rgba(11, 18, 36, 0.78));
+      padding: 28px 24px;
+    }
+
+    .kicker {
+      margin: 0 0 8px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.76rem;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 2.15rem;
+      line-height: 1.12;
+      color: #F9FAFB;
+    }
+
+    .lede {
+      margin: 0;
+      color: #CBD5E1;
+      max-width: 760px;
+      font-size: 1rem;
+    }
+
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .group {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 18px;
+      min-width: 0;
+    }
+
+    .group h2 {
+      margin: 0 0 12px;
+      font-size: 1.02rem;
+      color: #F9FAFB;
+    }
+
+    .link-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .site-link {
+      display: block;
+      padding: 11px 12px;
+      border: 1px solid rgba(148, 163, 184, 0.20);
+      background: rgba(2, 6, 23, 0.32);
+      text-decoration: none;
+    }
+
+    .site-link:hover {
+      border-color: rgba(147, 197, 253, 0.70);
+      background: rgba(37, 99, 235, 0.16);
+    }
+
+    .site-link strong {
+      display: block;
+      color: var(--accent);
+      font-size: 0.94rem;
+      line-height: 1.35;
+    }
+
+    .site-link span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .full { grid-column: 1 / -1; }
+
+    .footer {
+      max-width: var(--max);
+      margin: 0 auto 28px;
+      padding: 0 20px 20px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 760px) {
+      .sitemap-grid { grid-template-columns: 1fr; }
+      .hero, .group { padding: 18px 16px; }
+      h1 { font-size: 1.78rem; }
+      .nav-inner { align-items: flex-start; flex-direction: column; padding: 14px; }
+      .nav-links { justify-content: flex-start; gap: 12px; }
+      .page { padding: 22px 14px 42px; }
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "HTML Sitemap",
+  "description": "Browse the Auto Insight Lab HTML sitemap, including ute reviews, comparison pages, ANCAP safety tools, recall tools, buyer guides and legal pages.",
+  "url": "https://autoscore360.com/sitemap.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Auto Insight Lab"
+  }
+}
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="Auto Insight Lab homepage">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Auto Insight Lab</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="ute-calculator.html">Ute Calculator</a>
+        <a class="nav-link" href="ancap.html">ANCAP</a>
+        <a class="nav-link" href="recalls.html">Recalls</a>
+        <span class="nav-pill">HTML sitemap</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <p class="kicker">Browse the site</p>
+      <h1>Auto Insight Lab sitemap</h1>
+      <p class="lede">
+        A human-readable sitemap for the main tools, ute reviews, comparison pages, ANCAP safety articles,
+        recall guides and supporting policy pages.
+      </p>
+    </section>
+
+    <div class="sitemap-grid">
+      <section class="group full" aria-labelledby="core-pages">
+        <h2 id="core-pages">Core Tools and Main Pages</h2>
+        <div class="link-list">
+          <a class="site-link" href="index.html">
+            <strong>Homepage</strong>
+            <span>Data-driven ute reviews, comparison pages, recall search and calculator tools for Australian buyers.</span>
+          </a>
+          <a class="site-link" href="ute-calculator.html">
+            <strong>Australia Ute Calculator</strong>
+            <span>Rank Australian utes using adjustable safety, economy, performance, reliability and sales weights.</span>
+          </a>
+          <a class="site-link" href="ancap.html">
+            <strong>ANCAP Safety Ratings Filter</strong>
+            <span>Search recent ANCAP ratings by model, year, star rating, energy source, body type and sub-scores.</span>
+          </a>
+          <a class="site-link" href="recalls.html">
+            <strong>Vehicle Recalls Database</strong>
+            <span>Search Australian vehicle recalls from 2020 to 2026 by make, model, year, recall number and issue.</span>
+          </a>
+          <a class="site-link" href="methodology.html">
+            <strong>Ute Calculator Methodology</strong>
+            <span>Read the scoring framework behind the calculator, including data sources and default ranking logic.</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="group" aria-labelledby="reviews">
+        <h2 id="reviews">Ute Reviews</h2>
+        <div class="link-list">
+          <a class="site-link" href="ford.html"><strong>Ford Ranger Review</strong><span>Public-source review synthesis and data snapshot.</span></a>
+          <a class="site-link" href="hilux.html"><strong>Toyota HiLux Review</strong><span>Strengths, trade-offs and scorecard visualisation.</span></a>
+          <a class="site-link" href="triton.html"><strong>Mitsubishi Triton Review</strong><span>Australian review synthesis and single-vehicle scorecard.</span></a>
+          <a class="site-link" href="Dmax.html"><strong>Isuzu D-MAX Review</strong><span>Safety, ownership, reliability and buyer-fit snapshot.</span></a>
+          <a class="site-link" href="bt50.html"><strong>Mazda BT-50 Review</strong><span>Data-driven Australian buyer summary.</span></a>
+          <a class="site-link" href="T9.html"><strong>JAC T9 Review</strong><span>Value, safety, warranty and ownership trade-offs.</span></a>
+          <a class="site-link" href="cannon.html"><strong>GWM Cannon Review</strong><span>Safety, value, running costs and buyer fit.</span></a>
+          <a class="site-link" href="shark6.html"><strong>BYD Shark 6 Review</strong><span>Plug-in hybrid ute capability, safety and running costs.</span></a>
+          <a class="site-link" href="terron9.html"><strong>LDV Terron 9 / MG U9 Review</strong><span>Value, capability, safety and ownership factors.</span></a>
+          <a class="site-link" href="tasman.html"><strong>Kia Tasman Review</strong><span>Safety, warranty, capability and market positioning.</span></a>
+          <a class="site-link" href="amarok.html"><strong>Volkswagen Amarok Review</strong><span>Buyer fit, safety, running costs and capability.</span></a>
+          <a class="site-link" href="jeep.html"><strong>Jeep Gladiator Review</strong><span>Lifestyle appeal, capability and ownership trade-offs.</span></a>
+        </div>
+      </section>
+
+      <section class="group" aria-labelledby="comparisons">
+        <h2 id="comparisons">Comparisons and Market Overviews</h2>
+        <div class="link-list">
+          <a class="site-link" href="hilux-vs-ranger.html"><strong>Toyota HiLux vs Ford Ranger</strong><span>Data-first Australian ute comparison.</span></a>
+          <a class="site-link" href="triton-vs-dmax.html"><strong>Mitsubishi Triton vs Isuzu D-MAX</strong><span>Safety, economy, performance, reliability and buyer fit.</span></a>
+          <a class="site-link" href="jac-t9-vs-gwm-cannon.html"><strong>JAC T9 vs GWM Cannon</strong><span>Value-led ute comparison for Australian buyers.</span></a>
+          <a class="site-link" href="byd-shark-6-vs-ford-ranger.html"><strong>BYD Shark 6 vs Ford Ranger</strong><span>Plug-in hybrid challenger versus mainstream ute benchmark.</span></a>
+          <a class="site-link" href="phev-ute-comparison.html"><strong>PHEV Ute Comparison Australia</strong><span>BYD, GWM, Ford, JAC and Chery plug-in hybrid ute comparison.</span></a>
+          <a class="site-link" href="chinese-utes.html"><strong>Chinese Utes in Australia</strong><span>JAC, GWM, LDV, MG and BYD market overview.</span></a>
+          <a class="site-link" href="japanese-utes.html"><strong>Japanese Utes in Australia</strong><span>Toyota, Mitsubishi, Isuzu and Mazda market overview.</span></a>
+          <a class="site-link" href="other-utes.html"><strong>Global Utes in Australia</strong><span>Ford, Volkswagen, Kia and Jeep market overview.</span></a>
+        </div>
+      </section>
+
+      <section class="group" aria-labelledby="buyer-guides">
+        <h2 id="buyer-guides">Buyer Guides</h2>
+        <div class="link-list">
+          <a class="site-link" href="for-tradie.html"><strong>Best Ute for Tradies</strong><span>Work-focused shortlist and ranking logic.</span></a>
+          <a class="site-link" href="for-family.html"><strong>Best Ute for Families</strong><span>Safety, economy and family-focused ranking results.</span></a>
+          <a class="site-link" href="for-company.html"><strong>Best Ute for Company Use</strong><span>Fleet logic, running costs and business weighting model.</span></a>
+          <a class="site-link" href="best-ute-under-50k.html"><strong>Best Ute Under $50k</strong><span>Value shortlist and buyer trade-offs.</span></a>
+          <a class="site-link" href="best-ute-first-time-buyers.html"><strong>Best Ute for First-Time Buyers</strong><span>Beginner guide and starter shortlist.</span></a>
+        </div>
+      </section>
+
+      <section class="group" aria-labelledby="safety-recalls">
+        <h2 id="safety-recalls">ANCAP and Recall Guides</h2>
+        <div class="link-list">
+          <a class="site-link" href="ancap-five-star-not-equal.html"><strong>ANCAP 5-Star Is Not Always Equal</strong><span>Why tested year, protocol age and sub-scores change how a five-star rating should be read.</span></a>
+          <a class="site-link" href="best-ancap-rated-utes-australia.html"><strong>Best ANCAP-Rated Utes in Australia</strong><span>Ute-specific safety comparison across Ranger, HiLux, Triton, D-MAX, BT-50, Shark 6, T9 and Cannon Alpha.</span></a>
+          <a class="site-link" href="ancap-for-families.html"><strong>ANCAP Explained for Families</strong><span>Child occupant protection, AEB, lane support and vulnerable road user scores for family buyers.</span></a>
+          <a class="site-link" href="ancap-2026-changes.html"><strong>ANCAP 2026 Changes Explained</strong><span>Safe Driving, Crash Avoidance, Crash Protection and Post-Crash Safety in plain English.</span></a>
+          <a class="site-link" href="best-ancap-safety-rated-cars-2025.html"><strong>2025 ANCAP Safest Cars Ranked</strong><span>Why five-star cars can still differ across sub-scores.</span></a>
+          <a class="site-link" href="how-to-read-ancap-ratings.html"><strong>How to Read ANCAP Ratings</strong><span>A practical buyer guide to ANCAP safety ratings and sub-scores.</span></a>
+          <a class="site-link" href="recall-number.html"><strong>Does a Higher Recall Count Mean a Worse Vehicle?</strong><span>How to interpret recall counts, affected units and issue types.</span></a>
+          <a class="site-link" href="recall-tell-buyers.html"><strong>What Recall Data Tells Buyers</strong><span>How Australian recall data should and should not be used.</span></a>
+        </div>
+      </section>
+
+      <section class="group full" aria-labelledby="supporting-pages">
+        <h2 id="supporting-pages">Supporting Pages</h2>
+        <div class="link-list">
+          <a class="site-link" href="terms-of-use.html"><strong>Terms of Use</strong><span>Permitted use, external links, liability limits and site conditions.</span></a>
+          <a class="site-link" href="privacy-policy.html"><strong>Privacy Policy</strong><span>Contact emails, basic technical logs, external links, cookies and analytics notes.</span></a>
+          <a class="site-link" href="contact-corrections.html"><strong>Contact &amp; Corrections</strong><span>Corrections, rights concerns, takedown requests, data issues and general enquiries.</span></a>
+          <a class="site-link" href="disclaimer-copyright.html"><strong>Disclaimer &amp; Copyright Notice</strong><span>Source use, accuracy limits, rankings, third-party rights and takedown requests.</span></a>
+          <a class="site-link" href="sitemap.xml"><strong>XML Sitemap</strong><span>Machine-readable sitemap for search engines and Google Search Console.</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div style="font-weight:650;color:#E5E7EB;">Auto Insight Lab</div>
+    <div style="margin-top:6px;">Independent, data-first automotive information for Australia.</div>
+    <div style="margin-top:8px;">
+      <a href="sitemap.xml">XML sitemap</a> ·
+      <a href="terms-of-use.html">Terms of Use</a> ·
+      <a href="privacy-policy.html">Privacy Policy</a> ·
+      <a href="contact-corrections.html">Contact &amp; Corrections</a> ·
+      <a href="disclaimer-copyright.html">Disclaimer &amp; Copyright</a>
+    </div>
+    <div style="margin-top:8px;font-size:0.76rem;">
+      &copy; 2026 Auto Insight Lab. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
