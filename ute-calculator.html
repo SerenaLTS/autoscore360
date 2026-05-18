@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Australia Ute Calculator – Data-Driven Shortlist for 2025</title>
+  <meta name="description" content="Rank Australian utes with an interactive data-driven calculator using adjustable weights for safety, economy, performance, reliability and sales." />
   <link rel="canonical" href="https://autoscore360.com/ute-calculator.html" />
   <style>
     :root {
@@ -24,9 +25,11 @@
     }
 
     * { box-sizing: border-box; }
+    html { overflow-x: hidden; }
 
     body {
       margin: 0;
+      overflow-x: hidden;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
       background:
         radial-gradient(circle at top left, rgba(37, 99, 235, 0.28), transparent 55%),
@@ -663,10 +666,18 @@
     }
 
     /* Result table in calculator */
+    .result-table-wrap {
+      position: relative;
+      z-index: 1;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
     #result-table {
       margin-top: 16px;
       position: relative;
       z-index: 1;
+      min-width: 640px;
     }
 
     #result-table tbody tr:first-child td:first-child { color: #4ADE80; font-weight: 700; }
@@ -689,6 +700,21 @@
       .nav-links { gap: 14px; }
     }
   </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Australia Ute Calculator",
+  "url": "https://autoscore360.com/ute-calculator.html",
+  "description": "Rank Australian utes with an interactive data-driven calculator using adjustable weights for safety, economy, performance, reliability and sales.",
+  "applicationCategory": "AutomotiveApplication",
+  "operatingSystem": "Any",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Auto Insight Lab"
+  }
+}
+  </script>
 </head>
 <body>
   <!-- Top nav -->
@@ -724,7 +750,7 @@
         </p>
         <div class="hero-meta">
           <div class="hero-pill">
-            <span>For Aussie tradies, fleets & families</span>
+            <span>For Aussie tradies, fleets &amp; families</span>
           </div>
           <div class="hero-pill">
             <span>JAC, GWM, LDV &amp; BYD stacked against Hilux, Ranger, Triton and more</span>
@@ -780,7 +806,7 @@
             <span class="hero-top-rank">4</span>
             <div>
               <div class="hero-top-score">JAC T9</div>
-              <div class="hero-top-tag">Chinese brand • Big on safety & economy</div>
+              <div class="hero-top-tag">Chinese brand • Big on safety &amp; economy</div>
             </div>
             <span class="hero-top-chip">63.8</span>
           </li>
@@ -1025,24 +1051,26 @@
       </div>
 
       <!-- Results table -->
-      <table id="result-table">
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Brand / Model</th>
-            <th>Sales Tier</th>
-            <th>Final Score</th>
-            <th>Reliability</th>
-            <th>Safety</th>
-            <th>Economy</th>
-            <th>Performance</th>
-            <th>SalesScore</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Rendered by JS -->
-        </tbody>
-      </table>
+      <div class="result-table-wrap">
+        <table id="result-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Brand / Model</th>
+              <th>Sales Tier</th>
+              <th>Final Score</th>
+              <th>Reliability</th>
+              <th>Safety</th>
+              <th>Economy</th>
+              <th>Performance</th>
+              <th>SalesScore</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
     </section>
   </main>
 
