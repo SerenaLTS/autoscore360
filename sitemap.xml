@@ -151,6 +151,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://autoscore360.com/how-to-read-phev-ute-specs.html</loc>
+    <lastmod>2026-06-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://autoscore360.com/</loc>
     <lastmod>2026-06-09</lastmod>
     <priority>1.0</priority>
@@ -202,12 +207,22 @@
   </url>
   <url>
     <loc>https://autoscore360.com/phev-ute-buying-guide.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-06-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://autoscore360.com/phev-ute-charging-guide.html</loc>
+    <lastmod>2026-06-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://autoscore360.com/phev-ute-running-costs.html</loc>
+    <lastmod>2026-06-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://autoscore360.com/phev-ute-towing-payload.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -232,7 +247,7 @@
   </url>
   <url>
     <loc>https://autoscore360.com/sitemap.html</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
@@ -272,12 +287,12 @@
   </url>
   <url>
     <loc>https://autoscore360.com/ute-glossary.html</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://autoscore360.com/updates.html</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
