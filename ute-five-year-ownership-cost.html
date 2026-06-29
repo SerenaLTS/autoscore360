@@ -46,12 +46,13 @@
       <p class="kicker">Ownership cost · Australia</p>
       <h1>Compare ute resale and ownership costs over the years you choose</h1>
       <p class="lede">Select two utes—including JAC T9 and BYD Shark 6—then choose an ownership period and use scenario. The model estimates resale, depreciation, fuel or charging, insurance, servicing, repairs and registration.</p>
-      <div class="links"><span class="status on-sale">Interactive estimate</span><span class="status incoming">Last checked: 29 June 2026</span></div>
+      <div class="links"><span class="status on-sale">16 vehicle presets + custom</span><span class="status incoming">Last checked: 29 June 2026</span></div>
     </section>
 
     <section class="section">
       <h2>Choose a starting scenario</h2>
       <p class="small">Choose two model presets, an ownership period and a use scenario. Presets are research starting points—not dealer quotes or guaranteed future resale values—and every field remains editable.</p>
+      <div class="callout"><strong>Vehicle library:</strong> both selectors contain every ute currently covered by the site. Choose any two—even two diesel vehicles or two PHEVs. Incoming/watchlist vehicles use provisional placeholder pricing and should only be used for scenario planning until Australian retail details are final.</div>
       <div class="global-controls">
         <label>Ownership period (years)<input id="years" type="number" min="1" max="15" value="5"></label>
         <label>Calculation basis<input value="AUD · nominal dollars · no finance interest" disabled></label>
@@ -68,6 +69,20 @@
             <select id="d-model">
               <option value="jac-t9">JAC T9 Oasis (diesel)</option>
               <option value="byd-shark">BYD Shark 6 Premium (PHEV)</option>
+              <option value="ford-ranger">Ford Ranger (diesel)</option>
+              <option value="toyota-hilux">Toyota HiLux (diesel)</option>
+              <option value="mitsubishi-triton">Mitsubishi Triton (diesel)</option>
+              <option value="isuzu-dmax">Isuzu D-MAX (diesel)</option>
+              <option value="mazda-bt50">Mazda BT-50 (diesel)</option>
+              <option value="gwm-cannon">GWM Cannon (diesel)</option>
+              <option value="ldv-terron9">LDV Terron 9 / MG U9 (diesel)</option>
+              <option value="kia-tasman">Kia Tasman (diesel)</option>
+              <option value="vw-amarok">Volkswagen Amarok (diesel)</option>
+              <option value="jeep-gladiator">Jeep Gladiator (petrol)</option>
+              <option value="ford-ranger-phev">Ford Ranger PHEV</option>
+              <option value="gwm-alpha-phev">GWM Cannon Alpha PHEV</option>
+              <option value="jac-hunter-phev">JAC Hunter PHEV (incoming)</option>
+              <option value="chery-stockman">Chery Stockman PHEV (watchlist)</option>
               <option value="custom-diesel">Custom diesel ute</option>
               <option value="custom-phev">Custom PHEV ute</option>
             </select>
@@ -95,6 +110,20 @@
             <select id="p-model">
               <option value="byd-shark">BYD Shark 6 Premium (PHEV)</option>
               <option value="jac-t9">JAC T9 Oasis (diesel)</option>
+              <option value="ford-ranger">Ford Ranger (diesel)</option>
+              <option value="toyota-hilux">Toyota HiLux (diesel)</option>
+              <option value="mitsubishi-triton">Mitsubishi Triton (diesel)</option>
+              <option value="isuzu-dmax">Isuzu D-MAX (diesel)</option>
+              <option value="mazda-bt50">Mazda BT-50 (diesel)</option>
+              <option value="gwm-cannon">GWM Cannon (diesel)</option>
+              <option value="ldv-terron9">LDV Terron 9 / MG U9 (diesel)</option>
+              <option value="kia-tasman">Kia Tasman (diesel)</option>
+              <option value="vw-amarok">Volkswagen Amarok (diesel)</option>
+              <option value="jeep-gladiator">Jeep Gladiator (petrol)</option>
+              <option value="ford-ranger-phev">Ford Ranger PHEV</option>
+              <option value="gwm-alpha-phev">GWM Cannon Alpha PHEV</option>
+              <option value="jac-hunter-phev">JAC Hunter PHEV (incoming)</option>
+              <option value="chery-stockman">Chery Stockman PHEV (watchlist)</option>
               <option value="custom-phev">Custom PHEV ute</option>
               <option value="custom-diesel">Custom diesel ute</option>
             </select>
@@ -191,6 +220,7 @@
         </table>
       </div>
       <p class="small">The BYD depreciation preset is deliberately more conservative because its Australian PHEV-ute resale history is short and future new-vehicle pricing may change. That does not prove it will depreciate faster. Set both vehicles to the same rates to compare operating costs without that assumption.</p>
+      <p class="small">The wider model library uses the same structure: representative price and consumption inputs, plus editable editorial assumptions for depreciation, insurance and maintenance. Established brands receive less aggressive default depreciation than newer or incoming models, but this is a scenario choice—not a claim about guaranteed resale performance.</p>
     </section>
 
     <section class="section">
@@ -227,11 +257,35 @@
     const $ = id => document.getElementById(id);
     const num = id => Math.max(0, Number($(id).value) || 0);
     const money = value => new Intl.NumberFormat("en-AU", {style:"currency", currency:"AUD", maximumFractionDigits:0}).format(value);
+    const dieselPreset = (name, values = {}) => ({
+      name, type:"diesel", price:60000, firstdep:17, laterdep:10, use:8.5,
+      fuel:2, evshare:0, kwh:0, power:.30, insurance:1900, service:1000,
+      repairs:350, rego:1100, charger:0, ...values
+    });
+    const phevPreset = (name, values = {}) => ({
+      name, type:"phev", price:65000, firstdep:22, laterdep:12, use:8,
+      fuel:1.90, evshare:65, kwh:28, power:.30, insurance:2200, service:850,
+      repairs:350, rego:1100, charger:2000, ...values
+    });
     const presets = {
-      "jac-t9": {name:"JAC T9 Oasis", type:"diesel", price:46353, firstdep:18, laterdep:10, use:7.6, fuel:2, evshare:0, kwh:0, power:.30, insurance:1800, service:900, repairs:300, rego:1100, charger:0},
-      "byd-shark": {name:"BYD Shark 6 Premium", type:"phev", price:57900, firstdep:22, laterdep:12, use:8, fuel:1.90, evshare:65, kwh:28, power:.30, insurance:2200, service:800, repairs:300, rego:1100, charger:2000},
-      "custom-diesel": {name:"Custom diesel ute", type:"diesel", price:60000, firstdep:18, laterdep:10, use:9, fuel:2, evshare:0, kwh:0, power:.30, insurance:1800, service:1100, repairs:400, rego:1100, charger:0},
-      "custom-phev": {name:"Custom PHEV ute", type:"phev", price:70000, firstdep:22, laterdep:12, use:8, fuel:1.90, evshare:65, kwh:28, power:.30, insurance:2200, service:900, repairs:350, rego:1100, charger:2000}
+      "jac-t9": dieselPreset("JAC T9 Oasis", {price:46353, firstdep:18, laterdep:10, use:7.6, insurance:1800, service:900, repairs:300}),
+      "byd-shark": phevPreset("BYD Shark 6 Premium", {price:57900, firstdep:22, laterdep:12, kwh:28, insurance:2200, service:800, repairs:300}),
+      "ford-ranger": dieselPreset("Ford Ranger", {price:60000, firstdep:15, laterdep:9, use:8, insurance:2100, service:1050}),
+      "toyota-hilux": dieselPreset("Toyota HiLux", {price:58000, firstdep:14, laterdep:8, use:8, insurance:1950, service:1000}),
+      "mitsubishi-triton": dieselPreset("Mitsubishi Triton", {price:52000, firstdep:16, laterdep:9, use:7.7, insurance:1800, service:950}),
+      "isuzu-dmax": dieselPreset("Isuzu D-MAX", {price:58000, firstdep:15, laterdep:9, use:8, insurance:1900, service:1000}),
+      "mazda-bt50": dieselPreset("Mazda BT-50", {price:59000, firstdep:16, laterdep:9.5, use:8, insurance:1950, service:1000}),
+      "gwm-cannon": dieselPreset("GWM Cannon", {price:42000, firstdep:20, laterdep:12, use:9.4, insurance:1750, service:900}),
+      "ldv-terron9": dieselPreset("LDV Terron 9 / MG U9", {price:52000, firstdep:21, laterdep:12, use:8.6, insurance:1900, service:950}),
+      "kia-tasman": dieselPreset("Kia Tasman", {price:52000, firstdep:19, laterdep:11, use:8.1, insurance:1900, service:950}),
+      "vw-amarok": dieselPreset("Volkswagen Amarok", {price:70000, firstdep:18, laterdep:10, use:8, insurance:2400, service:1200, repairs:450}),
+      "jeep-gladiator": dieselPreset("Jeep Gladiator", {price:85000, firstdep:22, laterdep:12, use:12.4, fuel:1.90, insurance:2700, service:1300, repairs:550}),
+      "ford-ranger-phev": phevPreset("Ford Ranger PHEV", {price:71000, firstdep:20, laterdep:11, kwh:27, insurance:2400, service:950}),
+      "gwm-alpha-phev": phevPreset("GWM Cannon Alpha PHEV", {price:65000, firstdep:23, laterdep:12.5, kwh:30, insurance:2250, service:850}),
+      "jac-hunter-phev": phevPreset("JAC Hunter PHEV", {price:60000, firstdep:25, laterdep:14, kwh:29, insurance:2200, service:850}),
+      "chery-stockman": phevPreset("Chery Stockman PHEV", {price:60000, firstdep:26, laterdep:14, kwh:30, insurance:2200, service:900}),
+      "custom-diesel": dieselPreset("Custom diesel ute", {firstdep:18, use:9, insurance:1800, service:1100, repairs:400}),
+      "custom-phev": phevPreset("Custom PHEV ute", {price:70000})
     };
     const scenarios = {
       private: {km:15000, share:65},
