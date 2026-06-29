@@ -1,0 +1,30 @@
+{
+  "modelVersion": "1.4",
+  "lastChecked": "2026-06-29",
+  "currency": "AUD",
+  "notes": [
+    "Prices and consumption figures are representative starting inputs, not dealer quotes.",
+    "Depreciation, insurance and repairs are editorial scenario assumptions.",
+    "Incoming and watchlist vehicles use provisional placeholders."
+  ],
+  "presets": [
+    {"id":"jac-t9","name":"JAC T9 Oasis","powertrain":"diesel","status":"on_sale","price":46353,"firstDep":18,"laterDep":10,"fuelUse":7.6,"evShare":0,"kwh":0,"insurance":1800,"service":900,"repairs":300,"confidence":"medium","source":"T9.html"},
+    {"id":"byd-shark","name":"BYD Shark 6 Premium","powertrain":"phev","status":"on_sale","price":57900,"firstDep":22,"laterDep":12,"fuelUse":8,"evShare":65,"kwh":28,"insurance":2200,"service":800,"repairs":300,"confidence":"medium","source":"byd-shark-6-phev.html"},
+    {"id":"ford-ranger","name":"Ford Ranger XLT 4x4","powertrain":"diesel","status":"on_sale","price":60000,"firstDep":15,"laterDep":9,"fuelUse":8,"evShare":0,"kwh":0,"insurance":2100,"service":1050,"repairs":350,"confidence":"medium","source":"ford.html"},
+    {"id":"toyota-hilux","name":"Toyota HiLux SR5 4x4","powertrain":"diesel","status":"on_sale","price":58000,"firstDep":14,"laterDep":8,"fuelUse":8,"evShare":0,"kwh":0,"insurance":1950,"service":1000,"repairs":350,"confidence":"medium","source":"hilux.html"},
+    {"id":"mitsubishi-triton","name":"Mitsubishi Triton GSR","powertrain":"diesel","status":"on_sale","price":52000,"firstDep":16,"laterDep":9,"fuelUse":7.7,"evShare":0,"kwh":0,"insurance":1800,"service":950,"repairs":350,"confidence":"medium","source":"triton.html"},
+    {"id":"isuzu-dmax","name":"Isuzu D-MAX X-Terrain","powertrain":"diesel","status":"on_sale","price":58000,"firstDep":15,"laterDep":9,"fuelUse":8,"evShare":0,"kwh":0,"insurance":1900,"service":1000,"repairs":350,"confidence":"medium","source":"Dmax.html"},
+    {"id":"mazda-bt50","name":"Mazda BT-50 GT","powertrain":"diesel","status":"on_sale","price":59000,"firstDep":16,"laterDep":9.5,"fuelUse":8,"evShare":0,"kwh":0,"insurance":1950,"service":1000,"repairs":350,"confidence":"medium","source":"bt50.html"},
+    {"id":"gwm-cannon","name":"GWM Cannon Lux","powertrain":"diesel","status":"on_sale","price":42000,"firstDep":20,"laterDep":12,"fuelUse":9.4,"evShare":0,"kwh":0,"insurance":1750,"service":900,"repairs":350,"confidence":"medium","source":"cannon.html"},
+    {"id":"ldv-terron9","name":"LDV Terron 9 Origin","powertrain":"diesel","status":"on_sale","price":52000,"firstDep":21,"laterDep":12,"fuelUse":8.6,"evShare":0,"kwh":0,"insurance":1900,"service":950,"repairs":350,"confidence":"medium","source":"terron9.html"},
+    {"id":"kia-tasman","name":"Kia Tasman SX 4x4","powertrain":"diesel","status":"on_sale","price":52000,"firstDep":19,"laterDep":11,"fuelUse":8.1,"evShare":0,"kwh":0,"insurance":1900,"service":950,"repairs":350,"confidence":"medium","source":"tasman.html"},
+    {"id":"vw-amarok","name":"Volkswagen Amarok Style","powertrain":"diesel","status":"on_sale","price":70000,"firstDep":18,"laterDep":10,"fuelUse":8,"evShare":0,"kwh":0,"insurance":2400,"service":1200,"repairs":450,"confidence":"medium","source":"amarok.html"},
+    {"id":"jeep-gladiator","name":"Jeep Gladiator Night Eagle","powertrain":"petrol","status":"on_sale","price":85000,"firstDep":22,"laterDep":12,"fuelUse":12.4,"evShare":0,"kwh":0,"insurance":2700,"service":1300,"repairs":550,"confidence":"medium","source":"jeep.html"},
+    {"id":"ford-ranger-phev","name":"Ford Ranger PHEV","powertrain":"phev","status":"availability_varies","price":71000,"firstDep":20,"laterDep":11,"fuelUse":8,"evShare":65,"kwh":27,"insurance":2400,"service":950,"repairs":350,"confidence":"medium","source":"ford-ranger-phev.html"},
+    {"id":"gwm-alpha-phev","name":"GWM Cannon Alpha PHEV","powertrain":"phev","status":"on_sale","price":65000,"firstDep":23,"laterDep":12.5,"fuelUse":8,"evShare":65,"kwh":30,"insurance":2250,"service":850,"repairs":350,"confidence":"medium","source":"gwm-cannon-alpha-phev.html"},
+    {"id":"jac-hunter-phev","name":"JAC Hunter PHEV","powertrain":"phev","status":"incoming","price":60000,"firstDep":25,"laterDep":14,"fuelUse":8,"evShare":65,"kwh":29,"insurance":2200,"service":850,"repairs":350,"confidence":"low","source":"jac-hunter-phev.html"},
+    {"id":"chery-stockman","name":"Chery Stockman PHEV","powertrain":"phev","status":"watchlist","price":60000,"firstDep":26,"laterDep":14,"fuelUse":8,"evShare":65,"kwh":30,"insurance":2200,"service":900,"repairs":350,"confidence":"low","source":"chery-kp31-phev.html"},
+    {"id":"custom-diesel","name":"Custom diesel ute","powertrain":"diesel","status":"user_defined","price":60000,"firstDep":18,"laterDep":10,"fuelUse":9,"evShare":0,"kwh":0,"insurance":1800,"service":1100,"repairs":400,"confidence":"low","source":"data-sources.html"},
+    {"id":"custom-phev","name":"Custom PHEV ute","powertrain":"phev","status":"user_defined","price":70000,"firstDep":22,"laterDep":12,"fuelUse":8,"evShare":65,"kwh":28,"insurance":2200,"service":850,"repairs":350,"confidence":"low","source":"data-sources.html"}
+  ]
+}

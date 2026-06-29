@@ -1,0 +1,19 @@
+model_id,vehicle_grade,powertrain,status,price_aud,first_year_depreciation_pct,later_annual_depreciation_pct,fuel_l_per_100km,default_ev_share_pct,electricity_kwh_per_100km,insurance_aud_year,service_tyres_aud_year,repair_contingency_aud_year,confidence,last_checked,supporting_page
+jac-t9,JAC T9 Oasis,diesel,on_sale,46353,18,10,7.6,0,0,1800,900,300,medium,2026-06-29,T9.html
+byd-shark,BYD Shark 6 Premium,phev,on_sale,57900,22,12,8,65,28,2200,800,300,medium,2026-06-29,byd-shark-6-phev.html
+ford-ranger,Ford Ranger XLT 4x4,diesel,on_sale,60000,15,9,8,0,0,2100,1050,350,medium,2026-06-29,ford.html
+toyota-hilux,Toyota HiLux SR5 4x4,diesel,on_sale,58000,14,8,8,0,0,1950,1000,350,medium,2026-06-29,hilux.html
+mitsubishi-triton,Mitsubishi Triton GSR,diesel,on_sale,52000,16,9,7.7,0,0,1800,950,350,medium,2026-06-29,triton.html
+isuzu-dmax,Isuzu D-MAX X-Terrain,diesel,on_sale,58000,15,9,8,0,0,1900,1000,350,medium,2026-06-29,Dmax.html
+mazda-bt50,Mazda BT-50 GT,diesel,on_sale,59000,16,9.5,8,0,0,1950,1000,350,medium,2026-06-29,bt50.html
+gwm-cannon,GWM Cannon Lux,diesel,on_sale,42000,20,12,9.4,0,0,1750,900,350,medium,2026-06-29,cannon.html
+ldv-terron9,LDV Terron 9 Origin,diesel,on_sale,52000,21,12,8.6,0,0,1900,950,350,medium,2026-06-29,terron9.html
+kia-tasman,Kia Tasman SX 4x4,diesel,on_sale,52000,19,11,8.1,0,0,1900,950,350,medium,2026-06-29,tasman.html
+vw-amarok,Volkswagen Amarok Style,diesel,on_sale,70000,18,10,8,0,0,2400,1200,450,medium,2026-06-29,amarok.html
+jeep-gladiator,Jeep Gladiator Night Eagle,petrol,on_sale,85000,22,12,12.4,0,0,2700,1300,550,medium,2026-06-29,jeep.html
+ford-ranger-phev,Ford Ranger PHEV,phev,availability_varies,71000,20,11,8,65,27,2400,950,350,medium,2026-06-29,ford-ranger-phev.html
+gwm-alpha-phev,GWM Cannon Alpha PHEV,phev,on_sale,65000,23,12.5,8,65,30,2250,850,350,medium,2026-06-29,gwm-cannon-alpha-phev.html
+jac-hunter-phev,JAC Hunter PHEV,phev,incoming,60000,25,14,8,65,29,2200,850,350,low,2026-06-29,jac-hunter-phev.html
+chery-stockman,Chery Stockman PHEV,phev,watchlist,60000,26,14,8,65,30,2200,900,350,low,2026-06-29,chery-kp31-phev.html
+custom-diesel,Custom diesel ute,diesel,user_defined,60000,18,10,9,0,0,1800,1100,400,low,2026-06-29,data-sources.html
+custom-phev,Custom PHEV ute,phev,user_defined,70000,22,12,8,65,28,2200,850,350,low,2026-06-29,data-sources.html

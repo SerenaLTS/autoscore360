@@ -30,6 +30,10 @@
     .number { text-align:right; }
     .callout { margin-top:14px; border-left:3px solid var(--accent); background:rgba(37,99,235,.12); padding:12px 14px; color:#CBD5E1; }
     .small { color:var(--muted); font-size:.82rem; }
+    .confidence { display:inline-flex; align-items:center; gap:6px; padding:3px 8px; border:1px solid var(--line-strong); border-radius:999px; font-size:.72rem; }
+    .confidence.high { color:#BBF7D0; border-color:rgba(34,197,94,.55); }
+    .confidence.medium { color:#BFDBFE; border-color:rgba(96,165,250,.55); }
+    .confidence.low { color:#FED7AA; border-color:rgba(249,115,22,.55); }
     @media (max-width:760px) {
       .calc-grid,.results,.global-controls { grid-template-columns:1fr; }
       .field-grid { grid-template-columns:1fr; }
@@ -46,7 +50,7 @@
       <p class="kicker">Ownership cost · Australia</p>
       <h1>Compare ute resale and ownership costs over the years you choose</h1>
       <p class="lede">Select two utes—including JAC T9 and BYD Shark 6—then choose an ownership period and use scenario. The model estimates resale, depreciation, fuel or charging, insurance, servicing, repairs and registration.</p>
-      <div class="links"><span class="status on-sale">16 vehicle presets + custom</span><span class="status incoming">Last checked: 29 June 2026</span></div>
+      <div class="links"><span class="status on-sale">Model v1.4</span><span class="status on-sale">16 vehicle presets + custom</span><span class="status incoming">Last checked: 29 June 2026</span></div>
     </section>
 
     <section class="section">
@@ -69,16 +73,16 @@
             <select id="d-model">
               <option value="jac-t9">JAC T9 Oasis (diesel)</option>
               <option value="byd-shark">BYD Shark 6 Premium (PHEV)</option>
-              <option value="ford-ranger">Ford Ranger (diesel)</option>
-              <option value="toyota-hilux">Toyota HiLux (diesel)</option>
-              <option value="mitsubishi-triton">Mitsubishi Triton (diesel)</option>
-              <option value="isuzu-dmax">Isuzu D-MAX (diesel)</option>
-              <option value="mazda-bt50">Mazda BT-50 (diesel)</option>
-              <option value="gwm-cannon">GWM Cannon (diesel)</option>
-              <option value="ldv-terron9">LDV Terron 9 / MG U9 (diesel)</option>
-              <option value="kia-tasman">Kia Tasman (diesel)</option>
-              <option value="vw-amarok">Volkswagen Amarok (diesel)</option>
-              <option value="jeep-gladiator">Jeep Gladiator (petrol)</option>
+              <option value="ford-ranger">Ford Ranger XLT 4x4 (diesel)</option>
+              <option value="toyota-hilux">Toyota HiLux SR5 4x4 (diesel)</option>
+              <option value="mitsubishi-triton">Mitsubishi Triton GSR (diesel)</option>
+              <option value="isuzu-dmax">Isuzu D-MAX X-Terrain (diesel)</option>
+              <option value="mazda-bt50">Mazda BT-50 GT (diesel)</option>
+              <option value="gwm-cannon">GWM Cannon Lux (diesel)</option>
+              <option value="ldv-terron9">LDV Terron 9 Origin (diesel)</option>
+              <option value="kia-tasman">Kia Tasman SX 4x4 (diesel)</option>
+              <option value="vw-amarok">Volkswagen Amarok Style (diesel)</option>
+              <option value="jeep-gladiator">Jeep Gladiator Night Eagle (petrol)</option>
               <option value="ford-ranger-phev">Ford Ranger PHEV</option>
               <option value="gwm-alpha-phev">GWM Cannon Alpha PHEV</option>
               <option value="jac-hunter-phev">JAC Hunter PHEV (incoming)</option>
@@ -110,16 +114,16 @@
             <select id="p-model">
               <option value="byd-shark">BYD Shark 6 Premium (PHEV)</option>
               <option value="jac-t9">JAC T9 Oasis (diesel)</option>
-              <option value="ford-ranger">Ford Ranger (diesel)</option>
-              <option value="toyota-hilux">Toyota HiLux (diesel)</option>
-              <option value="mitsubishi-triton">Mitsubishi Triton (diesel)</option>
-              <option value="isuzu-dmax">Isuzu D-MAX (diesel)</option>
-              <option value="mazda-bt50">Mazda BT-50 (diesel)</option>
-              <option value="gwm-cannon">GWM Cannon (diesel)</option>
-              <option value="ldv-terron9">LDV Terron 9 / MG U9 (diesel)</option>
-              <option value="kia-tasman">Kia Tasman (diesel)</option>
-              <option value="vw-amarok">Volkswagen Amarok (diesel)</option>
-              <option value="jeep-gladiator">Jeep Gladiator (petrol)</option>
+              <option value="ford-ranger">Ford Ranger XLT 4x4 (diesel)</option>
+              <option value="toyota-hilux">Toyota HiLux SR5 4x4 (diesel)</option>
+              <option value="mitsubishi-triton">Mitsubishi Triton GSR (diesel)</option>
+              <option value="isuzu-dmax">Isuzu D-MAX X-Terrain (diesel)</option>
+              <option value="mazda-bt50">Mazda BT-50 GT (diesel)</option>
+              <option value="gwm-cannon">GWM Cannon Lux (diesel)</option>
+              <option value="ldv-terron9">LDV Terron 9 Origin (diesel)</option>
+              <option value="kia-tasman">Kia Tasman SX 4x4 (diesel)</option>
+              <option value="vw-amarok">Volkswagen Amarok Style (diesel)</option>
+              <option value="jeep-gladiator">Jeep Gladiator Night Eagle (petrol)</option>
               <option value="ford-ranger-phev">Ford Ranger PHEV</option>
               <option value="gwm-alpha-phev">GWM Cannon Alpha PHEV</option>
               <option value="jac-hunter-phev">JAC Hunter PHEV (incoming)</option>
@@ -169,6 +173,34 @@
         </table>
       </div>
       <div class="callout" id="interpretation"></div>
+    </section>
+
+    <section class="section" id="range-analysis">
+      <p class="kicker">Uncertainty range</p>
+      <h2>Optimistic, base and conservative cases</h2>
+      <p class="small">The range changes final retained value by ±8 percentage points and non-depreciation costs by ±10%. It is a stress test, not a confidence interval.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Vehicle</th><th class="number">Optimistic</th><th class="number">Base</th><th class="number">Conservative</th><th>Range verdict</th></tr></thead>
+          <tbody>
+            <tr><td id="range-d-name"></td><td class="number" id="range-d-opt"></td><td class="number" id="range-d-base"></td><td class="number" id="range-d-con"></td><td id="range-d-note"></td></tr>
+            <tr><td id="range-p-name"></td><td class="number" id="range-p-opt"></td><td class="number" id="range-p-base"></td><td class="number" id="range-p-con"></td><td id="range-p-note"></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout" id="range-verdict"></div>
+    </section>
+
+    <section class="section" id="sensitivity-analysis">
+      <p class="kicker">Sensitivity analysis</p>
+      <h2>Which assumptions move the answer most?</h2>
+      <div class="grid two">
+        <article class="card"><h3>Resale changes by 5 points</h3><p id="sensitivity-resale"></p></article>
+        <article class="card"><h3>Drive 10,000km more each year</h3><p id="sensitivity-distance"></p></article>
+        <article class="card"><h3>Maintenance changes by 20%</h3><p id="sensitivity-maintenance"></p></article>
+        <article class="card"><h3>PHEV charging break-even</h3><p id="sensitivity-charging"></p></article>
+      </div>
+      <div class="callout" id="sensitivity-verdict"></div>
     </section>
 
     <section class="section" id="methodology">
@@ -231,6 +263,12 @@
       </div>
       <p class="small" id="preset-explanation">This table mirrors the two selected vehicles and updates whenever a model, year or input changes.</p>
       <p class="small">The model library uses representative price and consumption inputs, plus editable editorial assumptions for depreciation, insurance and maintenance. Established brands receive less aggressive default depreciation than newer or incoming models, but this is a scenario choice—not a claim about guaranteed resale performance.</p>
+      <h2 style="margin-top:22px">Source and freshness record</h2>
+      <p class="small"><span class="confidence high">High</span> government, ANCAP or directly verifiable official data · <span class="confidence medium">Medium</span> published model data that varies by grade, state or use · <span class="confidence low">Low</span> editorial forecast, provisional model or user-entered assumption.</p>
+      <div class="grid two">
+        <article class="card"><h3 id="source-d-name">Vehicle A</h3><p id="source-d-detail"></p><div class="links" id="source-d-links"></div></article>
+        <article class="card"><h3 id="source-p-name">Vehicle B</h3><p id="source-p-detail"></p><div class="links" id="source-p-links"></div></article>
+      </div>
     </section>
 
     <section class="section">
@@ -247,6 +285,17 @@
       <h2>What is included—and what is not</h2>
       <p>Included: drive-away price through depreciation, energy, insurance, servicing/tyres, a user-set repair contingency, registration and optional home charging installation. Not included: finance interest, stamp-duty differences outside the drive-away input, accessories, major unexpected failures beyond the contingency, tolls, parking, tax deductions, FBT, GST credits or business downtime.</p>
       <p class="small">This is general information, not financial or tax advice. The ATO’s cents-per-kilometre method is a deduction method rather than a measure of your actual ownership cost. Registration and insurance vary substantially by state, vehicle, driver and use.</p>
+    </section>
+
+    <section class="section" id="governance">
+      <p class="kicker">Model governance</p>
+      <h2>Downloads, version history, corrections and backtesting</h2>
+      <div class="grid two">
+        <article class="card"><h3>Download the presets</h3><p>Inspect or reuse the model inputs outside this page.</p><div class="links"><a class="chip" href="ute-ownership-presets.csv" download>Download CSV</a><a class="chip" href="ute-ownership-presets.json" download>Download JSON</a></div></article>
+        <article class="card"><h3>Model version</h3><p><strong>v1.4 · 29 June 2026</strong><br>Added model-wide presets, dynamic methodology, uncertainty ranges, sensitivity analysis and provenance records.</p></article>
+        <article class="card"><h3>Correction record</h3><p>29 June 2026: replaced the static JAC/BYD methodology table with values tied to the current vehicle selections. Corrections that change a result will be recorded here.</p><div class="links"><a class="chip" href="contact-corrections.html">Report a data issue</a></div></article>
+        <article class="card"><h3>Backtesting status</h3><p><strong>Not yet statistically established.</strong> Several current and incoming utes do not have five years of comparable Australian resale history. Forecast-versus-market error will be published once a consistent observation series exists.</p></article>
+      </div>
     </section>
 
     <section class="section">
@@ -280,22 +329,42 @@
     const presets = {
       "jac-t9": dieselPreset("JAC T9 Oasis", {price:46353, firstdep:18, laterdep:10, use:7.6, insurance:1800, service:900, repairs:300}),
       "byd-shark": phevPreset("BYD Shark 6 Premium", {price:57900, firstdep:22, laterdep:12, kwh:28, insurance:2200, service:800, repairs:300}),
-      "ford-ranger": dieselPreset("Ford Ranger", {price:60000, firstdep:15, laterdep:9, use:8, insurance:2100, service:1050}),
-      "toyota-hilux": dieselPreset("Toyota HiLux", {price:58000, firstdep:14, laterdep:8, use:8, insurance:1950, service:1000}),
-      "mitsubishi-triton": dieselPreset("Mitsubishi Triton", {price:52000, firstdep:16, laterdep:9, use:7.7, insurance:1800, service:950}),
-      "isuzu-dmax": dieselPreset("Isuzu D-MAX", {price:58000, firstdep:15, laterdep:9, use:8, insurance:1900, service:1000}),
-      "mazda-bt50": dieselPreset("Mazda BT-50", {price:59000, firstdep:16, laterdep:9.5, use:8, insurance:1950, service:1000}),
-      "gwm-cannon": dieselPreset("GWM Cannon", {price:42000, firstdep:20, laterdep:12, use:9.4, insurance:1750, service:900}),
-      "ldv-terron9": dieselPreset("LDV Terron 9 / MG U9", {price:52000, firstdep:21, laterdep:12, use:8.6, insurance:1900, service:950}),
-      "kia-tasman": dieselPreset("Kia Tasman", {price:52000, firstdep:19, laterdep:11, use:8.1, insurance:1900, service:950}),
-      "vw-amarok": dieselPreset("Volkswagen Amarok", {price:70000, firstdep:18, laterdep:10, use:8, insurance:2400, service:1200, repairs:450}),
-      "jeep-gladiator": dieselPreset("Jeep Gladiator", {price:85000, firstdep:22, laterdep:12, use:12.4, fuel:1.90, insurance:2700, service:1300, repairs:550}),
+      "ford-ranger": dieselPreset("Ford Ranger XLT 4x4", {price:60000, firstdep:15, laterdep:9, use:8, insurance:2100, service:1050}),
+      "toyota-hilux": dieselPreset("Toyota HiLux SR5 4x4", {price:58000, firstdep:14, laterdep:8, use:8, insurance:1950, service:1000}),
+      "mitsubishi-triton": dieselPreset("Mitsubishi Triton GSR", {price:52000, firstdep:16, laterdep:9, use:7.7, insurance:1800, service:950}),
+      "isuzu-dmax": dieselPreset("Isuzu D-MAX X-Terrain", {price:58000, firstdep:15, laterdep:9, use:8, insurance:1900, service:1000}),
+      "mazda-bt50": dieselPreset("Mazda BT-50 GT", {price:59000, firstdep:16, laterdep:9.5, use:8, insurance:1950, service:1000}),
+      "gwm-cannon": dieselPreset("GWM Cannon Lux", {price:42000, firstdep:20, laterdep:12, use:9.4, insurance:1750, service:900}),
+      "ldv-terron9": dieselPreset("LDV Terron 9 Origin", {price:52000, firstdep:21, laterdep:12, use:8.6, insurance:1900, service:950}),
+      "kia-tasman": dieselPreset("Kia Tasman SX 4x4", {price:52000, firstdep:19, laterdep:11, use:8.1, insurance:1900, service:950}),
+      "vw-amarok": dieselPreset("Volkswagen Amarok Style", {price:70000, firstdep:18, laterdep:10, use:8, insurance:2400, service:1200, repairs:450}),
+      "jeep-gladiator": dieselPreset("Jeep Gladiator Night Eagle", {price:85000, firstdep:22, laterdep:12, use:12.4, fuel:1.90, insurance:2700, service:1300, repairs:550}),
       "ford-ranger-phev": phevPreset("Ford Ranger PHEV", {price:71000, firstdep:20, laterdep:11, kwh:27, insurance:2400, service:950}),
       "gwm-alpha-phev": phevPreset("GWM Cannon Alpha PHEV", {price:65000, firstdep:23, laterdep:12.5, kwh:30, insurance:2250, service:850}),
       "jac-hunter-phev": phevPreset("JAC Hunter PHEV", {price:60000, firstdep:25, laterdep:14, kwh:29, insurance:2200, service:850}),
       "chery-stockman": phevPreset("Chery Stockman PHEV", {price:60000, firstdep:26, laterdep:14, kwh:30, insurance:2200, service:900}),
       "custom-diesel": dieselPreset("Custom diesel ute", {firstdep:18, use:9, insurance:1800, service:1100, repairs:400}),
       "custom-phev": phevPreset("Custom PHEV ute", {price:70000})
+    };
+    const provenance = {
+      "jac-t9": {status:"On sale", confidence:"Medium", source:"Published pricing reference + model page", url:"T9.html"},
+      "byd-shark": {status:"On sale", confidence:"Medium", source:"Published pricing reference + model page", url:"byd-shark-6-phev.html"},
+      "ford-ranger": {status:"On sale", confidence:"Medium", source:"Model page and public specifications", url:"ford.html"},
+      "toyota-hilux": {status:"On sale", confidence:"Medium", source:"Model page and public specifications", url:"hilux.html"},
+      "mitsubishi-triton": {status:"On sale", confidence:"Medium", source:"Model page and public specifications", url:"triton.html"},
+      "isuzu-dmax": {status:"On sale", confidence:"Medium", source:"Model page and public specifications", url:"Dmax.html"},
+      "mazda-bt50": {status:"On sale", confidence:"Medium", source:"Model page and public specifications", url:"bt50.html"},
+      "gwm-cannon": {status:"On sale", confidence:"Medium", source:"Model page and public specifications", url:"cannon.html"},
+      "ldv-terron9": {status:"On sale", confidence:"Medium", source:"Model page and public specifications", url:"terron9.html"},
+      "kia-tasman": {status:"On sale", confidence:"Medium", source:"Model page and public specifications", url:"tasman.html"},
+      "vw-amarok": {status:"On sale", confidence:"Medium", source:"Model page and public specifications", url:"amarok.html"},
+      "jeep-gladiator": {status:"On sale", confidence:"Medium", source:"Model page and public specifications", url:"jeep.html"},
+      "ford-ranger-phev": {status:"On sale / availability varies", confidence:"Medium", source:"PHEV model page and public specifications", url:"ford-ranger-phev.html"},
+      "gwm-alpha-phev": {status:"On sale", confidence:"Medium", source:"PHEV model page and public specifications", url:"gwm-cannon-alpha-phev.html"},
+      "jac-hunter-phev": {status:"Incoming", confidence:"Low", source:"Announced figures; final retail inputs pending", url:"jac-hunter-phev.html"},
+      "chery-stockman": {status:"Watchlist", confidence:"Low", source:"Concept/announced figures; final inputs pending", url:"chery-kp31-phev.html"},
+      "custom-diesel": {status:"User-defined", confidence:"Low", source:"User-entered assumptions", url:"data-sources.html"},
+      "custom-phev": {status:"User-defined", confidence:"Low", source:"User-entered assumptions", url:"data-sources.html"}
     };
     const scenarios = {
       private: {km:15000, share:65},
@@ -336,6 +405,25 @@
       const fuelPart = `${num(`${side}-use`).toFixed(1)}L/100km at ${money(num(`${side}-fuel`))}/L`;
       if (!share) return fuelPart;
       return `${share}% electric at ${num(`${side}-kwh`).toFixed(1)}kWh/100km and ${money(num(`${side}-power`))}/kWh; remaining distance at ${fuelPart}`;
+    }
+
+    function uncertaintyRange(v) {
+      const nonCharger = Math.max(0, v.running - v.charger);
+      const optimisticResale = Math.min(v.price, v.resale + v.price * .08);
+      const conservativeResale = Math.max(0, v.resale - v.price * .08);
+      return {
+        optimistic: v.price - optimisticResale + nonCharger * .90 + v.charger,
+        base: v.total,
+        conservative: v.price - conservativeResale + nonCharger * 1.10 + v.charger
+      };
+    }
+
+    function updateSourceRecord(side, key, name) {
+      const meta = provenance[key];
+      const level = meta.confidence.toLowerCase();
+      $(`source-${side}-name`).textContent = name;
+      $(`source-${side}-detail`).innerHTML = `<span class="confidence ${level}">${meta.confidence} confidence</span><br><br>Status: ${meta.status}<br>Source class: ${meta.source}<br>Preset checked: 29 June 2026<br>Resale, insurance and repair values remain editorial/user-editable assumptions.`;
+      $(`source-${side}-links`).innerHTML = `<a class="chip" href="${meta.url}">Open supporting page</a>`;
     }
 
     function calculate() {
@@ -387,6 +475,62 @@
       const energyGap = d.energy - p.energy;
       const depreciationGap = p.depreciation - d.depreciation;
       const dKey = $("d-model").value, pKey = $("p-model").value;
+      updateSourceRecord("d", dKey, dName);
+      updateSourceRecord("p", pKey, pName);
+      const dRange = uncertaintyRange(d), pRange = uncertaintyRange(p);
+      $("range-d-name").textContent = dName;
+      $("range-p-name").textContent = pName;
+      $("range-d-opt").textContent = money(dRange.optimistic);
+      $("range-d-base").textContent = money(dRange.base);
+      $("range-d-con").textContent = money(dRange.conservative);
+      $("range-p-opt").textContent = money(pRange.optimistic);
+      $("range-p-base").textContent = money(pRange.base);
+      $("range-p-con").textContent = money(pRange.conservative);
+      $("range-d-note").textContent = `${money(dRange.optimistic)}–${money(dRange.conservative)}`;
+      $("range-p-note").textContent = `${money(pRange.optimistic)}–${money(pRange.conservative)}`;
+      if (dRange.conservative < pRange.optimistic) {
+        $("range-verdict").innerHTML = `<strong>Stable result:</strong> ${dName} remains lower even when its conservative case is compared with ${pName}’s optimistic case.`;
+      } else if (pRange.conservative < dRange.optimistic) {
+        $("range-verdict").innerHTML = `<strong>Stable result:</strong> ${pName} remains lower even when its conservative case is compared with ${dName}’s optimistic case.`;
+      } else {
+        $("range-verdict").innerHTML = `<strong>Overlapping result:</strong> the uncertainty ranges overlap, so the apparent winner depends on resale and running-cost assumptions.`;
+      }
+      const dResaleImpact = d.price * .05, pResaleImpact = p.price * .05;
+      const dEnergyPerKm = d.km ? d.energy / (d.km * years) : 0;
+      const pEnergyPerKm = p.km ? p.energy / (p.km * years) : 0;
+      const dDistanceImpact = dEnergyPerKm * 10000 * years;
+      const pDistanceImpact = pEnergyPerKm * 10000 * years;
+      const dMaintenanceImpact = (num("d-service") + num("d-repairs")) * years * .20;
+      const pMaintenanceImpact = (num("p-service") + num("p-repairs")) * years * .20;
+      $("sensitivity-resale").textContent = `${dName}: ${money(dResaleImpact)} total-cost movement. ${pName}: ${money(pResaleImpact)}.`;
+      $("sensitivity-distance").textContent = `${dName}: about ${money(dDistanceImpact)} additional energy cost. ${pName}: about ${money(pDistanceImpact)}.`;
+      $("sensitivity-maintenance").textContent = `${dName}: ${money(dMaintenanceImpact)} movement. ${pName}: ${money(pMaintenanceImpact)}.`;
+      const phevSide = num("d-evshare") > 0 ? "d" : num("p-evshare") > 0 ? "p" : null;
+      if (phevSide) {
+        const rivalSide = phevSide === "d" ? "p" : "d";
+        const phevName = phevSide === "d" ? dName : pName;
+        const rival = rivalSide === "d" ? d : p;
+        const rivalPerKm = rival.km ? rival.energy / (rival.km * years) : 0;
+        const electricPerKm = num(`${phevSide}-kwh`) / 100 * num(`${phevSide}-power`);
+        const enginePerKm = num(`${phevSide}-use`) / 100 * num(`${phevSide}-fuel`);
+        const denominator = enginePerKm - electricPerKm;
+        const requiredShare = denominator > 0 ? (enginePerKm - rivalPerKm) / denominator * 100 : 0;
+        if (requiredShare <= 0) {
+          $("sensitivity-charging").textContent = `${phevName} has lower modelled energy cost even at 0% electric driving under the current inputs.`;
+        } else if (requiredShare > 100) {
+          $("sensitivity-charging").textContent = `${phevName} cannot match the rival’s energy cost through charging share alone under the current inputs.`;
+        } else {
+          $("sensitivity-charging").textContent = `${phevName} needs about ${requiredShare.toFixed(1)}% electric driving to match the rival’s energy cost per kilometre.`;
+        }
+      } else {
+        $("sensitivity-charging").textContent = "Not applicable: neither selected vehicle currently has an electric-driving share.";
+      }
+      const sensitivityItems = [
+        {name:"resale", value:Math.max(dResaleImpact,pResaleImpact)},
+        {name:"additional distance", value:Math.max(dDistanceImpact,pDistanceImpact)},
+        {name:"maintenance", value:Math.max(dMaintenanceImpact,pMaintenanceImpact)}
+      ].sort((a,b) => b.value-a.value);
+      $("sensitivity-verdict").innerHTML = `<strong>Largest tested driver:</strong> ${sensitivityItems[0].name}, moving the selected comparison by up to ${money(sensitivityItems[0].value)} in this test.`;
       const dIsJac = dKey.startsWith("jac-"), pIsJac = pKey.startsWith("jac-");
       const targetSide = dIsJac ? "d" : pIsJac ? "p" : (d.total <= p.total ? "d" : "p");
       const target = targetSide === "d" ? d : p;
