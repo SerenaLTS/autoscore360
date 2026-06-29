@@ -21,7 +21,7 @@
     select { width:100%; margin-top:4px; border:1px solid var(--line-strong); background:#020617; color:#fff; padding:9px 10px; border-radius:5px; font:inherit; }
     .global-controls { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; max-width:620px; margin:16px 0; }
     .formula { overflow-x:auto; margin:8px 0 0; border:1px solid var(--line); background:#020617; color:#BFDBFE; padding:10px 12px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.82rem; }
-    .results { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:16px; }
+    .results { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin-top:16px; }
     .result { border:1px solid var(--line); padding:14px; background:rgba(15,23,42,.76); }
     .result-label { color:var(--muted); font-size:.76rem; text-transform:uppercase; letter-spacing:.06em; }
     .result-value { margin-top:4px; color:#fff; font-size:1.45rem; font-weight:700; }
@@ -149,7 +149,9 @@
       <div class="results" aria-live="polite">
         <div class="result"><div class="result-label" id="d-result-label">Vehicle A</div><div class="result-value" id="d-total">$0</div><div class="result-note" id="d-perkm"></div></div>
         <div class="result"><div class="result-label" id="p-result-label">Vehicle B</div><div class="result-value" id="p-total">$0</div><div class="result-note" id="p-perkm"></div></div>
-        <div class="result"><div class="result-label">Lower estimate</div><div class="result-value" id="difference">$0</div><div class="result-note" id="winner"></div></div>
+        <div class="result"><div class="result-label">Total-cost advantage</div><div class="result-value" id="difference">$0</div><div class="result-note" id="winner"></div></div>
+        <div class="result"><div class="result-label">Lower depreciation</div><div class="result-value" id="depreciation-difference">$0</div><div class="result-note" id="depreciation-winner"></div></div>
+        <div class="result"><div class="result-label">Break-even resale</div><div class="result-value" id="break-even-rate">—</div><div class="result-note" id="break-even-note"></div></div>
       </div>
       <div class="table-wrap" style="margin-top:16px">
         <table class="cost-table">
@@ -157,6 +159,7 @@
           <tbody>
             <tr><td>Estimated resale value</td><td class="number" id="d-resale-value"></td><td class="number" id="p-resale-value"></td></tr>
             <tr><td>Depreciation</td><td class="number" id="d-dep"></td><td class="number" id="p-dep"></td></tr>
+            <tr><td>Running and fixed costs (excluding depreciation)</td><td class="number" id="d-running"></td><td class="number" id="p-running"></td></tr>
             <tr><td>Fuel and electricity</td><td class="number" id="d-energy"></td><td class="number" id="p-energy"></td></tr>
             <tr><td>Insurance</td><td class="number" id="d-ins"></td><td class="number" id="p-ins"></td></tr>
             <tr><td>Servicing, tyres and repair contingency</td><td class="number" id="d-serv"></td><td class="number" id="p-serv"></td></tr>
@@ -205,22 +208,29 @@
           <p>This divides the ownership estimate by total distance. It helps compare scenarios with different annual kilometres but is not the ATO cents-per-kilometre deduction rate.</p>
           <div class="formula">cost/km = total ownership cost ÷ (years × annual km)</div>
         </article>
+        <article class="card">
+          <h3>7. Break-even resale</h3>
+          <p>When a JAC is selected, this shows the minimum retained-value percentage it needs to equal the other vehicle’s current total-cost result. It measures how much resale uncertainty the lower purchase and running costs can absorb.</p>
+          <div class="formula">required resale = vehicle price + running costs − competitor total cost</div>
+          <div class="formula">break-even rate = required resale ÷ vehicle price</div>
+        </article>
       </div>
       <div class="callout"><strong>Confidence rule:</strong> purchase price and published consumption can be checked today. Future resale, insurance, repairs and energy prices cannot. Treat those as low-confidence assumptions, test a range, and compare whether the decision survives an optimistic and a conservative case.</div>
-      <h2 style="margin-top:22px">What the JAC and BYD presets mean</h2>
+      <h2 style="margin-top:22px" id="preset-heading">What the selected vehicle assumptions mean</h2>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Preset input</th><th>JAC T9 Oasis</th><th>BYD Shark 6 Premium</th><th>Confidence</th></tr></thead>
+          <thead><tr><th>Current input</th><th id="preset-d-name">Vehicle A</th><th id="preset-p-name">Vehicle B</th><th>Confidence</th></tr></thead>
           <tbody>
-            <tr><td>Starting price</td><td>$46,353 drive-away reference</td><td>$57,900 drive-away reference</td><td>Checkable now; offers and states vary</td></tr>
-            <tr><td>Published/starting consumption</td><td>7.6L/100km diesel</td><td>28kWh/100km electric input plus 8L/100km when the engine runs</td><td>Use-case sensitive</td></tr>
-            <tr><td>Depreciation model</td><td>18% first year, then 10% yearly</td><td>22% first year, then 12% yearly</td><td>Editorial stress-test; not historical fact</td></tr>
-            <tr><td>Maintenance</td><td>$900 service/tyres + $300 repair contingency yearly</td><td>$800 service/tyres + $300 repair contingency yearly</td><td>Illustrative until replaced by owner quotes</td></tr>
+            <tr><td>Starting price</td><td id="preset-d-price"></td><td id="preset-p-price"></td><td>Checkable now; offers and states vary</td></tr>
+            <tr><td>Energy assumptions</td><td id="preset-d-energy"></td><td id="preset-p-energy"></td><td>Use-case sensitive</td></tr>
+            <tr><td>Depreciation model</td><td id="preset-d-depreciation"></td><td id="preset-p-depreciation"></td><td>Editorial stress-test; not historical fact</td></tr>
+            <tr><td>Annual maintenance</td><td id="preset-d-maintenance"></td><td id="preset-p-maintenance"></td><td>Illustrative until replaced by owner quotes</td></tr>
+            <tr><td>Estimated resale after selected period</td><td id="preset-d-resale"></td><td id="preset-p-resale"></td><td>Scenario output, not a guaranteed trade-in value</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="small">The BYD depreciation preset is deliberately more conservative because its Australian PHEV-ute resale history is short and future new-vehicle pricing may change. That does not prove it will depreciate faster. Set both vehicles to the same rates to compare operating costs without that assumption.</p>
-      <p class="small">The wider model library uses the same structure: representative price and consumption inputs, plus editable editorial assumptions for depreciation, insurance and maintenance. Established brands receive less aggressive default depreciation than newer or incoming models, but this is a scenario choice—not a claim about guaranteed resale performance.</p>
+      <p class="small" id="preset-explanation">This table mirrors the two selected vehicles and updates whenever a model, year or input changes.</p>
+      <p class="small">The model library uses representative price and consumption inputs, plus editable editorial assumptions for depreciation, insurance and maintenance. Established brands receive less aggressive default depreciation than newer or incoming models, but this is a scenario choice—not a claim about guaranteed resale performance.</p>
     </section>
 
     <section class="section">
@@ -316,8 +326,16 @@
       const maintenance = (num(`${side}-service`) + num(`${side}-repairs`)) * years;
       const registration = num(`${side}-rego`) * years;
       const charger = num(`${side}-charger`);
-      const total = depreciation + energy + insurance + maintenance + registration + charger;
-      return {price, resale, depreciation, km, energy, insurance, maintenance, registration, charger, total};
+      const running = energy + insurance + maintenance + registration + charger;
+      const total = depreciation + running;
+      return {price, resale, depreciation, km, energy, insurance, maintenance, registration, charger, running, total};
+    }
+
+    function energyDescription(side) {
+      const share = Math.min(100, num(`${side}-evshare`));
+      const fuelPart = `${num(`${side}-use`).toFixed(1)}L/100km at ${money(num(`${side}-fuel`))}/L`;
+      if (!share) return fuelPart;
+      return `${share}% electric at ${num(`${side}-kwh`).toFixed(1)}kWh/100km and ${money(num(`${side}-power`))}/kWh; remaining distance at ${fuelPart}`;
     }
 
     function calculate() {
@@ -329,6 +347,7 @@
       const values = {
         "d-resale-value":d.resale, "p-resale-value":p.resale,
         "d-dep":d.depreciation, "p-dep":p.depreciation,
+        "d-running":d.running, "p-running":p.running,
         "d-energy":d.energy, "p-energy":p.energy,
         "d-ins":d.insurance, "p-ins":p.insurance,
         "d-serv":d.maintenance, "p-serv":p.maintenance,
@@ -342,14 +361,61 @@
       $("p-perkm").textContent = p.km ? `${money(p.resale)} resale (${(p.resale/p.price*100).toFixed(1)}%) · ${(p.total/(p.km*years)).toFixed(2)}/km` : "Add annual kilometres";
       $("difference").textContent = money(diff);
       $("winner").textContent = `${pWins ? pName : dName} is lower under these assumptions`;
+      const depDiff = Math.abs(d.depreciation - p.depreciation);
+      const depWinner = p.depreciation < d.depreciation ? pName : dName;
+      $("depreciation-difference").textContent = money(depDiff);
+      $("depreciation-winner").textContent = `${depWinner} loses less value in dollar terms`;
       $("d-result-label").textContent = `${dName} · ${years} year${years === 1 ? "" : "s"}`;
       $("p-result-label").textContent = `${pName} · ${years} year${years === 1 ? "" : "s"}`;
       $("d-column").textContent = dName;
       $("p-column").textContent = pName;
       $("period-heading").textContent = `${years}-year component`;
+      $("preset-d-name").textContent = dName;
+      $("preset-p-name").textContent = pName;
+      $("preset-d-price").textContent = `${money(d.price)} current starting input`;
+      $("preset-p-price").textContent = `${money(p.price)} current starting input`;
+      $("preset-d-energy").textContent = energyDescription("d");
+      $("preset-p-energy").textContent = energyDescription("p");
+      $("preset-d-depreciation").textContent = `${num("d-firstdep").toFixed(1)}% first year, then ${num("d-laterdep").toFixed(1)}% yearly`;
+      $("preset-p-depreciation").textContent = `${num("p-firstdep").toFixed(1)}% first year, then ${num("p-laterdep").toFixed(1)}% yearly`;
+      $("preset-d-maintenance").textContent = `${money(num("d-service"))} service/tyres + ${money(num("d-repairs"))} repair contingency yearly`;
+      $("preset-p-maintenance").textContent = `${money(num("p-service"))} service/tyres + ${money(num("p-repairs"))} repair contingency yearly`;
+      $("preset-d-resale").textContent = `${money(d.resale)} (${d.price ? (d.resale/d.price*100).toFixed(1) : "0.0"}%)`;
+      $("preset-p-resale").textContent = `${money(p.resale)} (${p.price ? (p.resale/p.price*100).toFixed(1) : "0.0"}%)`;
+      $("preset-heading").textContent = `${dName} vs ${pName}: current assumptions`;
+      $("preset-explanation").textContent = `This table mirrors the current ${dName} and ${pName} inputs for a ${years}-year ownership period. Change either vehicle or any field above and these assumptions and resale outputs update immediately.`;
       const energyGap = d.energy - p.energy;
       const depreciationGap = p.depreciation - d.depreciation;
-      $("interpretation").innerHTML = `<strong>What drives this result:</strong> ${pName} energy is ${money(Math.abs(energyGap))} ${energyGap >= 0 ? "lower" : "higher"}, while its depreciation estimate is ${money(Math.abs(depreciationGap))} ${depreciationGap >= 0 ? "higher" : "lower"} than ${dName}. These are scenario outputs, not promised resale values.`;
+      const dKey = $("d-model").value, pKey = $("p-model").value;
+      const dIsJac = dKey.startsWith("jac-"), pIsJac = pKey.startsWith("jac-");
+      const targetSide = dIsJac ? "d" : pIsJac ? "p" : (d.total <= p.total ? "d" : "p");
+      const target = targetSide === "d" ? d : p;
+      const other = targetSide === "d" ? p : d;
+      const targetName = targetSide === "d" ? dName : pName;
+      const otherName = targetSide === "d" ? pName : dName;
+      const requiredResale = target.price + target.running - other.total;
+      const requiredRate = target.price ? requiredResale / target.price * 100 : 0;
+      if (requiredRate <= 0) {
+        $("break-even-rate").textContent = "0%";
+        $("break-even-note").textContent = `${targetName} remains lower even with no resale value`;
+      } else if (requiredRate > 100) {
+        $("break-even-rate").textContent = ">100%";
+        $("break-even-note").textContent = `${targetName} cannot match ${otherName} through resale alone`;
+      } else {
+        $("break-even-rate").textContent = `${requiredRate.toFixed(1)}%`;
+        $("break-even-note").textContent = `${targetName} retained value needed to match ${otherName}`;
+      }
+      let valueMessage = "";
+      if (dIsJac || pIsJac) {
+        const jac = dIsJac ? d : p;
+        const rival = dIsJac ? p : d;
+        const jacName = dIsJac ? dName : pName;
+        const rivalName = dIsJac ? pName : dName;
+        valueMessage = jac.total <= rival.total
+          ? ` <strong>JAC value view:</strong> ${jacName} is ${money(rival.total-jac.total)} lower in modelled total cost than ${rivalName}. Its lower entry price can offset a weaker resale percentage.`
+          : ` <strong>JAC value view:</strong> ${jacName} is ${money(jac.total-rival.total)} higher in this scenario; adjust actual purchase price, usage and quotes rather than assuming a guaranteed advantage.`;
+      }
+      $("interpretation").innerHTML = `<strong>What drives this result:</strong> ${pName} energy is ${money(Math.abs(energyGap))} ${energyGap >= 0 ? "lower" : "higher"}, while its depreciation estimate is ${money(Math.abs(depreciationGap))} ${depreciationGap >= 0 ? "higher" : "lower"} than ${dName}.${valueMessage} These are scenario outputs, not promised resale values.`;
     }
 
     document.querySelectorAll("input").forEach(input => input.addEventListener("input", calculate));
