@@ -32,6 +32,11 @@
   border-radius: 999px !important;
 }
 
+.nav-link[aria-current="page"] {
+  color: #F9FAFB !important;
+  font-weight: 650;
+}
+
 :where(table) {
   border-radius: var(--site-radius-md);
 }
