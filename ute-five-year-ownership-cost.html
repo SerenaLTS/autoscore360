@@ -49,7 +49,7 @@
     <section class="hero">
       <p class="kicker">Ownership cost · Australia</p>
       <h1>Compare ute resale and ownership costs over the years you choose</h1>
-      <p class="lede">Select two utes—including JAC T9 and BYD Shark 6—then choose an ownership period and use scenario. The model estimates resale, depreciation, fuel or charging, insurance, servicing, repairs and registration.</p>
+      <p class="lede">Select any two utes covered by the site, then choose an ownership period and use scenario. The model estimates resale, depreciation, fuel or charging, insurance, servicing, repairs and registration.</p>
       <div class="links"><span class="status on-sale">Model v1.4</span><span class="status on-sale">16 vehicle presets + custom</span><span class="status incoming">Last checked: 29 June 2026</span></div>
     </section>
 
@@ -242,7 +242,7 @@
         </article>
         <article class="card">
           <h3>7. Break-even resale</h3>
-          <p>When a JAC is selected, this shows the minimum retained-value percentage it needs to equal the other vehicle’s current total-cost result. It measures how much resale uncertainty the lower purchase and running costs can absorb.</p>
+          <p>This shows the minimum retained-value percentage the currently lower-cost vehicle needs to equal the other vehicle’s result. It measures how much resale uncertainty its purchase and running costs can absorb.</p>
           <div class="formula">required resale = vehicle price + running costs − competitor total cost</div>
           <div class="formula">break-even rate = required resale ÷ vehicle price</div>
         </article>
@@ -277,7 +277,7 @@
         <article class="card"><h3>Private buyer</h3><p>Lower annual distance makes the purchase-price and resale gap more important. A PHEV needs regular charging—not merely ownership of a charging cable—to generate energy savings.</p></article>
         <article class="card"><h3>Company or fleet</h3><p>High utilisation can magnify energy savings, but downtime, charging access, finance structure and tax treatment may outweigh a simple fuel calculation.</p></article>
         <article class="card"><h3>Tradie</h3><p>Towing, payload, tools and regional driving usually reduce the share of kilometres completed electrically. Enter loaded real-world consumption rather than brochure claims.</p></article>
-        <article class="card"><h3>Depreciation usually wins</h3><p>A small change in retained value can outweigh several years of fuel savings. The JAC and BYD preset depreciation rates are editable scenarios, not observed future facts.</p></article>
+        <article class="card"><h3>Depreciation usually wins</h3><p>A small change in retained value can outweigh several years of fuel savings. Every preset depreciation rate is an editable scenario, not an observed future fact.</p></article>
       </div>
     </section>
 
@@ -293,7 +293,7 @@
       <div class="grid two">
         <article class="card"><h3>Download the presets</h3><p>Inspect or reuse the model inputs outside this page.</p><div class="links"><a class="chip" href="ute-ownership-presets.csv" download>Download CSV</a><a class="chip" href="ute-ownership-presets.json" download>Download JSON</a></div></article>
         <article class="card"><h3>Model version</h3><p><strong>v1.4 · 29 June 2026</strong><br>Added model-wide presets, dynamic methodology, uncertainty ranges, sensitivity analysis and provenance records.</p></article>
-        <article class="card"><h3>Correction record</h3><p>29 June 2026: replaced the static JAC/BYD methodology table with values tied to the current vehicle selections. Corrections that change a result will be recorded here.</p><div class="links"><a class="chip" href="contact-corrections.html">Report a data issue</a></div></article>
+        <article class="card"><h3>Correction record</h3><p>29 June 2026: replaced fixed example content with methodology, assumptions and source records tied to the current vehicle selections. Corrections that change a result will be recorded here.</p><div class="links"><a class="chip" href="contact-corrections.html">Report a data issue</a></div></article>
         <article class="card"><h3>Backtesting status</h3><p><strong>Not yet statistically established.</strong> Several current and incoming utes do not have five years of comparable Australian resale history. Forecast-versus-market error will be published once a consistent observation series exists.</p></article>
       </div>
     </section>
@@ -303,11 +303,11 @@
       <ul>
         <li><a href="https://www.energy.gov.au/households/transport" target="_blank" rel="noopener">Australian Government: transport, fuel labels and Green Vehicle Guide</a></li>
         <li><a href="https://www.energy.gov.au/news/get-facts-electric-vehicles" target="_blank" rel="noopener">Australian Government: EV running-cost context</a></li>
-        <li><a href="https://www.carexpert.com.au/jac/t9/2026/price-and-specs" target="_blank" rel="noopener">CarExpert: 2026 JAC T9 indicative Sydney drive-away pricing</a></li>
-        <li><a href="https://www.carexpert.com.au/car-news/2026-byd-shark-6-price-and-specs" target="_blank" rel="noopener">CarExpert: 2026 BYD Shark 6 pricing and specifications</a></li>
+        <li><a href="https://www.energy.gov.au/publications/australian-petroleum-statistics-2026" target="_blank" rel="noopener">Australian Government: monthly petroleum and fuel statistics</a></li>
+        <li><a href="https://www.greenvehicleguide.gov.au/" target="_blank" rel="noopener">Australian Government Green Vehicle Guide: vehicle fuel and emissions data</a></li>
         <li><a href="https://softwaredevelopers.ato.gov.au/CentsperKilometreDeductionRateforCarExpenses" target="_blank" rel="noopener">ATO: cents-per-kilometre deduction rate</a></li>
         <li><a href="https://www.service.nsw.gov.au/transaction/use-the-vehicle-registration-calculator" target="_blank" rel="noopener">Service NSW: registration calculator example</a></li>
-        <li><a href="phev-ute-running-costs.html">Auto Insight Lab: why PHEV headline fuel claims can mislead</a></li>
+        <li><a href="data-sources.html">Auto Insight Lab: data sources, update rhythm and limitations</a></li>
       </ul>
     </section>
   </main>
@@ -531,8 +531,7 @@
         {name:"maintenance", value:Math.max(dMaintenanceImpact,pMaintenanceImpact)}
       ].sort((a,b) => b.value-a.value);
       $("sensitivity-verdict").innerHTML = `<strong>Largest tested driver:</strong> ${sensitivityItems[0].name}, moving the selected comparison by up to ${money(sensitivityItems[0].value)} in this test.`;
-      const dIsJac = dKey.startsWith("jac-"), pIsJac = pKey.startsWith("jac-");
-      const targetSide = dIsJac ? "d" : pIsJac ? "p" : (d.total <= p.total ? "d" : "p");
+      const targetSide = d.total <= p.total ? "d" : "p";
       const target = targetSide === "d" ? d : p;
       const other = targetSide === "d" ? p : d;
       const targetName = targetSide === "d" ? dName : pName;
@@ -549,16 +548,11 @@
         $("break-even-rate").textContent = `${requiredRate.toFixed(1)}%`;
         $("break-even-note").textContent = `${targetName} retained value needed to match ${otherName}`;
       }
-      let valueMessage = "";
-      if (dIsJac || pIsJac) {
-        const jac = dIsJac ? d : p;
-        const rival = dIsJac ? p : d;
-        const jacName = dIsJac ? dName : pName;
-        const rivalName = dIsJac ? pName : dName;
-        valueMessage = jac.total <= rival.total
-          ? ` <strong>JAC value view:</strong> ${jacName} is ${money(rival.total-jac.total)} lower in modelled total cost than ${rivalName}. Its lower entry price can offset a weaker resale percentage.`
-          : ` <strong>JAC value view:</strong> ${jacName} is ${money(jac.total-rival.total)} higher in this scenario; adjust actual purchase price, usage and quotes rather than assuming a guaranteed advantage.`;
-      }
+      const lower = d.total <= p.total ? d : p;
+      const higher = d.total <= p.total ? p : d;
+      const lowerName = d.total <= p.total ? dName : pName;
+      const higherName = d.total <= p.total ? pName : dName;
+      const valueMessage = ` <strong>Value view:</strong> ${lowerName} is ${money(higher.total-lower.total)} lower in modelled total cost than ${higherName} under the current inputs.`;
       $("interpretation").innerHTML = `<strong>What drives this result:</strong> ${pName} energy is ${money(Math.abs(energyGap))} ${energyGap >= 0 ? "lower" : "higher"}, while its depreciation estimate is ${money(Math.abs(depreciationGap))} ${depreciationGap >= 0 ? "higher" : "lower"} than ${dName}.${valueMessage} These are scenario outputs, not promised resale values.`;
     }
 
