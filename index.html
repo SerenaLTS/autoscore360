@@ -156,6 +156,7 @@
 
     .nav-link:hover { color: #E5E7EB; }
     .nav-link:hover::after { width: 100%; }
+    .nav-link[aria-current="page"] { color: #F9FAFB; font-weight: 650; }
 
     .nav-pill {
       padding: 5px 11px;
@@ -830,11 +831,34 @@
 
     @media (max-width: 640px) {
       .page { padding-inline: 16px; }
-      .nav-inner { padding-inline: 16px; }
+      .nav-inner { padding: 12px 16px; align-items: flex-start; flex-direction: column; }
       .hero-title { font-size: 2.25rem; }
       .hero-stats { grid-template-columns: minmax(0, 1fr); }
-      .nav-links { gap: 12px; }
+      .nav-links {
+        width: 100%;
+        gap: 12px;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-link { white-space: nowrap; }
     }
+    /* Homepage information hierarchy: decision tools first, background detail last. */
+    main.page {
+      display: flex;
+      flex-direction: column;
+    }
+    main.page > .hero { order: 0; }
+    #tools { order: 1; }
+    #hubs { order: 2; }
+    #ute-reviews { order: 3; }
+    #stories { order: 4; }
+    #forum { order: 5; }
+    #vehicles { order: 6; }
+    #stories .stories-grid > article:nth-child(n+7) { display: none; }
   </style>
   <script type="application/ld+json">
 [
@@ -868,13 +892,12 @@
       </a>
 
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#vehicles" class="nav-link">Vehicles</a>
-        <a href="#hubs" class="nav-link">Hubs</a>
+        <a href="index.html" class="nav-link" aria-current="page">Home</a>
+        <a href="vehicle-hubs.html" class="nav-link">Hubs</a>
+        <a href="brands.html" class="nav-link">Brands</a>
+        <a href="ute-comparisons.html" class="nav-link">Compare</a>
         <a href="#tools" class="nav-link">Tools</a>
-        <a href="#stories" class="nav-link">Stories</a>
-        <a href="#forum" class="nav-link">Guides</a>
-        <a href="disclaimer-copyright.html" class="nav-link">About</a>
-        <span class="nav-pill">Australia • 2026</span>
+        <a href="data-sources.html" class="nav-link">Data</a>
       </nav>
     </div>
   </header>
@@ -902,8 +925,6 @@
         <div class="hero-actions">
           <a href="ute-calculator.html" class="btn-primary">Build your ute shortlist with data</a>
           <a href="vehicle-hubs.html" class="btn-secondary">Explore research hubs</a>
-          <a href="recalls.html" class="btn-recall">Open recall database</a>
-          <a href="#ute-reviews" class="btn-secondary">Browse all ute reviews</a>
         </div>
         <div class="hero-stats" aria-label="Site overview">
           <div class="stat-card">
@@ -1289,12 +1310,13 @@
     <section class="section" id="stories">
       <div class="section-header">
         <div>
-          <div class="section-kicker">Stories</div>
-          <h2 class="section-title">This week’s data stories</h2>
+          <div class="section-kicker">Latest insights</div>
+          <h2 class="section-title">Recently updated data stories</h2>
           <p class="section-sub">
-            Short reads that turn tables and scores into scenarios: who each car or ute actually suits, and why.
+            A focused selection of current comparisons and practical guides. Browse the comparison hub for the full archive.
           </p>
         </div>
+        <a href="ute-comparisons.html" class="section-link">Browse all comparisons</a>
       </div>
 
       <div class="stories-grid">
