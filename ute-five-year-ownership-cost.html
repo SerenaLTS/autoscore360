@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Diesel vs PHEV Ute: 5-Year Ownership Cost Calculator Australia</title>
-  <meta name="description" content="Estimate five-year Australian ute ownership costs, including drive-away price, depreciation, diesel, petrol, charging, insurance, servicing and registration." />
+  <title>Ute Ownership Cost and Resale Calculator Australia</title>
+  <meta name="description" content="Compare Australian utes over your chosen ownership period, including estimated resale, depreciation, fuel, charging, insurance, servicing, repairs and registration." />
   <link rel="canonical" href="https://autoscore360.com/ute-five-year-ownership-cost.html" />
   <link rel="stylesheet" href="site-hub.css" />
   <style>
@@ -18,6 +18,9 @@
     .field-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:12px; }
     label { color:var(--muted); font-size:.78rem; }
     input { width:100%; margin-top:4px; border:1px solid var(--line-strong); background:#020617; color:#fff; padding:9px 10px; border-radius:5px; font:inherit; }
+    select { width:100%; margin-top:4px; border:1px solid var(--line-strong); background:#020617; color:#fff; padding:9px 10px; border-radius:5px; font:inherit; }
+    .global-controls { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; max-width:620px; margin:16px 0; }
+    .formula { overflow-x:auto; margin:8px 0 0; border:1px solid var(--line); background:#020617; color:#BFDBFE; padding:10px 12px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.82rem; }
     .results { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:16px; }
     .result { border:1px solid var(--line); padding:14px; background:rgba(15,23,42,.76); }
     .result-label { color:var(--muted); font-size:.76rem; text-transform:uppercase; letter-spacing:.06em; }
@@ -28,12 +31,12 @@
     .callout { margin-top:14px; border-left:3px solid var(--accent); background:rgba(37,99,235,.12); padding:12px 14px; color:#CBD5E1; }
     .small { color:var(--muted); font-size:.82rem; }
     @media (max-width:760px) {
-      .calc-grid,.results { grid-template-columns:1fr; }
+      .calc-grid,.results,.global-controls { grid-template-columns:1fr; }
       .field-grid { grid-template-columns:1fr; }
     }
   </style>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Diesel vs PHEV ute: five-year ownership cost calculator","datePublished":"2026-06-29","dateModified":"2026-06-29","publisher":{"@type":"Organization","name":"Auto Insight Lab"},"mainEntityOfPage":"https://autoscore360.com/ute-five-year-ownership-cost.html"}
+  {"@context":"https://schema.org","@type":"Article","headline":"Ute ownership cost and resale calculator Australia","datePublished":"2026-06-29","dateModified":"2026-06-29","publisher":{"@type":"Organization","name":"Auto Insight Lab"},"mainEntityOfPage":"https://autoscore360.com/ute-five-year-ownership-cost.html"}
   </script>
 </head>
 <body>
@@ -41,14 +44,18 @@
   <main class="page">
     <section class="hero">
       <p class="kicker">Ownership cost · Australia</p>
-      <h1>Diesel vs PHEV ute: what could five years really cost?</h1>
-      <p class="lede">The purchase price is only the opening line. This editable estimate adds depreciation, fuel or charging, insurance, servicing and registration, then compares a diesel ute with a PHEV under private, company and tradie use.</p>
+      <h1>Compare ute resale and ownership costs over the years you choose</h1>
+      <p class="lede">Select two utes—including JAC T9 and BYD Shark 6—then choose an ownership period and use scenario. The model estimates resale, depreciation, fuel or charging, insurance, servicing, repairs and registration.</p>
       <div class="links"><span class="status on-sale">Interactive estimate</span><span class="status incoming">Last checked: 29 June 2026</span></div>
     </section>
 
     <section class="section">
       <h2>Choose a starting scenario</h2>
-      <p class="small">The buttons change distance and PHEV electric-driving share only. Every field remains editable. Dollar amounts are illustrative AUD figures, not quotes.</p>
+      <p class="small">Choose two model presets, an ownership period and a use scenario. Presets are research starting points—not dealer quotes or guaranteed future resale values—and every field remains editable.</p>
+      <div class="global-controls">
+        <label>Ownership period (years)<input id="years" type="number" min="1" max="15" value="5"></label>
+        <label>Calculation basis<input value="AUD · nominal dollars · no finance interest" disabled></label>
+      </div>
       <div class="scenario-tabs" role="group" aria-label="Use scenario">
         <button class="scenario-btn active" data-scenario="private">Private · 15,000 km/year</button>
         <button class="scenario-btn" data-scenario="company">Company · 30,000 km/year</button>
@@ -56,23 +63,46 @@
       </div>
       <div class="calc-grid">
         <div class="calc-card">
-          <h3>Diesel ute <span class="vehicle-tag">editable assumptions</span></h3>
+          <h3><span id="d-heading">JAC T9 Oasis</span><span class="vehicle-tag">Vehicle A</span></h3>
+          <label>Choose vehicle
+            <select id="d-model">
+              <option value="jac-t9">JAC T9 Oasis (diesel)</option>
+              <option value="byd-shark">BYD Shark 6 Premium (PHEV)</option>
+              <option value="custom-diesel">Custom diesel ute</option>
+              <option value="custom-phev">Custom PHEV ute</option>
+            </select>
+          </label>
           <div class="field-grid">
-            <label>Drive-away price ($)<input id="d-price" type="number" min="0" value="60000"></label>
-            <label>Value retained after 5 years (%)<input id="d-resale" type="number" min="0" max="100" value="55"></label>
+            <label>Drive-away price ($)<input id="d-price" type="number" min="0" value="46353"></label>
+            <label>First-year depreciation (%)<input id="d-firstdep" type="number" min="0" max="100" step=".1" value="18"></label>
+            <label>Later annual depreciation (%)<input id="d-laterdep" type="number" min="0" max="100" step=".1" value="10"></label>
             <label>Annual kilometres<input id="d-km" type="number" min="0" value="15000"></label>
-            <label>Diesel use (L/100km)<input id="d-use" type="number" min="0" step=".1" value="9.0"></label>
-            <label>Diesel price ($/L)<input id="d-fuel" type="number" min="0" step=".01" value="2.00"></label>
+            <label>Fuel use (L/100km)<input id="d-use" type="number" min="0" step=".1" value="7.6"></label>
+            <label>Fuel price ($/L)<input id="d-fuel" type="number" min="0" step=".01" value="2.00"></label>
+            <label>Distance driven electrically (%)<input id="d-evshare" type="number" min="0" max="100" value="0"></label>
+            <label>Electricity use (kWh/100km)<input id="d-kwh" type="number" min="0" step=".1" value="0"></label>
+            <label>Home electricity ($/kWh)<input id="d-power" type="number" min="0" step=".01" value=".30"></label>
             <label>Insurance per year ($)<input id="d-insurance" type="number" min="0" value="1800"></label>
-            <label>Servicing/tyres per year ($)<input id="d-service" type="number" min="0" value="1100"></label>
+            <label>Servicing/tyres per year ($)<input id="d-service" type="number" min="0" value="900"></label>
+            <label>Repair contingency per year ($)<input id="d-repairs" type="number" min="0" value="300"></label>
             <label>Registration per year ($)<input id="d-rego" type="number" min="0" value="1100"></label>
+            <label>Home charger installed ($)<input id="d-charger" type="number" min="0" value="0"></label>
           </div>
         </div>
         <div class="calc-card">
-          <h3>PHEV ute <span class="vehicle-tag">editable assumptions</span></h3>
+          <h3><span id="p-heading">BYD Shark 6 Premium</span><span class="vehicle-tag">Vehicle B</span></h3>
+          <label>Choose vehicle
+            <select id="p-model">
+              <option value="byd-shark">BYD Shark 6 Premium (PHEV)</option>
+              <option value="jac-t9">JAC T9 Oasis (diesel)</option>
+              <option value="custom-phev">Custom PHEV ute</option>
+              <option value="custom-diesel">Custom diesel ute</option>
+            </select>
+          </label>
           <div class="field-grid">
-            <label>Drive-away price ($)<input id="p-price" type="number" min="0" value="70000"></label>
-            <label>Value retained after 5 years (%)<input id="p-resale" type="number" min="0" max="100" value="50"></label>
+            <label>Drive-away price ($)<input id="p-price" type="number" min="0" value="57900"></label>
+            <label>First-year depreciation (%)<input id="p-firstdep" type="number" min="0" max="100" step=".1" value="22"></label>
+            <label>Later annual depreciation (%)<input id="p-laterdep" type="number" min="0" max="100" step=".1" value="12"></label>
             <label>Annual kilometres<input id="p-km" type="number" min="0" value="15000"></label>
             <label>Distance driven electrically (%)<input id="p-evshare" type="number" min="0" max="100" value="65"></label>
             <label>Electricity use (kWh/100km)<input id="p-kwh" type="number" min="0" step=".1" value="28"></label>
@@ -80,31 +110,87 @@
             <label>Fuel use when engine runs (L/100km)<input id="p-use" type="number" min="0" step=".1" value="8.0"></label>
             <label>Petrol price ($/L)<input id="p-fuel" type="number" min="0" step=".01" value="1.90"></label>
             <label>Insurance per year ($)<input id="p-insurance" type="number" min="0" value="2200"></label>
-            <label>Servicing/tyres per year ($)<input id="p-service" type="number" min="0" value="900"></label>
+            <label>Servicing/tyres per year ($)<input id="p-service" type="number" min="0" value="800"></label>
+            <label>Repair contingency per year ($)<input id="p-repairs" type="number" min="0" value="300"></label>
             <label>Registration per year ($)<input id="p-rego" type="number" min="0" value="1100"></label>
             <label>Home charger installed ($)<input id="p-charger" type="number" min="0" value="2000"></label>
           </div>
         </div>
       </div>
       <div class="results" aria-live="polite">
-        <div class="result"><div class="result-label">Diesel · five years</div><div class="result-value" id="d-total">$0</div><div class="result-note" id="d-perkm"></div></div>
-        <div class="result"><div class="result-label">PHEV · five years</div><div class="result-value" id="p-total">$0</div><div class="result-note" id="p-perkm"></div></div>
+        <div class="result"><div class="result-label" id="d-result-label">Vehicle A</div><div class="result-value" id="d-total">$0</div><div class="result-note" id="d-perkm"></div></div>
+        <div class="result"><div class="result-label" id="p-result-label">Vehicle B</div><div class="result-value" id="p-total">$0</div><div class="result-note" id="p-perkm"></div></div>
         <div class="result"><div class="result-label">Lower estimate</div><div class="result-value" id="difference">$0</div><div class="result-note" id="winner"></div></div>
       </div>
       <div class="table-wrap" style="margin-top:16px">
         <table class="cost-table">
-          <thead><tr><th>Five-year component</th><th class="number">Diesel</th><th class="number">PHEV</th></tr></thead>
+          <thead><tr><th id="period-heading">Ownership-period component</th><th class="number" id="d-column">Vehicle A</th><th class="number" id="p-column">Vehicle B</th></tr></thead>
           <tbody>
+            <tr><td>Estimated resale value</td><td class="number" id="d-resale-value"></td><td class="number" id="p-resale-value"></td></tr>
             <tr><td>Depreciation</td><td class="number" id="d-dep"></td><td class="number" id="p-dep"></td></tr>
             <tr><td>Fuel and electricity</td><td class="number" id="d-energy"></td><td class="number" id="p-energy"></td></tr>
             <tr><td>Insurance</td><td class="number" id="d-ins"></td><td class="number" id="p-ins"></td></tr>
-            <tr><td>Servicing and tyres</td><td class="number" id="d-serv"></td><td class="number" id="p-serv"></td></tr>
+            <tr><td>Servicing, tyres and repair contingency</td><td class="number" id="d-serv"></td><td class="number" id="p-serv"></td></tr>
             <tr><td>Registration</td><td class="number" id="d-registration"></td><td class="number" id="p-registration"></td></tr>
-            <tr><td>Charger</td><td class="number">—</td><td class="number" id="p-charge"></td></tr>
+            <tr><td>Charger</td><td class="number" id="d-charge"></td><td class="number" id="p-charge"></td></tr>
           </tbody>
         </table>
       </div>
       <div class="callout" id="interpretation"></div>
+    </section>
+
+    <section class="section" id="methodology">
+      <p class="kicker">Calculator methodology</p>
+      <h2>How the calculator works</h2>
+      <p>The calculator is a transparent scenario model. It does not predict a guaranteed trade-in price and it does not claim that a preset is the exact cost of every vehicle. It takes the assumptions shown on screen, applies the formulas below, and adds the results without hidden weighting.</p>
+      <div class="grid two">
+        <article class="card">
+          <h3>1. Resale value and depreciation</h3>
+          <p>We separate the usually steeper first year from later years. The default rates are editorial stress-test assumptions because newer utes—especially PHEVs—do not yet have enough Australian five-year resale history.</p>
+          <div class="formula">resale = price × (1 − first-year rate) × (1 − later-year rate)^(years − 1)</div>
+          <div class="formula">depreciation = drive-away price − estimated resale</div>
+        </article>
+        <article class="card">
+          <h3>2. Diesel or petrol energy</h3>
+          <p>Fuel cost uses annual distance, real-world fuel consumption and the user’s fuel price. Use a loaded or towing consumption figure when that better represents the vehicle’s job.</p>
+          <div class="formula">fuel cost = years × km/year ÷ 100 × L/100km × $/L</div>
+        </article>
+        <article class="card">
+          <h3>3. PHEV energy</h3>
+          <p>PHEV distance is split into electric and engine-driven kilometres. This avoids treating a brochure combined-fuel claim as if it applies to every charging pattern.</p>
+          <div class="formula">electricity = total km × EV share ÷ 100 × kWh/100km × $/kWh</div>
+          <div class="formula">petrol = total km × (1 − EV share) ÷ 100 × L/100km × $/L</div>
+        </article>
+        <article class="card">
+          <h3>4. Maintenance and fixed costs</h3>
+          <p>Scheduled servicing/tyres and a separate repair contingency are multiplied by the chosen years. Insurance and registration are handled the same way. The charger is a one-off PHEV cost.</p>
+          <div class="formula">maintenance = years × (service/tyres + repair contingency)</div>
+        </article>
+        <article class="card">
+          <h3>5. Total ownership cost</h3>
+          <p>The estimated resale value is not added as cash income; it is already reflected through depreciation. This prevents double counting.</p>
+          <div class="formula">total = depreciation + energy + insurance + maintenance + registration + charger</div>
+        </article>
+        <article class="card">
+          <h3>6. Cost per kilometre</h3>
+          <p>This divides the ownership estimate by total distance. It helps compare scenarios with different annual kilometres but is not the ATO cents-per-kilometre deduction rate.</p>
+          <div class="formula">cost/km = total ownership cost ÷ (years × annual km)</div>
+        </article>
+      </div>
+      <div class="callout"><strong>Confidence rule:</strong> purchase price and published consumption can be checked today. Future resale, insurance, repairs and energy prices cannot. Treat those as low-confidence assumptions, test a range, and compare whether the decision survives an optimistic and a conservative case.</div>
+      <h2 style="margin-top:22px">What the JAC and BYD presets mean</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Preset input</th><th>JAC T9 Oasis</th><th>BYD Shark 6 Premium</th><th>Confidence</th></tr></thead>
+          <tbody>
+            <tr><td>Starting price</td><td>$46,353 drive-away reference</td><td>$57,900 drive-away reference</td><td>Checkable now; offers and states vary</td></tr>
+            <tr><td>Published/starting consumption</td><td>7.6L/100km diesel</td><td>28kWh/100km electric input plus 8L/100km when the engine runs</td><td>Use-case sensitive</td></tr>
+            <tr><td>Depreciation model</td><td>18% first year, then 10% yearly</td><td>22% first year, then 12% yearly</td><td>Editorial stress-test; not historical fact</td></tr>
+            <tr><td>Maintenance</td><td>$900 service/tyres + $300 repair contingency yearly</td><td>$800 service/tyres + $300 repair contingency yearly</td><td>Illustrative until replaced by owner quotes</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small">The BYD depreciation preset is deliberately more conservative because its Australian PHEV-ute resale history is short and future new-vehicle pricing may change. That does not prove it will depreciate faster. Set both vehicles to the same rates to compare operating costs without that assumption.</p>
     </section>
 
     <section class="section">
@@ -113,13 +199,13 @@
         <article class="card"><h3>Private buyer</h3><p>Lower annual distance makes the purchase-price and resale gap more important. A PHEV needs regular charging—not merely ownership of a charging cable—to generate energy savings.</p></article>
         <article class="card"><h3>Company or fleet</h3><p>High utilisation can magnify energy savings, but downtime, charging access, finance structure and tax treatment may outweigh a simple fuel calculation.</p></article>
         <article class="card"><h3>Tradie</h3><p>Towing, payload, tools and regional driving usually reduce the share of kilometres completed electrically. Enter loaded real-world consumption rather than brochure claims.</p></article>
-        <article class="card"><h3>Depreciation usually wins</h3><p>A small change in five-year retained value can outweigh several years of fuel savings. Test optimistic and conservative resale assumptions before deciding.</p></article>
+        <article class="card"><h3>Depreciation usually wins</h3><p>A small change in retained value can outweigh several years of fuel savings. The JAC and BYD preset depreciation rates are editable scenarios, not observed future facts.</p></article>
       </div>
     </section>
 
     <section class="section">
       <h2>What is included—and what is not</h2>
-      <p>Included: drive-away price through depreciation, energy, insurance, servicing/tyres, registration and optional home charging installation. Not included: finance interest, stamp-duty differences outside the drive-away input, accessories, repairs, tolls, parking, tax deductions, FBT, GST credits or business downtime.</p>
+      <p>Included: drive-away price through depreciation, energy, insurance, servicing/tyres, a user-set repair contingency, registration and optional home charging installation. Not included: finance interest, stamp-duty differences outside the drive-away input, accessories, major unexpected failures beyond the contingency, tolls, parking, tax deductions, FBT, GST credits or business downtime.</p>
       <p class="small">This is general information, not financial or tax advice. The ATO’s cents-per-kilometre method is a deduction method rather than a measure of your actual ownership cost. Registration and insurance vary substantially by state, vehicle, driver and use.</p>
     </section>
 
@@ -128,6 +214,8 @@
       <ul>
         <li><a href="https://www.energy.gov.au/households/transport" target="_blank" rel="noopener">Australian Government: transport, fuel labels and Green Vehicle Guide</a></li>
         <li><a href="https://www.energy.gov.au/news/get-facts-electric-vehicles" target="_blank" rel="noopener">Australian Government: EV running-cost context</a></li>
+        <li><a href="https://www.carexpert.com.au/jac/t9/2026/price-and-specs" target="_blank" rel="noopener">CarExpert: 2026 JAC T9 indicative Sydney drive-away pricing</a></li>
+        <li><a href="https://www.carexpert.com.au/car-news/2026-byd-shark-6-price-and-specs" target="_blank" rel="noopener">CarExpert: 2026 BYD Shark 6 pricing and specifications</a></li>
         <li><a href="https://softwaredevelopers.ato.gov.au/CentsperKilometreDeductionRateforCarExpenses" target="_blank" rel="noopener">ATO: cents-per-kilometre deduction rate</a></li>
         <li><a href="https://www.service.nsw.gov.au/transaction/use-the-vehicle-registration-calculator" target="_blank" rel="noopener">Service NSW: registration calculator example</a></li>
         <li><a href="phev-ute-running-costs.html">Auto Insight Lab: why PHEV headline fuel claims can mislead</a></li>
@@ -139,51 +227,88 @@
     const $ = id => document.getElementById(id);
     const num = id => Math.max(0, Number($(id).value) || 0);
     const money = value => new Intl.NumberFormat("en-AU", {style:"currency", currency:"AUD", maximumFractionDigits:0}).format(value);
+    const presets = {
+      "jac-t9": {name:"JAC T9 Oasis", type:"diesel", price:46353, firstdep:18, laterdep:10, use:7.6, fuel:2, evshare:0, kwh:0, power:.30, insurance:1800, service:900, repairs:300, rego:1100, charger:0},
+      "byd-shark": {name:"BYD Shark 6 Premium", type:"phev", price:57900, firstdep:22, laterdep:12, use:8, fuel:1.90, evshare:65, kwh:28, power:.30, insurance:2200, service:800, repairs:300, rego:1100, charger:2000},
+      "custom-diesel": {name:"Custom diesel ute", type:"diesel", price:60000, firstdep:18, laterdep:10, use:9, fuel:2, evshare:0, kwh:0, power:.30, insurance:1800, service:1100, repairs:400, rego:1100, charger:0},
+      "custom-phev": {name:"Custom PHEV ute", type:"phev", price:70000, firstdep:22, laterdep:12, use:8, fuel:1.90, evshare:65, kwh:28, power:.30, insurance:2200, service:900, repairs:350, rego:1100, charger:2000}
+    };
     const scenarios = {
       private: {km:15000, share:65},
       company: {km:30000, share:75},
       tradie: {km:25000, share:45}
     };
 
+    function applyPreset(side, key) {
+      const p = presets[key];
+      ["price","firstdep","laterdep","use","fuel","evshare","kwh","power","insurance","service","repairs","rego","charger"]
+        .forEach(field => $(`${side}-${field}`).value = p[field]);
+      $(`${side}-heading`).textContent = p.name;
+      calculate();
+    }
+
+    function vehicleCost(side, years) {
+      const price = num(`${side}-price`);
+      const firstRate = Math.min(100, num(`${side}-firstdep`)) / 100;
+      const laterRate = Math.min(100, num(`${side}-laterdep`)) / 100;
+      const resale = price * (1 - firstRate) * Math.pow(1 - laterRate, Math.max(0, years - 1));
+      const depreciation = price - resale;
+      const km = num(`${side}-km`);
+      const evShare = Math.min(100, num(`${side}-evshare`)) / 100;
+      const electric = km * years * evShare / 100 * num(`${side}-kwh`) * num(`${side}-power`);
+      const liquidFuel = km * years * (1 - evShare) / 100 * num(`${side}-use`) * num(`${side}-fuel`);
+      const energy = electric + liquidFuel;
+      const insurance = num(`${side}-insurance`) * years;
+      const maintenance = (num(`${side}-service`) + num(`${side}-repairs`)) * years;
+      const registration = num(`${side}-rego`) * years;
+      const charger = num(`${side}-charger`);
+      const total = depreciation + energy + insurance + maintenance + registration + charger;
+      return {price, resale, depreciation, km, energy, insurance, maintenance, registration, charger, total};
+    }
+
     function calculate() {
-      const years = 5;
-      const dKm = num("d-km"), pKm = num("p-km");
-      const dDep = num("d-price") * (1 - Math.min(100, num("d-resale")) / 100);
-      const pDep = num("p-price") * (1 - Math.min(100, num("p-resale")) / 100);
-      const dEnergy = dKm * years / 100 * num("d-use") * num("d-fuel");
-      const evShare = Math.min(100, num("p-evshare")) / 100;
-      const pElectric = pKm * years * evShare / 100 * num("p-kwh") * num("p-power");
-      const pPetrol = pKm * years * (1 - evShare) / 100 * num("p-use") * num("p-fuel");
-      const pEnergy = pElectric + pPetrol;
-      const dIns = num("d-insurance") * years, pIns = num("p-insurance") * years;
-      const dServ = num("d-service") * years, pServ = num("p-service") * years;
-      const dRego = num("d-rego") * years, pRego = num("p-rego") * years;
-      const charger = num("p-charger");
-      const dTotal = dDep + dEnergy + dIns + dServ + dRego;
-      const pTotal = pDep + pEnergy + pIns + pServ + pRego + charger;
-      const diff = Math.abs(dTotal - pTotal);
-      const phevWins = pTotal < dTotal;
-      const values = { "d-dep":dDep, "p-dep":pDep, "d-energy":dEnergy, "p-energy":pEnergy, "d-ins":dIns, "p-ins":pIns, "d-serv":dServ, "p-serv":pServ, "d-registration":dRego, "p-registration":pRego, "p-charge":charger };
+      const years = Math.min(15, Math.max(1, Math.round(num("years"))));
+      const d = vehicleCost("d", years), p = vehicleCost("p", years);
+      const dName = $("d-heading").textContent, pName = $("p-heading").textContent;
+      const diff = Math.abs(d.total - p.total);
+      const pWins = p.total < d.total;
+      const values = {
+        "d-resale-value":d.resale, "p-resale-value":p.resale,
+        "d-dep":d.depreciation, "p-dep":p.depreciation,
+        "d-energy":d.energy, "p-energy":p.energy,
+        "d-ins":d.insurance, "p-ins":p.insurance,
+        "d-serv":d.maintenance, "p-serv":p.maintenance,
+        "d-registration":d.registration, "p-registration":p.registration,
+        "d-charge":d.charger, "p-charge":p.charger
+      };
       Object.entries(values).forEach(([id,value]) => $(id).textContent = money(value));
-      $("d-total").textContent = money(dTotal);
-      $("p-total").textContent = money(pTotal);
-      $("d-perkm").textContent = dKm ? `${(dTotal/(dKm*years)).toFixed(2)} per km` : "Add annual kilometres";
-      $("p-perkm").textContent = pKm ? `${(pTotal/(pKm*years)).toFixed(2)} per km` : "Add annual kilometres";
+      $("d-total").textContent = money(d.total);
+      $("p-total").textContent = money(p.total);
+      $("d-perkm").textContent = d.km ? `${money(d.resale)} resale (${(d.resale/d.price*100).toFixed(1)}%) · ${(d.total/(d.km*years)).toFixed(2)}/km` : "Add annual kilometres";
+      $("p-perkm").textContent = p.km ? `${money(p.resale)} resale (${(p.resale/p.price*100).toFixed(1)}%) · ${(p.total/(p.km*years)).toFixed(2)}/km` : "Add annual kilometres";
       $("difference").textContent = money(diff);
-      $("winner").textContent = `${phevWins ? "PHEV" : "Diesel"} is lower under these assumptions`;
-      const energyGap = dEnergy - pEnergy;
-      const depreciationGap = pDep - dDep;
-      $("interpretation").innerHTML = `<strong>What drives this result:</strong> PHEV energy is ${money(Math.abs(energyGap))} ${energyGap >= 0 ? "lower" : "higher"}, while its depreciation estimate is ${money(Math.abs(depreciationGap))} ${depreciationGap >= 0 ? "higher" : "lower"}. Change retained value and electric-driving share first; they usually move the answer most.`;
+      $("winner").textContent = `${pWins ? pName : dName} is lower under these assumptions`;
+      $("d-result-label").textContent = `${dName} · ${years} year${years === 1 ? "" : "s"}`;
+      $("p-result-label").textContent = `${pName} · ${years} year${years === 1 ? "" : "s"}`;
+      $("d-column").textContent = dName;
+      $("p-column").textContent = pName;
+      $("period-heading").textContent = `${years}-year component`;
+      const energyGap = d.energy - p.energy;
+      const depreciationGap = p.depreciation - d.depreciation;
+      $("interpretation").innerHTML = `<strong>What drives this result:</strong> ${pName} energy is ${money(Math.abs(energyGap))} ${energyGap >= 0 ? "lower" : "higher"}, while its depreciation estimate is ${money(Math.abs(depreciationGap))} ${depreciationGap >= 0 ? "higher" : "lower"} than ${dName}. These are scenario outputs, not promised resale values.`;
     }
 
     document.querySelectorAll("input").forEach(input => input.addEventListener("input", calculate));
+    $("d-model").addEventListener("change", event => applyPreset("d", event.target.value));
+    $("p-model").addEventListener("change", event => applyPreset("p", event.target.value));
     document.querySelectorAll(".scenario-btn").forEach(button => button.addEventListener("click", () => {
       document.querySelectorAll(".scenario-btn").forEach(item => item.classList.remove("active"));
       button.classList.add("active");
       const scenario = scenarios[button.dataset.scenario];
       $("d-km").value = scenario.km;
       $("p-km").value = scenario.km;
-      $("p-evshare").value = scenario.share;
+      if (presets[$("d-model").value].type === "phev") $("d-evshare").value = scenario.share;
+      if (presets[$("p-model").value].type === "phev") $("p-evshare").value = scenario.share;
       calculate();
     }));
     calculate();
