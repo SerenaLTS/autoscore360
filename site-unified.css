@@ -28,6 +28,19 @@
   border-radius: var(--site-radius-sm) !important;
 }
 
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid #93C5FD;
+  outline-offset: 3px;
+}
+
+:where(.nav-links) {
+  min-width: 0;
+}
+
+:where(.nav-link, .chip, .pill, .badge, .tag, .status, .nav-pill) {
+  overflow-wrap: anywhere;
+}
+
 :where(.pill, .chip, .badge, .tag, .status, .nav-pill, .hero-tag) {
   border-radius: 999px !important;
 }
@@ -45,5 +58,13 @@
   :root {
     --site-radius-md: 12px;
     --site-radius-lg: 16px;
+  }
+
+  :where(.nav-inner) {
+    align-items: flex-start;
+  }
+
+  :where(.nav-links) {
+    justify-content: flex-start;
   }
 }

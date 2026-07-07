@@ -6,7 +6,7 @@
   <title>Ute Ownership Cost and Resale Calculator Australia</title>
   <meta name="description" content="Compare Australian utes over your chosen ownership period, including estimated resale, depreciation, fuel, charging, insurance, servicing, repairs and registration." />
   <link rel="canonical" href="https://autoscore360.com/ute-five-year-ownership-cost.html" />
-  <link rel="stylesheet" href="site-hub.css?v=20260629" />
+  <link rel="stylesheet" href="site-hub.css?v=20260707" />
   <style>
     .scenario-tabs { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; }
     .scenario-btn { border:1px solid var(--line-strong); background:#0F172A; color:#CBD5E1; border-radius:999px; padding:8px 13px; cursor:pointer; }
@@ -40,9 +40,9 @@
     }
   </style>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Ute ownership cost and resale calculator Australia","datePublished":"2026-06-29","dateModified":"2026-06-29","publisher":{"@type":"Organization","name":"Auto Insight Lab"},"mainEntityOfPage":"https://autoscore360.com/ute-five-year-ownership-cost.html"}
+  {"@context":"https://schema.org","@type":"Article","headline":"Ute ownership cost and resale calculator Australia","datePublished":"2026-06-29","dateModified":"2026-07-07","publisher":{"@type":"Organization","name":"Auto Insight Lab"},"mainEntityOfPage":"https://autoscore360.com/ute-five-year-ownership-cost.html"}
   </script>
-  <script src="site-nav.js?v=20260629" defer></script>
+  <script src="site-nav.js?v=20260707" defer></script>
 </head>
 <body>
   <header class="nav"><div class="nav-inner"><a class="brand" href="index.html"><div class="brand-mark" aria-hidden="true"></div><span>Auto Insight Lab</span></a><nav class="nav-links" aria-label="Primary"><a class="nav-link" href="index.html">Home</a><a class="nav-link" href="vehicle-hubs.html">Hubs</a><a class="nav-link" href="brands.html">Brands</a><a class="nav-link" href="ute-comparisons.html">Compare</a><a class="nav-link" href="ute-calculator.html">Tools</a><a class="nav-link" href="data-sources.html">Data</a></nav></div></header>
@@ -322,6 +322,11 @@
       fuel:2, evshare:0, kwh:0, power:.30, insurance:1900, service:1000,
       repairs:350, rego:1100, charger:0, ...values
     });
+    const petrolPreset = (name, values = {}) => ({
+      name, type:"petrol", price:65000, firstdep:20, laterdep:11, use:10.5,
+      fuel:1.90, evshare:0, kwh:0, power:.30, insurance:2200, service:1100,
+      repairs:450, rego:1100, charger:0, ...values
+    });
     const phevPreset = (name, values = {}) => ({
       name, type:"phev", price:65000, firstdep:22, laterdep:12, use:8,
       fuel:1.90, evshare:65, kwh:28, power:.30, insurance:2200, service:850,
@@ -339,7 +344,7 @@
       "ldv-terron9": dieselPreset("LDV Terron 9 Origin", {price:52000, firstdep:21, laterdep:12, use:8.6, insurance:1900, service:950}),
       "kia-tasman": dieselPreset("Kia Tasman SX 4x4", {price:52000, firstdep:19, laterdep:11, use:8.1, insurance:1900, service:950}),
       "vw-amarok": dieselPreset("Volkswagen Amarok Style", {price:70000, firstdep:18, laterdep:10, use:8, insurance:2400, service:1200, repairs:450}),
-      "jeep-gladiator": dieselPreset("Jeep Gladiator Night Eagle", {price:85000, firstdep:22, laterdep:12, use:12.4, fuel:1.90, insurance:2700, service:1300, repairs:550}),
+      "jeep-gladiator": petrolPreset("Jeep Gladiator Night Eagle", {price:85000, firstdep:22, laterdep:12, use:12.4, insurance:2700, service:1300, repairs:550}),
       "ford-ranger-phev": phevPreset("Ford Ranger PHEV", {price:71000, firstdep:20, laterdep:11, kwh:27, insurance:2400, service:950}),
       "gwm-alpha-phev": phevPreset("GWM Cannon Alpha PHEV", {price:65000, firstdep:23, laterdep:12.5, kwh:30, insurance:2250, service:850}),
       "jac-hunter-phev": phevPreset("JAC Hunter PHEV", {price:60000, firstdep:25, laterdep:14, kwh:29, insurance:2200, service:850}),

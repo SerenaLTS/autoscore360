@@ -18,7 +18,7 @@
     ],
     data: [
       "data-sources.html", "methodology.html", "updates.html",
-      "contact-corrections.html", "sitemap.html"
+      "ai-visibility-monitoring.html", "contact-corrections.html", "sitemap.html"
     ]
   };
   const active = Object.entries(groups).find(([, pages]) => pages.includes(current))?.[0] || "";
