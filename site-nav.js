@@ -18,7 +18,7 @@
     ],
     tools: [
       "ute-calculator.html", "ute-five-year-ownership-cost.html",
-      "ancap.html", "recalls.html"
+      "ancap.html", "recalls.html", "recall-trends-australia.html"
     ],
     data: [
       "data-sources.html", "methodology.html", "updates.html",

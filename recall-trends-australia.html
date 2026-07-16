@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Australian Vehicle Recall Trends 2020–2025</title>
+  <meta name="description" content="Explore Australian vehicle recall trends from 2020 to 2025: annual notice counts, affected vehicles, common problem types and brand patterns." />
+  <link rel="canonical" href="https://autoscore360.com/recall-trends-australia.html" />
+  <style>
+    :root{--bg:#020617;--card:#0b1224;--card2:#101a30;--text:#e5e7eb;--muted:#9ca3af;--line:rgba(148,163,184,.34);--blue:#60a5fa;--orange:#fb923c;--green:#34d399;--red:#f87171;--max:1180px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;background:radial-gradient(circle at 8% 0,rgba(37,99,235,.22),transparent 38%),radial-gradient(circle at 95% 42%,rgba(249,115,22,.1),transparent 34%),var(--bg);color:var(--text);line-height:1.6}
+    a{color:#93c5fd}
+    .nav{position:sticky;top:0;z-index:20;background:rgba(2,6,23,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(37,99,235,.5)}
+    .nav-inner{max-width:var(--max);margin:auto;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font-size:.8rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+    .mark{width:28px;height:28px;border:1px solid #94a3b8;border-radius:7px;background:linear-gradient(135deg,#0f172a,#334155);position:relative;overflow:hidden}
+    .mark::after{content:"";position:absolute;left:-20%;top:48%;width:140%;height:2px;background:linear-gradient(90deg,var(--orange),#facc15,var(--green))}
+    .nav-links{display:flex;gap:15px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:.86rem}.nav-links a:hover{color:white}
+    .page{max-width:var(--max);margin:auto;padding:22px 18px 64px}
+    .hero,.section{border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(15,23,42,.98),rgba(4,10,25,.98));box-shadow:0 22px 60px rgba(0,0,0,.3)}
+    .hero{padding:28px;display:grid;grid-template-columns:minmax(0,2fr) minmax(260px,.85fr);gap:24px}
+    .eyebrow{font-size:.74rem;text-transform:uppercase;letter-spacing:.15em;color:#bfdbfe}
+    h1{font-size:clamp(2rem,4vw,3.35rem);line-height:1.04;margin:12px 0;background:linear-gradient(135deg,#fff,#bfdbfe 62%,#fed7aa);-webkit-background-clip:text;color:transparent}
+    h2{font-size:1.5rem;line-height:1.2;margin:0 0 10px}h3{font-size:1.02rem;margin:0 0 7px}
+    p{margin:6px 0 12px}.lead{color:#cbd5e1;max-width:770px}.fine,.muted{color:var(--muted);font-size:.84rem}
+    .badges{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.badge{border:1px solid var(--line);border-radius:999px;padding:5px 10px;color:#cbd5e1;font-size:.8rem;background:rgba(2,6,23,.56)}
+    .hero-side{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric{border:1px solid var(--line);border-radius:16px;padding:13px;background:rgba(2,6,23,.52)}
+    .metric-label{font-size:.73rem;color:var(--muted)}.metric-value{font-size:1.45rem;font-weight:800;margin-top:2px}.metric-note{font-size:.73rem;color:#cbd5e1}
+    .section{padding:24px;margin-top:18px}.section-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-end;margin-bottom:17px}.section-copy{max-width:780px;color:#cbd5e1}
+    .callout{border:1px solid rgba(96,165,250,.55);background:linear-gradient(135deg,rgba(30,64,175,.25),rgba(15,23,42,.75));padding:13px 15px;border-radius:14px;margin-top:14px}
+    .chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.chart{border:1px solid var(--line);border-radius:16px;padding:15px;background:rgba(2,6,23,.48)}
+    .bar-row{display:grid;grid-template-columns:44px minmax(0,1fr) 88px;gap:10px;align-items:center;margin:10px 0;font-size:.84rem}.bar-track{height:14px;background:#111c32;border-radius:999px;overflow:hidden}.bar{height:100%;border-radius:999px;background:linear-gradient(90deg,#2563eb,var(--blue))}.bar.units{background:linear-gradient(90deg,#c2410c,var(--orange))}.bar.partial{opacity:.45}.bar-value{text-align:right;font-variant-numeric:tabular-nums}
+    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px}table{border-collapse:collapse;width:100%;min-width:760px;background:rgba(2,6,23,.42)}th,td{text-align:left;padding:11px 12px;border-bottom:1px solid rgba(148,163,184,.18);vertical-align:top}th{font-size:.73rem;text-transform:uppercase;letter-spacing:.06em;color:#bfdbfe;background:#0d172b;position:sticky;top:0}td{font-size:.86rem}.num{text-align:right;font-variant-numeric:tabular-nums}.partial-row{opacity:.6}
+    .trend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}.trend-card{border:1px solid var(--line);border-radius:15px;padding:14px;background:rgba(2,6,23,.5)}.trend-up{color:var(--orange)}.trend-down{color:var(--green)}
+    .heat{display:inline-block;min-width:70px;text-align:right;padding:3px 7px;border-radius:7px;background:rgba(96,165,250,var(--heat,.1));font-variant-numeric:tabular-nums}
+    .year-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.year-card{border:1px solid var(--line);border-radius:16px;padding:15px;background:rgba(2,6,23,.48)}.year-card strong{font-size:1.35rem}.year-card ul{padding-left:18px;margin:8px 0}.year-card li{margin:5px 0;color:#cbd5e1;font-size:.85rem}
+    .method-grid,.link-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.method-card,.link-card{border:1px solid var(--line);border-radius:15px;padding:14px;background:rgba(2,6,23,.48)}.link-card{text-decoration:none;color:inherit}.link-card:hover{border-color:#60a5fa;transform:translateY(-1px)}
+    .status{padding:16px;border:1px dashed var(--line);border-radius:14px;color:#cbd5e1}
+    .footer{color:var(--muted);font-size:.8rem;padding:25px 4px 0}
+    @media(max-width:860px){.hero,.chart-grid{grid-template-columns:1fr}.trend-grid,.year-grid{grid-template-columns:1fr 1fr}.nav-links a:nth-child(n+4){display:none}}
+    @media(max-width:560px){.hero{padding:20px}.section{padding:18px}.hero-side,.trend-grid,.year-grid,.method-grid,.link-grid{grid-template-columns:1fr}.section-head{display:block}.bar-row{grid-template-columns:38px minmax(0,1fr) 72px}.brand span:last-child{display:none}}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Australian Vehicle Recall Trends 2020–2025",
+    "description":"Annual Australian vehicle recall notice counts, affected vehicles, issue tags and brand patterns from a public-notice data snapshot.",
+    "dateModified":"2026-07-16",
+    "mainEntityOfPage":"https://autoscore360.com/recall-trends-australia.html",
+    "publisher":{"@type":"Organization","name":"Auto Insight Lab by AutoScore360"}
+  }
+  </script>
+  <link rel="stylesheet" href="site-unified.css" />
+  <script src="site-nav.js?v=20260707" defer></script>
+</head>
+<body>
+  <header class="nav"><div class="nav-inner"><a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span><span>Auto Insight Lab by AutoScore360</span></a><nav class="nav-links" aria-label="Primary"><a href="index.html">Home</a><a href="recalls.html">Recall search</a><a href="#annual">Annual trend</a><a href="#issues">Problem trends</a><a href="#brands">Brands</a></nav></div></header>
+  <main class="page">
+    <section class="hero">
+      <div><div class="eyebrow">Australian vehicle recalls • data trend</div><h1>Australian vehicle recall trends, 2020–2025</h1><p class="lead"><strong>Short answer:</strong> recall activity did not rise in a straight line. The current snapshot peaks in 2024 for both notices and affected vehicles, while software and electrical problem tags became much more common across the period. A higher count still does not prove that vehicles became less reliable.</p><div class="badges"><span class="badge">Complete-year comparison: 2020–2025</span><span class="badge">2026 shown separately as partial</span><span class="badge">Problem tags can overlap</span><span class="badge">Source snapshot through 29 Jan 2026</span></div></div>
+      <aside class="hero-side" aria-label="Recall trend highlights"><div class="metric"><div class="metric-label">Peak notice year</div><div class="metric-value" id="peakYear">—</div><div class="metric-note" id="peakYearNote">Loading data</div></div><div class="metric"><div class="metric-label">Peak affected units</div><div class="metric-value" id="peakUnits">—</div><div class="metric-note" id="peakUnitsNote">Loading data</div></div><div class="metric"><div class="metric-label">Complete-year notices</div><div class="metric-value" id="totalNotices">—</div><div class="metric-note">2020–2025</div></div><div class="metric"><div class="metric-label">Makes represented</div><div class="metric-value" id="totalMakes">—</div><div class="metric-note">2020–2025</div></div></aside>
+    </section>
+
+    <section class="section" id="annual"><div class="section-head"><div><div class="eyebrow">1 • Annual volume</div><h2>Recall notices and affected vehicles by year</h2><div class="section-copy">Notice count measures published recall actions. Affected units measures their stated scale. They answer different questions, so the charts use separate scales.</div></div></div><div id="annualStatus" class="status">Loading recall data…</div><div class="chart-grid" id="annualCharts" hidden><div class="chart"><h3>Recall notices</h3><div id="noticeBars"></div></div><div class="chart"><h3>Affected vehicles</h3><div id="unitBars"></div></div></div><div class="table-wrap" id="annualTableWrap" hidden><table><thead><tr><th>Year</th><th class="num">Notices</th><th class="num">Affected vehicles</th><th class="num">Median notice size</th><th class="num">Largest notice</th><th class="num">Makes</th></tr></thead><tbody id="annualBody"></tbody></table></div><div class="callout"><strong>Read this carefully:</strong> one large recall can dominate affected-vehicle totals. The median and largest-notice columns help separate broad industry activity from a single high-volume event.</div></section>
+
+    <section class="section" id="issues"><div class="section-head"><div><div class="eyebrow">2 • Problem mix</div><h2>How common recall problem tags changed</h2><div class="section-copy">Each notice is scanned for transparent keyword groups. A battery overheating notice may be tagged as electrical, overheating and fire risk, so rows are not intended to add to 100%.</div></div></div><a href="#method">See classification method</a></div><div class="trend-grid" id="trendCards"><div class="status">Loading issue trends…</div></div><div class="table-wrap"><table><thead id="issueHead"></thead><tbody id="issueBody"><tr><td>Loading…</td></tr></tbody></table></div></section>
+
+    <section class="section" id="year-notes"><div class="eyebrow">3 • Annual detail</div><h2>What stood out in each year</h2><p class="section-copy">These cards combine the most common problem tags with the largest stated recall by affected units. They describe the dataset, not a quality ranking.</p><div class="year-grid" id="yearCards"><div class="status">Loading annual highlights…</div></div></section>
+
+    <section class="section" id="brands"><div class="section-head"><div><div class="eyebrow">4 • Brand pattern</div><h2>Brands with the most recall notices in the snapshot</h2><div class="section-copy">Raw brand totals are strongly affected by sales volume, number of models, time in market and how notices group vehicles. Use this table to investigate patterns, not to label a brand reliable or unreliable.</div></div></div><a href="recall-number.html">Why count alone misleads</a></div><div class="table-wrap"><table><thead><tr><th>Brand</th><th class="num">Notices</th><th class="num">Affected vehicles</th><th class="num">Active years</th><th>Search records</th></tr></thead><tbody id="brandBody"><tr><td>Loading…</td></tr></tbody></table></div></section>
+
+    <section class="section" id="method"><div class="eyebrow">5 • Method and limitations</div><h2>How to read this analysis</h2><div class="method-grid"><div class="method-card"><h3>Complete years only for trend claims</h3><p>Year-on-year comparisons use 2020–2025. The 2026 snapshot ends on 29 January and is displayed only as a partial-period reference.</p></div><div class="method-card"><h3>Publication year, not build year</h3><p>The annual charts group notices by recall publication date. A notice published in 2025 may cover vehicles built across several earlier years.</p></div><div class="method-card"><h3>Tags are overlapping indicators</h3><p>Problem groups use visible keywords in the reason text. They are designed for exploration and can overlap; they are not official government categories.</p></div><div class="method-card"><h3>Counts are not reliability scores</h3><p>Popular and long-running brands can accumulate more notices. A small severe recall can matter more to a buyer than several narrow administrative actions.</p></div></div><div class="callout"><strong>Classification groups:</strong> software; electrical/battery; engine/power loss; fire/overheating; fuel/leak; brakes; airbag/restraint; steering/suspension; visibility/lights; and tyre/wheel. The exact matching terms are documented in the page source and used consistently for every year.</div></section>
+
+    <section class="section"><div class="eyebrow">Continue researching</div><h2>Search the records and understand the limits</h2><div class="link-grid"><a class="link-card" href="recalls.html"><h3>Australian recall search</h3><p class="muted">Filter individual records by make, model, year and issue.</p></a><a class="link-card" href="recall-number.html"><h3>Does a higher count mean a worse vehicle?</h3><p class="muted">Why volume, severity and market scale need to be read together.</p></a><a class="link-card" href="recall-tell-buyers.html"><h3>What recall data tells ute buyers</h3><p class="muted">Turn recall history into practical used-ute checks.</p></a><a class="link-card" href="data-sources.html"><h3>Data sources and methodology</h3><p class="muted">See how AutoScore360 uses public automotive data.</p></a></div></section>
+    <footer class="footer">Auto Insight Lab by AutoScore360 organises a local snapshot of Australian public recall notices. Always check the original government notice and contact the manufacturer or dealer to confirm whether a recall remains outstanding for a specific VIN.</footer>
+  </main>
+
+  <script>
+    const COMPLETE_YEARS = [2020,2021,2022,2023,2024,2025];
+    const DISPLAY_YEARS = [...COMPLETE_YEARS, 2026];
+    const ISSUE_TAGS = [
+      {name:"Software", re:/software|program(?:ming)?|firmware|control module/i},
+      {name:"Electrical / battery", re:/electri|battery|wiring|short circuit|starter-alternator/i},
+      {name:"Engine / power loss", re:/engine|loss of power|stall|may lose power|powertrain/i},
+      {name:"Fire / overheating", re:/fire|ignite|overheat|thermal event|catch fire/i},
+      {name:"Fuel / leak", re:/fuel|petrol|diesel|fuel leak|may leak/i},
+      {name:"Brakes", re:/brak/i},
+      {name:"Airbag / restraint", re:/airbag|seat ?belt|restraint/i},
+      {name:"Steering / suspension", re:/steer|suspension/i},
+      {name:"Visibility / lights", re:/visibility|windscreen|windshield|wiper|headlamp|tail lamp|exterior light/i},
+      {name:"Tyre / wheel", re:/tyre|tire|wheel/i}
+    ];
+
+    const number = new Intl.NumberFormat("en-AU");
+    const pct = value => `${value.toFixed(1)}%`;
+    const escapeHTML = value => String(value ?? "").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
+
+    function parseCSV(text){
+      const rows=[]; let row=[], field="", quoted=false;
+      for(let i=0;i<text.length;i++){
+        const char=text[i];
+        if(char==='"'){
+          if(quoted && text[i+1]==='"'){field+='"';i++;} else quoted=!quoted;
+        } else if(!quoted && (char===',' || char==='\n' || char==='\r')){
+          if(char==='\r' && text[i+1]==='\n') i++;
+          row.push(field); field="";
+          if(char!==','){if(row.some(cell=>cell.trim()!=="")) rows.push(row);row=[];}
+        } else field+=char;
+      }
+      if(field || row.length){row.push(field);rows.push(row);}
+      const headers=rows.shift().map(item=>item.trim());
+      return rows.map(values=>Object.fromEntries(headers.map((header,index)=>[header,(values[index]||"").trim()])));
+    }
+
+    function median(values){
+      const sorted=values.slice().sort((a,b)=>a-b); if(!sorted.length) return 0;
+      const middle=Math.floor(sorted.length/2);
+      return sorted.length%2 ? sorted[middle] : Math.round((sorted[middle-1]+sorted[middle])/2);
+    }
+
+    function prepare(rows){
+      return rows.map(row=>{
+        const match=(row.recall_date||"").match(/-(\d{2})$/);
+        return {...row,_year:match?2000+Number(match[1]):null,_units:Number((row.affected_units||"").replaceAll(",",""))||0};
+      }).filter(row=>DISPLAY_YEARS.includes(row._year));
+    }
+
+    function annualSummary(rows){
+      return DISPLAY_YEARS.map(year=>{
+        const items=rows.filter(row=>row._year===year);
+        const largest=items.slice().sort((a,b)=>b._units-a._units)[0]||{};
+        return {year,items,notices:items.length,units:items.reduce((sum,row)=>sum+row._units,0),median:median(items.map(row=>row._units)),largest,makes:new Set(items.map(row=>row.make).filter(Boolean)).size};
+      });
+    }
+
+    function issueSummary(rows){
+      return ISSUE_TAGS.map(tag=>({name:tag.name,values:COMPLETE_YEARS.map(year=>{const annual=rows.filter(row=>row._year===year);const count=annual.filter(row=>tag.re.test(row.reason||"")).length;return {year,count,share:annual.length?count/annual.length*100:0};})}));
+    }
+
+    function renderAnnual(summary){
+      const maxNotices=Math.max(...summary.map(item=>item.notices),1), maxUnits=Math.max(...summary.map(item=>item.units),1);
+      document.getElementById("noticeBars").innerHTML=summary.map(item=>`<div class="bar-row"><strong>${item.year}</strong><div class="bar-track"><div class="bar ${item.year===2026?"partial":""}" style="width:${item.notices/maxNotices*100}%"></div></div><div class="bar-value">${number.format(item.notices)}</div></div>`).join("");
+      document.getElementById("unitBars").innerHTML=summary.map(item=>`<div class="bar-row"><strong>${item.year}</strong><div class="bar-track"><div class="bar units ${item.year===2026?"partial":""}" style="width:${item.units/maxUnits*100}%"></div></div><div class="bar-value">${number.format(item.units)}</div></div>`).join("");
+      document.getElementById("annualBody").innerHTML=summary.map(item=>`<tr class="${item.year===2026?"partial-row":""}"><td><strong>${item.year}${item.year===2026?" (partial)":""}</strong></td><td class="num">${number.format(item.notices)}</td><td class="num">${number.format(item.units)}</td><td class="num">${number.format(item.median)}</td><td class="num">${number.format(item.largest._units||0)}</td><td class="num">${number.format(item.makes)}</td></tr>`).join("");
+      document.getElementById("annualStatus").hidden=true;document.getElementById("annualCharts").hidden=false;document.getElementById("annualTableWrap").hidden=false;
+      const complete=summary.filter(item=>item.year<=2025), peak=complete.slice().sort((a,b)=>b.notices-a.notices)[0], peakUnits=complete.slice().sort((a,b)=>b.units-a.units)[0];
+      document.getElementById("peakYear").textContent=peak.year;document.getElementById("peakYearNote").textContent=`${number.format(peak.notices)} notices`;
+      document.getElementById("peakUnits").textContent=peakUnits.year;document.getElementById("peakUnitsNote").textContent=`${number.format(peakUnits.units)} vehicles`;
+      document.getElementById("totalNotices").textContent=number.format(complete.reduce((sum,item)=>sum+item.notices,0));
+      document.getElementById("totalMakes").textContent=number.format(new Set(complete.flatMap(item=>item.items.map(row=>row.make))).size);
+    }
+
+    function renderIssues(issues){
+      document.getElementById("issueHead").innerHTML=`<tr><th>Problem tag</th>${COMPLETE_YEARS.map(year=>`<th class="num">${year}</th>`).join("")}<th class="num">Change</th></tr>`;
+      document.getElementById("issueBody").innerHTML=issues.map(issue=>{const change=issue.values.at(-1).share-issue.values[0].share;return `<tr><td><strong>${escapeHTML(issue.name)}</strong></td>${issue.values.map(value=>`<td class="num"><span class="heat" style="--heat:${Math.min(.5,.06+value.share/75)}">${pct(value.share)}<br><span class="fine">${value.count}</span></span></td>`).join("")}<td class="num ${change>=0?"trend-up":"trend-down"}">${change>=0?"+":""}${change.toFixed(1)} pp</td></tr>`;}).join("");
+      const changed=issues.map(issue=>({...issue,change:issue.values.at(-1).share-issue.values[0].share}));
+      const biggest=changed.slice().sort((a,b)=>b.change-a.change)[0], second=changed.slice().sort((a,b)=>b.change-a.change)[1], falling=changed.slice().sort((a,b)=>a.change-b.change)[0];
+      document.getElementById("trendCards").innerHTML=[biggest,second,falling].map((item,index)=>`<div class="trend-card"><div class="fine">${index===2?"Largest decline":"Largest increase"}</div><h3>${escapeHTML(item.name)}</h3><div class="${item.change>=0?"trend-up":"trend-down"}"><strong>${item.change>=0?"+":""}${item.change.toFixed(1)} percentage points</strong></div><p class="fine">${pct(item.values[0].share)} in 2020 → ${pct(item.values.at(-1).share)} in 2025</p></div>`).join("");
+    }
+
+    function renderYearCards(summary,issues){
+      document.getElementById("yearCards").innerHTML=summary.filter(item=>item.year<=2025).map(item=>{
+        const top=issues.map(issue=>{const value=issue.values.find(entry=>entry.year===item.year);return {name:issue.name,...value};}).sort((a,b)=>b.share-a.share).slice(0,3);
+        const largest=item.largest;
+        return `<article class="year-card"><strong>${item.year}</strong><div class="fine">${number.format(item.notices)} notices • ${number.format(item.units)} affected vehicles</div><ul>${top.map(tag=>`<li>${escapeHTML(tag.name)}: ${pct(tag.share)} of notices</li>`).join("")}<li>Largest stated notice: ${number.format(largest._units||0)} vehicles (${escapeHTML(largest.make||"Unknown")} ${escapeHTML(largest.model||"")})</li></ul></article>`;
+      }).join("");
+    }
+
+    function renderBrands(rows){
+      const map=new Map();
+      rows.filter(row=>row._year<=2025).forEach(row=>{const key=row.make||"Unknown";const item=map.get(key)||{make:key,notices:0,units:0,years:new Set()};item.notices++;item.units+=row._units;item.years.add(row._year);map.set(key,item);});
+      document.getElementById("brandBody").innerHTML=[...map.values()].sort((a,b)=>b.notices-a.notices||b.units-a.units).slice(0,15).map(item=>`<tr><td><strong>${escapeHTML(item.make)}</strong></td><td class="num">${number.format(item.notices)}</td><td class="num">${number.format(item.units)}</td><td class="num">${item.years.size}</td><td><a href="recalls.html?make=${encodeURIComponent(item.make)}#results">Open ${escapeHTML(item.make)} recalls</a></td></tr>`).join("");
+    }
+
+    async function load(){
+      try{
+        const response=await fetch("./recalls_output.csv",{cache:"no-store"});if(!response.ok) throw new Error(`HTTP ${response.status}`);
+        const rows=prepare(parseCSV(await response.text())), annual=annualSummary(rows), issues=issueSummary(rows);
+        renderAnnual(annual);renderIssues(issues);renderYearCards(annual,issues);renderBrands(rows);
+      }catch(error){
+        console.error(error);document.getElementById("annualStatus").textContent="Recall data could not be loaded. Please open the recall search or try again later.";
+        ["issueBody","yearCards","brandBody"].forEach(id=>document.getElementById(id).innerHTML="<tr><td>Data unavailable.</td></tr>");
+      }
+    }
+    load();
+  </script>
+</body>
+</html>
