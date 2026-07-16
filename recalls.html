@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Vehicle Recalls (2020-Jan 2026 Snapshot) | Auto Insight Lab</title>
-  <meta name="description" content="Search an Australian vehicle recalls CSV snapshot through 29 January 2026 by make, model, year, recall number and issue, with source notice links." />
+  <title>Australian Vehicle Recall Search by Make, Model and Year</title>
+  <meta name="description" content="Search Australian vehicle recall notices by make, model, year and issue. Browse a 2020–January 2026 data snapshot and open the original government notice." />
   <link rel="canonical" href="https://autoscore360.com/recalls.html" />
 
   <style>
@@ -386,7 +386,7 @@
   "operatingSystem": "Any",
   "publisher": {
     "@type": "Organization",
-    "name": "Auto Insight Lab"
+    "name": "Auto Insight Lab by AutoScore360"
   }
 }
   </script>
@@ -399,7 +399,7 @@
     <div class="nav-inner">
       <div class="brand">
         <div class="brand-mark" aria-hidden="true"></div>
-        <span>Auto Insight Lab</span>
+        <span>Auto Insight Lab by AutoScore360</span>
       </div>
 
       <nav class="nav-links" aria-label="Primary">
@@ -415,11 +415,11 @@
   <main class="page">
     <section class="hero">
       <div class="kicker">Vehicle recalls • Public notice organiser</div>
-      <h1>Vehicle recalls: Jan 2026 snapshot, brand ranking + searchable database</h1>
+      <h1>Australian vehicle recall search by make, model and year</h1>
       <p class="sub">
         This page organises publicly available Australian government vehicle recall notices into a simple “data-first” dashboard:
         top brands by recall volume, plus filters by year, make, model and recall reason. The loaded CSV snapshot currently runs
-        through 29 January 2026. Auto Insight Lab updates this recall dataset on a planned snapshot schedule: the next refresh is
+        through 29 January 2026. Auto Insight Lab by AutoScore360 updates this recall dataset on a planned snapshot schedule: the next refresh is
         planned for late 2026, then every six months after that.
       </p>
 
@@ -427,6 +427,14 @@
         <div class="chip"><strong id="chipTotal">—</strong> total recalls loaded</div>
         <div class="chip"><strong id="chipYears">—</strong> years covered</div>
         <div class="chip"><strong id="chipMakes">—</strong> unique makes</div>
+      </div>
+
+      <div class="chips" aria-label="Popular vehicle recall searches">
+        <a class="chip" href="?make=Toyota#results">Toyota recalls</a>
+        <a class="chip" href="?make=Ford#results">Ford recalls</a>
+        <a class="chip" href="?make=Mitsubishi#results">Mitsubishi recalls</a>
+        <a class="chip" href="?make=Isuzu#results">Isuzu recalls</a>
+        <a class="chip" href="?make=Volkswagen#results">Volkswagen recalls</a>
       </div>
 
       <div style="margin-top:12px;font-size:.88rem;color:#CBD5F5;">
@@ -551,7 +559,7 @@
     </section>
 
     <footer class="footer">
-      <div style="font-weight:650;color:#E5E7EB">Auto Insight Lab</div>
+      <div style="font-weight:650;color:#E5E7EB">Auto Insight Lab by AutoScore360</div>
       <div style="margin-top:6px">
         This page organises a local CSV snapshot of publicly available recall listings, refreshed on a planned snapshot schedule.
         Always confirm open recall status on the original notice page before purchase or servicing decisions.
@@ -561,7 +569,7 @@
         <a href="terms-of-use.html" style="color:#93C5FD;text-decoration:none;">Terms of use</a><span style="color:#64748B;"> • </span><a href="disclaimer-copyright.html" style="color:#93C5FD;text-decoration:none;">Disclaimer &amp; copyright</a>
       </div>
       <div style="margin-top:8px;font-size:0.76rem;">
-        &copy; 2026 Auto Insight Lab. All rights reserved. Brand names, vehicle names and trademarks belong to their respective owners where applicable.
+        &copy; 2026 Auto Insight Lab by AutoScore360. All rights reserved. Brand names, vehicle names and trademarks belong to their respective owners where applicable.
       </div>
     </footer>
   </main>
@@ -778,6 +786,14 @@
       // Summary
       const units = FILTERED.reduce((s,r)=>s+toInt(r.affected_units),0);
       resultSummary.textContent = `${total.toLocaleString()} recalls • ${units.toLocaleString()} affected units (sum)`;
+
+      const params = new URLSearchParams();
+      if (yearSel.value) params.set("year", yearSel.value);
+      if (makeSel.value) params.set("make", makeSel.value);
+      if (modelInput.value.trim()) params.set("model", modelInput.value.trim());
+      if (reasonInput.value.trim()) params.set("issue", reasonInput.value.trim());
+      const nextURL = `${location.pathname}${params.size ? `?${params}` : ""}${location.hash}`;
+      history.replaceState(null, "", nextURL);
     }
 
     function resetFilters(){
@@ -906,13 +922,16 @@
 
         rebuildDropdowns(RAW);
 
+        const params = new URLSearchParams(location.search);
+        const requestedMake = params.get("make") || "";
+        const matchingMake = Array.from(makeSel.options).find(option => normKey(option.value) === normKey(requestedMake));
+        yearSel.value = params.get("year") || "";
+        makeSel.value = matchingMake ? matchingMake.value : "";
+        modelInput.value = params.get("model") || "";
+        reasonInput.value = params.get("issue") || "";
+
         // initial render
-        FILTERED = RAW.slice();
-        matchHint.textContent = `${FILTERED.length.toLocaleString()} recall notices match.`;
-        renderStats(RAW);
-        renderRanking(RAW);
-        renderGroups(RAW);
-        resultSummary.textContent = `${RAW.length.toLocaleString()} recalls • ${totalUnits.toLocaleString()} affected units (sum)`;
+        applyFilters();
 
       }catch(err){
         console.error(err);

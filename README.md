@@ -1,6 +1,6 @@
-# AutoScore360 / Auto Insight Lab
+# AutoScore360 / Auto Insight Lab by AutoScore360
 
-Static website for Auto Insight Lab, published at `autoscore360.com`.
+Static website for Auto Insight Lab by AutoScore360, published at `autoscore360.com`.
 
 The site provides data-driven Australian ute content, including:
 
@@ -35,4 +35,4 @@ Then open `http://localhost:8000`.
 - Keep canonical URLs aligned with the actual published page paths.
 - Update calculator scores and related methodology together.
 - Refresh recall data and verify `recalls.html` still loads the CSV through a local server.
-- Keep brand naming consistent between AutoScore360 as the domain and Auto Insight Lab as the editorial site name.
+- Keep brand naming consistent between AutoScore360 as the domain and Auto Insight Lab by AutoScore360 as the editorial site name.

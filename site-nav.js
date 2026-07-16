@@ -38,7 +38,7 @@
   const nav = document.querySelector(".nav-links");
   if (!nav) return;
   const brandLabel = document.querySelector(".brand span");
-  if (brandLabel) brandLabel.textContent = "Auto Insight Lab";
+  if (brandLabel) brandLabel.textContent = "Auto Insight Lab by AutoScore360";
   nav.setAttribute("aria-label", "Primary navigation");
   nav.innerHTML = items.map(([key, label, href]) =>
     `<a class="nav-link" href="${href}"${active === key ? ' aria-current="page"' : ""}>${label}</a>`
