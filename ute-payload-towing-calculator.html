@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ute Payload and Towing Calculator Australia | AutoScore360</title>
+  <meta name="description" content="Calculate ute payload, loaded vehicle mass, GVM and GCM limits, towball download and remaining capacity for an Australian towing setup." />
+  <link rel="canonical" href="https://autoscore360.com/ute-payload-towing-calculator.html" />
+  <link rel="stylesheet" href="site-hub.css?v=20260707" />
+  <style>
+    .calc-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:18px;align-items:start}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field label{display:block;font-weight:700;margin-bottom:6px}.field small{display:block;color:var(--muted);margin-top:5px}.field input{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;background:#07101f;color:var(--text);font:inherit}.results{position:sticky;top:84px}.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.result{border:1px solid var(--line);border-radius:14px;padding:13px;background:rgba(2,6,23,.5)}.result span{display:block;color:var(--muted);font-size:.8rem}.result strong{display:block;font-size:1.35rem;margin-top:3px}.status-box{margin-top:14px;padding:14px;border-radius:14px;border:1px solid var(--line)}.status-ok{border-color:#34d399;background:rgba(16,185,129,.1)}.status-warn{border-color:#fb923c;background:rgba(249,115,22,.1)}.checks{padding-left:20px;margin-bottom:0}.checks li{margin:7px 0}.formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88rem}@media(max-width:820px){.calc-layout{grid-template-columns:1fr}.results{position:static}}@media(max-width:560px){.form-grid,.result-grid{grid-template-columns:1fr}}
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Ute Payload and Towing Calculator Australia","url":"https://autoscore360.com/ute-payload-towing-calculator.html","applicationCategory":"UtilityApplication","operatingSystem":"Any","description":"Estimate loaded vehicle mass, remaining payload and GVM/GCM limits for an Australian ute and trailer setup.","dateModified":"2026-07-17","publisher":{"@type":"Organization","name":"Auto Insight Lab by AutoScore360"}}
+  </script>
+  <script src="site-nav.js?v=20260717" defer></script>
+</head>
+<body>
+  <header class="nav"><div class="nav-inner"><a class="brand" href="index.html"><div class="brand-mark" aria-hidden="true"></div><span>Auto Insight Lab by AutoScore360</span></a><nav class="nav-links" aria-label="Primary"><a class="nav-link" href="index.html">Home</a><a class="nav-link" href="ute-calculator.html">Ute calculator</a><a class="nav-link" href="phev-ute-towing-payload.html">Towing guide</a><span class="nav-pill">Payload tool</span></nav></div></header>
+  <main class="page">
+    <section class="hero"><p class="kicker">Interactive Australian ute tool</p><h1>Ute payload and towing calculator</h1><p class="lede">Test whether passengers, accessories, cargo and towball download fit within a ute's payload, GVM and GCM. Use the figures for your exact vehicle grade and trailer—not a different model or brochure headline.</p><div class="links"><span class="chip">GVM check</span><span class="chip">GCM check</span><span class="chip">Tow rating check</span><span class="chip">Payload remaining</span></div></section>
+
+    <section class="section calc-layout">
+      <div>
+        <h2>Enter your setup</h2>
+        <div class="form-grid">
+          <div class="field"><label for="kerb">Kerb weight (kg)</label><input id="kerb" type="number" min="0" step="1" value="2500" /><small>Use the manufacturer figure for the exact grade.</small></div>
+          <div class="field"><label for="gvm">GVM (kg)</label><input id="gvm" type="number" min="0" step="1" value="3500" /><small>Maximum permitted loaded vehicle mass.</small></div>
+          <div class="field"><label for="gcm">GCM (kg)</label><input id="gcm" type="number" min="0" step="1" value="6500" /><small>Maximum combined vehicle and trailer mass.</small></div>
+          <div class="field"><label for="towRating">Maximum braked towing (kg)</label><input id="towRating" type="number" min="0" step="1" value="3500" /><small>Manufacturer limit for the exact vehicle.</small></div>
+          <div class="field"><label for="people">Passengers and driver (kg)</label><input id="people" type="number" min="0" step="1" value="240" /><small>Use actual combined weight where possible.</small></div>
+          <div class="field"><label for="accessories">Accessories (kg)</label><input id="accessories" type="number" min="0" step="1" value="120" /><small>Bullbar, towbar, canopy, drawers, battery and upgrades.</small></div>
+          <div class="field"><label for="cargo">Cargo (kg)</label><input id="cargo" type="number" min="0" step="1" value="200" /><small>Tools, luggage, water and everything added for the trip.</small></div>
+          <div class="field"><label for="trailer">Actual trailer ATM (kg)</label><input id="trailer" type="number" min="0" step="1" value="2800" /><small>Use the trailer's actual loaded mass, not only its maximum rating.</small></div>
+          <div class="field"><label for="ball">Towball download (kg)</label><input id="ball" type="number" min="0" step="1" value="280" /><small>This normally counts as load carried by the ute.</small></div>
+        </div>
+      </div>
+
+      <aside class="results" aria-live="polite">
+        <h2>Your result</h2>
+        <div class="result-grid">
+          <div class="result"><span>Published payload</span><strong id="payload">—</strong></div>
+          <div class="result"><span>Vehicle load added</span><strong id="added">—</strong></div>
+          <div class="result"><span>Loaded vehicle mass</span><strong id="loadedVehicle">—</strong></div>
+          <div class="result"><span>Payload remaining</span><strong id="remaining">—</strong></div>
+          <div class="result"><span>Estimated combination mass</span><strong id="combination">—</strong></div>
+          <div class="result"><span>Maximum trailer ATM for this setup</span><strong id="maxTrailer">—</strong></div>
+        </div>
+        <div id="status" class="status-box"><strong>Enter the vehicle and trailer figures.</strong><ul id="checks" class="checks"></ul></div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <h2>How the calculator works</h2>
+      <div class="grid two">
+        <article class="card"><h3>Payload</h3><p class="formula">GVM − kerb weight</p><p>This is the starting allowance before people, accessories, cargo and towball download are added.</p></article>
+        <article class="card"><h3>Loaded vehicle mass</h3><p class="formula">Kerb + people + accessories + cargo + towball download</p><p>This estimate must remain at or below GVM.</p></article>
+        <article class="card"><h3>Combination mass</h3><p class="formula">Loaded vehicle + trailer ATM − towball download</p><p>Towball download is subtracted here because it is already included in both the loaded vehicle estimate and trailer ATM.</p></article>
+        <article class="card"><h3>Trailer allowed by GCM</h3><p class="formula">GCM − kerb − people − accessories − cargo</p><p>The usable trailer limit is the lower of this figure and the manufacturer's braked towing limit.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Important limits</h2>
+      <p>This is a planning tool, not a weighing certificate or legal compliance decision. It does not check axle limits, gross trailer mass, coupling limits, towbar limits, tyre ratings, state licence rules, load distribution or every manufacturer condition. Kerb/tare definitions can also differ between documents.</p>
+      <div class="callout"><strong>Before towing:</strong> confirm the exact vehicle and trailer plates, manufacturer manual, axle limits and actual loaded weights. A public weighbridge or qualified towing specialist can identify limits this calculator cannot verify.</div>
+      <div class="links"><a class="chip" href="phev-ute-towing-payload.html">Towing and payload guide</a><a class="chip" href="phev-ute-3500kg-towing.html">2500kg vs 3500kg towing</a><a class="chip" href="ute-glossary.html">Ute glossary</a></div>
+    </section>
+  </main>
+  <footer class="footer">Auto Insight Lab by AutoScore360 · General information only · <a href="disclaimer-copyright.html">Disclaimer</a> · <a href="sitemap.html">Sitemap</a></footer>
+  <script>
+    const ids=["kerb","gvm","gcm","towRating","people","accessories","cargo","trailer","ball"];
+    const value=id=>Math.max(0,Number(document.getElementById(id).value)||0);
+    const kg=n=>`${Math.round(n).toLocaleString("en-AU")} kg`;
+    function calculate(){
+      const kerb=value("kerb"),gvm=value("gvm"),gcm=value("gcm"),towRating=value("towRating"),people=value("people"),accessories=value("accessories"),cargo=value("cargo"),trailer=value("trailer"),ball=value("ball");
+      const payload=gvm-kerb,added=people+accessories+cargo+ball,loaded=kerb+added,remaining=gvm-loaded,combination=loaded+Math.max(0,trailer-ball),gcmTrailer=Math.max(0,gcm-kerb-people-accessories-cargo),maxTrailer=Math.min(towRating,gcmTrailer);
+      document.getElementById("payload").textContent=kg(payload);document.getElementById("added").textContent=kg(added);document.getElementById("loadedVehicle").textContent=kg(loaded);document.getElementById("remaining").textContent=kg(remaining);document.getElementById("combination").textContent=kg(combination);document.getElementById("maxTrailer").textContent=kg(maxTrailer);
+      const tests=[
+        {ok:gvm>=kerb,text:gvm>=kerb?`GVM check: ${kg(Math.max(0,remaining))} remaining.`:`Vehicle data check: kerb weight is above GVM.`},
+        {ok:loaded<=gvm,text:loaded<=gvm?`Loaded vehicle is within GVM.`:`Loaded vehicle exceeds GVM by ${kg(loaded-gvm)}.`},
+        {ok:trailer<=towRating,text:trailer<=towRating?`Trailer is within the braked towing rating.`:`Trailer exceeds the braked towing rating by ${kg(trailer-towRating)}.`},
+        {ok:combination<=gcm,text:combination<=gcm?`Estimated combination is within GCM.`:`Estimated combination exceeds GCM by ${kg(combination-gcm)}.`},
+        {ok:ball<=trailer,text:ball<=trailer?`Towball download is included in vehicle load.`:`Towball download cannot exceed trailer ATM.`}
+      ];
+      const allOk=tests.every(test=>test.ok),status=document.getElementById("status");status.className=`status-box ${allOk?"status-ok":"status-warn"}`;status.firstElementChild.textContent=allOk?"No entered headline limit is exceeded.":"At least one entered limit needs attention.";document.getElementById("checks").innerHTML=tests.map(test=>`<li>${test.ok?"✓":"⚠"} ${test.text}</li>`).join("");
+    }
+    ids.forEach(id=>document.getElementById(id).addEventListener("input",calculate));calculate();
+  </script>
+</body>
+</html>
