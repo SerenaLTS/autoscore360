@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Auto Insight Lab by AutoScore360</title>
+  <desc id="desc">Data-driven Australian car and ute information, tools and buyer guides.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#020617"/><stop offset="0.58" stop-color="#0f2345"/><stop offset="1" stop-color="#1d3557"/></linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#f97316"/><stop offset="0.5" stop-color="#facc15"/><stop offset="1" stop-color="#34d399"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#2563eb" stop-opacity="0.4"/><stop offset="1" stop-color="#2563eb" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="180" cy="40" r="360" fill="url(#glow)"/>
+  <circle cx="1100" cy="610" r="300" fill="url(#glow)" opacity="0.55"/>
+  <rect x="64" y="64" width="1072" height="502" rx="34" fill="#07101f" fill-opacity="0.72" stroke="#64748b" stroke-opacity="0.42"/>
+  <g transform="translate(105 112)">
+    <rect width="72" height="72" rx="18" fill="#17243a" stroke="#94a3b8"/>
+    <path d="M-7 39h86" stroke="url(#line)" stroke-width="6"/>
+  </g>
+  <text x="205" y="142" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" letter-spacing="2">AUTO INSIGHT LAB</text>
+  <text x="205" y="176" fill="#93c5fd" font-family="Arial, Helvetica, sans-serif" font-size="20">by AutoScore360</text>
+  <text x="105" y="300" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="800">Australian car and ute data</text>
+  <text x="105" y="368" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="800">for real buying decisions.</text>
+  <text x="105" y="445" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="26">Calculators · comparisons · safety · recalls · buyer guides</text>
+  <rect x="105" y="498" width="258" height="3" rx="2" fill="url(#line)"/>
+  <text x="105" y="535" fill="#93c5fd" font-family="Arial, Helvetica, sans-serif" font-size="22">autoscore360.com</text>
+</svg>

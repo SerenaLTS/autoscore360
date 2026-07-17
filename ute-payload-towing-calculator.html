@@ -6,9 +6,22 @@
   <title>Ute Payload and Towing Calculator Australia | AutoScore360</title>
   <meta name="description" content="Calculate ute payload, loaded vehicle mass, GVM and GCM limits, towball download and remaining capacity for an Australian towing setup." />
   <link rel="canonical" href="https://autoscore360.com/ute-payload-towing-calculator.html" />
+  <meta property="og:title" content="Ute Payload and Towing Calculator Australia | AutoScore360" />
+  <meta property="og:description" content="Calculate ute payload, loaded vehicle mass, GVM and GCM limits, towball download and remaining capacity for an Australian towing setup." />
+  <meta property="og:url" content="https://autoscore360.com/ute-payload-towing-calculator.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Auto Insight Lab by AutoScore360" />
+  <meta property="og:image" content="https://autoscore360.com/social-preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Auto Insight Lab by AutoScore360 — Australian car and ute data tools" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ute Payload and Towing Calculator Australia | AutoScore360" />
+  <meta name="twitter:description" content="Calculate ute payload, loaded vehicle mass, GVM and GCM limits, towball download and remaining capacity for an Australian towing setup." />
+  <meta name="twitter:image" content="https://autoscore360.com/social-preview.png" />
   <link rel="stylesheet" href="site-hub.css?v=20260707" />
   <style>
-    .calc-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:18px;align-items:start}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field label{display:block;font-weight:700;margin-bottom:6px}.field small{display:block;color:var(--muted);margin-top:5px}.field input{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;background:#07101f;color:var(--text);font:inherit}.results{position:sticky;top:84px}.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.result{border:1px solid var(--line);border-radius:14px;padding:13px;background:rgba(2,6,23,.5)}.result span{display:block;color:var(--muted);font-size:.8rem}.result strong{display:block;font-size:1.35rem;margin-top:3px}.status-box{margin-top:14px;padding:14px;border-radius:14px;border:1px solid var(--line)}.status-ok{border-color:#34d399;background:rgba(16,185,129,.1)}.status-warn{border-color:#fb923c;background:rgba(249,115,22,.1)}.checks{padding-left:20px;margin-bottom:0}.checks li{margin:7px 0}.formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88rem}@media(max-width:820px){.calc-layout{grid-template-columns:1fr}.results{position:static}}@media(max-width:560px){.form-grid,.result-grid{grid-template-columns:1fr}}
+    .calc-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:18px;align-items:start}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field label{display:block;font-weight:700;margin-bottom:6px}.field small{display:block;color:var(--muted);margin-top:5px}.field input{width:100%;min-height:48px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#07101f;color:var(--text);font:inherit;font-size:16px}.results{position:sticky;top:84px}.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.result{border:1px solid var(--line);border-radius:14px;padding:13px;background:rgba(2,6,23,.5)}.result span{display:block;color:var(--muted);font-size:.8rem}.result strong{display:block;font-size:1.35rem;margin-top:3px}.status-box{margin-top:14px;padding:14px;border-radius:14px;border:1px solid var(--line)}.status-ok{border-color:#34d399;background:rgba(16,185,129,.1)}.status-warn{border-color:#fb923c;background:rgba(249,115,22,.1)}.checks{padding-left:20px;margin-bottom:0}.checks li{margin:7px 0}.formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88rem}@media(max-width:820px){.calc-layout{grid-template-columns:1fr}.results{position:static}}@media(max-width:560px){.form-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}.section.calc-layout{padding-left:14px;padding-right:14px}.result strong{font-size:1.15rem}}
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebApplication","name":"Ute Payload and Towing Calculator Australia","url":"https://autoscore360.com/ute-payload-towing-calculator.html","applicationCategory":"UtilityApplication","operatingSystem":"Any","description":"Estimate loaded vehicle mass, remaining payload and GVM/GCM limits for an Australian ute and trailer setup.","dateModified":"2026-07-17","publisher":{"@type":"Organization","name":"Auto Insight Lab by AutoScore360"}}
@@ -31,7 +44,7 @@
           <div class="field"><label for="people">Passengers and driver (kg)</label><input id="people" type="number" min="0" step="1" value="240" /><small>Use actual combined weight where possible.</small></div>
           <div class="field"><label for="accessories">Accessories (kg)</label><input id="accessories" type="number" min="0" step="1" value="120" /><small>Bullbar, towbar, canopy, drawers, battery and upgrades.</small></div>
           <div class="field"><label for="cargo">Cargo (kg)</label><input id="cargo" type="number" min="0" step="1" value="200" /><small>Tools, luggage, water and everything added for the trip.</small></div>
-          <div class="field"><label for="trailer">Actual trailer ATM (kg)</label><input id="trailer" type="number" min="0" step="1" value="2800" /><small>Use the trailer's actual loaded mass, not only its maximum rating.</small></div>
+          <div class="field"><label for="trailer">Actual loaded trailer mass (kg)</label><input id="trailer" type="number" min="0" step="1" value="2800" inputmode="numeric" /><small>Enter the estimated or measured loaded mass. Do not enter maximum ATM unless the trailer is actually loaded to that weight.</small></div>
           <div class="field"><label for="ball">Towball download (kg)</label><input id="ball" type="number" min="0" step="1" value="280" /><small>This normally counts as load carried by the ute.</small></div>
         </div>
       </div>
@@ -55,7 +68,7 @@
       <div class="grid two">
         <article class="card"><h3>Payload</h3><p class="formula">GVM − kerb weight</p><p>This is the starting allowance before people, accessories, cargo and towball download are added.</p></article>
         <article class="card"><h3>Loaded vehicle mass</h3><p class="formula">Kerb + people + accessories + cargo + towball download</p><p>This estimate must remain at or below GVM.</p></article>
-        <article class="card"><h3>Combination mass</h3><p class="formula">Loaded vehicle + trailer ATM − towball download</p><p>Towball download is subtracted here because it is already included in both the loaded vehicle estimate and trailer ATM.</p></article>
+        <article class="card"><h3>Combination mass</h3><p class="formula">Loaded vehicle + loaded trailer mass − towball download</p><p>Towball download is subtracted here because it is already included in both the loaded vehicle estimate and loaded trailer mass.</p></article>
         <article class="card"><h3>Trailer allowed by GCM</h3><p class="formula">GCM − kerb − people − accessories − cargo</p><p>The usable trailer limit is the lower of this figure and the manufacturer's braked towing limit.</p></article>
       </div>
     </section>
