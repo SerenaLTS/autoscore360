@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ute Calculator Methodology &amp; Scoring Framework | Auto Insight Lab by AutoScore360</title>
-  <meta name="description" content="Methodology behind the Auto Insight Lab by AutoScore360 ute calculator, including safety, economy, performance, reliability, sales scoring and default ranking logic." />
+  <meta name="description" content="Methodology behind the AutoScore360 ute calculator, including safety, economy, performance, ownership confidence, evidence confidence, sales and default ranking logic." />
   <link rel="canonical" href="https://autoscore360.com/methodology.html" />
   <meta property="og:title" content="Ute Calculator Methodology &amp; Scoring Framework | Auto Insight Lab by AutoScore360" />
-  <meta property="og:description" content="Methodology behind the Auto Insight Lab by AutoScore360 ute calculator, including safety, economy, performance, reliability, sales scoring and default ranking logic." />
+  <meta property="og:description" content="Methodology behind the AutoScore360 ute calculator, including safety, economy, performance, ownership confidence, evidence confidence, sales and default ranking logic." />
   <meta property="og:url" content="https://autoscore360.com/methodology.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Auto Insight Lab by AutoScore360" />
@@ -17,7 +17,7 @@
   <meta property="og:image:alt" content="Auto Insight Lab by AutoScore360 — Australian car and ute data tools" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Ute Calculator Methodology &amp; Scoring Framework | Auto Insight Lab by AutoScore360" />
-  <meta name="twitter:description" content="Methodology behind the Auto Insight Lab by AutoScore360 ute calculator, including safety, economy, performance, reliability, sales scoring and default ranking logic." />
+  <meta name="twitter:description" content="Methodology behind the AutoScore360 ute calculator, including safety, economy, performance, ownership confidence, evidence confidence, sales and default ranking logic." />
   <meta name="twitter:image" content="https://autoscore360.com/social-preview.png" />
 
   <style>
@@ -149,9 +149,11 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Ute Calculator Methodology & Scoring Framework",
-  "description": "Methodology behind the Auto Insight Lab by AutoScore360 ute calculator, including safety, economy, performance, reliability, sales scoring and default ranking logic.",
+  "description": "Methodology behind the AutoScore360 ute calculator, including safety, economy, performance, ownership confidence, evidence confidence, sales and default ranking logic.",
   "mainEntityOfPage": "https://autoscore360.com/methodology.html",
   "articleSection": "Automotive buying guides",
+  "dateModified": "2026-07-20",
+  "author": {"@type": "Organization", "name": "AutoScore360 Editorial"},
   "publisher": {
     "@type": "Organization",
     "name": "Auto Insight Lab by AutoScore360"
@@ -185,7 +187,8 @@
         This page explains how the Auto Insight Lab by AutoScore360 ute calculator converts public vehicle data into comparable scores.
         The model is designed for shortlisting, not as an official safety, quality or purchase recommendation.
       </p>
-      <p class="meta">Last updated: 28 April 2026 • Scope: Australian ute shortlist calculator</p>
+      <p class="meta">Last updated: 20 July 2026 • Model version: 2.0 • Scope: Australian ute shortlist calculator</p>
+      <p class="meta"><a href="editorial-policy.html">Editorial policy</a> • <a href="data-sources.html">Data sources</a> • <a href="contact-corrections.html">Submit a correction</a></p>
 
       <section class="section">
         <h2>1. Database &amp; Indicator Design Overview</h2>
@@ -205,7 +208,8 @@
               <tr><td>Safety</td><td>Based on official ANCAP safety ratings.</td></tr>
               <tr><td>Economy</td><td>Total ownership cost, combining driveaway price and fuel cost.</td></tr>
               <tr><td>Performance</td><td>Work-focused capability, especially payload, towing and torque.</td></tr>
-              <tr><td>Reliability</td><td>Derived from warranty, recalls and brand strength.</td></tr>
+              <tr><td>Ownership Confidence</td><td>Derived from warranty support, recall-count context and structured brand establishment. It is not a mechanical failure-rate measure.</td></tr>
+              <tr><td>Evidence Confidence</td><td>A separate, non-scoring label showing how much mature Australian evidence sits behind the Ownership Confidence input.</td></tr>
               <tr><td>Sales</td><td>Market endorsement based on Australian market penetration.</td></tr>
             </tbody>
           </table>
@@ -327,9 +331,11 @@
       </section>
 
       <section class="section">
-        <h2>5. Reliability Score</h2>
+        <h2>5. Ownership Confidence Score</h2>
         <p>
-          Reliability integrates warranty support, recall history and broader brand strength.
+          Ownership Confidence integrates warranty support, recall-count context and broader brand establishment. Earlier versions called this
+          the Reliability Score. That label was too broad because these inputs do not measure component failure rates, workshop claims or proven
+          long-term mechanical durability. Version 2.0 changes the name without changing the published component values or default ranking.
         </p>
         <div class="table-wrap compact">
           <table>
@@ -371,6 +377,29 @@
           historical safety or quality crises, excluding normal recall activity. This score is semi-quantitative and currently
           involves structured manual assessment. Future versions may explore automated global brand risk indicators.
         </p>
+
+        <div class="formula">OwnershipConfidenceScore = 0.40 x WarrantyScore + 0.20 x RecallFactor + 0.40 x BrandEstablishmentScore</div>
+        <p>
+          The formula produces an ownership-support proxy, not a forecast of whether an individual vehicle will fail. Warranty can improve the score
+          because it reduces some ownership risk, but a long warranty does not prove superior engineering or durability.
+        </p>
+
+        <h3>5.4 Evidence Confidence (not included in the final score)</h3>
+        <p>
+          Evidence Confidence prevents a precise-looking score from implying equal certainty across old and new nameplates. It is displayed beside the
+          score but does not add or subtract points in version 2.0.
+        </p>
+        <div class="table-wrap compact">
+          <table><thead><tr><th>Label</th><th>Interpretation</th></tr></thead><tbody>
+            <tr><td>High</td><td>Long-running Australian nameplate with broad market exposure and mature ownership history.</td></tr>
+            <tr><td>Medium</td><td>Meaningful local history, but less depth, volume or model continuity than the longest-established nameplates.</td></tr>
+            <tr><td>Low–Medium</td><td>Some current Australian evidence, but limited long-term model-specific history.</td></tr>
+            <tr><td>Low</td><td>New or substantially new Australian model/platform with limited local long-term evidence.</td></tr>
+          </tbody></table>
+        </div>
+        <p>
+          Current labels are structured editorial classifications based on Australian model/nameplate maturity and evidence depth. They are not statistical confidence intervals.
+        </p>
       </section>
 
       <section class="section">
@@ -406,8 +435,8 @@
       <section class="section">
         <h2>7. Final Scoring Model</h2>
         <p>
-          Each vehicle receives a score across Safety, Economy, Performance, Reliability and Sales. The default weighting
-          reflects a long-term ownership profile where reliability and market validation matter strongly.
+          Each vehicle receives a score across Safety, Economy, Performance, Ownership Confidence and Sales. The default weighting
+          reflects a long-term ownership profile where ownership support and market validation matter strongly. Evidence Confidence is displayed separately and is not weighted.
         </p>
         <div class="table-wrap compact">
           <table>
@@ -421,13 +450,13 @@
               <tr><td>Safety</td><td>8%</td></tr>
               <tr><td>Economy</td><td>15%</td></tr>
               <tr><td>Performance</td><td>12%</td></tr>
-              <tr><td>Reliability</td><td>40%</td></tr>
+              <tr><td>Ownership Confidence</td><td>40%</td></tr>
               <tr><td>Sales</td><td>25%</td></tr>
             </tbody>
           </table>
         </div>
         <p>
-          The rationale is that many ute buyers treat the vehicle as a long-term asset. They often prioritise reliability,
+          The rationale is that many ute buyers treat the vehicle as a long-term asset. They often prioritise ownership support,
           proven market acceptance and ownership cost efficiency. Safety and performance still matter, but there is less
           differentiation across many mainstream models, so moderate weighting is sufficient in the default view.
         </p>
@@ -436,7 +465,7 @@
       <section class="section">
         <h2>8. Current Results Under Default Weights</h2>
         <p>
-          Under the default weights, Toyota HiLux ranks first due to its dominant sales position, stable safety and reliability
+          Under the default weights, Toyota HiLux ranks first due to its dominant sales position, stable safety and ownership-confidence
           performance, and balanced work capability. Models such as JAC T9 and BYD Shark 6 achieve strong technical scores,
           but are constrained by lower sales scores. This reflects the risk-averse bias of the current framework, which
           prioritises long-term market validation.
@@ -450,24 +479,25 @@
                 <th>Safety</th>
                 <th>Economy</th>
                 <th>Performance</th>
-                <th>Reliability</th>
+                <th>Ownership Confidence</th>
+                <th>Evidence Confidence</th>
                 <th>Sales</th>
                 <th>Final score</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>1</td><td>Toyota HiLux</td><td>88.84</td><td>38.42</td><td>71.06</td><td>73.30</td><td>100</td><td>75.72</td></tr>
-              <tr><td>2</td><td>Ford Ranger</td><td>86.19</td><td>5.64</td><td>82.09</td><td>71.41</td><td>100</td><td>71.16</td></tr>
-              <tr><td>3</td><td>Mitsubishi Triton</td><td>86.40</td><td>80.00</td><td>92.30</td><td>84.34</td><td>22</td><td>69.22</td></tr>
-              <tr><td>4</td><td>JAC T9</td><td>93.42</td><td>93.00</td><td>78.36</td><td>81.11</td><td>2</td><td>63.77</td></tr>
-              <tr><td>5</td><td>Isuzu D-Max</td><td>83.72</td><td>63.14</td><td>68.41</td><td>81.06</td><td>22</td><td>62.30</td></tr>
-              <tr><td>6</td><td>GWM Cannon</td><td>80.86</td><td>86.60</td><td>74.08</td><td>74.80</td><td>16</td><td>62.29</td></tr>
-              <tr><td>7</td><td>Mazda BT-50</td><td>83.01</td><td>62.69</td><td>89.64</td><td>77.12</td><td>16</td><td>61.65</td></tr>
-              <tr><td>8</td><td>LDV Terron 9/MG U9</td><td>93.85</td><td>82.49</td><td>74.09</td><td>74.65</td><td>2</td><td>59.13</td></tr>
-              <tr><td>9</td><td>Kia Tasman</td><td>86.48</td><td>58.93</td><td>86.61</td><td>79.60</td><td>2</td><td>58.49</td></tr>
-              <tr><td>10</td><td>Volkswagen Amarok</td><td>86.69</td><td>20.38</td><td>83.36</td><td>72.93</td><td>16</td><td>53.17</td></tr>
-              <tr><td>11</td><td>BYD Shark 6</td><td>87.78</td><td>65.25</td><td>37.49</td><td>70.50</td><td>2</td><td>50.01</td></tr>
-              <tr><td>12</td><td>Jeep Gladiator</td><td>62.26</td><td>0.00</td><td>4.42</td><td>68.52</td><td>2</td><td>33.42</td></tr>
+              <tr><td>1</td><td>Toyota HiLux</td><td>88.84</td><td>38.42</td><td>71.06</td><td>73.30</td><td>High</td><td>100</td><td>75.72</td></tr>
+              <tr><td>2</td><td>Ford Ranger</td><td>86.19</td><td>5.64</td><td>82.09</td><td>71.41</td><td>High</td><td>100</td><td>71.16</td></tr>
+              <tr><td>3</td><td>Mitsubishi Triton</td><td>86.40</td><td>80.00</td><td>92.30</td><td>84.34</td><td>High</td><td>22</td><td>69.22</td></tr>
+              <tr><td>4</td><td>JAC T9</td><td>93.42</td><td>93.00</td><td>78.36</td><td>81.11</td><td>Low–Medium</td><td>2</td><td>63.77</td></tr>
+              <tr><td>5</td><td>Isuzu D-Max</td><td>83.72</td><td>63.14</td><td>68.41</td><td>81.06</td><td>High</td><td>22</td><td>62.30</td></tr>
+              <tr><td>6</td><td>GWM Cannon</td><td>80.86</td><td>86.60</td><td>74.08</td><td>74.80</td><td>Medium</td><td>16</td><td>62.29</td></tr>
+              <tr><td>7</td><td>Mazda BT-50</td><td>83.01</td><td>62.69</td><td>89.64</td><td>77.12</td><td>High</td><td>16</td><td>61.65</td></tr>
+              <tr><td>8</td><td>LDV Terron 9/MG U9</td><td>93.85</td><td>82.49</td><td>74.09</td><td>74.65</td><td>Low</td><td>2</td><td>59.13</td></tr>
+              <tr><td>9</td><td>Kia Tasman</td><td>86.48</td><td>58.93</td><td>86.61</td><td>79.60</td><td>Low</td><td>2</td><td>58.49</td></tr>
+              <tr><td>10</td><td>Volkswagen Amarok</td><td>86.69</td><td>20.38</td><td>83.36</td><td>72.93</td><td>High</td><td>16</td><td>53.17</td></tr>
+              <tr><td>11</td><td>BYD Shark 6</td><td>87.78</td><td>65.25</td><td>37.49</td><td>70.50</td><td>Low–Medium</td><td>2</td><td>50.01</td></tr>
+              <tr><td>12</td><td>Jeep Gladiator</td><td>62.26</td><td>0.00</td><td>4.42</td><td>68.52</td><td>Medium</td><td>2</td><td>33.42</td></tr>
             </tbody>
           </table>
         </div>
@@ -483,7 +513,8 @@
           <li>Scores can change as public data, ANCAP results, pricing, warranty terms and recall records change.</li>
           <li>New models and low-volume models may carry more uncertainty because long-term local evidence is limited.</li>
           <li>Sales tier is a market-positioning proxy, not a precise official sales count.</li>
-          <li>Reliability combines objective inputs and structured editorial assessment, especially in brand strength.</li>
+          <li>Ownership Confidence combines objective inputs and structured editorial assessment, especially in brand establishment.</li>
+          <li>Evidence Confidence is a qualitative disclosure and does not alter the version 2.0 final score.</li>
           <li>Different buyer scenarios can produce different rankings when the calculator weights are changed.</li>
         </ul>
       </section>
