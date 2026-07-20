@@ -269,6 +269,46 @@
     .small{font-size:.84rem;color:var(--muted)}
     .muted{color:var(--muted)}
 
+    .content-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-top:12px;
+    }
+    .info-card{
+      background:rgba(2,6,23,.55);
+      border:1px solid rgba(148,163,184,.38);
+      border-radius:16px;
+      padding:14px;
+    }
+    .info-card h3{margin:0 0 7px;font-size:1rem;color:#F9FAFB}
+    .info-card p{margin:0;color:#CBD5F5;font-size:.9rem}
+    .info-card ul,.info-card ol{margin:8px 0 0 20px;padding:0;color:#CBD5F5}
+    .info-card li+li{margin-top:6px}
+    .text-link{color:#93C5FD;text-decoration:none}
+    .text-link:hover{text-decoration:underline}
+    .make-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .make-link{
+      display:inline-flex;align-items:center;
+      padding:8px 12px;border-radius:999px;
+      background:rgba(37,99,235,.13);
+      border:1px solid rgba(96,165,250,.58);
+      color:#DBEAFE;text-decoration:none;font-size:.88rem;font-weight:650;
+    }
+    .make-link:hover{background:rgba(37,99,235,.23)}
+    .notice{
+      margin-top:12px;padding:12px 14px;border-radius:14px;
+      border:1px solid rgba(251,191,36,.48);
+      background:rgba(120,53,15,.18);color:#FDE68A;font-size:.88rem;
+    }
+    .faq-list{display:grid;gap:10px;margin-top:12px}
+    .faq-list details{
+      margin:0;padding:12px 14px;border:1px solid rgba(148,163,184,.35);
+      border-radius:14px;background:rgba(2,6,23,.55);
+    }
+    .faq-list summary{font-weight:750;color:#F9FAFB}
+    .faq-list details p{margin:8px 0 0;color:#CBD5F5;font-size:.9rem}
+
     /* Results */
     .section{
       margin-top:14px;
@@ -381,6 +421,7 @@
 
     @media (max-width: 980px){
       .grid{grid-template-columns:1fr}
+      .content-grid{grid-template-columns:1fr}
       .filters{grid-template-columns: 1fr 1fr}
       .cards-3{grid-template-columns:1fr}
     }
@@ -403,6 +444,54 @@
   }
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I check if my car has been recalled in Australia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Search this recall snapshot by make, model, year or issue, open the original government notice, then contact the manufacturer or an authorised dealer with your VIN to confirm whether your exact vehicle is affected and whether the repair is outstanding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I check a recall using my VIN on this page?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This page organises recall notices and does not provide vehicle-specific VIN status. Use the manufacturer or authorised dealer's VIN lookup or support channel for confirmation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a matching make, model and year mean my vehicle is recalled?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not necessarily. Recall notices can apply only to particular build dates, variants or VIN ranges. Read the source notice and confirm your VIN with the manufacturer or an authorised dealer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are recall repairs free in Australia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A safety recall notice normally explains the remedy and what affected owners should do. Confirm the repair process, eligibility and timing with the manufacturer or an authorised dealer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How current is the AutoScore360 recall database?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The current local snapshot covers recall notices from 2020 through 29 January 2026. It is not a live register, so users should open the source notice and check current status before making a purchase or servicing decision."
+      }
+    }
+  ]
+}
+  </script>
   <link rel="stylesheet" href="site-unified.css" />
   <script src="site-nav.js?v=20260717" defer></script>
 </head>
@@ -419,6 +508,7 @@
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="#overview">Overview</a>
         <a class="nav-link" href="#search">Search</a>
+        <a class="nav-link" href="#how-to-check">Guide</a>
         <a class="nav-link" href="#results">Results</a>
         <span class="nav-pill">Australia • Jan 2026 snapshot</span>
       </nav>
@@ -445,9 +535,10 @@
       <div class="chips" aria-label="Popular vehicle recall searches">
         <a class="chip" href="?make=Toyota#results">Toyota recalls</a>
         <a class="chip" href="?make=Ford#results">Ford recalls</a>
-        <a class="chip" href="?make=Mitsubishi#results">Mitsubishi recalls</a>
+        <a class="chip" href="?make=Mazda#results">Mazda recalls</a>
+        <a class="chip" href="?make=Hyundai#results">Hyundai recalls</a>
+        <a class="chip" href="?make=Kia#results">Kia recalls</a>
         <a class="chip" href="?make=Isuzu#results">Isuzu recalls</a>
-        <a class="chip" href="?make=Volkswagen#results">Volkswagen recalls</a>
       </div>
 
       <div style="margin-top:12px;font-size:.88rem;color:#CBD5F5;">
@@ -570,6 +661,115 @@
 
       <div id="groupsWrap">
         <div class="muted">Loading…</div>
+      </div>
+    </section>
+
+    <section class="section" id="how-to-check">
+      <div class="kicker">Recall check guide</div>
+      <h2>How to check if your car has been recalled in Australia</h2>
+      <div class="content-grid">
+        <article class="info-card">
+          <h3>Use the database as a starting point</h3>
+          <ol>
+            <li>Select the vehicle's make and enter its model in the filters above.</li>
+            <li>Use the recall year or an issue keyword, such as airbag, brake, fuel or fire, to narrow the results.</li>
+            <li>Open the original source notice and compare its affected models, build dates and other identifying details.</li>
+            <li>Contact the manufacturer or an authorised dealer with the vehicle's VIN to confirm whether that exact vehicle is affected.</li>
+            <li>Ask whether the recall repair is still outstanding and how to arrange the remedy.</li>
+          </ol>
+        </article>
+        <article class="info-card">
+          <h3>Before buying a used vehicle</h3>
+          <p>A matching model is a reason to investigate, not proof that every example is affected. Ask the seller for recall repair records, confirm the VIN with the manufacturer or an authorised dealer, and keep a copy of any completion confirmation.</p>
+          <p style="margin-top:10px">For more buyer context, read <a class="text-link" href="recall-tell-buyers.html">what recall data tells ute buyers</a>.</p>
+        </article>
+      </div>
+      <div class="notice"><strong>Important:</strong> AutoScore360 does not provide a vehicle-specific VIN recall check. This page is a research tool built from a dated snapshot. Always confirm current, outstanding recall status through the original notice, manufacturer or an authorised dealer.</div>
+    </section>
+
+    <section class="section" id="search-by-make">
+      <div class="kicker">Popular searches</div>
+      <h2>Search Australian vehicle recalls by make</h2>
+      <p class="small" style="color:#CBD5F5;margin:0">Choose a popular make to load matching notices in the results above. You can then narrow the list by model, year or issue.</p>
+      <div class="make-links" aria-label="Search recalls by vehicle make">
+        <a class="make-link" href="?make=Toyota#results">Toyota recalls</a>
+        <a class="make-link" href="?make=Ford#results">Ford recalls</a>
+        <a class="make-link" href="?make=Mazda#results">Mazda recalls</a>
+        <a class="make-link" href="?make=Hyundai#results">Hyundai recalls</a>
+        <a class="make-link" href="?make=Kia#results">Kia recalls</a>
+        <a class="make-link" href="?make=Isuzu#results">Isuzu recalls</a>
+        <a class="make-link" href="?make=Mitsubishi#results">Mitsubishi recalls</a>
+        <a class="make-link" href="?make=Volkswagen#results">Volkswagen recalls</a>
+      </div>
+    </section>
+
+    <section class="section" id="recall-fields">
+      <div class="kicker">Understand the notice</div>
+      <h2>Recall number, VIN and model year explained</h2>
+      <div class="content-grid">
+        <article class="info-card">
+          <h3>Recall number</h3>
+          <p>A recall number identifies a particular recall campaign or notice. Use it when speaking with a manufacturer or dealer and when checking that you are reading the correct notice. Learn more in the <a class="text-link" href="recall-number.html">Australian vehicle recall number guide</a>.</p>
+        </article>
+        <article class="info-card">
+          <h3>VIN</h3>
+          <p>The Vehicle Identification Number is the unique identifier for an individual vehicle. It is the most reliable way for a manufacturer or authorised dealer to determine whether a specific vehicle is included and whether the repair has been completed.</p>
+        </article>
+        <article class="info-card">
+          <h3>Model year and year range</h3>
+          <p>A listed model year or year range helps narrow the search, but it may not match the registration year. Recalls can depend on production dates, variants, components or VIN ranges, so always read the full source notice.</p>
+        </article>
+        <article class="info-card">
+          <h3>Recall date</h3>
+          <p>The recall date is when the notice was published or recorded; it is not necessarily the vehicle's build date. An older vehicle can also receive a newly announced recall.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="data-coverage">
+      <div class="kicker">Data scope</div>
+      <h2>Recall database coverage and last update</h2>
+      <div class="content-grid">
+        <article class="info-card">
+          <h3>Current coverage</h3>
+          <ul>
+            <li>Australian public vehicle recall notices dated from 2020 through <strong>29 January 2026</strong>.</li>
+            <li>Searchable by recall year, make, model and issue keyword.</li>
+            <li>Results link to the original source notice when a source URL is available.</li>
+          </ul>
+        </article>
+        <article class="info-card">
+          <h3>Update schedule and limitations</h3>
+          <p>Last data refresh: <strong>January 2026</strong>. The next snapshot is planned for late 2026, followed by six-monthly updates. This is not a live register and may not contain notices published after the snapshot date.</p>
+          <p style="margin-top:10px">For patterns across the dataset, see <a class="text-link" href="recall-trends-australia.html">Australian vehicle recall trends, 2020–2025</a>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="recall-faq">
+      <div class="kicker">Common questions</div>
+      <h2>Australian vehicle recall FAQ</h2>
+      <div class="faq-list">
+        <details>
+          <summary>How do I check if my car has been recalled in Australia?</summary>
+          <p>Search by make, model, year or issue above, open the original notice, then contact the manufacturer or an authorised dealer with your VIN to confirm whether your exact vehicle is affected and whether the repair is outstanding.</p>
+        </details>
+        <details>
+          <summary>Can I check a recall using my VIN on this page?</summary>
+          <p>No. This page organises recall notices and does not provide vehicle-specific VIN status. Use the manufacturer's or authorised dealer's VIN lookup or support channel for confirmation.</p>
+        </details>
+        <details>
+          <summary>Does a matching make, model and year mean my vehicle is recalled?</summary>
+          <p>Not necessarily. A notice may apply only to particular build dates, variants or VIN ranges. Read the full source notice and confirm the VIN before assuming the vehicle is included.</p>
+        </details>
+        <details>
+          <summary>Are recall repairs free in Australia?</summary>
+          <p>The safety recall notice normally explains the remedy and what affected owners should do. Confirm the repair process, eligibility and timing with the manufacturer or an authorised dealer.</p>
+        </details>
+        <details>
+          <summary>How current is this recall database?</summary>
+          <p>The current snapshot covers 2020 through 29 January 2026. Because it is not live, check the original notice and confirm current status before making a purchase or servicing decision.</p>
+        </details>
       </div>
     </section>
 
