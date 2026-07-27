@@ -227,6 +227,26 @@ h3 {
   background: rgba(37, 99, 235, 0.14);
 }
 
+.visible-content-links .section a:not(.card):not(.chip) {
+  color: #60A5FA;
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.visible-content-links .section a:not(.card):not(.chip):hover {
+  color: #BFDBFE;
+}
+
+.visible-content-links .card h3 {
+  color: #93C5FD;
+}
+
+.visible-content-links .card:hover h3 {
+  color: #DBEAFE;
+}
+
 .card p,
 .term p {
   margin: 0;
