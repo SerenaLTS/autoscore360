@@ -227,18 +227,6 @@ h3 {
   background: rgba(37, 99, 235, 0.14);
 }
 
-.highlighted-text-link {
-  color: #60A5FA;
-  font-weight: 650;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-
-.highlighted-text-link:hover {
-  color: #BFDBFE;
-}
-
 .card p,
 .term p {
   margin: 0;
