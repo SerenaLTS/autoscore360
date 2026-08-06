@@ -11,7 +11,7 @@ ldv-terron9,LDV Terron 9 Origin,diesel,on_sale,52000,21,12,8.6,0,0,1900,950,350,
 kia-tasman,Kia Tasman SX 4x4,diesel,on_sale,52000,19,11,8.1,0,0,1900,950,350,medium,2026-06-29,tasman.html
 vw-amarok,Volkswagen Amarok Style,diesel,on_sale,70000,18,10,8,0,0,2400,1200,450,medium,2026-06-29,amarok.html
 jeep-gladiator,Jeep Gladiator Night Eagle,petrol,on_sale,85000,22,12,12.4,0,0,2700,1300,550,medium,2026-06-29,jeep.html
-ford-ranger-phev,Ford Ranger PHEV,phev,availability_varies,71000,20,11,8,65,27,2400,950,350,medium,2026-06-29,ford-ranger-phev.html
+ford-ranger-phev,Ford Ranger PHEV,phev,availability_varies,71000,20,11,8,65,27,2400,950,350,medium,2026-06-29,ford.html#phev
 gwm-alpha-phev,GWM Cannon Alpha PHEV,phev,on_sale,65000,23,12.5,8,65,30,2250,850,350,medium,2026-06-29,gwm-cannon-alpha-phev.html
 jac-hunter-phev,JAC Hunter PHEV,phev,incoming,60000,25,14,8,65,29,2200,850,350,low,2026-06-29,jac-hunter-phev.html
 chery-stockman,Chery Stockman PHEV,phev,watchlist,60000,26,14,8,65,30,2200,900,350,low,2026-06-29,chery-kp31-phev.html

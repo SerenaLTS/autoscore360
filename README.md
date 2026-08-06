@@ -28,7 +28,7 @@ Then open `http://localhost:8000`.
 - `recalls.html` - recall database interface
 - `recalls_output.csv` - recall data loaded by `recalls.html`
 - `methodology.html` - scoring framework
-- `terms-of-use.html` and `disclaimer-copyright.html` - legal/supporting pages
+- `disclaimer-copyright.html` - consolidated disclaimer, terms, copyright and privacy notice
 
 ## Update Notes
 

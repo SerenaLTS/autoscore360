@@ -7,9 +7,10 @@
       "chinese-utes.html", "japanese-utes.html", "other-utes.html"
     ],
     brands: [
-      "brands.html", "ford-ranger-trims-explained.html", "toyota-hilux-2026-price-specs.html",
-      "jac-t9-owner-concerns.html", "byd-shark-6-real-world-fuel-use.html",
-      "gwm-cannon-alpha-phev-payload.html"
+      "brands.html", "ford.html", "hilux.html", "triton.html", "dmax.html", "bt50.html",
+      "t9.html", "cannon.html", "byd-shark-6-phev.html", "gwm-cannon-alpha-phev.html",
+      "jac-hunter-phev.html", "chery-kp31-phev.html", "terron9.html", "tasman.html",
+      "amarok.html", "jeep.html"
     ],
     compare: [
       "ute-comparisons.html", "hilux-vs-ranger.html", "triton-vs-dmax.html",
