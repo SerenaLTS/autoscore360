@@ -38,6 +38,24 @@
     .dealer-popup strong { display: block; margin-bottom: 3px; font-size: .94rem; }
     .dealer-popup span { display: block; margin-bottom: 7px; color: #4B5563; }
     .dealer-popup a { display: inline-block; margin: 3px 9px 0 0; color: #1D4ED8; font-weight: 650; text-decoration: none; }
+    .dealer-map-marker { background: transparent; border: 0; }
+    .dealer-map-marker span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 58px;
+      height: 28px;
+      padding: 0 8px;
+      transform: translate(-50%, -100%);
+      border: 2px solid #FFFFFF;
+      border-radius: 8px 8px 8px 2px;
+      background: #2563EB;
+      box-shadow: 0 4px 12px rgba(15,23,42,.42);
+      color: #FFFFFF;
+      font: 750 10px/1 system-ui, sans-serif;
+      letter-spacing: .04em;
+      white-space: nowrap;
+    }
     @media (max-width: 640px) { #dealer-map-canvas { height: 460px; } }
   </style>
   <script type="application/ld+json">
@@ -125,6 +143,7 @@
       const dealers = [
         {
           name: "Suttons Trucks Arncliffe",
+          marker: "ISUZU / KW",
           brands: "Isuzu · Kenworth · DAF",
           address: "85–93 Princes Highway, Arncliffe NSW 2205",
           lat: -33.9368419,
@@ -133,6 +152,7 @@
         },
         {
           name: "Gilbert & Roach Huntingwood",
+          marker: "ISUZU",
           brands: "Isuzu",
           address: "8 Huntingwood Drive, Huntingwood NSW 2148",
           lat: -33.7960653,
@@ -141,6 +161,7 @@
         },
         {
           name: "Gilbert & Roach Narellan",
+          marker: "ISUZU / KW",
           brands: "Isuzu · Kenworth · DAF",
           address: "7 Millwood Avenue, Narellan NSW 2567",
           lat: -34.0386474,
@@ -149,6 +170,7 @@
         },
         {
           name: "City Hino Arndell Park",
+          marker: "HINO",
           brands: "Hino",
           address: "598 Great Western Highway, Arndell Park NSW 2148",
           lat: -33.7923280,
@@ -157,6 +179,7 @@
         },
         {
           name: "STM Trucks & Machinery",
+          marker: "FUSO / IVECO",
           brands: "Fuso · Iveco",
           address: "20–26 Dunn Road, Smeaton Grange NSW 2567",
           lat: -34.0321923,
@@ -165,6 +188,7 @@
         },
         {
           name: "VCV Sydney",
+          marker: "VOLVO / MACK",
           brands: "Volvo · Mack · UD Trucks",
           address: "6/34 Yarrunga Street, Prestons NSW 2170",
           lat: -33.9378817,
@@ -173,6 +197,7 @@
         },
         {
           name: "RUMBLE Auto",
+          marker: "SITRAK",
           brands: "SITRAK",
           address: "15 Contaplas Street, Arndell Park NSW 2148",
           lat: -33.7855873,
@@ -191,7 +216,14 @@
       dealers.forEach((dealer) => {
         const directions = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(dealer.address)}`;
         const popup = `<div class="dealer-popup"><strong>${dealer.name}</strong><span>${dealer.brands}<br>${dealer.address}</span><a href="${directions}" target="_blank" rel="noopener">Directions</a><a href="${dealer.website}" target="_blank" rel="noopener">Dealer website</a></div>`;
-        L.marker([dealer.lat, dealer.lng]).addTo(map).bindPopup(popup);
+        const icon = L.divIcon({
+          className: "dealer-map-marker",
+          html: `<span>${dealer.marker}</span>`,
+          iconSize: [1, 1],
+          iconAnchor: [0, 0],
+          popupAnchor: [0, -34]
+        });
+        L.marker([dealer.lat, dealer.lng], { icon, title: `${dealer.name} — ${dealer.brands}` }).addTo(map).bindPopup(popup);
         bounds.push([dealer.lat, dealer.lng]);
       });
 
