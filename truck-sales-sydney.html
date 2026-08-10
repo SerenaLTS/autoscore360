@@ -23,10 +23,10 @@
   <style>
     #dealer-map-canvas { height: 560px; width: 100%; border: 1px solid rgba(148,163,184,.32); background: #0F172A; }
     .dealer-map-layout { display: grid; grid-template-columns: minmax(0, 2fr) minmax(250px, 1fr); gap: 14px; align-items: stretch; }
-    .dealer-map-list { height: 560px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 4px; }
+    .dealer-map-list { height: 560px; overflow-y: auto; display: flex; flex-direction: column; gap: 5px; padding-right: 4px; }
     .dealer-map-list button {
       width: 100%;
-      padding: 12px;
+      padding: 8px 10px;
       border: 1px solid rgba(148,163,184,.28);
       border-radius: 8px;
       background: rgba(2,6,23,.44);
@@ -37,12 +37,12 @@
     .dealer-map-list button:hover,
     .dealer-map-list button.is-active { border-color: #60A5FA; background: rgba(37,99,235,.18); }
     .dealer-map-list button:focus-visible { outline: 3px solid rgba(96,165,250,.42); outline-offset: 2px; }
-    .dealer-list-name { display: block; color: #F9FAFB; font-weight: 750; line-height: 1.3; }
-    .dealer-list-brand { display: inline-block; margin-top: 5px; color: #93C5FD; font-size: .76rem; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; }
-    .dealer-list-address { display: block; margin-top: 5px; color: #9CA3AF; font-size: .78rem; line-height: 1.4; }
-    .dealer-list-services { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
-    .dealer-service-tag { display: inline-flex; padding: 3px 6px; border: 1px solid rgba(96,165,250,.34); border-radius: 999px; background: rgba(37,99,235,.12); color: #BFDBFE; font-size: .68rem; font-weight: 700; }
-    .dealer-list-phone { display: block; margin-top: 7px; color: #CBD5E1; font-size: .76rem; }
+    .dealer-list-name { display: block; color: #F9FAFB; font-size: .9rem; font-weight: 750; line-height: 1.2; }
+    .dealer-list-brand { display: inline-block; margin-top: 3px; color: #93C5FD; font-size: .7rem; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; }
+    .dealer-list-address { display: block; margin-top: 3px; color: #9CA3AF; font-size: .72rem; line-height: 1.25; }
+    .dealer-list-services { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 5px; }
+    .dealer-service-tag { display: inline-flex; padding: 2px 5px; border: 1px solid rgba(96,165,250,.34); border-radius: 999px; background: rgba(37,99,235,.12); color: #BFDBFE; font-size: .62rem; font-weight: 700; line-height: 1.2; }
+    .dealer-list-phone { display: block; margin-top: 4px; color: #CBD5E1; font-size: .7rem; line-height: 1.2; }
     #dealer-map-canvas.leaflet-container { position: relative; overflow: hidden; }
     #dealer-map-canvas .leaflet-pane,
     #dealer-map-canvas .leaflet-tile,
@@ -105,13 +105,13 @@
       <div class="dealer-map-layout">
         <div id="dealer-map-canvas" role="application" aria-label="Interactive map of verified truck dealers in Sydney"></div>
         <div class="dealer-map-list" id="dealer-map-list" aria-label="Sydney truck dealer list">
-          <button type="button" data-dealer="0"><span class="dealer-list-name">Suttons Trucks Arncliffe</span><span class="dealer-list-brand">Isuzu · Kenworth · DAF</span><span class="dealer-list-address">85–93 Princes Highway, Arncliffe</span><span class="dealer-list-services"><span class="dealer-service-tag">New sales</span><span class="dealer-service-tag">Used sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">02 9335 9080</span></button>
-          <button type="button" data-dealer="1"><span class="dealer-list-name">Gilbert &amp; Roach Huntingwood</span><span class="dealer-list-brand">Isuzu</span><span class="dealer-list-address">8 Huntingwood Drive, Huntingwood</span><span class="dealer-list-services"><span class="dealer-service-tag">New sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">02 8825 1000</span></button>
-          <button type="button" data-dealer="2"><span class="dealer-list-name">Gilbert &amp; Roach Narellan</span><span class="dealer-list-brand">Isuzu · Kenworth · DAF</span><span class="dealer-list-address">7 Millwood Avenue, Narellan</span><span class="dealer-list-services"><span class="dealer-service-tag">New sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">02 4647 7377</span></button>
-          <button type="button" data-dealer="3"><span class="dealer-list-name">City Hino Arndell Park</span><span class="dealer-list-brand">Hino</span><span class="dealer-list-address">598 Great Western Highway, Arndell Park</span><span class="dealer-list-services"><span class="dealer-service-tag">New sales</span><span class="dealer-service-tag">Used sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">02 8822 3400</span></button>
-          <button type="button" data-dealer="4"><span class="dealer-list-name">STM Trucks &amp; Machinery</span><span class="dealer-list-brand">Fuso · Iveco</span><span class="dealer-list-address">20–26 Dunn Road, Smeaton Grange</span><span class="dealer-list-services"><span class="dealer-service-tag">New sales</span><span class="dealer-service-tag">Used sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">02 4647 4488</span></button>
-          <button type="button" data-dealer="5"><span class="dealer-list-name">VCV Sydney</span><span class="dealer-list-brand">Volvo · Mack · UD Trucks</span><span class="dealer-list-address">6/34 Yarrunga Street, Prestons</span><span class="dealer-list-services"><span class="dealer-service-tag">New sales</span><span class="dealer-service-tag">Used sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">02 9731 8600</span></button>
-          <button type="button" data-dealer="6"><span class="dealer-list-name">RUMBLE Auto</span><span class="dealer-list-brand">SITRAK</span><span class="dealer-list-address">15 Contaplas Street, Arndell Park</span><span class="dealer-list-services"><span class="dealer-service-tag">New sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span><span class="dealer-service-tag">Fleet</span></span><span class="dealer-list-phone">02 9621 1886</span></button>
+          <button type="button" data-dealer="0"><span class="dealer-list-name">RUMBLE Auto</span><span class="dealer-list-brand">SITRAK</span><span class="dealer-list-address">15 Contaplas Street, Arndell Park</span><span class="dealer-list-services"><span class="dealer-service-tag">New sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span><span class="dealer-service-tag">Fleet</span></span><span class="dealer-list-phone">02 9621 1886</span></button>
+          <button type="button" data-dealer="1"><span class="dealer-list-name">Suttons Trucks Arncliffe</span><span class="dealer-list-brand">Isuzu · Kenworth · DAF</span><span class="dealer-list-address">85–93 Princes Highway, Arncliffe</span><span class="dealer-list-services"><span class="dealer-service-tag">New sales</span><span class="dealer-service-tag">Used sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">02 9335 9080</span></button>
+          <button type="button" data-dealer="2"><span class="dealer-list-name">Gilbert &amp; Roach Huntingwood</span><span class="dealer-list-brand">Isuzu</span><span class="dealer-list-address">8 Huntingwood Drive, Huntingwood</span><span class="dealer-list-services"><span class="dealer-service-tag">New sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">02 8825 1000</span></button>
+          <button type="button" data-dealer="3"><span class="dealer-list-name">Gilbert &amp; Roach Narellan</span><span class="dealer-list-brand">Isuzu · Kenworth · DAF</span><span class="dealer-list-address">7 Millwood Avenue, Narellan</span><span class="dealer-list-services"><span class="dealer-service-tag">New sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">02 4647 7377</span></button>
+          <button type="button" data-dealer="4"><span class="dealer-list-name">City Hino Arndell Park</span><span class="dealer-list-brand">Hino</span><span class="dealer-list-address">598 Great Western Highway, Arndell Park</span><span class="dealer-list-services"><span class="dealer-service-tag">New sales</span><span class="dealer-service-tag">Used sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">02 8822 3400</span></button>
+          <button type="button" data-dealer="5"><span class="dealer-list-name">STM Trucks &amp; Machinery</span><span class="dealer-list-brand">Fuso · Iveco</span><span class="dealer-list-address">20–26 Dunn Road, Smeaton Grange</span><span class="dealer-list-services"><span class="dealer-service-tag">New sales</span><span class="dealer-service-tag">Used sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">02 4647 4488</span></button>
+          <button type="button" data-dealer="6"><span class="dealer-list-name">VCV Sydney</span><span class="dealer-list-brand">Volvo · Mack · UD Trucks</span><span class="dealer-list-address">6/34 Yarrunga Street, Prestons</span><span class="dealer-list-services"><span class="dealer-service-tag">New sales</span><span class="dealer-service-tag">Used sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">02 9731 8600</span></button>
           <button type="button" data-dealer="7"><span class="dealer-list-name">Scania Australia Prestons</span><span class="dealer-list-brand">Scania</span><span class="dealer-list-address">16–18 Lyn Parade, Prestons</span><span class="dealer-list-services"><span class="dealer-service-tag">New sales</span><span class="dealer-service-tag">Used sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">02 9825 7900</span></button>
         </div>
       </div>
@@ -180,6 +180,17 @@
 
       const dealers = [
         {
+          name: "RUMBLE Auto",
+          marker: "SITRAK",
+          brands: "SITRAK",
+          services: "New sales · Service · Parts · Fleet",
+          phone: "02 9621 1886",
+          address: "15 Contaplas Street, Arndell Park NSW 2148",
+          lat: -33.7855873,
+          lng: 150.8771111,
+          website: "https://www.rumbleauto.com.au/"
+        },
+        {
           name: "Suttons Trucks Arncliffe",
           marker: "ISUZU / KW",
           brands: "Isuzu · Kenworth · DAF",
@@ -244,17 +255,6 @@
           lat: -33.9378817,
           lng: 150.8636047,
           website: "https://www.dealer.volvotrucks.com.au/vcv/en-au/about-us/vcva-prestons.html"
-        },
-        {
-          name: "RUMBLE Auto",
-          marker: "SITRAK",
-          brands: "SITRAK",
-          services: "New sales · Service · Parts · Fleet",
-          phone: "02 9621 1886",
-          address: "15 Contaplas Street, Arndell Park NSW 2148",
-          lat: -33.7855873,
-          lng: 150.8771111,
-          website: "https://www.rumbleauto.com.au/"
         },
         {
           name: "Scania Australia Prestons",
