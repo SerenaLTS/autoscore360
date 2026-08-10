@@ -22,6 +22,24 @@
   <link rel="stylesheet" href="site-hub.css?v=20260810" />
   <style>
     #dealer-map-canvas { height: 560px; width: 100%; border: 1px solid rgba(148,163,184,.32); background: #0F172A; }
+    .dealer-map-layout { display: grid; grid-template-columns: minmax(0, 2fr) minmax(250px, 1fr); gap: 14px; align-items: stretch; }
+    .dealer-map-list { height: 560px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 4px; }
+    .dealer-map-list button {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid rgba(148,163,184,.28);
+      border-radius: 8px;
+      background: rgba(2,6,23,.44);
+      color: #E5E7EB;
+      text-align: left;
+      cursor: pointer;
+    }
+    .dealer-map-list button:hover,
+    .dealer-map-list button.is-active { border-color: #60A5FA; background: rgba(37,99,235,.18); }
+    .dealer-map-list button:focus-visible { outline: 3px solid rgba(96,165,250,.42); outline-offset: 2px; }
+    .dealer-list-name { display: block; color: #F9FAFB; font-weight: 750; line-height: 1.3; }
+    .dealer-list-brand { display: inline-block; margin-top: 5px; color: #93C5FD; font-size: .76rem; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; }
+    .dealer-list-address { display: block; margin-top: 5px; color: #9CA3AF; font-size: .78rem; line-height: 1.4; }
     #dealer-map-canvas.leaflet-container { position: relative; overflow: hidden; }
     #dealer-map-canvas .leaflet-pane,
     #dealer-map-canvas .leaflet-tile,
@@ -56,7 +74,11 @@
       letter-spacing: .04em;
       white-space: nowrap;
     }
-    @media (max-width: 640px) { #dealer-map-canvas { height: 460px; } }
+    @media (max-width: 760px) {
+      .dealer-map-layout { grid-template-columns: 1fr; }
+      #dealer-map-canvas { height: 460px; }
+      .dealer-map-list { height: auto; max-height: 390px; }
+    }
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Truck Sales Sydney: Brands, Dealers and Buying Guide","description":"An independent guide to truck brands, dealer support and commercial truck buying in Sydney.","mainEntityOfPage":"https://autoscore360.com/truck-sales-sydney.html","articleSection":"Commercial truck buying guides","datePublished":"2026-08-10","dateModified":"2026-08-10","author":{"@type":"Organization","name":"AutoScore360 Editorial","url":"https://autoscore360.com/editorial-policy.html"},"publisher":{"@type":"Organization","name":"Auto Insight Lab by AutoScore360","url":"https://autoscore360.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://autoscore360.com/"},{"@type":"ListItem","position":2,"name":"Truck brands","item":"https://autoscore360.com/trucks.html"},{"@type":"ListItem","position":3,"name":"Truck sales Sydney","item":"https://autoscore360.com/truck-sales-sydney.html"}]}]}
@@ -77,7 +99,18 @@
     <section class="section" id="dealer-map">
       <h2>Interactive Sydney truck dealer map</h2>
       <p>Click a marker to see the dealer, represented truck brands and address, then open directions or the dealer’s website. The map currently covers the verified Sydney-area sales locations referenced in this guide.</p>
-      <div id="dealer-map-canvas" role="application" aria-label="Interactive map of verified truck dealers in Sydney"></div>
+      <div class="dealer-map-layout">
+        <div id="dealer-map-canvas" role="application" aria-label="Interactive map of verified truck dealers in Sydney"></div>
+        <div class="dealer-map-list" id="dealer-map-list" aria-label="Sydney truck dealer list">
+          <button type="button" data-dealer="0"><span class="dealer-list-name">Suttons Trucks Arncliffe</span><span class="dealer-list-brand">Isuzu · Kenworth · DAF</span><span class="dealer-list-address">85–93 Princes Highway, Arncliffe</span></button>
+          <button type="button" data-dealer="1"><span class="dealer-list-name">Gilbert &amp; Roach Huntingwood</span><span class="dealer-list-brand">Isuzu</span><span class="dealer-list-address">8 Huntingwood Drive, Huntingwood</span></button>
+          <button type="button" data-dealer="2"><span class="dealer-list-name">Gilbert &amp; Roach Narellan</span><span class="dealer-list-brand">Isuzu · Kenworth · DAF</span><span class="dealer-list-address">7 Millwood Avenue, Narellan</span></button>
+          <button type="button" data-dealer="3"><span class="dealer-list-name">City Hino Arndell Park</span><span class="dealer-list-brand">Hino</span><span class="dealer-list-address">598 Great Western Highway, Arndell Park</span></button>
+          <button type="button" data-dealer="4"><span class="dealer-list-name">STM Trucks &amp; Machinery</span><span class="dealer-list-brand">Fuso · Iveco</span><span class="dealer-list-address">20–26 Dunn Road, Smeaton Grange</span></button>
+          <button type="button" data-dealer="5"><span class="dealer-list-name">VCV Sydney</span><span class="dealer-list-brand">Volvo · Mack · UD Trucks</span><span class="dealer-list-address">6/34 Yarrunga Street, Prestons</span></button>
+          <button type="button" data-dealer="6"><span class="dealer-list-name">RUMBLE Auto</span><span class="dealer-list-brand">SITRAK</span><span class="dealer-list-address">15 Contaplas Street, Arndell Park</span></button>
+        </div>
+      </div>
       <noscript><p class="note">JavaScript is required for the interactive map. The dealer table and verified source links below remain available without it.</p></noscript>
       <p class="dealer-map-note">Map data © OpenStreetMap contributors. Dealer details checked 10 August 2026. This is a curated research map, not a complete live directory; confirm franchises, sales capability and opening hours before travelling.</p>
     </section>
@@ -213,7 +246,18 @@
       }).addTo(map);
 
       const bounds = [];
-      dealers.forEach((dealer) => {
+      const markers = [];
+      const listButtons = [...document.querySelectorAll("#dealer-map-list [data-dealer]")];
+      const selectDealer = (index, moveMap = true) => {
+        listButtons.forEach((button, buttonIndex) => button.classList.toggle("is-active", buttonIndex === index));
+        const marker = markers[index];
+        if (!marker) return;
+        if (moveMap) map.flyTo(marker.getLatLng(), 13, { duration: .65 });
+        marker.openPopup();
+        listButtons[index]?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      };
+
+      dealers.forEach((dealer, index) => {
         const directions = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(dealer.address)}`;
         const popup = `<div class="dealer-popup"><strong>${dealer.name}</strong><span>${dealer.brands}<br>${dealer.address}</span><a href="${directions}" target="_blank" rel="noopener">Directions</a><a href="${dealer.website}" target="_blank" rel="noopener">Dealer website</a></div>`;
         const icon = L.divIcon({
@@ -223,10 +267,13 @@
           iconAnchor: [0, 0],
           popupAnchor: [0, -34]
         });
-        L.marker([dealer.lat, dealer.lng], { icon, title: `${dealer.name} — ${dealer.brands}` }).addTo(map).bindPopup(popup);
+        const marker = L.marker([dealer.lat, dealer.lng], { icon, title: `${dealer.name} — ${dealer.brands}` }).addTo(map).bindPopup(popup);
+        marker.on("click", () => selectDealer(index, false));
+        markers.push(marker);
         bounds.push([dealer.lat, dealer.lng]);
       });
 
+      listButtons.forEach((button) => button.addEventListener("click", () => selectDealer(Number(button.dataset.dealer))));
       map.fitBounds(bounds, { padding: [28, 28], maxZoom: 11 });
     })();
   </script>
