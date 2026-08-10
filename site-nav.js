@@ -4,7 +4,8 @@
     home: ["index.html"],
     hubs: [
       "vehicle-hubs.html", "ute-glossary.html", "phev-ute-status-australia.html",
-      "chinese-utes.html", "japanese-utes.html", "other-utes.html"
+      "chinese-utes.html", "japanese-utes.html", "other-utes.html",
+      "trucks.html", "truck-sales-sydney.html"
     ],
     brands: [
       "brands.html", "ford.html", "hilux.html", "triton.html", "dmax.html", "bt50.html",
