@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Truck Dealers Victoria: Melbourne &amp; Regional Dealer Map</title>
+  <meta name="description" content="Explore a curated map of truck dealers in Victoria, including Melbourne and selected regional locations for Isuzu, Hino, Fuso, Mercedes-Benz, Freightliner, Volvo, Mack, UD, Kenworth, DAF and Scania." />
+  <link rel="canonical" href="https://autoscore360.com/truck-dealers-victoria.html" />
+  <meta property="og:title" content="Truck Dealers Victoria: Melbourne &amp; Regional Dealer Map" />
+  <meta property="og:description" content="Compare Victorian truck dealer locations, brand coverage and buying checks before requesting a commercial truck quote." />
+  <meta property="og:url" content="https://autoscore360.com/truck-dealers-victoria.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Auto Insight Lab by AutoScore360" />
+  <meta property="og:image" content="https://autoscore360.com/social-preview.png" />
+  <meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Truck dealer research map for Victoria, Australia" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Truck Dealers Victoria Map" />
+  <meta name="twitter:description" content="Research truck dealers across Melbourne and selected regional Victorian centres." />
+  <meta name="twitter:image" content="https://autoscore360.com/social-preview.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="site-hub.css?v=20260819" />
+  <style>
+    #victoria-dealer-map { height:620px;width:100%;border:1px solid rgba(148,163,184,.32);background:#0F172A }
+    .dealer-map-layout{display:grid;grid-template-columns:minmax(0,2fr) minmax(270px,1fr);gap:14px;align-items:stretch}
+    .dealer-map-list{height:620px;overflow-y:auto;display:flex;flex-direction:column;gap:5px;padding-right:4px}
+    .dealer-map-list button{width:100%;padding:9px 10px;border:1px solid rgba(148,163,184,.28);border-radius:8px;background:rgba(2,6,23,.44);color:#E5E7EB;text-align:left;cursor:pointer}
+    .dealer-map-list button:hover,.dealer-map-list button.is-active{border-color:#60A5FA;background:rgba(37,99,235,.18)}
+    .dealer-map-list button:focus-visible{outline:3px solid rgba(96,165,250,.42);outline-offset:2px}
+    .dealer-list-name{display:block;color:#F9FAFB;font-size:.9rem;font-weight:750;line-height:1.2}
+    .dealer-list-brand{display:inline-block;margin-top:3px;color:#93C5FD;font-size:.7rem;font-weight:750;letter-spacing:.04em;text-transform:uppercase}
+    .dealer-list-address{display:block;margin-top:3px;color:#9CA3AF;font-size:.72rem;line-height:1.25}
+    .dealer-list-services{display:flex;flex-wrap:wrap;gap:3px;margin-top:5px}
+    .dealer-service-tag{display:inline-flex;padding:2px 5px;border:1px solid rgba(96,165,250,.34);border-radius:999px;background:rgba(37,99,235,.12);color:#BFDBFE;font-size:.62rem;font-weight:700}
+    .dealer-list-phone{display:block;margin-top:4px;color:#CBD5E1;font-size:.7rem}
+    .dealer-popup{color:#111827;min-width:220px;line-height:1.45}.dealer-popup strong{display:block;margin-bottom:3px}.dealer-popup span{display:block;margin-bottom:7px;color:#4B5563}.dealer-popup a{display:inline-block;margin:3px 9px 0 0;color:#1D4ED8;font-weight:650;text-decoration:none}
+    .dealer-map-marker{background:transparent;border:0}.dealer-map-marker span{display:inline-flex;align-items:center;justify-content:center;min-width:56px;height:28px;padding:0 8px;transform:translate(-50%,-100%);border:2px solid #fff;border-radius:8px 8px 8px 2px;background:#2563EB;box-shadow:0 4px 12px rgba(15,23,42,.42);color:#fff;font:750 10px/1 system-ui,sans-serif;letter-spacing:.04em;white-space:nowrap}
+    .dealer-map-note{margin:12px 0 0;color:#9CA3AF;font-size:.84rem}
+    @media(max-width:760px){.dealer-map-layout{grid-template-columns:1fr}#victoria-dealer-map{height:480px}.dealer-map-list{height:auto;max-height:440px}}
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Truck Dealers Victoria: Melbourne and Regional Dealer Map","description":"A curated research map of Victorian truck dealer locations, brand coverage and commercial truck buying checks.","mainEntityOfPage":"https://autoscore360.com/truck-dealers-victoria.html","articleSection":"Commercial truck dealer guides","datePublished":"2026-08-19","dateModified":"2026-08-19","author":{"@type":"Organization","name":"AutoScore360 Editorial","url":"https://autoscore360.com/editorial-policy.html"},"publisher":{"@type":"Organization","name":"Auto Insight Lab by AutoScore360","url":"https://autoscore360.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://autoscore360.com/"},{"@type":"ListItem","position":2,"name":"Truck brands","item":"https://autoscore360.com/trucks.html"},{"@type":"ListItem","position":3,"name":"Truck dealers Victoria","item":"https://autoscore360.com/truck-dealers-victoria.html"}]}]}
+  </script>
+  <script src="site-nav.js?v=20260819" defer></script>
+</head>
+<body>
+  <header class="nav"><div class="nav-inner"><a class="brand" href="index.html"><div class="brand-mark" aria-hidden="true"></div><span>Auto Insight Lab by AutoScore360</span></a><nav class="nav-links" aria-label="Primary"><a class="nav-link" href="index.html">Home</a><a class="nav-link" href="vehicle-hubs.html">Hubs</a><a class="nav-link" href="brands.html">Brands</a><a class="nav-link" href="ute-comparisons.html">Compare</a><a class="nav-link" href="ute-calculator.html">Tools</a><a class="nav-link" href="data-sources.html">Data</a></nav></div></header>
+  <main class="page">
+    <section class="hero">
+      <p class="kicker">Victoria commercial truck dealer guide</p>
+      <h1>Truck dealers in Victoria: Melbourne and regional map</h1>
+      <p class="lede"><strong>Victorian operators can compare major truck brands across Melbourne's west and southeast, then check selected regional sales and service starting points.</strong> Dealer proximity matters, but the better shortlist also considers workshop hours, parts support, body-builder coordination, finished payload and downtime risk.</p>
+      <p class="meta">Dealer information checked: 19 August 2026. Franchises, services, opening hours and stock can change. Confirm details through the manufacturer and dealer before travelling.</p>
+      <div class="chips"><a class="chip" href="#dealer-map">Open the dealer map</a><a class="chip" href="#regions">Compare regions</a><a class="chip" href="trucks.html">Australian truck brands</a><a class="chip" href="truck-sales-sydney.html">Sydney dealer map</a></div>
+    </section>
+
+    <section class="section" id="dealer-map">
+      <h2>Interactive Victoria truck dealer map</h2>
+      <p>Select a dealer to see the brands, address and published services, then open directions or the dealer website. The map is a curated research starting point rather than a complete live directory.</p>
+      <div class="dealer-map-layout">
+        <div id="victoria-dealer-map" role="application" aria-label="Interactive map of selected truck dealers in Victoria"></div>
+        <div class="dealer-map-list" id="victoria-dealer-list" aria-label="Selected Victorian truck dealer list">
+          <button type="button" data-dealer="0"><span class="dealer-list-name">Patterson Cheney Isuzu Keysborough</span><span class="dealer-list-brand">Isuzu</span><span class="dealer-list-address">204 Cheltenham Road, Keysborough</span><span class="dealer-list-services"><span class="dealer-service-tag">Sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">03 9215 2300</span></button>
+          <button type="button" data-dealer="1"><span class="dealer-list-name">Patterson Cheney Isuzu Pakenham</span><span class="dealer-list-brand">Isuzu</span><span class="dealer-list-address">56 Southeast Boulevard, Pakenham</span><span class="dealer-list-services"><span class="dealer-service-tag">Sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">03 5939 5500</span></button>
+          <button type="button" data-dealer="2"><span class="dealer-list-name">Prestige Hino</span><span class="dealer-list-brand">Hino</span><span class="dealer-list-address">43–63 Princes Highway, Dandenong South</span><span class="dealer-list-services"><span class="dealer-service-tag">New &amp; used sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">03 9212 5555</span></button>
+          <button type="button" data-dealer="3"><span class="dealer-list-name">Daimler Trucks Dandenong</span><span class="dealer-list-brand">Fuso · Mercedes-Benz · Freightliner</span><span class="dealer-list-address">75 Princes Highway, Dandenong South</span><span class="dealer-list-services"><span class="dealer-service-tag">New &amp; used sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">03 9791 6533</span></button>
+          <button type="button" data-dealer="4"><span class="dealer-list-name">Scania Australia Dandenong</span><span class="dealer-list-brand">Scania</span><span class="dealer-list-address">2/66 Greens Road, Dandenong South</span><span class="dealer-list-services"><span class="dealer-service-tag">Truck sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">03 9217 3600</span></button>
+          <button type="button" data-dealer="5"><span class="dealer-list-name">CMI Hino Melbourne Derrimut</span><span class="dealer-list-brand">Hino</span><span class="dealer-list-address">326 Boundary Road, Derrimut</span><span class="dealer-list-services"><span class="dealer-service-tag">Sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">03 9931 6500</span></button>
+          <button type="button" data-dealer="6"><span class="dealer-list-name">Kenworth DAF Melbourne</span><span class="dealer-list-brand">Kenworth · DAF</span><span class="dealer-list-address">355 Fitzgerald Road, Derrimut</span><span class="dealer-list-services"><span class="dealer-service-tag">Sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">03 9396 9100</span></button>
+          <button type="button" data-dealer="7"><span class="dealer-list-name">CMV Truck &amp; Bus Derrimut</span><span class="dealer-list-brand">Volvo · Mack · UD Trucks</span><span class="dealer-list-address">392 Boundary Road, Derrimut</span><span class="dealer-list-services"><span class="dealer-service-tag">New &amp; used sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">03 9931 6000</span></button>
+          <button type="button" data-dealer="8"><span class="dealer-list-name">Scania Australia Laverton</span><span class="dealer-list-brand">Scania</span><span class="dealer-list-address">125–129 Boundary Road, Laverton</span><span class="dealer-list-services"><span class="dealer-service-tag">Truck sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">03 8331 6300</span></button>
+          <button type="button" data-dealer="9"><span class="dealer-list-name">Bendigo Isuzu</span><span class="dealer-list-brand">Isuzu</span><span class="dealer-list-address">119–141 Midland Highway, Bendigo</span><span class="dealer-list-services"><span class="dealer-service-tag">Sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">03 5444 4011</span></button>
+          <button type="button" data-dealer="10"><span class="dealer-list-name">Ballarat Isuzu</span><span class="dealer-list-brand">Isuzu</span><span class="dealer-list-address">355 Learmonth Road, Mitchell Park</span><span class="dealer-list-services"><span class="dealer-service-tag">Sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">03 5335 3600</span></button>
+          <button type="button" data-dealer="11"><span class="dealer-list-name">CMV Truck &amp; Bus Gippsland</span><span class="dealer-list-brand">Volvo · Mack · UD Trucks</span><span class="dealer-list-address">17–23 Standing Drive, Traralgon</span><span class="dealer-list-services"><span class="dealer-service-tag">Sales</span><span class="dealer-service-tag">Service</span><span class="dealer-service-tag">Parts</span></span><span class="dealer-list-phone">03 5173 4900</span></button>
+        </div>
+      </div>
+      <noscript><p class="note">JavaScript is required for the interactive map. The dealer list and official source links remain available without it.</p></noscript>
+      <p class="dealer-map-note">Map data © OpenStreetMap contributors. Marker positions are provided for research navigation. Confirm the street address, franchise and required service before travelling.</p>
+    </section>
+
+    <section class="section" id="regions">
+      <h2>Where Victoria's main truck dealer clusters are</h2>
+      <div class="grid">
+        <article class="card"><h3>Dandenong South and Keysborough</h3><p>A strong southeast starting point for Isuzu, Hino, Daimler Truck brands and Scania. Compare the exact sales franchise and workshop capability rather than assuming every nearby site supports every model.</p></article>
+        <article class="card"><h3>Derrimut and Laverton</h3><p>Melbourne's west provides Hino, Kenworth, DAF, Volvo, Mack, UD and Scania options close to major freight corridors and industrial areas.</p></article>
+        <article class="card"><h3>Pakenham and Gippsland</h3><p>Pakenham adds a southeast Isuzu sales and service point, while Traralgon provides a regional Volvo Group starting point. Other Gippsland outlets should be confirmed through brand locators.</p></article>
+        <article class="card"><h3>Ballarat, Bendigo and other regional centres</h3><p>Regional operators should map both the sales dealer and the workshop that will handle scheduled maintenance, urgent repairs and parts. Hino and Isuzu publish additional Victorian locations beyond those highlighted here.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Match the dealer to the truck's job</h2>
+      <div class="grid two">
+        <article class="card"><h3>Metro delivery and trade</h3><p>Compare licence class, cab width, turning circle, urban safety, automatic transmission and usable payload after the body is fitted.</p></article>
+        <article class="card"><h3>Construction and vocational work</h3><p>Bring the body-builder requirements, PTO needs, axle loads, ground clearance and site-access constraints into the dealer discussion.</p></article>
+        <article class="card"><h3>Regional and line-haul</h3><p>Model route, GCM, driver accommodation, fuel assumptions, maintenance intervals, roadside coverage and the nearest suitable workshop.</p></article>
+        <article class="card"><h3>Fleet replacement</h3><p>Ask for comparable finished-vehicle quotes, delivery timing, service capacity, parts support and a written escalation process for downtime.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What to confirm before visiting a Victorian truck dealer</h2>
+      <div class="table-wrap"><table><thead><tr><th>Check</th><th>Why it matters</th><th>What to request</th></tr></thead><tbody>
+        <tr><td><strong>Sales franchise</strong></td><td>A service point may not sell the model or brand you need.</td><td>Confirmation of new sales, used sales, service and parts capability.</td></tr>
+        <tr><td><strong>Finished specification</strong></td><td>Body, accessories and fuel change tare and usable payload.</td><td>A written finished-truck estimate with GVM, GCM and axle loads.</td></tr>
+        <tr><td><strong>Delivery and body timing</strong></td><td>Cab-chassis arrival is not the same as operational delivery.</td><td>Separate chassis, body-builder, compliance and handover dates.</td></tr>
+        <tr><td><strong>Workshop support</strong></td><td>Distance, hours and booking capacity affect downtime.</td><td>Workshop hours, mobile support, roadside process and parts lead times.</td></tr>
+        <tr><td><strong>Commercial comparison</strong></td><td>Purchase price alone does not show whole-of-life cost.</td><td>Comparable warranty, servicing, finance and trade-in assumptions.</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="section">
+      <h2>Verified sources and dealer locators</h2>
+      <ul>
+        <li><a href="https://www.isuzu.com.au/find-a-dealer/" target="_blank" rel="noopener">Isuzu Trucks Australia dealer locator</a></li>
+        <li><a href="https://www.hino.com.au/dealer-network/melbourne/" target="_blank" rel="noopener">Hino Victoria and Melbourne dealer network</a></li>
+        <li><a href="https://www.daimlertruck.com.au/contact-us/dealer-finder/" target="_blank" rel="noopener">Daimler Truck Australia dealer finder</a></li>
+        <li><a href="https://daimlertrucksdandenong.com.au/contact-us" target="_blank" rel="noopener">Daimler Trucks Dandenong contact information</a></li>
+        <li><a href="https://cmv.com.au/cmv-trucks/cmv-truck-bus/" target="_blank" rel="noopener">CMV Truck &amp; Bus Victorian branch network</a></li>
+        <li><a href="https://www.kenworthdafmelbourne.com.au/" target="_blank" rel="noopener">Kenworth DAF Melbourne</a></li>
+        <li><a href="https://www.scania.com/au/en/home/contact-us.html" target="_blank" rel="noopener">Scania Australia dealer search</a></li>
+      </ul>
+      <p class="note">AutoScore360 does not endorse a dealer by including it. This page is general research information and does not replace engineering, compliance, finance, insurance or professional fleet advice.</p>
+    </section>
+  </main>
+  <footer class="footer">Auto Insight Lab by AutoScore360 · <a href="trucks.html">Truck brands</a> · <a href="truck-sales-sydney.html">Sydney dealers</a> · <a href="sitemap.html">Sitemap</a> · <a href="contact-corrections.html">Corrections</a></footer>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    (() => {
+      if (!window.L) return;
+      const dealers = [
+        {name:"Patterson Cheney Isuzu Keysborough",marker:"ISUZU",brands:"Isuzu",services:"Sales · Service · Parts",phone:"03 9215 2300",address:"204 Cheltenham Road, Keysborough VIC 3173",lat:-38.0066,lng:145.1733,website:"https://www.isuzu.com.au/find-a-dealer/"},
+        {name:"Patterson Cheney Isuzu Pakenham",marker:"ISUZU",brands:"Isuzu",services:"Sales · Service · Parts",phone:"03 5939 5500",address:"56 Southeast Boulevard, Pakenham VIC 3810",lat:-38.0948,lng:145.4910,website:"https://www.isuzu.com.au/news/news-articles/new-melbourne-truck-site-for-patterson-cheney/"},
+        {name:"Prestige Hino",marker:"HINO",brands:"Hino",services:"New and used sales · Service · Parts",phone:"03 9212 5555",address:"43-63 Princes Highway, Dandenong South VIC 3175",lat:-38.0049,lng:145.2192,website:"https://www.hino.com.au/dealer/prestige-hino/"},
+        {name:"Daimler Trucks Dandenong",marker:"DAIMLER",brands:"Fuso · Mercedes-Benz · Freightliner",services:"New and used sales · Service · Parts",phone:"03 9791 6533",address:"75 Princes Highway, Dandenong South VIC 3175",lat:-38.0056,lng:145.2210,website:"https://daimlertrucksdandenong.com.au/contact-us"},
+        {name:"Scania Australia Dandenong",marker:"SCANIA",brands:"Scania",services:"Truck sales · Service · Parts",phone:"03 9217 3600",address:"2/66 Greens Road, Dandenong South VIC 3175",lat:-38.0138,lng:145.2177,website:"https://www.scania.com/au/en/home/admin/misc/dealer/dealer-details.html?dealer=2b2135fd-0719-4bad-8d9d-2a73877a9a78"},
+        {name:"CMI Hino Melbourne Derrimut",marker:"HINO",brands:"Hino",services:"Sales · Service · Parts",phone:"03 9931 6500",address:"326 Boundary Road, Derrimut VIC 3026",lat:-37.8175,lng:144.7707,website:"https://www.cmihinomelbourne.com.au/enquiries/"},
+        {name:"Kenworth DAF Melbourne",marker:"KW / DAF",brands:"Kenworth · DAF",services:"Sales · Service · Parts",phone:"03 9396 9100",address:"355 Fitzgerald Road, Derrimut VIC 3026",lat:-37.8078,lng:144.7751,website:"https://www.kenworthdafmelbourne.com.au/"},
+        {name:"CMV Truck & Bus Derrimut",marker:"VOLVO",brands:"Volvo · Mack · UD Trucks",services:"New and used sales · Service · Parts",phone:"03 9931 6000",address:"392 Boundary Road, Derrimut VIC 3026",lat:-37.8152,lng:144.7684,website:"https://cmv.com.au/cmv-trucks/cmv-truck-bus/"},
+        {name:"Scania Australia Laverton",marker:"SCANIA",brands:"Scania",services:"Truck sales · Service · Parts",phone:"03 8331 6300",address:"125-129 Boundary Road, Laverton VIC 3026",lat:-37.8560,lng:144.7748,website:"https://www.scania.com/au/en/home/admin/misc/dealer/dealer-details.html?dealer=8f797609-0c7b-4824-b4b7-aea623c711bf"},
+        {name:"Bendigo Isuzu",marker:"ISUZU",brands:"Isuzu",services:"Sales · Service · Parts",phone:"03 5444 4011",address:"119-141 Midland Highway, Bendigo VIC 3550",lat:-36.7270,lng:144.2825,website:"https://www.isuzu.com.au/find-a-dealer/"},
+        {name:"Ballarat Isuzu",marker:"ISUZU",brands:"Isuzu",services:"Sales · Service · Parts",phone:"03 5335 3600",address:"355 Learmonth Road, Mitchell Park VIC 3355",lat:-37.5157,lng:143.7965,website:"https://www.isuzu.com.au/find-a-dealer/"},
+        {name:"CMV Truck & Bus Gippsland",marker:"VOLVO",brands:"Volvo · Mack · UD Trucks",services:"Sales · Service · Parts",phone:"03 5173 4900",address:"17-23 Standing Drive, Traralgon VIC 3844",lat:-38.1998,lng:146.5049,website:"https://cmv.com.au/cmv-trucks/cmv-truck-bus/"}
+      ];
+      const map=L.map("victoria-dealer-map",{scrollWheelZoom:false});
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap contributors"}).addTo(map);
+      const bounds=[],markers=[],buttons=[...document.querySelectorAll("#victoria-dealer-list [data-dealer]")];
+      const selectDealer=(index,move=true)=>{buttons.forEach((button,i)=>button.classList.toggle("is-active",i===index));const marker=markers[index];if(!marker)return;if(move)map.flyTo(marker.getLatLng(),13,{duration:.65});marker.openPopup();buttons[index]?.scrollIntoView({block:"nearest",behavior:"smooth"})};
+      dealers.forEach((dealer,index)=>{const directions=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(dealer.address)}`;const popup=`<div class="dealer-popup"><strong>${dealer.name}</strong><span>${dealer.brands}<br>${dealer.address}<br>${dealer.services}<br>${dealer.phone}</span><a href="${directions}" target="_blank" rel="noopener">Directions</a><a href="${dealer.website}" target="_blank" rel="noopener">Dealer website</a></div>`;const icon=L.divIcon({className:"dealer-map-marker",html:`<span>${dealer.marker}</span>`,iconSize:[1,1],iconAnchor:[0,0],popupAnchor:[0,-34]});const marker=L.marker([dealer.lat,dealer.lng],{icon,title:`${dealer.name} — ${dealer.brands}`}).addTo(map).bindPopup(popup);marker.on("click",()=>selectDealer(index,false));markers.push(marker);bounds.push([dealer.lat,dealer.lng])});
+      buttons.forEach(button=>button.addEventListener("click",()=>selectDealer(Number(button.dataset.dealer))));
+      map.fitBounds(bounds,{padding:[28,28],maxZoom:8});
+    })();
+  </script>
+</body>
+</html>
