@@ -5,7 +5,9 @@
     hubs: [
       "vehicle-hubs.html", "ute-glossary.html", "phev-ute-status-australia.html",
       "chinese-utes.html", "japanese-utes.html", "other-utes.html",
-      "trucks.html", "truck-sales-sydney.html", "truck-dealers-victoria.html"
+      "trucks.html", "truck-sales-sydney.html", "truck-dealers-victoria.html",
+      "truck-dealers-south-australia.html", "truck-dealers-western-australia.html",
+      "truck-dealers-northern-territory.html", "truck-dealers-act.html"
     ],
     brands: [
       "brands.html", "ford.html", "hilux.html", "triton.html", "dmax.html", "bt50.html",
