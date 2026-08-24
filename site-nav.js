@@ -78,7 +78,7 @@
       const status = document.createElement("div");
       status.className = "editorial-status";
       status.setAttribute("aria-label", "Editorial and data status");
-      status.innerHTML = `<strong>AutoScore360 Editorial</strong><span class="editorial-dot">•</span><span>Last reviewed: ${modified}</span><span class="editorial-dot">•</span><span>Check page notes for data cut-off</span><span class="editorial-dot">•</span><a href="editorial-policy.html">How we review</a><a href="contact-corrections.html">Report an error</a>`;
+      status.innerHTML = `<strong>AutoScore360 Editorial</strong><span class="editorial-dot">•</span><span>Last reviewed: ${modified}</span><span class="editorial-dot">•</span><span>Check page notes for data cut-off</span><span class="editorial-dot">•</span><a href="editorial-policy.html">How we review</a><a href="contact-corrections.html">Report a website issue</a>`;
       hero.appendChild(status);
     }
   }
