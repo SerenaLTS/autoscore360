@@ -234,6 +234,19 @@ h3 {
   font-size: 0.88rem;
 }
 
+.card-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: #93c5fd;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.card:hover .card-link,
+.card:focus-visible .card-link {
+  color: #dbeafe;
+}
+
 .links {
   display: flex;
   flex-wrap: wrap;
