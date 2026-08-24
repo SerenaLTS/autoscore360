@@ -872,6 +872,11 @@
     #forum { order: 5; }
     #vehicles { order: 6; }
     #stories .stories-grid > article:nth-child(n+7) { display: none; }
+    #trucks, #vehicles { display: none; }
+    #hubs .stories-grid > :nth-child(n+5),
+    #forum .forum-list > .forum-item:nth-child(n+7) { display: none; }
+    .home-freshness { margin-top: 1rem; padding: .8rem 1rem; border: 1px solid rgba(255,255,255,.2); border-radius: 10px; background: rgba(255,255,255,.08); font-size: .84rem; line-height: 1.55; }
+    .home-freshness a { color: inherit; font-weight: 800; }
   </style>
   <script type="application/ld+json">
 [
@@ -896,7 +901,7 @@
 ]
   </script>
   <link rel="stylesheet" href="site-unified.css" />
-  <script src="site-nav.js?v=20260717" defer></script>
+  <script src="site-nav.js?v=20260824" defer></script>
 </head>
 <body>
   <header class="nav">
@@ -940,7 +945,9 @@
         <div class="hero-actions">
           <a href="ute-calculator.html" class="btn-primary">Build your ute shortlist with data</a>
           <a href="vehicle-hubs.html" class="btn-secondary">Explore research hubs</a>
+          <a href="search.html" class="btn-secondary">Search every guide</a>
         </div>
+        <div class="home-freshness"><strong>Editorial status:</strong> Site reviewed 24 August 2026 · Recall dataset through 29 January 2026 · PHEV market tracker checked 23 June 2026 · <a href="data-sources.html">See update schedule and limits</a></div>
         <div class="hero-stats" aria-label="Site overview">
           <div class="stat-card">
             <div class="stat-value">16</div>
@@ -978,11 +985,11 @@
         <div class="hero-side-block">
           <div class="hero-side-head">
             <span class="hero-side-kicker">Vehicle recalls</span>
-            <span class="hero-tag">Jan 2026 snapshot</span>
+            <span class="hero-tag">Data through 29 Jan 2026</span>
           </div>
           <p class="hero-side-title">Search recalls by year, make, model and reason.</p>
           <p class="hero-side-text">
-            A data-first recall dashboard built from a public-notice CSV snapshot, refreshed on a planned six-month rhythm.
+            A data-first recall dashboard built from a public-notice CSV snapshot. The current data runs through 29 January 2026; the next refresh is scheduled for September 2026.
             See top brands by recall volume,
             filter by keyword, and open the source notice link for full details.
           </p>
