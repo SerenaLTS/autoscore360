@@ -7,7 +7,8 @@
       "chinese-utes.html", "japanese-utes.html", "other-utes.html",
       "trucks.html", "truck-sales-sydney.html", "truck-dealers-victoria.html",
       "truck-dealers-south-australia.html", "truck-dealers-western-australia.html",
-      "truck-dealers-northern-territory.html", "truck-dealers-act.html"
+      "truck-dealers-northern-territory.html", "truck-dealers-act.html",
+      "truck-dealers-queensland.html", "truck-dealers-tasmania.html"
     ],
     brands: [
       "brands.html", "ford.html", "hilux.html", "triton.html", "dmax.html", "bt50.html",
