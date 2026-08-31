@@ -378,9 +378,12 @@
   </url>
   <url>
     <loc>https://autoscore360.com/trucks.html</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <priority>0.8</priority>
   </url>
+  <url><loc>https://autoscore360.com/truck-dealers-australia.html</loc><lastmod>2026-08-31</lastmod><priority>0.9</priority></url>
+  <url><loc>https://autoscore360.com/isuzu-vs-hino-vs-fuso-trucks.html</loc><lastmod>2026-08-31</lastmod><priority>0.9</priority></url>
+  <url><loc>https://autoscore360.com/car-licence-trucks-australia.html</loc><lastmod>2026-08-31</lastmod><priority>0.9</priority></url>
   <url>
     <loc>https://autoscore360.com/truck-sales-sydney.html</loc>
     <lastmod>2026-08-10</lastmod>
