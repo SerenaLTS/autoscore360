@@ -876,6 +876,20 @@
     #vehicles { display: none; }
     #hubs .stories-grid > :nth-child(n+5),
     #forum .forum-list > .forum-item:nth-child(n+7) { display: none; }
+    #trucks {
+      padding: 24px;
+      border: 1px solid rgba(96, 165, 250, 0.28);
+      border-radius: var(--radius-md);
+      background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.12), transparent 42%),
+        rgba(15, 23, 42, 0.34);
+    }
+    #trucks .story-item.priority {
+      border-color: rgba(96, 165, 250, 0.5);
+      background: linear-gradient(180deg, rgba(30, 64, 175, 0.2), rgba(15, 23, 42, 0.7));
+    }
+    #trucks .story-item.secondary { opacity: .92; }
+    @media (max-width: 640px) { #trucks { padding: 18px 14px; } }
     .home-freshness { margin-top: 1rem; padding: .8rem 1rem; border: 1px solid rgba(255,255,255,.2); border-radius: 10px; background: rgba(255,255,255,.08); font-size: .84rem; line-height: 1.55; }
     .home-freshness a { color: inherit; font-weight: 800; }
   </style>
@@ -1067,42 +1081,50 @@
       <div class="section-header">
         <div>
           <div class="section-kicker">Truck Research</div>
-          <h2 class="section-title">Commercial truck brands, dealers and buying research</h2>
+          <h2 class="section-title">New truck dealer and light-truck research</h2>
           <p class="section-sub">
-            A dedicated research path for light, medium and heavy-duty trucks, separate from our ute reviews and comparisons.
+            Start with the new Australia-wide dealer directory, compare Isuzu, Hino and Fuso, or understand which 4.5t trucks can follow a car-licence pathway.
           </p>
         </div>
         <a href="trucks.html" class="section-link">Open truck hub</a>
       </div>
 
       <div class="stories-grid">
-        <a class="story-item featured" href="sitrak-trucks-australia.html">
+        <a class="story-item featured priority" href="truck-dealers-australia.html">
+          <div class="story-meta"><span class="pill pill-safety">New national directory</span> • Australia</div>
+          <h3 class="story-title">Truck dealers Australia: search by state, city and brand</h3>
+          <p class="story-snippet">Start from one national directory, open dealer maps for every state and territory, or use official brand locators to verify sales, service and parts support.</p>
+          <span class="story-link">Explore truck dealers Australia →</span>
+        </a>
+
+        <a class="story-item priority" href="isuzu-vs-hino-vs-fuso-trucks.html">
+          <div class="story-meta"><span class="pill pill-ute">New comparison</span> • Light trucks</div>
+          <h3 class="story-title">Isuzu vs Hino vs Fuso trucks</h3>
+          <p class="story-snippet">Compare N Series, Hino 300 and Fuso Canter by GVM, car-licence pathway, body choice, active safety and the work the completed truck must do.</p>
+          <span class="story-link">Compare the three light-truck ranges →</span>
+        </a>
+
+        <a class="story-item priority" href="car-licence-trucks-australia.html">
+          <div class="story-meta"><span class="pill pill-ute">New buyer guide</span> • 4.5t GVM</div>
+          <h3 class="story-title">Car licence trucks in Australia</h3>
+          <p class="story-snippet">Understand the 4.5t GVM boundary, why GVM is not payload, and when an LR-licence truck may be the more practical business choice.</p>
+          <span class="story-link">Read the car-licence truck guide →</span>
+        </a>
+
+        <a class="story-item secondary" href="sitrak-trucks-australia.html">
           <div class="story-meta"><span class="pill pill-ute">Heavy trucks</span> • SITRAK Australia</div>
-          <h3 class="story-title">SITRAK G5S, G7S and C9H heavy-truck guide</h3>
-          <p class="story-snippet">Compare cargo, tipper, mixer and prime-mover configurations, including the 540hp G7S and 660hp C9H, warranty and NSW support.</p>
+          <h3 class="story-title">SITRAK G5S, G7S and C9H guide</h3>
+          <p class="story-snippet">Compare cargo, tipper, mixer and prime-mover configurations, warranty and Australian support.</p>
           <span class="story-link">Open the SITRAK range guide →</span>
         </a>
 
-        <a class="story-item" href="truck-sales-sydney.html">
-          <div class="story-meta"><span class="pill pill-safety">Dealer locations</span> • New South Wales</div>
+        <a class="story-item secondary" href="truck-sales-sydney.html">
+          <div class="story-meta"><span class="pill pill-safety">Dealer map</span> • New South Wales</div>
           <h3 class="story-title">Truck sales and dealers in Sydney</h3>
-          <p class="story-snippet">Research Sydney truck brands, dealer areas and the questions to ask before requesting a commercial truck quote.</p>
+          <p class="story-snippet">Research Sydney truck brands, dealer areas and quote checks.</p>
           <span class="story-link">Open Sydney dealer guide →</span>
         </a>
 
-        <a class="story-item" href="truck-dealers-victoria.html">
-          <div class="story-meta"><span class="pill pill-safety">Dealer locations</span> • Victoria</div>
-          <h3 class="story-title">Truck dealers in Victoria</h3>
-          <p class="story-snippet">Explore a curated map of Melbourne and selected regional Victorian truck dealers across major light, medium and heavy-duty brands.</p>
-          <span class="story-link">Open Victoria dealer map →</span>
-        </a>
-
-        <a class="story-item" href="trucks.html#dealer-locations">
-          <div class="story-meta"><span class="pill pill-safety">Dealer maps</span> • Australia</div>
-          <h3 class="story-title">More truck dealer maps</h3>
-          <p class="story-snippet">Browse curated truck dealer maps for every state and territory, including Queensland and Tasmania.</p>
-          <span class="story-link">Browse dealer locations →</span>
-        </a>
       </div>
     </section>
 
@@ -1687,6 +1709,9 @@
         <a href="editorial-policy.html">Editorial policy</a>
         <a href="brands.html">Brands</a>
         <a href="trucks.html">Truck brands</a>
+        <a href="truck-dealers-australia.html">Truck dealers Australia</a>
+        <a href="isuzu-vs-hino-vs-fuso-trucks.html">Isuzu vs Hino vs Fuso</a>
+        <a href="car-licence-trucks-australia.html">Car licence trucks</a>
         <a href="truck-sales-sydney.html">Truck sales Sydney</a>
         <a href="truck-dealers-victoria.html">Truck dealers Victoria</a>
         <a href="ute-comparisons.html">Comparisons</a>
