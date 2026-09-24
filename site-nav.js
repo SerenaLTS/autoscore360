@@ -31,13 +31,14 @@
     brands: [
       "brands.html", "ford.html", "hilux.html", "triton.html", "dmax.html", "bt50.html",
       "t9.html", "cannon.html", "byd-shark-6-phev.html", "gwm-cannon-alpha-phev.html",
-      "jac-hunter-phev.html", "chery-kp31-phev.html", "terron9.html", "tasman.html",
+      "jac-hunter-phev.html", "is-jac-hunter-phev-good-value.html", "jac-hunter-pro-vs-x.html",
+      "jac-hunter-phev-charging-cost.html", "chery-kp31-phev.html", "terron9.html", "tasman.html",
       "amarok.html", "jeep.html"
     ],
     compare: [
       "ute-comparisons.html", "hilux-vs-ranger.html", "triton-vs-dmax.html",
       "jac-t9-vs-gwm-cannon.html", "byd-shark-6-vs-ford-ranger.html",
-      "jac-hunter-phev-vs-byd-shark-6.html", "phev-ute-comparison.html"
+      "jac-hunter-phev-vs-byd-shark-6.html", "phev-ute-for-work-and-family.html", "phev-ute-comparison.html"
     ],
     tools: [
       "ute-calculator.html", "ute-five-year-ownership-cost.html",
