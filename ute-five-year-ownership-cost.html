@@ -53,7 +53,7 @@
     }
   </style>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Ute Ownership Cost and Resale Calculator Australia","url":"https://autoscore360.com/ute-five-year-ownership-cost.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","description":"Compare estimated ute depreciation, fuel, charging, insurance, servicing, repairs, registration and resale over a chosen ownership period.","datePublished":"2026-06-29","dateModified":"2026-07-27","publisher":{"@type":"Organization","name":"Auto Insight Lab by AutoScore360","url":"https://autoscore360.com/"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Ute Ownership Cost and Resale Calculator Australia","url":"https://autoscore360.com/ute-five-year-ownership-cost.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","description":"Compare estimated ute depreciation, fuel, charging, insurance, servicing, repairs, registration and resale over a chosen ownership period.","datePublished":"2026-06-29","dateModified":"2026-09-24","publisher":{"@type":"Organization","name":"Auto Insight Lab by AutoScore360","url":"https://autoscore360.com/"}}
   </script>
   <script src="site-nav.js?v=20260824" defer></script>
 </head>
@@ -64,7 +64,7 @@
       <p class="kicker">Ownership cost · Australia</p>
       <h1>Compare ute resale and ownership costs over the years you choose</h1>
       <p class="lede">Select any two utes covered by the site, then choose an ownership period and use scenario. The model estimates resale, depreciation, fuel or charging, insurance, servicing, repairs and registration.</p>
-      <div class="links"><span class="status on-sale">Model v1.4</span><span class="status on-sale">16 vehicle presets + custom</span><span class="status incoming">Last checked: 29 June 2026</span><a href="ute-calculator.html">Build a weighted ute shortlist</a><a href="ute-payload-towing-calculator.html">Check payload and towing</a></div>
+      <div class="links"><span class="status on-sale">Model v1.4</span><span class="status on-sale">16 vehicle presets + custom</span><span class="status incoming">Hunter updated: 24 September 2026; other presets: 29 June 2026</span><a href="ute-calculator.html">Build a weighted ute shortlist</a><a href="ute-payload-towing-calculator.html">Check payload and towing</a></div>
     </section>
 
     <section class="section">
@@ -99,7 +99,7 @@
               <option value="jeep-gladiator">Jeep Gladiator Night Eagle (petrol)</option>
               <option value="ford-ranger-phev">Ford Ranger PHEV</option>
               <option value="gwm-alpha-phev">GWM Cannon Alpha PHEV</option>
-              <option value="jac-hunter-phev">JAC Hunter PHEV (incoming)</option>
+              <option value="jac-hunter-phev">JAC Hunter Pro PHEV (on sale; estimated driveaway)</option>
               <option value="chery-stockman">Chery Stockman PHEV (watchlist)</option>
               <option value="custom-diesel">Custom diesel ute</option>
               <option value="custom-phev">Custom PHEV ute</option>
@@ -140,7 +140,7 @@
               <option value="jeep-gladiator">Jeep Gladiator Night Eagle (petrol)</option>
               <option value="ford-ranger-phev">Ford Ranger PHEV</option>
               <option value="gwm-alpha-phev">GWM Cannon Alpha PHEV</option>
-              <option value="jac-hunter-phev">JAC Hunter PHEV (incoming)</option>
+              <option value="jac-hunter-phev">JAC Hunter Pro PHEV (on sale; estimated driveaway)</option>
               <option value="chery-stockman">Chery Stockman PHEV (watchlist)</option>
               <option value="custom-phev">Custom PHEV ute</option>
               <option value="custom-diesel">Custom diesel ute</option>
@@ -360,7 +360,7 @@
       "jeep-gladiator": petrolPreset("Jeep Gladiator Night Eagle", {price:85000, firstdep:22, laterdep:12, use:12.4, insurance:2700, service:1300, repairs:550}),
       "ford-ranger-phev": phevPreset("Ford Ranger PHEV", {price:71000, firstdep:20, laterdep:11, kwh:27, insurance:2400, service:950}),
       "gwm-alpha-phev": phevPreset("GWM Cannon Alpha PHEV", {price:65000, firstdep:23, laterdep:12.5, kwh:30, insurance:2250, service:850}),
-      "jac-hunter-phev": phevPreset("JAC Hunter PHEV", {price:60000, firstdep:25, laterdep:14, kwh:29, insurance:2200, service:850}),
+      "jac-hunter-phev": phevPreset("JAC Hunter Pro PHEV", {price:55000, firstdep:25, laterdep:14, kwh:29, insurance:2200, service:850}),
       "chery-stockman": phevPreset("Chery Stockman PHEV", {price:60000, firstdep:26, laterdep:14, kwh:30, insurance:2200, service:900}),
       "custom-diesel": dieselPreset("Custom diesel ute", {firstdep:18, use:9, insurance:1800, service:1100, repairs:400}),
       "custom-phev": phevPreset("Custom PHEV ute", {price:70000})
@@ -380,7 +380,7 @@
       "jeep-gladiator": {status:"On sale", confidence:"Medium", source:"Model page and public specifications", url:"jeep.html"},
       "ford-ranger-phev": {status:"On sale / availability varies", confidence:"Medium", source:"PHEV model page and public specifications", url:"ford.html#phev"},
       "gwm-alpha-phev": {status:"On sale", confidence:"Medium", source:"PHEV model page and public specifications", url:"gwm-cannon-alpha-phev.html"},
-      "jac-hunter-phev": {status:"Incoming", confidence:"Low", source:"Announced figures; final retail inputs pending", url:"jac-hunter-phev.html"},
+      "jac-hunter-phev": {status:"On sale", confidence:"Low", checked:"24 September 2026", source:"Pro launch list $49,988 + estimated $5,012 on-road allowance = $55,000 scenario, not a dealer quote. Replace with actual driveaway price; running costs and resale remain assumptions", url:"jac-hunter-phev.html"},
       "chery-stockman": {status:"Watchlist", confidence:"Low", source:"Concept/announced figures; final inputs pending", url:"chery-kp31-phev.html"},
       "custom-diesel": {status:"User-defined", confidence:"Low", source:"User-entered assumptions", url:"data-sources.html"},
       "custom-phev": {status:"User-defined", confidence:"Low", source:"User-entered assumptions", url:"data-sources.html"}
@@ -441,7 +441,7 @@
       const meta = provenance[key];
       const level = meta.confidence.toLowerCase();
       $(`source-${side}-name`).textContent = name;
-      $(`source-${side}-detail`).innerHTML = `<span class="confidence ${level}">${meta.confidence} confidence</span><br><br>Status: ${meta.status}<br>Source class: ${meta.source}<br>Preset checked: 29 June 2026<br>Resale, insurance and repair values remain editorial/user-editable assumptions.`;
+      $(`source-${side}-detail`).innerHTML = `<span class="confidence ${level}">${meta.confidence} confidence</span><br><br>Status: ${meta.status}<br>Source class: ${meta.source}<br>Preset checked: ${meta.checked || "29 June 2026"}<br>Resale, insurance and repair values remain editorial/user-editable assumptions.`;
       $(`source-${side}-links`).innerHTML = `<a class="chip" href="${meta.url}">Open supporting page</a>`;
     }
 

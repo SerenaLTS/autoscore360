@@ -13,7 +13,7 @@ vw-amarok,Volkswagen Amarok Style,diesel,on_sale,70000,18,10,8,0,0,2400,1200,450
 jeep-gladiator,Jeep Gladiator Night Eagle,petrol,on_sale,85000,22,12,12.4,0,0,2700,1300,550,medium,2026-06-29,jeep.html
 ford-ranger-phev,Ford Ranger PHEV,phev,availability_varies,71000,20,11,8,65,27,2400,950,350,medium,2026-06-29,ford.html#phev
 gwm-alpha-phev,GWM Cannon Alpha PHEV,phev,on_sale,65000,23,12.5,8,65,30,2250,850,350,medium,2026-06-29,gwm-cannon-alpha-phev.html
-jac-hunter-phev,JAC Hunter PHEV,phev,incoming,60000,25,14,8,65,29,2200,850,350,low,2026-06-29,jac-hunter-phev.html
+jac-hunter-phev,JAC Hunter Pro PHEV (estimated driveaway - replace with quote),phev,on_sale,55000,25,14,8,65,29,2200,850,350,low,2026-09-24,jac-hunter-phev.html
 chery-stockman,Chery Stockman PHEV,phev,watchlist,60000,26,14,8,65,30,2200,900,350,low,2026-06-29,chery-kp31-phev.html
 custom-diesel,Custom diesel ute,diesel,user_defined,60000,18,10,9,0,0,1800,1100,400,low,2026-06-29,data-sources.html
 custom-phev,Custom PHEV ute,phev,user_defined,70000,22,12,8,65,28,2200,850,350,low,2026-06-29,data-sources.html
