@@ -3,7 +3,7 @@
   const groups = {
     home: ["index.html"],
     hubs: [
-      "vehicle-hubs.html", "ute-glossary.html", "phev-ute-status-australia.html",
+      "vehicle-hubs.html", "phev-ownership-guides.html", "ute-glossary.html", "phev-ute-status-australia.html",
       "chinese-utes.html", "japanese-utes.html", "other-utes.html",
       "trucks.html", "truck-sales-sydney.html", "truck-dealers-victoria.html",
       "truck-dealers-south-australia.html", "truck-dealers-western-australia.html",
