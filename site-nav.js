@@ -64,7 +64,7 @@
 
   const nav = document.querySelector(".nav-links");
   if (!nav) return;
-  const brandLabel = document.querySelector(".brand span");
+  const brandLabel = document.querySelector(".brand > span:not(.brand-mark)");
   if (brandLabel) brandLabel.textContent = "Auto Insight Lab by AutoScore360";
   nav.setAttribute("aria-label", "Primary navigation");
   nav.innerHTML = items.map(([key, label, href]) =>
@@ -99,7 +99,7 @@
       const status = document.createElement("div");
       status.className = "editorial-status";
       status.setAttribute("aria-label", "Editorial and data status");
-      status.innerHTML = `<strong>AutoScore360 Editorial</strong><span class="editorial-dot">•</span><span>Last reviewed: ${modified}</span><span class="editorial-dot">•</span><span>Check page notes for data cut-off</span><span class="editorial-dot">•</span><a href="editorial-policy.html">How we review</a><a href="contact-corrections.html">Report a website issue</a>`;
+      status.innerHTML = `<strong>AutoScore360 Editorial</strong><span class="editorial-dot">•</span><span>Page updated: ${modified}</span><span class="editorial-dot">•</span><span>Specifications and data checked: see dated page notes</span><span class="editorial-dot">•</span><a href="editorial-policy.html">How we review</a><a href="contact-corrections.html">Report a website issue</a>`;
       hero.appendChild(status);
     }
   }
