@@ -166,3 +166,19 @@ tr:last-child td{border-bottom:none}
 .footer a{color:#93C5FD;text-decoration:none}
 @media (max-width:960px){.hero{grid-template-columns:1fr}.viz-row{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr}}
 @media (max-width:640px){.page{padding:0 14px}.nav-inner{align-items:flex-start;flex-direction:column;padding:14px}.hero-left,.section{padding:18px 16px}.kpi-grid{grid-template-columns:1fr}.hero-title{font-size:2rem}.nav-links{justify-content:flex-start}}
+
+/* Editorial configuration diagram and printable buyer worksheet. */
+.grade-shared{padding:16px;border:1px solid #64748b;border-radius:12px;background:rgba(30,41,59,.7)}
+.grade-diagram h3{margin-top:0}.grade-diagram p{overflow-wrap:anywhere}
+.checklist-items{list-style:none;padding:0}.checklist-items li{padding:.65rem 0;border-bottom:1px solid #64748b}
+.checklist-items input{width:1.1rem;height:1.1rem;vertical-align:middle;margin-right:.4rem}
+.note-line{margin:.45rem 0 0;font-size:.85rem;overflow-wrap:anywhere}
+@media print{
+ body:has(.print-checklist){background:white!important;color:black!important;font:11pt/1.35 Arial,sans-serif}
+ body:has(.print-checklist)>.nav,body:has(.print-checklist)>.footer,body:has(.print-checklist) main>*:not(.print-checklist){display:none!important}
+ body:has(.print-checklist) main.page{display:block;max-width:none;margin:0;padding:0}
+ .print-checklist{background:white!important;color:black!important;border:0;box-shadow:none;margin:0;padding:0!important}
+ .print-checklist h2,.print-checklist p,.print-checklist .small{color:black!important}
+ .print-controls{display:none}.checklist-items li{break-inside:avoid;padding:5pt 0}.note-line{font-size:10pt}
+ @page{size:A4;margin:15mm}
+}
