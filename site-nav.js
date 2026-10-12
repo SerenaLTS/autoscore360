@@ -38,7 +38,8 @@
     compare: [
       "ute-comparisons.html", "hilux-vs-ranger.html", "triton-vs-dmax.html",
       "jac-t9-vs-gwm-cannon.html", "byd-shark-6-vs-ford-ranger.html",
-      "jac-hunter-phev-vs-byd-shark-6.html", "phev-ute-for-work-and-family.html", "phev-ute-comparison.html"
+      "jac-hunter-phev-vs-byd-shark-6.html", "phev-ute-for-work-and-family.html", "phev-ute-comparison.html",
+      "entry-level-phev-ute-vs-top-spec.html", "switching-diesel-ute-to-phev.html", "phev-ute-test-drive-checklist.html", "ute-trim-vs-accessories-budget.html", "phev-ute-wallbox-needed.html", "phev-ute-v2l-weekend-camping.html", "phev-ute-delivery-checklist.html", "value-ute-safety-features.html"
     ],
     tools: [
       "ute-calculator.html", "ute-five-year-ownership-cost.html",
